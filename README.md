@@ -19,8 +19,11 @@
   <sub>Built with ❤︎ by Mohammed Alzakariya</sub>
 </div>
 
-```table-of-contents
-```
+
+1. [1 What is this?](#1-what-is-this)
+2. [2 Contributing](#2-contributing)
+3. [3 License](#3-license)
+
 # 1 What is this?
 
 Welcome!
