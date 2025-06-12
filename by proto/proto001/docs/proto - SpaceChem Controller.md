@@ -1,4 +1,4 @@
-
+#proto #idea #pending
 # Idea
 Agent and language control over SpaceChem in Linux Ubuntu GNOME
 
