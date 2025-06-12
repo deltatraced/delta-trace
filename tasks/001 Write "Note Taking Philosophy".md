@@ -1,0 +1,26 @@
+#lan #task #notes #writing #active
+
+
+# On "Public by default"
+ I have decided to adopt a "public by default" strategy for note taking for this project. 
+
+## What does it mean?
+Whatever notes I take for my project, I share as part of the project by default, unless I believe it is unnecessary. 
+
+Some cases where it would be unnecessary include 
+1. time logging/schedule information which varies based on personal circumstance a lot and doesn't add much value to be seen by others. 
+2. Anything too out of scope of the problems to solve in the project, like just playing around with concepts in sketches may be moved to private notes if it's not relevant for the prototype at hand. 
+3. Private communications. I may include a digest on how peer critique helped me, but the conversations don't have to be shared.
+
+## What are the alternatives?
+
+**"Private by default"**
+One alternative I could pick is a "private by default" strategy for note taking. This is usually what I do. All notes are private, and projects usually are only deliverables and not processes. Here, writing goes under *documentation*, which is always a final deliverable for users/other creators. How the documents came to be written, and how project decisions came to be decided, these details may be partially captured in design documentation or code, but often are left implicit. 
+
+Tasks may be semi-formalized. They are included in github tickets for public tracking, or jira-like systems. However, they often do not include notes taken during the activity, like research references or reflections
+
+**"Hybrid approach"**
+This method could mean to start private, assess on a case-by-case basis what could be copied over to the public records. This can be more informative of the creation process than the private approach, but it requires moving things between two note systems which may take too much attention. 
+
+## What's the motivation? What does "public by default" solve? And what costs are payed?
+
