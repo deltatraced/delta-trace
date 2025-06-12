@@ -1,6 +1,6 @@
 <div align="center">
   delta-trace
-  <p>The Note Center of Delta Domain R&D! </p>
+  <p>The Note Center of Everything Delta Domain R&D! </p>
 </div>
 
 <p align="center">
@@ -21,7 +21,6 @@
 
 ```table-of-contents
 ```
-
 # 1 What is this?
 
 Welcome!
