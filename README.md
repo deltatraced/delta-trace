@@ -21,8 +21,9 @@
 
 
 1. [1 What is this?](#1-what-is-this)
-2. [2 Contributing](#2-contributing)
-3. [3 License](#3-license)
+2. [2 See also](#2-see-also)
+3. [3 Contributing](#3-contributing)
+4. [4 License](#4-license)
 
 # 1 What is this?
 
@@ -32,10 +33,21 @@ This is the central notes repository for everything delta-domain-rnd!
 
 Other repositories in the organization give deliverables. This gives the behind-the-scenes, and also some reader-facing articles may surface still!
 
-# 2 Contributing
+# 2 See also
+
+
+1. [delta-trace](<https://github.com/delta-domain-rnd/delta-trace>)
+	- Notes and articles on creating proofs of concepts, researching, and studying. **You are here!**
+2. [lan-setup-notes](<https://github.com/LanHikari22/lan-setup-notes>)
+	- For notes on configurations and setting up of projects and systems!
+3. [dism-exe-notes](<https://github.com/dism-exe/dism-exe-notes/>)
+	- For notes on the process of reverse engineering games, running code analysis, and creating new tools!
+
+
+# 3 Contributing
 
 All contributions are welcome! Please feel free to contact me by opening an issue ticket or emailing lanhikarixx@gmail.com if you want to chat. If you do, please start the email title with "GITHUB".
 
-# 3 License
+# 4 License
 
 This theme is licensed under the [MIT license](https://opensource.org/licenses/mit-license.php) © 2025 Mohammed Alzakariya.
