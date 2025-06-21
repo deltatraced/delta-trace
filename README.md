@@ -48,7 +48,7 @@ Other repositories in the organization give deliverables. This gives the behind-
 
 # 3 Contributing
 
-All contributions are welcome! Please feel free to contact me by opening an issue ticket or emailing lanhikarixx@gmail.com if you want to chat. If you do, please start the email title with "GITHUB".
+All contributions are welcome! Please feel free to contact me by opening an issue ticket or emailing lanhikarixx@gmail.com if you want to chat. If you do, please start the email title with "GITCHAT".
 
 # 4 License
 
