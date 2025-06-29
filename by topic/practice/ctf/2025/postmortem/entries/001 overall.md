@@ -48,11 +48,20 @@ sudo apt install git-filter-repo
 
 The tool tells us we need to operate on a fresh clone. But we are not remote... For precaution, let's just copy the repo elsewhere.
 
-```
+```sh
 mkdir -p /tmp/delete
 cd /tmp/delete
 cp -r ~/src/cloned/gh/delta-domain-rnd/delta-trace .
 cd delta-trace
 
-git filter-repo --path attachments/ctf-2025-06.tar.gz --invert-paths
+git filter-repo --path attachments/ctf-2025-06.tar.gz --invert-paths --force
+
+# in /home/lan/src/cloned/gh/delta-domain-rnd/
+mkdir -p ~/data/backups/2025-06-delta-trace
+mv delta-trace ~/data/backups/2025-06-delta-trace
+git clone git@github.com:delta-domain-rnd/delta-trace.git
 ```
+
+`ctf-2025-06.tar.gz` has been removed. We can leave the broken link as a trace for now. 
+
+OK
