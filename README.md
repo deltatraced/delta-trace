@@ -39,16 +39,24 @@ Other repositories in the organization give deliverables. This gives the behind-
 1. [delta-trace](<https://github.com/delta-domain-rnd/delta-trace>) **You are here!**
 	- Notes and articles on creating proofs of concepts, researching, and studying.
 2. [lan-setup-notes](<https://github.com/LanHikari22/lan-setup-notes>)
-	- For notes on configurations and setting up of projects and systems!
+	- For notes on configurations and setting up of projects and systems.
 3. [dism-exe-notes](<https://github.com/dism-exe/dism-exe-notes/tree/main/lan>)
-	- For notes on the process of reverse engineering games, running code analysis, and creating new tools!
+	- For notes on the process of reverse engineering games, running code analysis, and creating new tools! This is about reverse engineering the Mega Man Battle Network series.
 4. [goldensun-notes](<https://github.com/FutureFractal/goldensun-notes/tree/main/lan>)
-	1. Similar to `dism-exe-notes` but for reverse engineering the `goldensun` games on the `GBA`!
+	- Similar to `dism-exe-notes` but for reverse engineering the `goldensun` games on the `GBA`!
 
 
 # 3 Contributing
 
-All contributions are welcome! Please feel free to contact me by opening an issue ticket or emailing lanhikarixx@gmail.com if you want to chat. If you do, please start the email title with "GITCHAT".
+All contributions are welcome! 
+
+Please feel free to contact me by opening an issue ticket or emailing lanhikarixx@gmail.com. 
+
+You can always chat with me. Please start the email title with `"GITCHAT"` so that I can find you!
+
+If you have any criticisms on any entries here please reach out or open an issue. This could be on matters of performance, ergonomics, security, accuracy, or otherwise. Part of making most notes public is to make the creative process transparent and open to critique from others and the creators themselves. Questions and comments are also welcome!
+
+If you have any business related inquiries, please also reach out to me via email <lanhikarixx@gmail.com> and start the email title with `"GITBUSINESS"` so I can find you.
 
 # 4 License
 
