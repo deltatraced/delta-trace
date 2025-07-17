@@ -1,6 +1,6 @@
 - 2025-06-12T1412 · [[proto - SpaceChem Controller]]
 - 2025-06-12T1411 · [[000 Explore setting up winit for taking screenshots]]
-- 2025-06-12T1409 · [[Note Taking Philosophy]]
+- 2025-06-12T1409 · [[000 Note Taking Philosophy]]
 - 2025-06-12T1403 · [[README]]
 - 2025-06-12T1339 · [[001 Write "Note Taking Philosophy"]]
 - 2025-06-12T1337 · [[_nextId 002]]
