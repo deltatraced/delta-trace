@@ -45,9 +45,9 @@ nautilus .
 But it is large (Around 300 MB).
 
 So now I have to delete that from the git history!
-
+```
 ![[ctf-2025-06.tar.gz]]
-
+```
 
 ```sh
 sudo apt install git-filter-repo

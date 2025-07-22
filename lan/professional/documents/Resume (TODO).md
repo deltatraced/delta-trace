@@ -3,16 +3,11 @@ TODO
 
 **Welcome!** 
 
-This digital resume outlines my professional background and experience. For a more targeted summary based on your interest, please explore one of the specialized versions below:
-
-- [[Resume - Software Engineer]]
-    Highlights my experience in software development, programming languages, tools, and system architecture.
-    
-- [[Resume - Embedded Software Engineer]]
-    Focuses on my work in embedded systems, low-level programming, and hardware-software integration.
-    
-- [[Resume - R&D Engineer]]
-    Emphasizes my background in research and development, including AI hardware/software, operating systems, robotics, and reproducible computing environments.
+I capture my professional experience here.
 
 
 # 1 Career Experience
+
+Responsible for researching and developing AI Systems for Digital Surgery and cooperating with research teams in America and China. Performed market research and proof of concept prototyping for AI Console Hardware. Developed visualization tools to improve productivity in lab experiments. Utilized voltage and current reading with oscilloscope, wire cutting and soldering, and microcontroller development to prove concepts and develop experiment sensor instruments for doctors.
+
+

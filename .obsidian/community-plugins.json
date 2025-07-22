@@ -5,7 +5,9 @@
   "number-headings-obsidian",
   "automatic-table-of-contents",
   "obsidian-plugin-toc",
-  "obsidian-vault-changelog",
   "templater-obsidian",
-  "simple-time-tracker"
+  "simple-time-tracker",
+  "dataview",
+  "obsidian-kanban",
+  "graph-link-types"
 ]
