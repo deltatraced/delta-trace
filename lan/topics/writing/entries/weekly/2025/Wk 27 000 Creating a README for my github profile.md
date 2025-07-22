@@ -1,4 +1,8 @@
-#lan #entry #writing #todo
+---
+status: pend
+is_entry:
+---
+#lan #entry #writing
 
 
 # 1 Journal
