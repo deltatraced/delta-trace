@@ -94,7 +94,7 @@ The generated application will subscribe to these signals, when the user publish
 
 Some fields shouldn't be manually created. They should be computed based on the context on some signal trigger. 
 
-If the field really shouldn't have a value in the database, and is just a placeholder until it is computed on read, mark it  `[computed]`. 
+If the field really shouldn't have a value in the database, and is just a placeholder until it is computed on read, mark it `[computed]`. 
 
 ```
 Table MyTable {
@@ -138,7 +138,7 @@ This can be overriden for an expensive check always on read/write with `[always-
 
 - [ ] One-to-many or one-to-one
 
-References can be marked `[otm]` for one to many or `[oto]` for one to one. These will be flagged for that check when a table verification process starts.
+References can be marked `[otm]` for one to many or `[oto]` for one to one. You can also do `[mto]` for many to one. These will be flagged for that check when a table verification process starts.
 
 This can be overriden for an expensive check always on read/write with `[always-check]` for that specific relation.
 

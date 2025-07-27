@@ -5,14 +5,11 @@
   "number-headings-obsidian",
   "automatic-table-of-contents",
   "obsidian-plugin-toc",
-<<<<<<< HEAD
   "obsidian-vault-changelog",
-  "edit-history"
-=======
   "templater-obsidian",
   "simple-time-tracker",
   "dataview",
   "obsidian-kanban",
-  "graph-link-types"
->>>>>>> 5d2af17 (proto spec for dbmn language)
+  "graph-link-types",
+  "obsidian-excalidraw-plugin"
 ]
