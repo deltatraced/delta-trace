@@ -1,4 +1,7 @@
-#lan #entry #gaming #experiment #research #unresolved
+---
+resolved: "true"
+---
+#lan #entry #gaming #experiment #research
 
 2025-07-02 Wk 27 Wed - 21:42
 # 1 Objective
