@@ -8,3 +8,5 @@ $$
 \DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator*{\argmax}{arg\,max}
 $$
+^argmin-argmax
+

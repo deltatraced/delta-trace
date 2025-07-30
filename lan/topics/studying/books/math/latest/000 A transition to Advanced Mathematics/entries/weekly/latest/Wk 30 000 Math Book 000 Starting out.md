@@ -1,13 +1,15 @@
 ---
 status: todo
 ---
+For making equation chains, see [[000 Creating equation chain LaTeX shortcuts and others]].
+
 # 1 Journal
 
 ## 1.1 The beginning
 
 2025-07-27 Wk 30 Sun - 15:11
 
-Gonna put any sketches in [[Drawing 2025-07-27 15.10.08.excalidraw|here]].
+Gonna put any sketches in [[Wk 30 Drawing Math Book 000 Starting out|here]].
 
 
 ## 1.2 Annotations

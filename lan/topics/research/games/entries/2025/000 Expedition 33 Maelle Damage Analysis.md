@@ -60,14 +60,22 @@ So we expect to deal more damage over time because the reward is worth our entir
 So on average we expect,
 
 $$
-\text{Expected} = 125 \ \frac{\text{dmg}}{\text{atk}} \times 50 \ \text{atk} = 6250 \ \text{dmg}
+\begin{aligned}
+& \text{Expected} \\
+& = 125 \ \frac{\text{dmg}}{\text{atk}} \times 50 \ \text{atk} \\
+& = 6250 \ \text{dmg}
+\end{aligned}
 $$
 
 
 (b) 
 
 $$
-\text{Expected} = 100 \ \frac{\text{dmg}}{\text{atk}} \times 50 \ \text{atk} = 5000 \ \text{dmg}
+\begin{aligned}
+& \text{Expected} \\
+& = 100 \ \frac{\text{dmg}}{\text{atk}} \times 50 \ \text{atk} \\
+& = 5000 \ \text{dmg}
+\end{aligned}
 $$
 
 
