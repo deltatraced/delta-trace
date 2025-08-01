@@ -5,6 +5,8 @@ status: todo
 
 # 1 What is this?
 
+A CTF Game!
+
 It can be found [here](https://2tie.rustedlogic.net/games/adv/adventure.html) [[#^1]].
 
 # 2 Journal
@@ -13,7 +15,9 @@ It can be found [here](https://2tie.rustedlogic.net/games/adv/adventure.html) [[
 
 2025-07-30 Wk 31 Wed - 04:06
 
-![[Pasted image 20250730040151.png]]
+
+<img src="https://raw.githubusercontent.com/delta-domain-rnd/delta-trace/refs/heads/main/attachments/Pasted%20image%2020250730040151.png" />
+
 
 Outer HTML of that suspicious span is
 
@@ -35,8 +39,6 @@ The files for this game, including ones to be modified, are to be references in 
 
 ## 2.2 Reverse engineering the internal mini language
 
-- [ ] 
-
 2025-07-30 Wk 31 Wed - 07:42
 
 So it seems we have a table of functions, and a long string of data being processed by  these functions.
@@ -53,7 +55,713 @@ So it seems we have a table of functions, and a long string of data being proces
   }
 ```
 
-### 2.2.1 Pend 1
+### 2.2.1 Reconstructing tape content
+
+2025-07-31 Wk 31 Thu - 00:31
+
+Let's reconstruct the tape. The simple sum checksum for it is 287251 and it has 13229 elements.
+
+We know this is the math of the initial tape command retrieval
+
+```ts
+  while (g_exit_code == 0) {
+    g_inst8 = get_and_adv_tape();
+
+    var cmd_idx = Math.floor(g_inst8 / 2);
+
+    var fn = g_unk_cmds[cmd_idx];
+    if (fn) fn();
+  }
+```
+
+`g_data_cur` begins as 0.  The first `g_inst8` is also 0. Then `g_data_cur` advanced to 1.
+
+So the very first command executed `cmd_idx`, should be 0.
+
+```ts
+// 0
+function () {
+  g_reg = get_and_adv_tape_u16_and_load_on_odd_caller();
+},
+
+function get_and_adv_tape_u16_and_load_on_odd_caller() {
+  var inst16 = get_and_adv_tape_u16();
+  if (g_inst8 % 2 > 0) inst16 = g_tape[inst16] || 0;
+  return inst16;
+}
+```
+
+We're an even caller (`g_inst8` is 0 and even). So we just read the next 2 bytes and get them.
+
+That means instruction 0 will always read 3 bytes. 1 for itself and 2 for its parameters, and then it will store the param data in the global `g_reg` register.
+
+2025-07-31 Wk 31 Thu - 01:06
+
+The next `g_inst8` 3 bytes in reads `2`. With floor math, this should give us a `cmd_idx` of `1`. 
+
+That's another comand of size-3 (itself 1 + u16 input)
+
+```ts
+// 1
+function () {
+  // Write register data to the next u16 inst
+  g_tape[get_and_adv_tape_u16()] = g_reg;
+},
+```
+
+It basically just writes the previously read `g_reg` (0) to the location specified in the tape. In our case for `2, 175, 51` that should be 
+
+```sh
+python3 -c "n0=175; n1=51; print(hex((n1 << 8) + n0))"
+
+# out
+0x33af
+```
+
+2025-07-31 Wk 31 Thu - 01:28
+
+Order of operations matter.
+
+```py
+# good
+python3 -c "n=0x33af; print((n & 0xFF00) >> 8)"
+51
+
+# bad
+python3 -c "n=0x33af; print(n & 0xFF00 >> 8)"
+```
+
+There are 4 `cmd01` invocations here.
+
+```ts
+function reconstruct_tape(): number[] {
+  var tape: number[] = []; 
+
+  tape.push(...cmd00_write_param_to_reg(/*param16*/ 0x0000));
+  tape.push(...cmd01_store_reg_to_tape_addr(/*tape_addr16*/ 0x33af));
+  tape.push(...cmd01_store_reg_to_tape_addr(/*tape_addr16*/ 0x33b3));
+  tape.push(...cmd01_store_reg_to_tape_addr(/*tape_addr16*/ 0x33b4));
+  tape.push(...cmd01_store_reg_to_tape_addr(/*tape_addr16*/ 0x33b6));
+  tape.push(...g_tape_remaining);
+
+  return tape;
+}
+```
+
+I will add them on whenever I encounter them.
+
+Next, we read `g_inst8` as 8, yielding a `cmd_idx` of 4.
+
+```ts
+// 4
+function () {
+  g_reg += get_and_adv_tape_u16_and_load_on_odd_caller();
+},
+```
+
+This is also a 3-byte command `8, 1, 0,` . Just summing its param value into `g_reg`. 
+
+2025-07-31 Wk 31 Thu - 01:42
+
+The next new `g_inst8` command reads 46, inferring a `cmd_idx` of 23. But commands only go 0-22.
+
+This also triggers at that point
+
+```ts
+var fn = g_cmds[cmd_idx];
+if (fn) {
+  fn();
+} else {
+  console.log(`${g_inst8},${cmd_idx}`);
+  throw new Error("breakpoint");
+}
+
+// out
+46,23
+Uncaught Error: breakpoint
+```
+
+It seems to be a size-1 no-op. 
+
+2025-07-31 Wk 31 Thu - 01:54
+
+I think the reason for the floor divide by 2 math
+
+```ts
+var cmd_idx = Math.floor(g_inst8 / 2);
+```
+
+is because of 
+
+```ts
+function get_and_adv_tape_u16_and_load_on_odd_caller() {
+  var inst16 = get_and_adv_tape_u16();
+  if (g_inst8 % 2 > 0) inst16 = g_tape[inst16] || 0;
+  return inst16;
+}
+```
+
+This makes it so that every command can have an odd or even variant which changes how this function behaves. So it's a padded bit for this and the rest is the command index.
+
+2025-07-31 Wk 31 Thu - 01:59
+
+The next new `g_inst8` command reads 30, inferring a `cmd_idx` of 15.
+
+```ts
+// 15
+function () {
+  g_tape_addr_reg -= 1;
+  g_tape[g_tape_addr_reg] = g_data_cur + 2;
+  g_data_cur = get_and_adv_tape_u16_and_load_on_odd_caller();
+},
+```
+
+Another 3-size command. Until now we have not touched `g_tape_addr_reg`, so it should be 0. So our first time we're accessing it at -1? Let's confirm.
+
+```ts
+// 15
+function () {
+  g_tape_addr_reg -= 1;
+  var before = g_tape[g_tape_addr_reg];
+  var data_cur_before = g_data_cur;
+  g_tape[g_tape_addr_reg] = g_data_cur + 2;
+  g_data_cur = get_and_adv_tape_u16_and_load_on_odd_caller();
+  
+  console.log(`g_tape_addr_reg: ${g_tape_addr_reg}`);
+  console.log(`slot@before: ${before}`);
+  console.log(`slot@after: ${g_tape[g_tape_addr_reg]}`);
+  console.log(`data_cur@before: ${data_cur_before}`);
+  console.log(`data_cur@after: ${g_data_cur}`);
+  
+  throw new Error("debugging")
+},
+
+// out
+g_tape_addr_reg: -1
+slot@before: undefined
+slot@after: 32
+data_cur@before: 30
+data_cur@after: 2992
+
+Uncaught Error: debugging
+```
+
+So there's some calling functionality here. It retains the previous program counter in a known location and updates the program counter according to the given u16 value. 
+
+The writing to -1 behavior is strange. 
+
+So we can treat `g_tape_addr_reg -= 1;` as some sort of pop?  Renaming `g_data_cur` to `g_pc16` since we have evidence here that u16 data is loaded into it directly. 
+
+Also renaming `g_tape_addr_reg` to `g_sp16` for a u16 stack pointer. 
+
+So from
+
+```
+g_tape[g_sp16] = g_pc16 + 2;
+```
+
+We know the tape address space is `u16`, and its element space is also `u16`. 
+
+When we do math with n-sized commands, we assumed that we are being fed `u8`s. But this may not always be true as we can see here. Yet the original tape data really only contains `u8` values.
+
+cmd15 seems to be a 3-size stack-preserving caller.
+
+2025-07-31 Wk 31 Thu - 02:39
+
+The next new `g_inst8` command reads 12, inferring a `cmd_idx` of 6.
+
+```ts
+// 6
+function () {
+  g_cond_reg = g_reg == get_and_adv_tape_u16_and_load_on_odd_caller();
+},
+```
+
+Just a condition check that the current register value is the next `u16` on the tape. And with this we should rewrite `g_reg` to `g_reg16` since it is a `u16` variable.
+
+This is a 3-size command `12, 0, 0,`. 
+
+2025-07-31 Wk 31 Thu - 02:45
+
+The next new `g_inst8` command reads 26, inferring a `cmd_idx` of 13.
+
+```ts
+// 13
+function () {
+  var v = get_and_adv_tape_u16_and_load_on_odd_caller();
+  g_pc16 = g_cond_reg ? v : g_pc16;
+},
+```
+^cmd13
+
+It's a 3-size command `26, 138, 3`.
+
+It's a branch if equal. Let's just call the command `beq`. 
+
+2025-07-31 Wk 31 Thu - 02:56
+
+There's much repetition now. Let's write a python script to autoreconstruct the commands we've encountered so far until the first encountered new command for us to investigate.
+
+See [[#3.5 Write python script to reconstruct tape until new undocumented command|task]]. ^spawn-reconstruct-tape-script
+
+2025-08-01 Wk 31 Fri - 02:58
+
+Now that we autoreconstruct the tape, we can find the next commands quicker.
+
+Following the same note convention as before for documenting commands,
+
+The next new `g_inst8` command reads 24, inferring a `cmd_idx` of 12.
+
+```ts
+// 12
+function () {
+	g_pc16 = get_and_adv_tape_u16_and_load_on_odd_caller();
+},
+```
+
+This is just a goto on the u16 param.
+
+Adding 
+
+```ts
+export function cmd12_goto(tape_addr16: number): number[] {
+  return [24, tape_addr16 & 0xFF, (tape_addr16 & 0xFF00) >> 8];
+}
+```
+
+to `reconstructed_commands.ts`
+
+and 
+
+```py
+    CommandData("cmd12", 24, "cmd12_goto(/*tape_addr16*/ {PARAM0})", [16]),
+```
+
+to `commands` in `data/tape.py`.
+
+Now let's reconstruct the tape and ensure tape OK
+
+```sh
+python3 data/tape.py reconstruct-tape
+./build.sh
+```
+
+In the web console when launching `adventure.html` in the browser we see
+
+```
+tape OK
+```
+
+2025-08-01 Wk 31 Fri - 03:08
+
+The next new `g_inst8` command reads 34, inferring a `cmd_idx` of 17.
+
+```ts
+// 17
+function () {
+  g_sp16 -= 1;
+  g_tape[g_sp16] = g_reg16;
+},
+```
+
+This is similar to command 15. It's simpler, it just writes a value on the stack rather than the program counter. Let's just call it `cmd17_push_reg16_to_stack`.
+
+2025-08-01 Wk 31 Fri - 03:20
+
+Oops. I made it take a `param16` when really this one takes nothing, so then we got an invalid command `51` afterwards
+
+2025-08-01 Wk 31 Fri - 03:35
+
+The next new `g_inst8` command reads 1, inferring a `cmd_idx` of 0.
+
+This is our first odd command. It's the same as 0, which we already have. This is a 3-size command of `1, 179, 51,`
+
+Recall that command 0 is
+
+```ts
+// 0
+function () {
+  g_reg = get_and_adv_tape_u16_and_load_on_odd_caller();
+},
+```
+
+The odd bit triggers something new about `get_and_adv_tape_u16_and_load_on_odd_caller`
+
+```ts
+function get_and_adv_tape() {
+  var v = g_tape[g_pc16];
+  g_pc16 += 1;
+  return v;
+}
+
+function get_and_adv_tape_u16() {
+  var v = get_and_adv_tape();
+  return v + (get_and_adv_tape() << 8);
+}
+
+function get_and_adv_tape_u16_and_load_on_odd_caller() {
+  var inst16 = get_and_adv_tape_u16();
+  if (g_inst8 % 2 > 0) inst16 = g_tape[inst16] || 0;
+  return inst16;
+}
+```
+
+Basically instead of loading the instruction as-is, it loads it from the address provided.
+
+Let's add an explicit command for this instead of relying on the odd bit, since it will perform a different behavior: `cmd00_write_loaded_param16_to_reg16`. 
+
+Also renaming `param` and `reg` to `param16` and `reg16` in the command names for consistency.
+
+2025-08-01 Wk 31 Fri - 03:47
+
+The next new `g_inst8` command reads 36, inferring a `cmd_idx` of 18.
+
+```ts
+// 18
+function () {
+  g_reg16 = g_tape[g_sp16];
+  g_sp16 += 1;
+},
+```
+
+This is a `cmd18_pop_stack_to_reg16`. It's a 1-size command.
+
+If I make a mistake and not update 36->38 here for cmd18,
+
+```py
+    CommandData("cmd17", 34, "cmd17_push_reg16_to_stack()", []),
+    CommandData("cmd18", 34, "cmd18_pop_stack_to_reg16()", []),
+```
+
+I will still get OK but we will not advance from 34 because in my [script](https://github.com/LanHikari22/lan-exp-scripts/blob/main/files/2025/persistent/000-mountain-n-dragon-ctf/data/tape.py) I ensure that every command must have a unique activation byte:
+
+```py
+    command = (
+        commands
+        | pipe.OfIter[CommandData].filter(
+            lambda command: command.activation_byte == command_byte
+        )
+        | pipe.OfIter[CommandData].to_list()
+        | pipe.Of[List[CommandData]].map(lambda lst: lst[0] if len(lst) == 1 else None)
+    )
+
+    if command is None:
+        return (None, tape)
+```
+
+2025-08-01 Wk 31 Fri - 03:56
+
+The next new `g_inst8` command reads 28, inferring a `cmd_idx` of 14.
+
+```ts
+// 14
+function () {
+  var v = get_and_adv_tape_u16_and_load_on_odd_caller();
+  g_pc16 = g_cond_reg ? g_pc16 : v;
+},
+```
+
+This is a 3-size command `28, 201, 0,`. 
+
+This is basically like command 13 
+
+![[#^cmd13]]
+
+Except instead of `beq` it's `bne` for branch not equal.
+
+2025-08-01 Wk 31 Fri - 05:17
+
+The next new `g_inst8` command reads 9, inferring a `cmd_idx` of 4.
+
+This is `cmd04_sum_reg16_loaded_param16_to_reg16`. 
+
+2025-08-01 Wk 31 Fri - 05:20
+
+The next new `g_inst8` command reads 14, inferring a `cmd_idx` of 7.
+
+```ts
+// 7
+function () {
+  g_cond_reg = g_reg16 < get_and_adv_tape_u16_and_load_on_odd_caller();
+},
+```
+
+This is a 3-size command. Let's call it `cmd07_check_reg16_lt_param16`.
+
+2025-08-01 Wk 31 Fri - 05:23
+
+The next new `g_inst8` command reads 10, inferring a `cmd_idx` of 5.
+
+```ts
+// 5
+function () {
+  g_reg16 -= get_and_adv_tape_u16_and_load_on_odd_caller();
+},
+```
+
+This is a 3-size command. Call it `cmd05_sub_param16_from_reg16`
+
+2025-08-01 Wk 31 Fri - 05:30
+
+The next new `g_inst8` command reads 42, inferring a `cmd_idx` of 21.
+
+```ts
+// 21
+function () {
+  // Function`$${"\x61 \x3D\x20\x6E\x65\x77 \x44\x61\x74\x65\x28\x29\x5B\x27\x67\x65\x74\x53\x65\x63\x6F\x6E\x64\x73\x27\x5D\x28\x29 "}$`();
+  // Hex for:
+  // a = new Date()['getSeconds']()
+  
+  g_reg16 = new Date()['getSeconds']()
+},
+```
+
+Right this one was obfuscated for some reason. I guess part of the game puzzle. It would hardcode the variable to be called `a`. So that could have broken things with us reverse engineering and renaming things in the typescript.
+
+It's a 1-size command. Let's call it `cmd21_set_reg16_to_cur_seconds`
+
+2025-08-01 Wk 31 Fri - 05:34
+
+The next new `g_inst8` command reads 18, inferring a `cmd_idx` of 9.
+
+```ts
+// 9
+function () {
+  g_reg16 = g_reg16 & get_and_adv_tape_u16_and_load_on_odd_caller();
+},
+```
+
+This is a 3-size command. Let's call it `cmd09_check_reg16_and_param16`
+
+2025-08-01 Wk 31 Fri - 05:37
+
+We've reached PC `0x0817`.
+
+The next new `g_inst8` command reads 4, inferring a `cmd_idx` of 2.
+
+```ts
+// 2
+function () {
+  g_tape[get_and_adv_tape_u16()] = g_tape[g_reg16];
+},
+```
+
+This is a 3-size command. Call it `cmd02_store_loaded_reg16_to_loaded_param16`.
+
+2025-08-01 Wk 31 Fri - 05:41
+
+We've reached PC `0x0a2a`. 
+
+The next new `g_inst8` command reads 38, inferring a `cmd_idx` of 19.
+
+```ts
+// 19
+function () {
+  g_exit_code = 1;
+},
+```
+
+Here it is, the command that terminates the current mainloop and forces a UI update.
+
+Let's rename it from `g_exit_code` to `g_new_frame`. It does not exit the actual game, it only forces a the while loop of `mainloop` to terminate and immediately updates inner HTML elements for the inputs and requests a new animation frame.
+
+This is a 1-sized command. Call it `cmd19_issue_new_frame`. 
+
+2025-08-01 Wk 31 Fri - 05:48
+
+We've reached PC `0x0a2b`. Just the very next command.
+
+The next new `g_inst8` command reads 40, inferring a `cmd_idx` of 20.
+
+```ts
+// 20
+function () {
+  g_inp = 0;
+  g_inp +=
+    g_joyp[37] +
+    (g_joyp[39] << 1) +
+    (g_joyp[38] << 2) +
+    (g_joyp[40] << 3) +
+    (g_joyp[90] << 4) +
+    (g_joyp[88] << 5);
+  g_reg16 = g_inp;
+},
+```
+
+Ooh! Joypad! 
+
+This is a 1-sized command. Let's call it  `cmd20_read_joypad_input_and_set_to_reg16`
+
+2025-08-01 Wk 31 Fri - 05:52
+
+We've reached PC `0x0a36`.
+
+The next new `g_inst8` command reads 44, inferring a `cmd_idx` of 22.
+
+```ts
+// 22
+function () {
+  this.document.location.href = "" + l(g_reg16) + ".html";
+},
+```
+
+Hmm. Will have to investigate why set the href. See [[#6.2 Why is href being set in cmd22?|investigation]]. ^spawn-cmd22-invst
+
+This is a 1-sized command. Call it `cmd22_set_dom_href_to_reg16`.
+
+2025-08-01 Wk 31 Fri - 06:03
+
+We've reached PC `0x0a9d`.
+
+The next new `g_inst8` command reads 7, inferring a `cmd_idx` of 3.
+
+```ts
+// 3
+function () {
+  g_tape[g_reg16] = get_and_adv_tape_u16_and_load_on_odd_caller();
+},
+```
+
+It's the odd version of this. This is a 3-sized command. Call it `cmd03_set_loaded_reg16_to_loaded_param16`
+
+2025-08-01 Wk 31 Fri - 06:07
+
+We've reached PC `0x0aa9`.
+
+The next new `g_inst8` command reads 13, inferring a `cmd_idx` of 6.
+
+3-size command. Loaded version of cmd06. Call it `cmd06_check_reg16_is_loaded_param16`
+
+2025-08-01 Wk 31 Fri - 06:11
+
+We've reached PC `0x0ab8`.
+
+The next new `g_inst8` command reads 6, inferring a `cmd_idx` of 3.
+
+We've created the loaded version of this 3-sized command. This one is `cmd03_set_loaded_reg16_to_param16`.
+
+2025-08-01 Wk 31 Fri - 06:15
+
+We've reached PC `0x0abe`.
+
+The next new `g_inst8` command reads 32, inferring a `cmd_idx` of 16.
+
+```ts
+// 16
+function () {
+  g_pc16 = g_tape[g_sp16];
+  g_sp16 += 1;
+},
+```
+
+Ooh! It's a return!
+
+This is a 1-sized command. Let's call it `cmd16_return`!
+
+2025-08-01 Wk 31 Fri - 06:20
+
+We've reached PC `0x0b48`.
+
+The next new `g_inst8` command reads 15, inferring a `cmd_idx` of 7.
+
+This is a 3-sized command `cmd07_check_reg16_lt_loaded_param16`.
+
+Renaming all `tape_addr16` to `addr16` for brevity. 
+
+2025-08-01 Wk 31 Fri - 06:24
+
+We've reached PC `0x0b51`.
+
+The next new `g_inst8` command reads 11, inferring a `cmd_idx` of 5.
+
+There's many loaded versions of commands being used. Let's revert our design decision to name those "loaded" commands and just handle the loaded instruction flag automatically. 
+
+See [[#3.7 Handle loaded param16 flag automatically in commands when reconstructing tape program|task]]. ^spawn-task-handle-loaded-param16
+
+2025-08-01 Wk 31 Fri - 07:06
+
+We seem to end up at an invalid command 51. This is a common data byte... See [[#4.4 Tape reaches invalid command 51 at 0x0b89|issue]]. ^spawn-issue-0b89
+
+2025-08-01 Wk 31 Fri - 10:04
+
+We added a bug command `cmd25_bug`... We know this would not lead to any critical failure for the game.
+
+We've reached PC `0x0bb5`.
+
+The next new `g_inst8` command reads 23, inferring a `cmd_idx` of 11.
+
+```ts
+// 11
+function () {
+  g_reg16 = g_reg16 ^ get_and_adv_tape_u16_and_load_on_odd_caller();
+},
+```
+
+Call this `cmd11_check_reg16_xor_param16`.
+
+2025-08-01 Wk 31 Fri - 10:13
+
+We've reached PC `0x0bc6`.
+
+The next new `g_inst8` command reads 16, inferring a `cmd_idx` of 8.
+
+Let's just go for completeness here and cover any remaining commands we haven't yet mapped.
+
+These would be only 8, 10...
+
+Let's do 8 and see if we hit 10 in activation 20/21.
+
+```ts
+// 8
+function () {
+  g_cond_reg = 0 != (g_reg16 & get_and_adv_tape_u16_and_load_on_odd_caller());
+},
+
+// 9
+function () {
+  g_reg16 = g_reg16 & get_and_adv_tape_u16_and_load_on_odd_caller();
+},
+
+// 10
+function () {
+  g_reg16 = g_reg16 | get_and_adv_tape_u16_and_load_on_odd_caller();
+},
+
+```
+
+We called command 9 `cmd09_check_reg16_and_param16` but this is false. it's storing mask results. Change that to `cmd09_mask_reg16_and_param16_to_reg16`
+
+Call command 8 `cmd08_check_reg16_and_param16` and command 10 `cmd08_check_reg16_or_param16`
+
+2025-08-01 Wk 31 Fri - 10:30
+
+We've reached PC `0x0c98`.
+
+We've encountered command 10. Let's add it too.
+
+2025-08-01 Wk 31 Fri - 10:38
+
+We've reached PC `0x1088`.
+
+We've hit a `255`. There are many `255`s.  
+
+2025-08-01 Wk 31 Fri - 11:07
+
+Here is a frequency analysis of the commands from data captured in `experiments/tape_program_data.csv`
+
+<img src="https://raw.githubusercontent.com/delta-domain-rnd/delta-trace/refs/heads/main/attachments/Pasted%20image%2020250801110727.png" />
+
+
+`cmd16_return` is only referenced 10 times. Do we assume we have 10 functions?
+
+`cmd15_stack_preserve_call` is called 63 times. 63 function calls?
+
+We need to document labels here for this program. Let's reconstruct the labels too.  See [[#3.8 Reconstruct labels in the tape program|task]]. ^spawn-task-reconstruct-labels
+
+
+
+
+### 2.2.2 Pend
 
 # 3 Tasks
 
@@ -182,13 +890,57 @@ Experiment results in `experiments/cmd_idx_idle.csv` (n=42) for
 ```
 
 
-![[Pasted image 20250730084258.png]]
+<img src="https://raw.githubusercontent.com/delta-domain-rnd/delta-trace/refs/heads/main/attachments/Pasted%20image%2020250730084258.png" />
 
-### 3.3.1 Pend 1
+2025-07-31 Wk 31 Thu - 00:17
+
+Using experiment setup in [[#3.4 Send web messages to terminal to collect experiment data]],
+
+Experiment results in `experiments/cmd_idx_idle.csv` (n=30360) for
+
+```ts
+  var i = 0;
+
+  while (g_exit_code == 0) {
+    g_chr = get_and_adv_tape();
+
+    var cmd_idx = Math.floor(g_chr / 2);
+
+    if (webio.m_connected) {
+      g_socket.send(`${i++},${cmd_idx},${g_data_cur},${g_chr}`)
+    }
+
+    var fn = g_unk_cmds[cmd_idx];
+    if (fn) fn();
+  }
+```
+
+Using visidata,
+
+```sh
+vd experiments/cmd_idx_idle.csv
+# select cmd_idx
+# F for frequency analysis
+```
+
+<img src="https://raw.githubusercontent.com/delta-domain-rnd/delta-trace/refs/heads/main/attachments/Pasted%20image%2020250731002037.png" />
+
+Those are the commands in effect out of the 23 commands used in idle activity. 
+
+2025-08-01 Wk 31 Fri - 08:11
+
+```sh
+vd experiments/cmd_idx_idle.csv
+# select g_chr
+# F for frequency analysis
+```
+
+<img src="https://raw.githubusercontent.com/delta-domain-rnd/delta-trace/refs/heads/main/attachments/Pasted%20image%2020250801081102.png" />
+^freq-analysis-gchr
 
 ## 3.4 Send web messages to terminal to collect experiment data
 
-- [ ] Send a "Hello world" over port 4567 to be received in terminal from typescript.
+- [x] Send a "Hello world" over port 4567 to be received in terminal from typescript.
 
 In order to do [[#3.3 Build a frequency map of the commands being run and tape locations being hit on idle]], we need to be able to gather the data into a csv file. But right now our app can only write to the DOM or to console.log.
 
@@ -234,8 +986,391 @@ socket.addEventListener("message", (event) => {
 
 Looking into [[#4.3 Firefox cannot establish connection to server at localhost|firefox connection issue]].
 
+2025-07-30 Wk 31 Wed - 23:29
 
-### 3.4.1 Pend
+We can find the different events in the [docs here](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/close_event): close, error, message, and open.
+
+Start a [[#^websocat-serve|websocket server]] over `localhost:3003` gathering experimental data to file `a`:
+
+```sh
+websocat -s 3003 > a
+```
+
+Connect to `localhost:3003`:
+
+```ts
+var g_socket = webio.connect("localhost", 3003, (event) => {
+  console.log(`Server: ${event.data}`)
+})
+```
+
+And begin the experiment:
+
+```ts
+  var i = 0;
+  
+  while (g_exit_code == 0) {
+    g_chr = get_and_adv_tape();
+
+    var cmd_idx = Math.floor(g_chr / 2);
+
+    if (webio.m_connected) {
+		g_socket.send(`${i++},${cmd_idx},${g_data_cur},${g_chr}`)
+    }
+
+    var fn = g_unk_cmds[cmd_idx];
+    if (fn) fn();
+  }
+```
+
+Interestingly from the data, this always loops 24 times (i=0 -> i=23) and then `g_exit_code` changes. 
+
+But it does not change anywhere at the beginning of the command, so 
+
+```ts
+g_socket.send(`${i++},${cmd_idx},${g_data_cur},${g_chr},${g_exit_code}`)
+```
+
+would show all zeros for `g_exit_code`. It likely happens due to the result of the 24th command.
+
+## 3.5 Write python script to reconstruct tape until new undocumented command
+
+- [x] 
+
+From [[#^spawn-reconstruct-tape-script]].
+
+The script for this is [here](https://github.com/LanHikari22/lan-exp-scripts/blob/main/files/2025/persistent/000-mountain-n-dragon-ctf/data/tape.py).
+
+2025-07-31 Wk 31 Thu - 02:59
+
+We will write this in `data/tape.py`. We used that script to give us the checksum and length, but we can use it to generate this function for us given the currently known commands:
+
+```ts
+function reconstruct_tape(): number[] {
+  var tape: number[] = []; 
+
+  tape.push(...cmd00_write_param_to_reg(/*param16*/ 0x0000));
+  tape.push(...cmd01_store_reg_to_tape_addr(/*tape_addr16*/ 0x33af));
+  tape.push(...cmd01_store_reg_to_tape_addr(/*tape_addr16*/ 0x33b3));
+  tape.push(...cmd01_store_reg_to_tape_addr(/*tape_addr16*/ 0x33b4));
+  tape.push(...cmd01_store_reg_to_tape_addr(/*tape_addr16*/ 0x33b6));
+  tape.push(...cmd04_sum_reg_param_to_reg(/*param16*/ 0x0001));
+  tape.push(...cmd01_store_reg_to_tape_addr(/*tape_addr16*/ 0x33b7));
+  tape.push(...cmd00_write_param_to_reg(/*param16*/ 0x0c8c));
+  tape.push(...cmd23_noop());
+  tape.push(...cmd00_write_param_to_reg(/*param16*/ 0x0d22));
+  tape.push(...cmd23_noop());
+  tape.push(...cmd15_stack_preserve_call(/*tape_addr16*/ 0x0bb0));
+  tape.push(...cmd06_check_reg16_is_param16(/*param16*/ 0x0000));
+  tape.push(...cmd13_beq(/*tape_addr16*/ 0x038a));
+  tape.push(...cmd06_check_reg16_is_param16(/*param16*/ 0x0002));
+  tape.push(...cmd13_beq(/*tape_addr16*/ 0x0059));
+  tape.push(...cmd06_check_reg16_is_param16(/*param16*/ 0x0001));
+  tape.push(...cmd13_beq(/*tape_addr16*/ 0x046a));
+  tape.push(...g_tape_remaining);
+
+  return tape;
+}
+```
+
+Let's start by adding some argparse stuff in there for the reconstruction or reporting. See [template](https://github.com/LanHikari22/lan-exp-scripts/blob/main/templates/2025/topics/py3/persistant/000-argparse/template_with_subcommands.py).
+
+2025-08-01 Wk 31 Fri - 02:29
+
+Now we should be able to see where the next undocumented command is!
+
+```ts
+python3 data/tape.py reconstruct-tape
+
+// out
+function reconstruct_tape(): number[] {
+  var tape: number[] = [];
+
+  tape.push(...cmd00_write_param_to_reg(/*param16*/ 0x0000));
+  tape.push(...cmd01_store_reg_to_tape_addr(/*tape_addr16*/ 0x33af));
+  tape.push(...cmd01_store_reg_to_tape_addr(/*tape_addr16*/ 0x33b3));
+  tape.push(...cmd01_store_reg_to_tape_addr(/*tape_addr16*/ 0x33b4));
+  tape.push(...cmd01_store_reg_to_tape_addr(/*tape_addr16*/ 0x33b6));
+  tape.push(...cmd04_sum_reg_param_to_reg(/*param16*/ 0x0001));
+  tape.push(...cmd01_store_reg_to_tape_addr(/*tape_addr16*/ 0x33b7));
+  tape.push(...cmd00_write_param_to_reg(/*param16*/ 0x0c8c));
+  tape.push(...cmd23_noop());
+  tape.push(...cmd00_write_param_to_reg(/*param16*/ 0x0d22));
+  tape.push(...cmd23_noop());
+  tape.push(...cmd15_stack_preserve_call(/*tape_addr16*/ 0x0bb0));
+  tape.push(...cmd06_check_reg16_is_param16(/*param16*/ 0x0000));
+  tape.push(...cmd13_beq(/*tape_addr16*/ 0x038a));
+  tape.push(...cmd06_check_reg16_is_param16(/*param16*/ 0x0002));
+  tape.push(...cmd13_beq(/*tape_addr16*/ 0x0059));
+  tape.push(...cmd06_check_reg16_is_param16(/*param16*/ 0x0001));
+  tape.push(...cmd13_beq(/*tape_addr16*/ 0x046a));
+  tape.push(...cmd06_check_reg16_is_param16(/*param16*/ 0x0003));
+  tape.push(...cmd13_beq(/*tape_addr16*/ 0x016a));
+  tape.push(...cmd06_check_reg16_is_param16(/*param16*/ 0x0005));
+  tape.push(...cmd13_beq(/*tape_addr16*/ 0x0044));
+  tape.push(...cmd15_stack_preserve_call(/*tape_addr16*/ 0x0ac5));
+  tape.push(...remaining_tape.data);
+
+  return tape;
+}
+```
+
+So far the commands we have documented are 
+
+```py
+commands = [
+    CommandData("cmd00", 0, "cmd00_write_param_to_reg(/*param16*/ {PARAM0})", [16]),
+    CommandData(
+        "cmd01", 2, "cmd01_store_reg_to_tape_addr(/*tape_addr16*/ {PARAM0})", [16]
+    ),
+    CommandData("cmd04", 8, "cmd04_sum_reg_param_to_reg(/*param16*/ {PARAM0})", [16]),
+    CommandData(
+        "cmd06", 12, "cmd06_check_reg16_is_param16(/*param16*/ {PARAM0})", [16]
+    ),
+    CommandData("cmd13", 26, "cmd13_beq(/*tape_addr16*/ {PARAM0})", [16]),
+    CommandData(
+        "cmd15", 30, "cmd15_stack_preserve_call(/*tape_addr16*/ {PARAM0})", [16]
+    ),
+    CommandData("cmd23", 46, "cmd23_noop()", []),
+]
+```
+
+This script will reconstruct `remaining_tape.ts` such that the first bytes there are of a new command that we have not registered yet.
+
+2025-08-01 Wk 31 Fri - 02:38
+
+To make this more seamless, I'm extracting also the reconstructed commands and reconstructed tape into their own typescript files. This way I can automatically write `reconstructed_tape.ts`. Also just to be clear they are autogen, we put them in an `autogen/` folder: `autogen/reconstructed_tape.ts` and `autogen/remaining_tape.ts`.
+
+So `reconstructed_tape.ts` contents should look like this:
+
+```ts
+import * as c from "../reconstructed_commands.ts"
+import * as remaining_tape from "./remaining_tape.ts";
+
+export function reconstruct_tape(): number[] {
+  var tape: number[] = [];
+
+  tape.push(...c.cmd00_write_param_to_reg(/*param16*/ 0x0000));
+  tape.push(...c.cmd01_store_reg_to_tape_addr(/*tape_addr16*/ 0x33af));
+  tape.push(...c.cmd01_store_reg_to_tape_addr(/*tape_addr16*/ 0x33b3));
+  tape.push(...c.cmd01_store_reg_to_tape_addr(/*tape_addr16*/ 0x33b4));
+  tape.push(...c.cmd01_store_reg_to_tape_addr(/*tape_addr16*/ 0x33b6));
+  tape.push(...c.cmd04_sum_reg_param_to_reg(/*param16*/ 0x0001));
+  tape.push(...c.cmd01_store_reg_to_tape_addr(/*tape_addr16*/ 0x33b7));
+  tape.push(...c.cmd00_write_param_to_reg(/*param16*/ 0x0c8c));
+  tape.push(...c.cmd23_noop());
+  tape.push(...c.cmd00_write_param_to_reg(/*param16*/ 0x0d22));
+  tape.push(...c.cmd23_noop());
+  tape.push(...c.cmd15_stack_preserve_call(/*tape_addr16*/ 0x0bb0));
+  tape.push(...c.cmd06_check_reg16_is_param16(/*param16*/ 0x0000));
+  tape.push(...c.cmd13_beq(/*tape_addr16*/ 0x038a));
+  tape.push(...c.cmd06_check_reg16_is_param16(/*param16*/ 0x0002));
+  tape.push(...c.cmd13_beq(/*tape_addr16*/ 0x0059));
+  tape.push(...c.cmd06_check_reg16_is_param16(/*param16*/ 0x0001));
+  tape.push(...c.cmd13_beq(/*tape_addr16*/ 0x046a));
+  tape.push(...c.cmd06_check_reg16_is_param16(/*param16*/ 0x0003));
+  tape.push(...c.cmd13_beq(/*tape_addr16*/ 0x016a));
+  tape.push(...c.cmd06_check_reg16_is_param16(/*param16*/ 0x0005));
+  tape.push(...c.cmd13_beq(/*tape_addr16*/ 0x0044));
+  tape.push(...c.cmd15_stack_preserve_call(/*tape_addr16*/ 0x0ac5));
+  tape.push(...remaining_tape.data);
+
+  return tape;
+}
+```
+
+where `reconstructed_commands.ts` is written manually.
+
+2025-08-01 Wk 31 Fri - 02:49
+
+```sh
+python3 data/tape.py reconstruct-tape
+
+# out
+Created autogen/remaining_tape.ts
+Created autogen/reconstructed_tape.ts
+```
+
+```sh
+./build.sh
+```
+
+```ts
+function verify_tape_integrity() {
+  const expected_simple_checksum = 287251;
+  const expected_num_elements = 13229;
+
+  if (g_tape.length != expected_num_elements) {
+    throw new Error(`Expected tape length ${expected_num_elements} but got ${g_tape.length}`);
+  }
+
+  var sum = 0;
+  
+  for (var i=0; i<g_tape.length; i++) {
+    sum += g_tape[i];
+  }
+
+  if (sum != expected_simple_checksum) {
+    throw new Error(`Expected tape sum ${expected_simple_checksum} but got ${sum}`);
+  }
+
+  console.log("tape OK");
+}
+
+verify_tape_integrity()
+
+# out
+tape OK
+```
+
+## 3.6 Add program counter information to reconstructed tape to make jumps legible
+
+- [x] 
+
+The script for this is [here](https://github.com/LanHikari22/lan-exp-scripts/blob/main/files/2025/persistent/000-mountain-n-dragon-ctf/data/tape.py).
+
+2025-08-01 Wk 31 Fri - 04:03
+
+The program counter is mostly the sum of the prior bytes read, make it a 4-digit 0 padded hex number like in the params.
+
+Instead of 
+
+```ts
+tape.push(...c.cmd00_write_param16_to_reg16(/*param16*/ 0x0000));
+```
+
+do
+
+```ts
+/*0x0000*/ tape.push(...c.cmd00_write_param16_to_reg16(/*param16*/ 0x0000));
+```
+
+2025-08-01 Wk 31 Fri - 04:16
+
+```ts
+export function reconstruct_tape(): number[] {
+  var tape: number[] = [];
+
+  /*0x0000*/ tape.push(...c.cmd00_write_param16_to_reg16(/*param16*/ 0x0000));
+  /*0x0003*/ tape.push(...c.cmd01_store_reg16_to_tape_addr(/*tape_addr16*/ 0x33af));
+  /*0x0006*/ tape.push(...c.cmd01_store_reg16_to_tape_addr(/*tape_addr16*/ 0x33b3));
+  /*0x0009*/ tape.push(...c.cmd01_store_reg16_to_tape_addr(/*tape_addr16*/ 0x33b4));
+  /*0x000c*/ tape.push(...c.cmd01_store_reg16_to_tape_addr(/*tape_addr16*/ 0x33b6));
+  /*0x000f*/ tape.push(...c.cmd04_sum_reg16_param16_to_reg16(/*param16*/ 0x0001));
+  /*0x0012*/ tape.push(...c.cmd01_store_reg16_to_tape_addr(/*tape_addr16*/ 0x33b7));
+  /*0x0015*/ tape.push(...c.cmd00_write_param16_to_reg16(/*param16*/ 0x0c8c));
+  /*0x0018*/ tape.push(...c.cmd23_noop());
+  /*0x0019*/ tape.push(...c.cmd00_write_param16_to_reg16(/*param16*/ 0x0d22));
+  /*0x001c*/ tape.push(...c.cmd23_noop());
+  /*0x001d*/ tape.push(...c.cmd15_stack_preserve_call(/*tape_addr16*/ 0x0bb0));
+  /*0x0020*/ tape.push(...c.cmd06_check_reg16_is_param16(/*param16*/ 0x0000));
+  /*0x0023*/ tape.push(...c.cmd13_beq(/*tape_addr16*/ 0x038a));
+
+  // ...
+```
+
+OK
+
+## 3.7 Handle loaded param16 flag automatically in commands when reconstructing tape program
+
+- [x] 
+
+From [[#^spawn-task-handle-loaded-param16]].
+
+The script for this is [here](https://github.com/LanHikari22/lan-exp-scripts/blob/main/files/2025/persistent/000-mountain-n-dragon-ctf/data/tape.py).
+
+### 3.7.1 Passing None as a command byte issue
+
+2025-08-01 Wk 31 Fri - 06:49
+
+I'm trying to pass the command byte along with the content so that I check for the first bit. I decided to just follow a simple convention of `cmdlNN` for loaded commands and `cmdNN` for non-loaded. And I just have to mirror all the commands. 
+
+Right now it seems like I'm passing `None` for some reason for the byte to `format_command` :
+
+```
+[None, 512]
+
+    if command_byte % 2 == 1:
+       ~~~~~~~~~~~~~^~~
+TypeError: unsupported operand type(s) for %: 'NoneType' and 'int'
+```
+
+This is from `scan_next_command`,
+
+```py
+content = (
+	[command_byte] + command.param_widths
+	| pipe.OfIter[int].enumerate()
+	| pipe.OfIter[Tuple[int, int]].map(
+		pipe.tup2_unpack(enumerated_param_width_to_read_value)
+	)
+	| pipe.OfIter[int].to_list()
+)
+
+print('content', content)
+
+# out
+# ...
+content [None, 512]
+content [None, 6154]
+content [None, 778]
+content [None, 1]
+content [None, 13232]
+```
+
+
+2025-08-01 Wk 31 Fri - 06:58
+
+This assert here is wrong... this is always true! I wanted to throw an error here.
+
+```py
+    def enumerated_param_width_to_read_value(i: int, width: int) -> int:
+        if width == 16:
+            return (tape[i + 2] << 8) + tape[i + 1]
+        elif width == 8:
+            return tape[i + 1]
+        else:
+            assert f"unsupported width {width}"
+```
+
+
+Changing it to `raise Exception(f"unsupported width {width}")` gives us
+
+```
+Exception: unsupported width 0
+```
+
+It's an order of operations thing...
+
+```py
+content = (
+	[command_byte] + (command.param_widths
+	| pipe.OfIter[int].enumerate()
+	| pipe.OfIter[Tuple[int, int]].map(
+		pipe.tup2_unpack(enumerated_param_width_to_read_value)
+	)
+	| pipe.OfIter[int].to_list())
+)
+```
+
+Need to add `[command_byte]` to the rest, not add and then pipeline process!
+
+2025-08-01 Wk 31 Fri - 07:05
+
+Okay this works!
+
+Now we use `cmdl` instead of `cmd` if the bit is set!
+
+## 3.8 Reconstruct labels in the tape program
+
+- [ ] 
+
+2025-08-01 Wk 31 Fri - 11:12
+
+We want to be able to document labels, which are positions in the program that are used as `addr16` in commands. 
+
+
+### 3.8.1 Pend
 
 # 4 Issues
 
@@ -389,12 +1524,135 @@ Serve on 3003:
 ```sh
 websocat -s 3003
 ```
+^websocat-serve
 
 I works!
 
 I noticed that with websocket the client was sending GET requests, so our basic socat server was not enough.
 
 This should also help with this [greasemonkey task](https://github.com/LanHikari22/lan-setup-notes/blob/main/lan/topics/tooling/web/entries/2025/000%20Making%20Greasemonkey%20scripts.md#17-creating-command-that-can-be-summoned-via-console-to-retrieve-information) to create a robust command line control outside the browser and to retrieve information.
+
+## 4.4 Tape reaches invalid command 51 at 0x0b89
+
+- [x] 
+
+From [[#^spawn-issue-0b89]].
+
+2025-08-01 Wk 31 Fri - 07:18
+
+We seem to be misreading the tape here:
+
+```
+0, 2, 74, 10, 0, 62, 0, 2, 132, 11, 0, 125, 0, 2, 73, 10, 24, 197, 10, 3, 8,
+1, 0, 2, 176, 51, 14, 12, 0, 36, 26, 197, 10, 36, 0, 6, 0, 2, 175, 11, 0, 253,
+```
+
+Let's try to route the commands manually to see. We're seeing 51 on the next command byte in the remaining tape but this should be incorrect.
+
+```
+0, [2, 74, 10,] [0, 62, 0,] [2, 132, 11,] [0, 125, 0,] [2, 73, 10,] [24, 197, 10,] [3, 8,
+1,] [0, 2, 176,] 51, 14, 12, 0, 36, 26, 197, 10, 36, 0, 6, 0, 2, 175, 11, 0, 253,
+```
+
+2025-08-01 Wk 31 Fri - 08:07
+
+We can confirm through `experiments/cmd_idx_idle.csv` that we never trigger a command whose character is `51`. 
+
+![[#^freq-analysis-gchr]]
+
+
+2025-08-01 Wk 31 Fri - 08:38
+
+Oh I forgot to increment the bytes for cmdl by 1...
+
+I added `+0` to all `cmd` commands so that when I mirror, I also change `+0` to `+1` at scale.
+
+I thought I had a `tape OK` signal but the web console wasn't updating...
+
+We are getting `tape OK` now with the `+1` change but we're still expecting `51` after `0x0b89`...
+
+2025-08-01 Wk 31 Fri - 08:54
+
+I also double checked the command sizes. All up to command 15 are 3-sized commands. 16 onward are 1-sized. And I got that correct.
+
+Another possibility is that we've left the text section and entered the data section of the tape...
+
+2025-08-01 Wk 31 Fri - 09:05
+
+16 is 32. So Anything $\ge32$  is a 1-sized command.
+
+```
+  2, 179, 51, 
+  32, 
+  0, 81, 50, 
+  46, 
+  24, 136, 12, 
+  0, 142, 50, 
+  46, 
+  32, 
+  12, 2, 0,
+  
+  
+  28, 197, 10, 
+  34, 
+  1, 188, 51, 
+  12, 0, 0, 
+  36, 
+  26, 197, 10, 
+  34, 
+  1, 187, 51, 
+  12, 0, 0, 
+  28, 71, 11, 
+  
+  42, 
+  8, 1, 0, 
+  2, 187, 51, 
+  36, 
+  24, 197, 10, 
+  0, 10, 42, 
+  8, 1, 0,
+  15, 187, 51, 
+  28, 84, 11, 
+  8, 60, 0, 
+  
+  11, 187, 51, 
+  13, 188, 51, 
+  26, 103, 11, 
+  0, 0, 0, 
+  2, 188, 51, 
+  36, 
+  24, 197, 10, 
+  36, 
+  0, 121, 30, 
+  0, 10, 0, 
+  
+  2, 133, 11, 
+  0, 8, 0, 
+  2, 74, 10, 
+  0, 62, 0, 
+  2, 132, 11, 
+  0, 125, 0, 
+  2, 73, 10, 
+  24, 197, 10, 
+  3, 8, 1, 
+  0, 2, 176, 
+  
+  51, 
+```
+
+I thought a command started with 71 but I missed a 1-sized command 42...
+
+These values don't seem wrong. So maybe We intentionally hit an invalid command to mark the data section?
+
+2025-08-01 Wk 31 Fri - 09:47
+
+You can go the other way too... There's just not enough grammar to this for error to be likely. If it is $\lt 32$  you form a 3-size box. If it's $\ge 32$ you form a 1-size box.  The only error signal is that in case of $\ge 32$ the value exceeds 46, which is the `no-op`  right out of index.
+
+Even if the code is false, no error will be triggered by the interpreter itself. It will simply ignore it and advance the tape.
+
+2025-08-01 Wk 31 Fri - 09:56
+
+Let's just add a 1-size bug command `cmd25_bug` and `cmdl25_buf`. for 50/51.
 
 # 5 HowTos
 
@@ -489,6 +1747,38 @@ socat - TCP4-LISTEN:3003
 nc localhost 3003
 ```
 
+Note for websocket communication, you can set websocat. This is an example of a websocat server:
+
+![[#^websocat-serve]]
+
+## 5.4 Get script path in python for local files
+
+- [x] 
+
+2025-08-01 Wk 31 Fri - 01:14
+
+From this [stackoverflow answer](https://stackoverflow.com/a/9350788/6944447),
+
+```py
+import os
+print(os.path.dirname(os.path.realpath(__file__)))
+```
+
+## 5.5 How to do stopwatch timing in python3
+
+- [x] 
+
+From this [stackoverflow answer](https://stackoverflow.com/a/67702746/6944447),
+
+```py
+import time
+
+start = time.time()
+# <code to time>
+end = time.time()
+
+print(f"Time taken to run the code was {end-start} seconds")
+```
 
 # 6 Investigations
 ## 6.1 Searching for js reference syntax for bytes call
@@ -509,6 +1799,25 @@ Seems we're interested in the [template-literal syntax](https://262.ecma-interna
 This [ECMA-262 section](https://262.ecma-international.org/16.0/index.html#sec-getsubstitution) talks about the  case of `$$` so it's likely treated special. 
 
 ### 6.1.1 Skipped
+
+## 6.2 Why is href being set in cmd22?
+
+- [ ] 
+
+From [[#^spawn-cmd22-invst]].
+
+### 6.2.1 Pend
+
+## 6.3 Investigate the process resetting roughly every 24 iterations 
+
+- [ ] 
+
+2025-08-01 Wk 31 Fri - 09:42
+
+The experiment data we gathered in `experiments/cmd_idx_idle.csv` show that we're in some sort of control loop 23 instructions long every frame.  Let's examine what that loop does.
+
+The frequency analysis over `i` also shows uniform indices. All indices have exactly 1265 counts.  The sample size is 30360... $1265 \times 24 = 30360$  . It seems that when we shut down the experiment, it did so on frame update which aligns exactly at the end of this loop. 
+### 6.3.1 Pend
 
 # 7 Tooling
 

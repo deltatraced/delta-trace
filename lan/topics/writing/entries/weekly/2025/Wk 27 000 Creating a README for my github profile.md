@@ -1,5 +1,5 @@
 ---
-status: pend
+status: backlog
 is_entry:
 ---
 #lan #entry #writing
