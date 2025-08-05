@@ -10,7 +10,7 @@ kanban-plugin: list
 
 ## Todo
 
-- [ ] [[000 Fork Vscode Extension DBML Live Preview to support DBMN]]
+- [ ] [[000 Fork Vscode Extension DBML Live Preview to support DBMT]]
 
 
 ## Active

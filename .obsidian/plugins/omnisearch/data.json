@@ -14,7 +14,7 @@
   "unsupportedFilesIndexing": "default",
   "splitCamelCase": false,
   "openInNewPane": false,
-  "vimLikeNavigationShortcut": true,
+  "vimLikeNavigationShortcut": false,
   "ribbonIcon": true,
   "showExcerpt": true,
   "maxEmbeds": 5,
