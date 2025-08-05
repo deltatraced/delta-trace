@@ -1,7 +1,8 @@
 
+
 # 1 Objective
 
-Notes on `dbmn`, which is a language derivative of `dbml`.
+Notes on `dbmt`, which is a language derivative of `dbml`.
 
 # 2 Journal
 
@@ -11,16 +12,16 @@ Notes on `dbmn`, which is a language derivative of `dbml`.
 
 We want the following features in addition to what's in the [dbml syntax docs](https://dbml.dbdiagram.io/docs/) [[#^1]]:
 
-- [ ] Syntax to include other dbmn files
+- [ ] Syntax to include other dbmt files
 
-```dbmn
-.include "some/path/to/other.dbmn"
+```dbmt
+.include "some/path/to/other.dbmt"
 ```
 
 
 - [ ] Custom data types
 
-```dbmn
+```dbmt
 .type HP integer
 ```
 
@@ -59,7 +60,7 @@ Triggers include:
 - all
 - cust(...)
 
-```dbmn
+```dbmt
 %signal(my_signal_name, on=[insert, delete])
 ```
 
@@ -71,7 +72,7 @@ In addition, signals can be `gated`, meaning that user action is expected before
 
 `gated` signals are specified under `then=` rather than `on=`:
 
-```dbmn
+```dbmt
 %signal(my_signal_name, then=[insert, delete])
 ```
 

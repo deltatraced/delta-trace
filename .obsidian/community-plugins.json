@@ -7,9 +7,17 @@
   "obsidian-plugin-toc",
   "obsidian-vault-changelog",
   "templater-obsidian",
-  "simple-time-tracker",
-  "dataview",
+  "quickadd",
+  "omnisearch",
+  "obsidian-git",
+  "number-headings-obsidian",
+  "obsidian-plugin-toc",
+  "automatic-table-of-contents",
   "obsidian-kanban",
-  "graph-link-types",
-  "obsidian-excalidraw-plugin"
+  "obsidian-excalidraw-plugin",
+  "simple-time-tracker",
+  "chronology",
+  "dataview",
+  "obsidian-charts",
+  "graph-link-types"
 ]

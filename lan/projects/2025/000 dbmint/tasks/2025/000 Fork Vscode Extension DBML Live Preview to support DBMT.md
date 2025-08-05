@@ -3,9 +3,9 @@ status: todo
 ---
 # 1 Objective
 
-We're designing a new language [[000 Designing new language dbmn|`*.dbmn`]] . 
+We're designing a new language [[000 Designing new language dbmt|`*.dbmt`]] . 
 
-The 
+Every valid `*.dbml` schema is also a valid `*.dbmt` schema. `*.dbmt` is a superset of `*.dbml`. 
 
 # 2 References
 
