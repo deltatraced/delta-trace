@@ -1500,6 +1500,9 @@ Adding `/read {addr16}` and `/write {addr16} {val}`. These just interact with th
 
 Adding `/watch {addr16}` and `/nowatch {addr16}`. This allows the value to be pinged every second to the web console. If it's unwatched with `nowatch`, then it will stop pinging. ^spawn-howtos-js-on-interval
 
+2025-08-02 Wk 31 Sat - 08:06
+
+We have `/watch {addr16}`. But then it becomes very hard to issue commands... We need a separate data channel from the control channel. We're starting a new websocket with `/data-connect` over `localhost:3005`. 
 
 ### 3.9.1 Pend
 
@@ -2050,7 +2053,23 @@ In my case,
 setInterval(on_interval, 1000)
 ```
 
+## 5.9 Delete element from array in javascript
 
+- [ ] 
+
+2025-08-02 Wk 31 Sat - 07:52
+
+There are some pretty popular stackoverflow answers like [this](https://stackoverflow.com/a/20690490/6944447).
+
+Debating on different methods as the language has evolved. splice, or filters...
+
+We can use
+
+```ts
+arr = arr.filter(item => item !== value)
+```
+
+### 5.9.1 Pend
 # 6 Investigations
 ## 6.1 Searching for js reference syntax for bytes call
 
@@ -2494,14 +2513,14 @@ snap.length: 13229, tape.length: 13240
 
 2025-08-02 Wk 31 Sat - 06:26
 
-After performing each string, read the value of `0x3bb1 <d_unk_33b1>` with 
+After performing each string, read the value of `0x33b1 <d_unk_33b1>` with 
 
 ```
 /reset
 
 Do the specified string
 
-/read 0x3bb1
+/read 0x33b1
 ```
 
 ![[#^input-data-values]]
@@ -2509,11 +2528,21 @@ Do the specified string
 | Row     | String0   | String1   | String2      | String3         | String4                | String5   | String6     |
 | ------- | --------- | --------- | ------------ | --------------- | ---------------------- | --------- | ----------- |
 | Strings | `S`       | `S 1>`    | `S 2>`       | `S 3>`          | `S 4>`                 | `S 4> 1v` | `S 4> 2v D` |
-| 0x3bb1  | `NaN`     | 2         | 2            | 2               | 0                      | 1         | 1           |
-| 0x3bb2  | `NaN`     | 2         | 2            | 2               | 2                      | 3         | 3           |
+| 0x33b1  | `NaN`     | 2         | 2            | 2               | 0                      | 1         | 1           |
+| 0x33b2  | `NaN`     | 2         | 2            | 2               | 2                      | 3         | 3           |
 | Strings | `S 4> 1<` | `S 4> 2<` | `S 4> 1v 1^` | `S 4> 1v 1^ 1v` | `S 4> 1v 1^ 1v 1^`<br> |           |             |
-| 0x3bb1  | 2         | 2         | 3            | 1               | 3                      |           |             |
+| 0x33b1  | 2         | 2         | 3            | 1               | 3                      |           |             |
 |         |           |           |              |                 |                        |           |             |
+
+2025-08-02 Wk 31 Sat - 08:20
+
+Oops. I had to correct `0x3bb1` to `0x33b1` here. But I should have been using the correct address in data collection. `0x3bb1` cannot be accessed under many strings.
+
+2025-08-02 Wk 31 Sat - 08:22
+
+We can see with `/watch 0x33b1` that it tracks with the input code most of the time until death.
+
+
 
 ### 6.6.2 Pend
 
