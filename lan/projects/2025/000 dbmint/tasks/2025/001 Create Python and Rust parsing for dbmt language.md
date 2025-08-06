@@ -1,10 +1,34 @@
-
+#external
 
 # 1 Objective
 
 Language features specified in [[000 Designing new language dbmt]] are implemented in writers/readers for both Rust and Python.
 
 # 2 Journal
+
+2025-08-06 Wk 32 Wed - 05:08
+
+So there is a project specifically for parsing dbml files in python: [gh Vanderhoof/PyDBML](https://github.com/Vanderhoof/PyDBML).
+
+Correspondingly, there is one for Rust dbml: [gh apskhem/dbml-rs](https://github.com/apskhem/dbml-rs). 
+
+We should follow similarly. Let's fork both of those projects and instead update dbml -> dbmt. The language itself is a separate module from the library that uses it which is [dbmint](https://github.com/LanHikari22/dbmint).
+
+Thinking about whether to fork or just start a project that uses those projects internally. This [opensource.stackexchange post](https://opensource.stackexchange.com/questions/1934/rules-guidelines-about-forking-a-project-vs-creating-a-new-one) discusses some of benefits of forking, even if  no PR is planned or the project diverges.
+
+I think in my case, `.dbmt` has different features and approaches, I will maintain the underlying dbml packages as dependencies. 
+
+2025-08-06 Wk 32 Wed - 08:49
+
+~~Let's fork the projects after all. From this [[#4.1 assertEqual on dbml tables fail even though they are copied from print|issue]] we can see there would be dependency problems if our dbmt-py library depended on pydbml since we're being fixed at an older version by the sqlite converting library. And the language really is a fork of dbml goin in another direction.~~
+
+We're going to make them standalone projects with dependencies. For the dependency issue, we could fork the 
+
+[[#3.2 Create repositories dbmt-py and dbmt-rs and reference language spec in delta-trace|Task]]. ^spawn-task-060600
+
+2025-08-06 Wk 32 Wed - 16:32
+
+They added [Arbitrary Properties](https://github.com/Vanderhoof/PyDBML/blob/master/docs/properties.md#arbitrary-properties) to the dbml language. I might be able to use this for some feature I planned for [[000 Designing new language dbmt|dbmt]].
 
 # 3 Tasks
 
@@ -13,6 +37,1351 @@ Language features specified in [[000 Designing new language dbmt]] are implement
 
 - [ ] 
 
-### 3.1.1 Pend
+### 3.1.1 Reading and writing in Python
 
-# 4 Resources
+2025-08-06 Wk 32 Wed - 02:58
+
+```sh
+./docker_build.sh && MOUNT="./mnt" ./docker_run.sh rust gen-lib a.dbml
+```
+
+2025-08-06 Wk 32 Wed - 03:59
+
+It seems in the case that multiple files like `main.py` and `dbml.py` include the same unit test class name like `class Module1UnitTests(unittest.TestCase)`, only the main one runs and gives OK even though I have made something fail in the `dbml.py` one. Might be best to give them unique names, then this issue doesn't happen.
+
+2025-08-06 Wk 32 Wed - 04:32
+
+[[#4.1 assertEqual on dbml tables fail even though they are copied from print|Issue]]. ^spawn-issue-060433
+
+2025-08-06 Wk 32 Wed - 16:58
+
+Now we're able to read dbml in python. For writing, according to the [creating schema docs](https://github.com/Vanderhoof/PyDBML/blob/master/docs/creating_schema.md), we just have to create a database object and render via `db.dbml`. There's also `db.sql`. 
+
+The output isn't identical to what I have written in style, but it should be in content. I've written it to `mnt/ex000.autogen.dbml`.
+
+### 3.1.2 Reading in Rust
+
+2025-08-06 Wk 32 Wed - 17:21
+
+It seems so far for rust we only have a reader? See [gh apskhem/dbml-rs](https://github.com/apskhem/dbml-rs).
+
+For our purposes right now, we're mostly interested in reading the files. We could use python for writing.
+
+
+```sh
+# in /home/lan/src/cloned/gh/apskhem/dbml-rs
+ls
+Cargo.toml  LICENSE-APACHE  LICENSE-MIT  README.md  rustfmt.toml  src  tests
+```
+
+I guess this is how we add two different licenses? This project said this can use either...
+
+2025-08-06 Wk 32 Wed - 17:43
+
+The README.md example doesn't build and is missing `.unwrap()`s. Also that example is not very clear. We should open a PR to add come clear usage examples similar to what we did with python above over an example. [[#3.6 Open a PR for dbml-rs to add better examples and fix README.md broken example|Task]]. ^spawn-task-061745
+
+
+### 3.1.3 Pend
+
+## 3.2 Create repositories dbmt-py and dbmt-rs and reference language spec in delta-trace
+
+- [ ] 
+
+From [[#^spawn-task-060600]].
+
+2025-08-06 Wk 32 Wed - 06:01
+
+### 3.2.1 Pend
+
+## 3.3 Add Docker build option to provide a shell for troubleshooting
+
+- [x] 
+
+From [[#^spawn-task-060606]].
+
+2025-08-06 Wk 32 Wed - 06:15
+
+Similar to the [delta-box box000_blank_system](https://github.com/delta-domain-rnd/delta-box/tree/main/box/box000_blank_system) system, we want to be able to just start a shell for testing purposes rather than an application.
+
+Let's use [docker_root_bash.sh](https://github.com/delta-domain-rnd/delta-box/blob/main/box/box000_blank_system/docker_root_bash.sh).
+
+```sh
+# in /home/lan/src/cloned/gh/LanHikari22/dbmint
+cp ~/src/cloned/gh/delta-domain-rnd/delta-box/box/box000_blank_system/docker_root_bash.sh .
+```
+
+We need to update it with the app name
+
+```sh
+./edit_app_name.sh                                                                                 
+# out
+OK /home/lan/src/cloned/gh/LanHikari22/dbmint/docker_root_bash.sh
+OK /home/lan/src/cloned/gh/LanHikari22/dbmint/app/py/mypy.sh
+OK /home/lan/src/cloned/gh/LanHikari22/dbmint/app/py/run.sh
+OK /home/lan/src/cloned/gh/LanHikari22/dbmint/docker_build.sh
+OK /home/lan/src/cloned/gh/LanHikari22/dbmint/docker_clean.sh
+OK /home/lan/src/cloned/gh/LanHikari22/dbmint/docker_publish.sh
+OK /home/lan/src/cloned/gh/LanHikari22/dbmint/docker_run.sh
+```
+
+Hardcode the tag environment variable to latest
+
+```sh
+# in docker_root_bash.sh
+export TAG=latest
+```
+
+The remaining issue is that the [entrypoint](https://github.com/delta-domain-rnd/delta-box/blob/main/box/box000_blank_system/boot/entrypoint.sh) for box000 stays on indefinitely while ours just executes the application and exists. So we need an option to change this.
+
+Similar to [box000 docker_build.sh](https://github.com/delta-domain-rnd/delta-box/blob/main/box/box000_blank_system/docker_build.sh),
+
+We're adding an environment option `USE_SHELL`:
+
+```sh
+docker build \
+  -t lan22h/$app_name:latest \
+  --build-arg USE_SHELL=$USE_SHELL \
+  .
+```
+
+2025-08-06 Wk 32 Wed - 06:37
+
+Now we would like to export this environment variable within the image itself so `entrypoint.sh` can use it
+
+Also, by default it's disabled.
+
+```sh
+# in Dockerfile
+ARG USE_SHELL=0
+```
+
+2025-08-06 Wk 32 Wed - 06:52
+
+I wanted to configure bash to have an export, but we need this to be system wide available. Just create a file based on this option. 
+
+2025-08-06 Wk 32 Wed - 07:10
+
+```Dockerfile
+ARG USE_SHELL
+RUN /bin/sh -c '\
+  if [ $USE_SHELL ]; then \
+    echo "yes" > /var/use_shell; \
+  else \
+    echo "no" > /var/use_shell; \
+  fi \
+'
+```
+
+For testing, I set `boot/entrypoint.sh` to
+
+```sh
+#!/bin/sh
+
+echo "Hello world!"
+cat /var/use_shell
+```
+
+```sh
+./docker_build.sh && MOUNT="./mnt" ./docker_run.sh
+
+# out (relevant)
+Hello world!
+no
+```
+
+```sh
+USE_SHELL=1 ./docker_build.sh && MOUNT="./mnt" ./docker_run.sh
+
+# out (relevant)
+Hello world!
+yes
+```
+
+2025-08-06 Wk 32 Wed - 07:16
+
+Our `boot/entrypoint.sh` now is
+
+```sh
+#!/bin/sh
+
+if [ $(cat /var/use_shell) == "yes" ]; then
+  # Stay indefinitely
+  tail -f /dev/null
+else
+  # Just run the app
+  . /opt/venv/bin/activate && \
+    PYTHONPATH=/app/src python3 -m dbmint.main $@
+fi
+```
+
+2025-08-06 Wk 32 Wed - 07:18
+
+```sh
+USE_SHELL=1 ./docker_build.sh && MOUNT="./mnt" ./docker_root_bash.sh
+
+# out (relevant)
+OCI runtime exec failed: exec failed: unable to start container process: exec: "bash": executable file not found in $PATH: unknown
+Bye!
+
+```
+
+Right we don't have bash for alpine by default. Let's just try running `/bin/sh`. Get [box000 docker_sh.sh](https://github.com/delta-domain-rnd/delta-box/blob/main/box/box000_blank_system/docker_sh.sh) instead.
+
+```sh
+# in /home/lan/src/cloned/gh/LanHikari22/dbmint
+rm docker_root_bash.sh
+cp ~/src/cloned/gh/delta-domain-rnd/delta-box/box/box000_blank_system/docker_root_sh.sh . 
+./edit_app_name.sh
+
+# in docker_root_sh.sh
+export TAG=latest
+```
+
+```sh
+USE_SHELL=1 ./docker_build.sh && MOUNT="./mnt" ./docker_root_sh.sh
+```
+
+We're in!
+
+```sh
+/ # apk add bash
+(1/1) Installing bash (5.2.37-r0)
+Executing bash-5.2.37-r0.post-install
+Executing busybox-1.37.0-r18.trigger
+OK: 221 MiB in 53 packages
+/ # bash
+470031744a8f:/# 
+```
+
+We can use `apk` to add new packages for temporary testing or anything we want. This container is killed when we exist with `^D`. 
+
+## 3.4 Open a PR for  DBML_SQLite and bump version of pydbml
+
+- [ ] Watch
+
+From [[#^spawn-task-060923]].
+
+This is for [PR #9](https://github.com/dvanderweele/DBML_SQLite/pull/9).
+
+2025-08-06 Wk 32 Wed - 09:23
+
+Associated issue is [issue #8](https://github.com/dvanderweele/DBML_SQLite/issues/8) for [gh dvanderweele/DBML_SQLite](https://github.com/dvanderweele/DBML_SQLite/) to bump version.
+
+Let's fork [gh dvanderweele/DBML_SQLite](https://github.com/dvanderweele/DBML_SQLite/).
+
+```sh
+mkdir -p ~/src/cloned/gh/LanHikari22/forked/dvanderweele
+cd ~/src/cloned/gh/LanHikari22/forked/dvanderweele
+git clone git@github.com:LanHikari22/DBML_SQLite.git
+cd DBML_SQLite
+```
+
+Let's also correct our convention of `forked/` for other projects. We should always include the users or organizations that own the project
+
+```
+mkdir -p ~/src/cloned/gh/LanHikari22/forked/apache/
+mv ~/src/cloned/gh/LanHikari22/forked/arrow-rs ~/src/cloned/gh/LanHikari22/forked/apache/arrow-rs
+mkdir -p ~/src/cloned/gh/LanHikari22/forked/ron-rs
+mv ~/src/cloned/gh/LanHikari22/forked/ron  ~/src/cloned/gh/LanHikari22/forked/ron-rs
+```
+
+Let's create a fix branch for bumping the version.
+
+```sh
+git checkout -b fix-bump-pydbml-v1.2.0
+```
+
+```diff
+# in requirements.txt
+-pydbml==0.3.4
++pydbml==1.2.0
+```
+
+We should run the tests recommended in the [README.md](https://github.com/dvanderweele/DBML_SQLite/?tab=readme-ov-file#testing-and-coverage),
+
+We need to install [poetry](https://python-poetry.org/) first
+
+```sh
+python3 -m pip install poetry
+```
+
+```sh
+poetry run pytest
+
+# out (exit=1)
+The "poetry.dev-dependencies" section is deprecated and will be removed in a future version. Use "poetry.group.dev.dependencies" instead.
+Creating virtualenv dbml-sqlite-Sv97MqvY-py3.13 in /home/lan/.cache/pypoetry/virtualenvs
+Command not found: pytest
+```
+
+```sh
+poetry run coverage run --source dbml_sqlite -m pytest
+
+# out (exit=1)
+The "poetry.dev-dependencies" section is deprecated and will be removed in a future version. Use "poetry.group.dev.dependencies" instead.
+Command not found: coverage
+```
+
+Let's install pytest and install the fork
+
+```sh
+python3 -m pip install pytest
+```
+
+2025-08-06 Wk 32 Wed - 09:56
+
+[[#5.2 Installing a python project with a pyproject.toml|HowTo]]. ^spawn-howto-060957
+
+2025-08-06 Wk 32 Wed - 10:14
+
+```sh
+python3 -m pip install -e .
+```
+
+```sh
+poetry run pytest
+
+# out (relevant)
+def test_process_column():
+
+>       assert processColumn(c2, 'full') == '  c2 INTEGER PRIMARY KEY'
+
+tests/test_dbml_sqlite.py:93: 
+
+>               if column.autoinc:
+E               AttributeError: 'MockColumn' object has no attribute 'autoinc'
+
+dbml_sqlite/core.py:216: AttributeError
+```
+^pr-4-tests-failing
+
+This issue occurs even on pydbml v0.3.4.
+
+I've been modifying requirement.txt version, but not pyproject.toml... Either way will stay v0.3.4 for now to see if we can get the tests to run.
+
+2025-08-06 Wk 32 Wed - 10:35
+
+```sh
+git blame dbml_sqlite/core.py
+
+# out (relevant)
+6e0c970e (Philipp Hörist   2023-06-14 20:32:37 +0200 216)             if column.autoinc:
+6e0c970e (Philipp Hörist   2023-06-14 20:32:37 +0200 217)                 segments.append(' AUTOINCREMENT')
+```
+
+Seems to be due to a latest PR change?
+
+```
+commit 24a437eb08674d4be6ede97f7bdcbae86a28c562
+Merge: 8fdc78b 6e0c970
+Author: Dave VanderWeele <weele.me@gmail.com>
+Date:   Mon Nov 25 16:52:02 2024 -0600
+
+    Merge pull request #4 from lovetox/main
+    
+    Add support for AUTOINCREMENT
+
+commit 6e0c970eb2d8cd1d1696dd61dc0832317055bd3a
+Author: Philipp Hörist <philipp@hoerist.com>
+Date:   Wed Jun 14 20:32:37 2023 +0200
+
+    Add support for AUTOINCREMENT
+```
+
+2025-08-06 Wk 32 Wed - 10:41
+
+This is PR [#4](https://github.com/dvanderweele/DBML_SQLite/pull/4). The author [states](https://github.com/dvanderweele/DBML_SQLite/pull/4#issuecomment-2499196571) there that they have abandoned the project and have not tested this PR and may turn it read-only.
+
+Let's go to the commit before the PR and see if tests run ok
+
+```sh
+git checkout -b 8fdc78bb23f2ffe12b9be583d1792d25032aae5f
+python3 -m pip install -e .
+poetry run pytest
+
+# out (relevant)
+tests/test_dbml_sqlite.py ...........                                                                                                                                                  [ 91%]
+tests/test_terminal.py .                                                                                                                                                               [100%]
+
+12 passed in 0.46s
+```
+
+They work fine. 
+
+What about after bumping versions?
+
+```diff
+# in pyproject.toml
+-pydbml = "^0.3.4"
++pydbml = "^1.2.0"
+ 
+# in requirements.txt
+-pydbml==0.3.4
++pydbml==1.2.0
+```
+
+```sh
+python3 -m pip install -e .
+poetry run pytest
+
+
+# out (relevant)
+tests/test_dbml_sqlite.py .F......F.F 
+tests/test_terminal.py F 
+
+>       for j, ref in enumerate(table.refs):
+                                ^^^^^^^^^^
+E       AttributeError: 'Table' object has no attribute 'refs'
+
+dbml_sqlite/core.py:164: AttributeError
+```
+
+2025-08-06 Wk 32 Wed - 10:55
+
+[[#6.1 Invst what happened to table.refs for pydbml|Invst]]. ^spawn-invst-061055
+
+2025-08-06 Wk 32 Wed - 12:01
+
+There is a [get_refs](https://github.com/Vanderhoof/PyDBML/blob/5c6a9173580d7273a6799cdd725eabd3a2e76911/pydbml/_classes/table.py#L115) function that can still be used. Let's change refs to that.
+
+2025-08-06 Wk 32 Wed - 12:32
+
+```diff
+# in dbml_sqlite/core.py
+
+@@ -186,7 +186,8 @@ def processRef(ref, join=True):
+-    segments.append(f'{ref.col.name}) REFERENCES {ref.ref_table.name}({ref.ref_col.name})')
++    segments.append(f'{ref.col1[0].name}) REFERENCES {ref.col2[0].table.name}({ref.col2[0].name})')
+```
+
+2025-08-06 Wk 32 Wed - 12:57
+
+Luckily the PR [#4](https://github.com/dvanderweele/DBML_SQLite/pull/4) issue [[#^pr-4-tests-failing]] wasn't so bad. Just had to add an extra field to the mock class to get the tests to run.
+
+Let's use the same convention [here](https://github.com/dvanderweele/DBML_SQLite/pull/4#issue-1757442972) where we write in the PR `Fixes #N` for the issue ID N.
+
+2025-08-06 Wk 32 Wed - 13:08
+
+```sh
+remote: Create a pull request for 'fix-bump-pydbml-v1.2.0' on GitHub by visiting:
+remote:      https://github.com/LanHikari22/DBML_SQLite/pull/new/fix-bump-pydbml-v1.2.0
+```
+
+Let's do it!
+
+See [#9](https://github.com/dvanderweele/DBML_SQLite/pull/9).
+
+2025-08-06 Wk 32 Wed - 13:37
+
+This might be merged in. There are open PRs on this project that fix various issues. Let's try to merge them ourselves into the fork master branch. [[#3.5 Merge currently open PRs into fork main for DBML_SQLite|Task]]. ^spawn-task-061339
+
+### 3.4.1 Watch1
+
+## 3.5 Merge currently open PRs into fork main for DBML_SQLite
+
+- [x] 
+
+From [[#^spawn-task-061339]].
+
+2025-08-06 Wk 32 Wed - 13:39
+
+2025-08-06 Wk 32 Wed - 13:57
+
+This [stackoverflow answer](https://stackoverflow.com/questions/1425892/how-do-you-merge-two-git-repositories#10548919 ) could help us merge those PRs into our fork. 
+
+Let's get the PRs,
+
+We want [#6](https://github.com/dvanderweele/DBML_SQLite/pull/6) and [#7](https://github.com/dvanderweele/DBML_SQLite/pull/7).
+
+Let's merge our PR in our main,
+
+```sh
+# in /home/lan/src/cloned/gh/LanHikari22/forked/dvanderweele/DBML_SQLite
+# in main branch
+git merge fix-bump-pydbml-v1.2.0
+```
+
+Let's start with [#6](https://github.com/dvanderweele/DBML_SQLite/pull/6),
+
+```sh
+mkdir -p ~/src/cloned/gh/dvanderweele/forks/KoStyle/
+cd ~/src/cloned/gh/dvanderweele/forks/KoStyle/
+git clone git@github.com:KoStyle/DBML_SQLite.git
+cd /home/lan/src/cloned/gh/LanHikari22/forked/dvanderweele/DBML_SQLite
+
+# in main branch
+git remote add sibling ~/src/cloned/gh/dvanderweele/forks/KoStyle/DBML_SQLite
+git fetch sibling
+git merge sibling/main
+git remote remove sibling
+```
+
+We do pass all tests via
+
+```sh
+python3 -m pip install -e .
+poetry run pytest
+```
+
+Repeating for [#7](https://github.com/dvanderweele/DBML_SQLite/pull/7),
+
+```sh
+mkdir -p ~/src/cloned/gh/dvanderweele/forks/TheDimensionofEternity/
+cd ~/src/cloned/gh/dvanderweele/forks/TheDimensionofEternity/
+git clone git@github.com:TheDimensionofEternity/DBML_SQLite.git
+cd /home/lan/src/cloned/gh/LanHikari22/forked/dvanderweele/DBML_SQLite
+
+# in main branch
+git remote add sibling ~/src/cloned/gh/dvanderweele/forks/TheDimensionofEternity/DBML_SQLite
+git fetch sibling
+git merge sibling/main
+git remote remove sibling
+
+python3 -m pip install -e .
+poetry run pytest
+```
+
+All tests pass.
+
+2025-08-06 Wk 32 Wed - 14:19
+
+I guess I should've just mentioned #6 and #7. Github is able to reference them on my fork.
+
+![[Pasted image 20250806141949.png]]
+
+Name is a bit weird, but it's alright. It'd take force pushing to change this, and it's synced with three sources. 
+
+## 3.6 Open a PR for dbml-rs to add better examples and fix README.md broken example
+
+- [ ] 
+
+From [[#^spawn-task-061745]].
+
+### 3.6.1 Pend
+# 4 Issues
+
+## 4.1 assertEqual on dbml tables fail even though they are copied from print
+
+- [x] 
+
+From [[#^spawn-issue-060433]].
+
+2025-08-06 Wk 32 Wed - 04:34
+
+```sh
+./docker_build.sh && MOUNT="./mnt" ./docker_run.sh unittest DbmlUnitTests.test_example_parsing_dbml
+```
+
+```python
+print(dbml_data.tables)
+
+# out
+[Table('Users', [Column('id', 'integer', pk=True), Column('username', 'varchar'), Column('role', 'varchar'), Column('created_at', 'varchar')]), Table('Posts', [Column('id', 'integer', pk=True), Column('title', 'varchar'), Column('body', 'varchar', note=Note('Content of the post')), Column('status', 'varchar'), Column('created_at', 'varchar')]), Table('User_Owns_Posts', [Column('id', 'integer', pk=True), Column('from_user_id', 'integer'), Column('to_post_id', 'integer')])]
+```
+
+And yet this fails
+
+```python
+expected_tables = [
+	Table('Users', [
+		Column('id', 'integer', pk=True),
+		Column('username', 'varchar'),
+		Column('role', 'varchar'),
+		Column('created_at', 'varchar'),
+	]),
+
+	Table('Posts', [
+		Column('id', 'integer', pk=True),
+		Column('title', 'varchar'), 
+		Column('body', 'varchar', note=Note('Content of the post')), 
+		Column('status', 'varchar'), 
+		Column('created_at', 'varchar'), 
+	]),
+
+	Table('User_Owns_Posts', [
+		Column('id', 'integer', pk=True), 
+		Column('from_user_id', 'integer'), 
+		Column('to_post_id', 'integer'),
+	])
+]
+
+self.assertEqual(dbml_data.tables, expected_tables)
+```
+^ex000-as-expected-1
+
+2025-08-06 Wk 32 Wed - 04:43
+
+We can't hash the lists directly
+
+```
+TypeError: unhashable type: 'list'
+```
+
+```python
+print(hash(str(dbml_data.tables)), hash(str(expected_tables)))
+
+# out
+-7912868938497380503 8786281224489275648
+```
+
+```python
+print(expected_tables)
+
+# out
+[Table('Users', [], alias=[Column('id', 'integer', pk=True), Column('username', 'varchar'), Column('role', 'varchar'), Column('created_at', 'varchar')]), Table('Posts', [], alias=[Column('id', 'integer', pk=True), Column('title', 'varchar'), Column('body', 'varchar', note=Note('Content of the post')), Column('status', 'varchar'), Column('created_at', 'varchar')]), Table('User_Owns_Posts', [], alias=[Column('id', 'integer', pk=True), Column('from_user_id', 'integer'), Column('to_post_id', 'integer')])]
+```
+
+The table is set to alias instead...
+
+Seems we need to use [add_column](https://github.com/Vanderhoof/PyDBML/blob/5c6a9173580d7273a6799cdd725eabd3a2e76911/pydbml/_classes/table.py#L70) or a [columns](https://github.com/Vanderhoof/PyDBML/blob/5c6a9173580d7273a6799cdd725eabd3a2e76911/pydbml/_classes/table.py#L30) keyword argument.
+
+```python
+expected_tables = [
+	Table('Users', columns=[
+		Column('id', 'integer', pk=True),
+		Column('username', 'varchar'),
+		Column('role', 'varchar'),
+		Column('created_at', 'varchar'),
+	]),
+
+	Table('Posts', columns=[
+		Column('id', 'integer', pk=True),
+		Column('title', 'varchar'), 
+		Column('body', 'varchar', note=Note('Content of the post')), 
+		Column('status', 'varchar'), 
+		Column('created_at', 'varchar'), 
+	]),
+
+	Table('User_Owns_Posts', columns=[
+		Column('id', 'integer', pk=True), 
+		Column('from_user_id', 'integer'), 
+		Column('to_post_id', 'integer'),
+	])
+]
+```
+
+2025-08-06 Wk 32 Wed - 05:04
+
+We don't have that columns keyword argument. Do we not have the last version?
+
+```
+TypeError: Table.__init__() got an unexpected keyword argument 'columns'
+```
+
+```sh
+python3 -m pip install pydbml 
+
+# out
+Requirement already satisfied: pydbml in /home/lan/miniconda3/lib/python3.13/site-packages (0.3.4)
+Requirement already satisfied: pyparsing>=2.4.7 in /home/lan/miniconda3/lib/python3.13/site-packages (from pydbml) (3.2.3)
+```
+
+2025-08-06 Wk 32 Wed - 06:03
+
+[[#3.3 Add Docker build option to provide a shell for troubleshooting|Task]]. ^spawn-task-060606
+
+2025-08-06 Wk 32 Wed - 07:30
+
+Now that we can spawn a shell, let's examine the versions of the libraries we have.
+
+```sh
+USE_SHELL=1 ./docker_build.sh && MOUNT="./mnt" ./docker_root_sh.sh
+
+# in shell
+/opt/venv/bin/pip3 show pydbml
+
+# out
+Name: pydbml
+Version: 0.3.4
+Summary: DBML syntax parser for Python
+Home-page: https://github.com/Vanderhoof/PyDBML
+Author: Daniil Minukhin
+Author-email: ddddsa@gmail.com
+License: MIT
+Location: /opt/venv/lib/python3.12/site-packages
+Requires: pyparsing
+Required-by: dbml-sqlite
+```
+
+We can see that the version from the code we checked is all the way up to [v.1.2.0](https://github.com/Vanderhoof/PyDBML/blob/5c6a9173580d7273a6799cdd725eabd3a2e76911/setup.py#L19).
+
+We can see it's being set to [v0.3.4](https://github.com/dvanderweele/DBML_SQLite/blob/10486060a49123ed5d62b22961f96038e9bb09e1/requirements.txt#L23) explicitly by [gh dvanderweele/DBML_SQLite](https://github.com/dvanderweele/DBML_SQLite/).
+
+Let's add a requirement to our app in `app/py/requirements.txt`
+
+```
+pydbml
+```
+
+and see if it fetches the latest version.
+
+```sh
+USE_SHELL=1 ./docker_build.sh && MOUNT="./mnt" ./docker_root_sh.sh
+
+# in shell
+/opt/venv/bin/pip3 show pydbml
+
+# out (relevant)
+Version: 0.3.4
+```
+
+No. Let's fix it to v1.2.0 in `app/py/requirements.txt`,
+
+```
+pydbml==1.2.0
+```
+
+Right, we get a build error.
+
+```
+9.062     The user requested pydbml==1.2.0
+9.062     dbml-sqlite 0.1.0 depends on pydbml<0.4.0 and >=0.3.4
+```
+
+I created an [issue #8](https://github.com/dvanderweele/DBML_SQLite/issues/8) for [gh dvanderweele/DBML_SQLite](https://github.com/dvanderweele/DBML_SQLite/) to bump version.
+
+Alright let's just stick with `v0.3.4` for now  and use the `add_column`. We're just gonna specify `pydbml` in the requirements since we do use it directly.
+
+2025-08-06 Wk 32 Wed - 08:34
+
+```python
+mut_expected_tables: List[Table] = []
+
+tmp_table0 = Table('Users')
+tmp_table0.add_column(Column('id', 'integer', pk=True))
+tmp_table0.add_column(Column('username', 'varchar'))
+tmp_table0.add_column(Column('role', 'varchar'))
+tmp_table0.add_column(Column('created_at', 'varchar'))
+mut_expected_tables.append(tmp_table0)
+
+tmp_table1 = Table('Posts')
+tmp_table1.add_column(Column('id', 'integer', pk=True))
+tmp_table1.add_column(Column('title', 'varchar'))
+tmp_table1.add_column(Column('body', 'varchar', note=Note('Content of the post')))
+tmp_table1.add_column(Column('status', 'varchar'))
+tmp_table1.add_column(Column('created_at', 'varchar'))
+mut_expected_tables.append(tmp_table1)
+
+tmp_table2 = Table('User_Owns_Posts')
+tmp_table2.add_column(Column('id', 'integer', pk=True))
+tmp_table2.add_column(Column('from_user_id', 'integer'))
+tmp_table2.add_column(Column('to_post_id', 'integer'))
+mut_expected_tables.append(tmp_table2)
+
+print(hash(str(dbml_data.tables)), hash(str(mut_expected_tables)))
+
+# out
+7832558014608569827 7832558014608569827
+```
+
+Don't expect the hashes to be identical to the last, they're always different.
+
+2025-08-06 Wk 32 Wed - 10:05
+
+We're trying to bump versions with this [[#3.4 Open a PR for DBML_SQLite and bump version of pydbml|PR Task]] to see if that helps the problem here. ^spawn-task-060923
+
+2025-08-06 Wk 32 Wed - 14:31
+
+Okay so let's use my [DBML_SQLite fork](https://github.com/LanHikari22/DBML_SQLite). We need to be able to replace our dbmint requirements.txt of `dbml-sqlite` with my fork. This should be using [v.1.2.0](https://github.com/Vanderhoof/PyDBML/blob/5c6a9173580d7273a6799cdd725eabd3a2e76911/setup.py#L19). [[#5.5 Add python project from github to requirements.txt|HowTo]]. ^spawn-howto-061436
+
+2025-08-06 Wk 32 Wed - 14:42
+
+Let's add a tag with the new version number for my [DBML_SQLite fork](https://github.com/LanHikari22/DBML_SQLite),
+
+[tagging git reference](https://git-scm.com/book/en/v2/Git-Basics-Tagging).
+
+```sh
+# in /home/lan/src/cloned/gh/LanHikari22/forked/dvanderweele/DBML_SQLite
+git tag | cat
+
+# out
+v0.1.0
+v0.2.0
+v0.2.3
+v0.2.4
+v0.2.5
+v0.3.1
+v0.3.2
+v0.3.3
+```
+
+```sh
+git tag -a "v0.3.4" -m "Lan's fork"
+git push origin v0.3.4
+```
+
+You can view the tag [here](https://github.com/LanHikari22/DBML_SQLite/releases/tag/v0.3.4).
+
+Now we should be able to add to requirements.txt,
+
+```
+dbml-sqlite @ git+https://github.com/LanHikari22/DBML_SQLite@v0.3.4
+```
+
+```sh
+./docker_build.sh && MOUNT="./mnt" ./docker_run.sh unittest DbmlUnitTests.test_example_parsing_dbml
+
+# out (relevant)
+1.609 ERROR: Cannot find command 'git' - do you have 'git' installed and in your PATH?
+```
+
+I guess we have to install git in our image now...
+
+```diff
+# in Dockerfile
+ # Install necessary packages
+- RUN apk update && apk add --no-cache \
++RUN apk update && apk add --no-cache \
+   python3 \
+   py3-pip \
+   gcc \
++  git \
+   sqlite
+```
+
+2025-08-06 Wk 32 Wed - 14:55
+
+My test seems to pass the first example.
+
+I just need to update the installation instructions in the [DBML_SQLite fork](https://github.com/LanHikari22/DBML_SQLite) README. I also need to make sure the tag is at the latest commit. 
+
+Which, from [this stackoverflow answer](https://stackoverflow.com/a/8044605/6944447), we can do like this:
+
+```sh
+git push origin :refs/tags/v0.3.4
+git tag -fa v0.3.4
+git push origin --tags
+git push origin main
+```
+
+2025-08-06 Wk 32 Wed - 15:03
+
+```sh
+USE_SHELL=1 ./docker_build.sh && MOUNT="./mnt" ./docker_root_sh.sh
+
+# in shell
+/opt/venv/bin/pip3 show pydbml
+
+# out (relevant)
+Version: 1.2.0
+```
+
+Cool, we're on latest pydbml now! So we should be able to create our dbmt-py and use this as dependency just fine.
+
+2025-08-06 Wk 32 Wed - 15:20
+
+We can know use
+
+![[#^ex000-as-expected-1]]
+
+2025-08-06 Wk 32 Wed - 15:38
+
+This is useful!
+
+```sh
+poetry add checkpipe
+```
+
+on to `pyproject.toml`
+
+2025-08-06 Wk 32 Wed - 16:08
+
+```sh
+poetry add git+https://github.com/LanHikari22/DBML_SQLite@v0.3.4
+
+# out
+'Tag' object has no attribute 'parents'
+```
+
+Not sure what's with this... It seems to have given a different issue before, then I bumped [DBML_SQLite fork](https://github.com/LanHikari22/DBML_SQLite) python requirement to $\ge 3.8$ and it's back to this issue... [[#4.2 poetry add github project says Tag object has no attribute parents|Issue]]. ^spawn-issue-061610
+
+2025-08-06 Wk 32 Wed - 16:11
+
+I think the issue is that the third table is supposed to have a reference.
+
+There's a [creating_schema.md](https://github.com/Vanderhoof/PyDBML/blob/master/docs/creating_schema.md) documentation.
+
+2025-08-06 Wk 32 Wed - 16:40
+
+```sh
+./docker_build.sh && MOUNT="./mnt" ./docker_run.sh unittest DbmlUnitTests.test_example_parsing_dbml
+
+# out (relevant)
+FAIL: test_example_parsing_dbml (dbmint.dbml.DbmlUnitTests.test_example_parsing_dbml)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/app/src/dbmint/dbml.py", line 74, in test_example_parsing_dbml
+    self.assertEqual(dbml_data.tables[2], expected_tables[2])
+AssertionError: <Table 'public' 'User_Owns_Posts'> != <Table 'public' 'User_Owns_Posts'>
+```
+
+How are they not the same? Why are the first objects the same? Is it really because of the references? Those aren't properties here. 
+
+```python
+print(table2.__dict__)
+print(dbml_data.tables[2].__dict__)
+
+# out 
+{'database': <Database>, 'name': 'User_Owns_Posts', 'schema': 'public', 'columns': [<Column 'id', 'integer'>, <Column 'from_user_id', 'integer'>, <Column 'to_post_id', 'integer'>], 'indexes': [], 'alias': None, '_note': Note(''), 'header_color': None, 'comment': None, 'abstract': False, 'properties': {}}
+{'database': <Database>, 'name': 'User_Owns_Posts', 'schema': 'public', 'columns': [<Column 'id', 'integer'>, <Column 'from_user_id', 'integer'>, <Column 'to_post_id', 'integer'>], 'indexes': [], 'alias': None, '_note': Note(''), 'header_color': None, 'comment': 'A one-to-many relationship between users and posts', 'abstract': False, 'properties': {}}
+
+```
+
+Oh The table had a comment!
+
+2025-08-06 Wk 32 Wed - 16:46
+
+Okay! The tables are identical now. We need to test for the references too
+
+```python
+print(dbml_data.refs)
+
+# out
+[<Reference '-', ['from_user_id'], ['id']>, <Reference '-', ['to_post_id'], ['id']>]
+```
+
+OK! We're able to confirm all the data in `ex000.dbml`!
+
+
+## 4.2 poetry add github project says Tag object has no attribute parents
+
+- [ ] 
+
+From [[#^spawn-issue-061610]].
+
+```sh
+poetry add git+https://github.com/LanHikari22/DBML_SQLite@v0.3.4
+
+# out
+'Tag' object has no attribute 'parents'
+```
+
+2025-08-06 Wk 32 Wed - 16:11
+
+I need this to work so I confirm that the [DBML_SQLite fork](https://github.com/LanHikari22/DBML_SQLite) README is correct...
+
+### 4.2.1 Pend
+
+# 5 HowTos
+
+## 5.1 Disable python formatting on a specific block
+
+- [x] 
+
+2025-08-06 Wk 32 Wed - 03:07
+
+The defaults are not always readable... For example it takes
+
+```python
+    rename_commands = (
+        SyncCommandsImpl.Rename
+        .from_str(dbml_schema_content) 
+        | pipe.Of[Result[List[SyncCommandsImpl.Rename], Error]].map(
+            lambda res: unwrap_or_print_and_exit_on_app_err(res).extract(
+                caller_returns_IO=True)
+        )
+    )
+```
+
+and turns it into 
+
+```python
+    rename_commands = SyncCommandsImpl.Rename.from_str(dbml_schema_content) | pipe.Of[
+        Result[List[SyncCommandsImpl.Rename], Error]
+    ].map(
+        lambda res: unwrap_or_print_and_exit_on_app_err(res).extract(
+            caller_returns_IO=True
+        )
+    )
+```
+
+I'm using the [Black formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter) extension in vscode.
+
+From [this stackoverflow answer](https://stackoverflow.com/a/58584557) which references [black docs](https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html#ignoring-sections), the [ignoring section](https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html#ignoring-sections) specifies that we can use `# fmt: off` and `# fmt: on` blocks or just `#fmt: skip` for one entry.
+
+In my case, `# fmt: skip` was not enough, I had to toggle off/on.
+
+## 5.2 Installing a python project with a pyproject.toml
+
+- [ ] 
+
+From [[#^spawn-howto-060957]].
+
+2025-08-06 Wk 32 Wed - 09:57
+
+Similar to this [guide](https://realpython.com/python-pyproject-toml/),
+
+```sh
+python3 -m pip install -e .
+```
+
+It mentions
+
+> If all you need is to migrate from a basic [`requirements.txt` file](https://realpython.com/what-is-pip/#using-requirements-files), then you’ll be able to replace that with `pyproject.toml`.
+
+I think that could be good for our python app here.
+
+2025-08-06 Wk 32 Wed - 10:31
+
+Actually in this [answer](https://stackoverflow.com/a/74625055) they're saying requirement.txt should still be present...
+
+## 5.3 Git: How to diff between two tags
+
+- [x] 
+
+From [[#^spawn-howto-061103]].
+
+2025-08-06 Wk 32 Wed - 11:03
+
+From this [stackoverflow answer](https://stackoverflow.com/a/3211829) referencing [git-diff](https://git-scm.com/docs/git-diff),
+
+We can just do
+
+```sh
+git diff tag1 tag2
+```
+
+Or even show commits between tags!
+
+```sh
+git log tag1..tag2
+```
+
+Or show the files changed between the two tags
+
+```sh
+git diff tag1 tag2 --stat
+```
+
+Or diffing on a specific file
+
+```sh
+git diff tag1 tag2 -- some/file/name
+```
+
+
+## 5.4 Git: Find out when a line in a file was changed after a commit
+
+- [x] 
+
+From [[#^spawn-howto-061125]].
+
+2025-08-06 Wk 32 Wed - 11:25
+
+From this [stackoverflow answer](https://stackoverflow.com/a/50473741/6944447),
+
+```sh
+git log -L '/the line from your file/,+1:path/to/your/file.txt'
+git log -L 15,+1:'path/to/your/file.txt'
+```
+
+This [stackoverflow answer](https://stackoverflow.com/a/16635324/6944447) also covers when a file itself was changed in what commit to narrow search or deal with deleted files
+
+```sh
+git log --all -- [file path]
+```
+
+[this post](https://sentry.io/answers/view-the-change-history-of-a-single-file-in-git/) shows how track all changes across a file,
+
+```sh
+git log --follow --patch -- name-of-file
+```
+
+## 5.5 Add python project from github to requirements.txt
+
+- [x] 
+
+From [[#^spawn-howto-061436]].
+
+2025-08-06 Wk 32 Wed - 14:36
+
+From this [stackoverflow answer](https://stackoverflow.com/a/35998253/6944447),
+
+The cleanest way is using a tag,
+
+```sh
+some-package @ git+https://github.com/owner/repo@0.1
+```
+
+2025-08-06 Wk 32 Wed - 15:39
+
+This [stackoverflow answer](https://stackoverflow.com/a/59718369/6944447) does this but with `poetry` and `pyproject.toml`,
+
+```
+poetry add git+<protocol>://git@<repository>/<owner>/<project>.git#<git_ref>
+poetry add git+ssh://git@gitlab.blabla.co/nubela/project-a.git
+```
+
+In my case,
+
+```sh
+poetry add git+https://github.com/LanHikari22/DBML_SQLite@v0.3.4
+```
+
+You can install the package locally with 
+
+```sh
+python3 -m pip install -e .
+```
+
+or
+
+```sh
+poetry  install
+```
+
+Need to make sure versions are aligned or this happens:
+
+```
+poetry add git+https://github.com/LanHikari22/DBML_SQLite@v0.3.4
+
+# out
+The "poetry.dev-dependencies" section is deprecated and will be removed in a future version. Use "poetry.group.dev.dependencies" instead.
+The "poetry.dev-dependencies" section is deprecated and will be removed in a future version. Use "poetry.group.dev.dependencies" instead.
+
+Updating dependencies
+Resolving dependencies... (0.0s)
+
+The current project's supported Python range (>=3.8) is not compatible with some of the required packages Python requirement:
+  - dbml-sqlite requires Python ^3.7, so it will not be installable for Python >=4.0
+
+Because dbmint-py depends on dbml-sqlite (0.3.4) @ git+https://github.com/LanHikari22/DBML_SQLite@v0.3.4 which requires Python ^3.7, version solving failed.
+
+  * Check your dependencies Python requirement: The Python requirement can be specified via the `python` or `markers` properties
+
+    For dbml-sqlite, a possible solution would be to set the `python` property to ">=3.8,<4.0"
+
+    https://python-poetry.org/docs/dependency-specification/#python-restricted-dependencies,
+    https://python-poetry.org/docs/dependency-specification/#using-environment-markers
+```
+
+# 6 Investigations
+
+## 6.1 Invst what happened to table.refs for pydbml
+
+- [x] 
+
+From [[#^spawn-invst-061055]].
+
+2025-08-06 Wk 32 Wed - 10:55
+
+In commit `8fdc78b`,
+
+With the following changes:
+
+```diff
+# in pyproject.toml
+-pydbml = "^0.3.4"
++pydbml = "^1.2.0"
+ 
+# in requirements.txt
+-pydbml==0.3.4
++pydbml==1.2.0
+```
+
+We get this on testing,
+
+```sh
+python3 -m pip install -e .
+poetry run pytest
+
+
+# out (relevant)
+tests/test_dbml_sqlite.py .F......F.F 
+tests/test_terminal.py F 
+
+>       for j, ref in enumerate(table.refs):
+                                ^^^^^^^^^^
+E       AttributeError: 'Table' object has no attribute 'refs'
+
+dbml_sqlite/core.py:164: AttributeError
+```
+
+This worked in v0.3.4. So what happened to it?
+
+Let's clone the project.
+
+```
+mkdir -p ~/src/cloned/gh/Vanderhoof/
+cd ~/src/cloned/gh/Vanderhoof/
+git clone git@github.com:Vanderhoof/PyDBML.git
+cd PyDBML
+```
+
+2025-08-06 Wk 32 Wed - 11:02
+
+[[#5.3 Git How to diff between two tags|HowTo]]. ^spawn-howto-061103
+
+2025-08-06 Wk 32 Wed - 11:23
+
+This is the [line](https://github.com/Vanderhoof/PyDBML/blob/8ffe299d2b371b6f8d286c6691e1f59c648969cb/pydbml/classes.py#L462) where refs was defined for pydbml in 0.3.4. 
+
+So when was this line changed? [[#5.4 Git Find out when a line in a file was changed after a commit|HowTo]]. ^spawn-howto-061125
+
+By tag 1.0.0, that file itself doesn't exist anymore.
+
+Line was added in commit `0505a61aa6eb8e357900b030f12f8b414d96520f (tag: 0.1)`. 
+
+2025-08-06 Wk 32 Wed - 11:44
+
+```diff
+git show 503fbe4f25b1fd8fb0eda9cf4575b81cee63dc58
+
+# out (relevant)
+--- /dev/null
++++ b/pydbml/classes/table.py
+
+--- a/pydbml/classes.py
++++ /dev/null
+```
+
+We can see that again this file had been refactored
+
+```sh
+git log --all -- pydbml/classes/table.py
+
+# out (relevant)
+commit 90c63c83190e5e104dfbb11caa932b935fd84068
+Author: Daniel Minukhin <ddddsa@gmail.com>
+Date:   Thu Jul 18 20:50:56 2024 +0200
+
+    Rewrite SQL and DBML rendering (#39)
+```
+
+```diff
+git show 90c63c83190e5e104dfbb11caa932b935fd84068
+
+# out (relevant)
+--- a/pydbml/classes/table.py
++++ b/pydbml/_classes/table.py
+```
+
+Now let's track all the changes over that file 
+
+```diff
+git log --follow --patch pydbml/_classes/table.py
+
+# out (relevant)
+commit 76c45399276408f1f41f4c492814ee8e057a6f6b
+Author: Vanderhoof <ddddsa@gmail.com>
+Date:   Thu May 19 08:45:35 2022 +0200
+
+    multiple schemas for tables and enums
+
+diff --git a/pydbml/classes/table.py b/pydbml/classes/table.py
+index c5847f6..f79b72a 100644
+--- a/pydbml/classes/table.py
++++ b/pydbml/classes/table.py
+@@ -30,21 +30,25 @@ class Table(SQLOjbect):
+ 
+     def __init__(self,
+                  name: str,
++                 schema: str = 'public',
+                  alias: Optional[str] = None,
+                  note: Optional[Union['Note', str]] = None,
+                  header_color: Optional[str] = None,
+-                 # refs: Optional[List[TableReference]] = None,
+                  comment: Optional[str] = None):
+         self.database: Optional[Database] = None
+         self.name = name
++        self.schema = schema
+         self.columns: List[Column] = []
+         self.indexes: List[Index] = []
+         self.alias = alias if alias else None
+         self.note = Note(note)
+         self.header_color = header_color
+-        # self.refs = refs or []
+         self.comment = comment
+```
+
+Maybe the [get_refs](https://github.com/Vanderhoof/PyDBML/blob/5c6a9173580d7273a6799cdd725eabd3a2e76911/pydbml/_classes/table.py#L115) function can be used?
+
+In [`v0.3.4 classes.py`](https://github.com/Vanderhoof/PyDBML/blob/8ffe299d2b371b6f8d286c6691e1f59c648969cb/pydbml/classes.py#L179) it says
+
+```python
+class TableReference(SQLOjbect):
+    '''
+    Class, representing a foreign key constraint.
+    This object should be assigned to the `refs` attribute of a Table object.
+    Its `sql` property contains the inline definition of the FOREIGN KEY clause.
+    '''
+```
+
+In [`master _classes/reference.py`](https://github.com/Vanderhoof/PyDBML/blob/5c6a9173580d7273a6799cdd725eabd3a2e76911/pydbml/_classes/reference.py#L15), 
+
+```python
+class Reference(SQLObject, DBMLObject):
+    '''
+    Class, representing a foreign key constraint.
+    It is a separate object, which is not connected to Table or Column objects
+    and its `sql` property contains the ALTER TABLE clause.
+    '''
+```
+
+So it's not the same...
+
+2025-08-06 Wk 32 Wed - 12:13
+
+```sh
+rg 'TableReference'
+
+# out
+docs/upgrading.md
+27:Previously the `Table` object had a `refs` attribute which holded a list of `TableReference` objects. `TableReference` represented a table relation and duplicated the `Reference` object of `PyDBMLParseResults` container.
+29:**In 1.0.0 the `TableReference` class is removed, and there's no `Table.refs` attribute.**
+```
+
+This upgrading file actually helps with upgrading projects to v1.!
+
+They talk about refs [here](https://github.com/Vanderhoof/PyDBML/blob/master/docs/upgrading.md#getting-tables-from-parse-results-by-name).
+
+They explain that we *can* use the `get_refs` function. The reference is defined on the table that is on the left of the relation. I believe this should also be what corresponds to `col1`.  for that reference.
+
+2025-08-06 Wk 32 Wed - 12:27
+
+For reference, this is my `ex000.dbml` generated sql,
+
+```sql
+CREATE TABLE Users (
+  id INTEGER PRIMARY KEY,
+  username TEXT,
+  role TEXT,
+  created_at TEXT
+);
+CREATE TABLE Posts (
+  id INTEGER PRIMARY KEY,
+  title TEXT,
+  body TEXT,
+  status TEXT,
+  created_at TEXT
+);
+CREATE TABLE User_Owns_Posts (
+  id INTEGER PRIMARY KEY,
+  from_user_id INTEGER,
+  to_post_id INTEGER,
+  FOREIGN KEY(from_user_id) REFERENCES Users(id),
+  FOREIGN KEY(to_post_id) REFERENCES Posts(id)
+);
+```
+
+So between `User_Owns_Posts` and `Posts`, 
+
+`col1` should be `to_post_id` and `col2` should be `id`.
+
+and for some reason we need to do `col1[0]` to get the column because it's a single element wrapped in a list.
+
+# 7 Ideas
+
+## 7.1 Test workflows and PyPi Version in README.md
+
+2025-08-06 Wk 32 Wed - 14:28
+
+The [README.md for DBML_SQLite](https://raw.githubusercontent.com/LanHikari22/DBML_SQLite/refs/heads/main/README.md) has many interactive elements to learn from. We could do this also.
+
+# 8 External Links
+
+| Reference                                                                                                                                                                                                                                    | Where                                                    |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| [Link](https://github.com/delta-domain-rnd/delta-trace/blob/main/lan/projects/2025/000%20dbmint/tasks/2025/001%20Create%20Python%20and%20Rust%20parsing%20for%20dbmt%20language.md#34-open-a-pr-for--dbml_sqlite-and-bump-version-of-pydbml) | [#9](https://github.com/dvanderweele/DBML_SQLite/pull/9) |
+
+# 9 resources
