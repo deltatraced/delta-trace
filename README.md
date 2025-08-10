@@ -33,6 +33,8 @@ This is the central notes repository for everything delta-domain-rnd!
 
 Other repositories in the organization give deliverables. This gives the behind-the-scenes, and also some reader-facing articles may surface still!
 
+For higher browser viewing compatibility, switch to the [webview branch](https://github.com/delta-domain-rnd/delta-trace/tree/webview).
+
 # 2 See also
 
 

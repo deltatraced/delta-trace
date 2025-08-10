@@ -30,12 +30,6 @@ This method could mean to start private, assess on a case-by-case basis what cou
 
 ## 1.2 Rewriting for more clarity
 
-2025-08-10 Wk 32 Sun - 08:25
-
-I decided to rewrite the entry beginning with an evaluative criteria, why it is I want to take notes and share them.
-
-I also rewrote most of the section on LLMs because they are not the focus here. Their use is secondary, and I make it clear why (they are black-boxes, they hinder transparency when trying to trace judgements or reasoning across time and context).
-
 # 2 Tasks
 
 ## 2.1 Gather the information recommended to me by a friend who reviewed my article
