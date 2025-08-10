@@ -1,6 +1,6 @@
 {
   "collapse-filter": false,
-  "search": "Grease",
+  "search": "",
   "showTags": false,
   "showAttachments": false,
   "hideUnresolved": true,
@@ -60,6 +60,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 2.2075297955691204,
+  "scale": 0.2907035121737112,
   "close": false
 }
