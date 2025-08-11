@@ -14,44 +14,6 @@ For more details on my work, see [[Projects]].
 | Embedded System Development   | Quartus, STM32, Teensy 2, Microchip PIC, DE10-lite, UART, SPI, I2C, USB, Wi-Fi, Bluetooth         |
 | Professional Coding Practices | Git, Docker, perf, Gdb, Unit Testing, Jira, Jenkins, Kubernetes, Google Cloud Platform, Valgrind  |
 
-![Work Stats](https://github-readme-stats.vercel.app/api?username=LanHikari22&show_icons=true&count_private=true&include_all_commits=true&show=prs_merged,prs_merged_percentage,issues,contributed_to&theme=tokyonight&hide_border=true)
-
-[![Contributions](https://github-contribution-stats.vercel.app/api/?username=LanHikari22&theme=tokyonight)](https://github.com/LanHikari22)
-
-
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=LanHikari22&repo=lan-setup-notes&theme=tokyonight&hide_border=true)](https://github.com/LanHikari22/lan-setup-notes)
-
-   ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=LanHikari22&show_icons=true&include_all_commits=true&count_private=true&theme=tokyonight&hide_border=true&rank_icon=github)
-
-[![LanHikari22's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=LanHikari22&theme=tokyo-night&hide_border=true)](https://github.com/Ashutosh00710/github-readme-activity-graph)
-
-![Profile Views](https://komarev.com/ghpvc/?username=LanHikari22&color=blueviolet&style=flat)
-
-
-
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=LanHikari22&hide=Assembly,LLVM)
-
-| [![Contributions](https://github-contribution-stats.vercel.app/api/?username=LanHikari22&theme=tokyonight)](https://github.com/LanHikari22) | ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=LanHikari22&show_icons=true&include_all_commits=true&count_private=true&theme=tokyonight&hide_border=true&rank_icon=github) |
-| ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                             | [![Contributions](https://github-contribution-stats.vercel.app/api/?username=LanHikari22&theme=tokyonight)](https://github.com/LanHikari22)                                                     |
-
-
-|     |     |
-| --- | --- |
-|     |     |
-
-
-
-
-| [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=LanHikari22)](https://github.com/LanHikari22) | [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=LanHikari22&hide=Assembly,LLVM)](https://github.com/LanHikari22)<br>                                               |
-| -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| With Assembly and LLVM (Reconstruction projects)                                                                           | Without Assembly and LLVM                                                                                                                                                                       |
-| [![GitHub Streak](https://streak-stats.demolab.com?user=LanHikari22&border_radius=6)](https://github.com/LanHikari22)      | ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=LanHikari22&show_icons=true&include_all_commits=true&count_private=true&theme=tokyonight&hide_border=true&rank_icon=github) |
-
-
-
-
-
 # 3 Education
 
 Bachelor of Science (B.S.) in Computer Engineering (2019) – (GPA: 3.67, Honors)
@@ -137,8 +99,6 @@ Milwaukee, WI, USA. June 2018 - Aug 2018
 
 Transformed molecular engineering DNA editor C Project with vim-like features, enhancing core functionality by gaining insights into molecular engineering theory for effective debugging, and devising automation scripts to accurately modify extensive codebase.
 
-**Key Accomplishments***
+**Key Accomplishments:**
 - Transformed legacy C code originally developed for Mac systems into modern Linux-compatible environment, achieving substantial time savings through implementation of project-scale refactoring and automation scripts.
 - Effectively reduced manual effort and accelerated the completion of repetitive refactoring tasks, resulting in increased productivity and streamlined development processes.
-
-# 5 Activities
