@@ -120,9 +120,9 @@ For any positive real number $a$, and any negative, zero, or positive real numbe
 
 $a^b$ is always a positive number. 
 
-When  $b \ge 1$, then $a^b \ge a$. 
-When $b \in (0, 1)$, then $a^b \in (0, a)$.
-When $b = 0$, then $a^b = 1$.
+- When  $b \ge 1$, then $a^b \ge a$. 
+- When $b \in (0, 1)$, then $a^b \in (0, a)$.
+- When $b = 0$, then $a^b = 1$.
 
 (`Prs 1.3`) 
 
