@@ -28,14 +28,17 @@ The template for these headings can be found here:
 
 [[Entry Note Headers]].
 
-Thank you for going through my non-linear tutorial!
+Although there are some manual things right now, like spawning new records, or referencing items from References, they can be done quickly. They could be automated in an obsidian plugin in the future!
+
+Thank you for going through my non-linear note taking style tutorial!
 
 # 3 Tasks
 
 ## 3.1 File a bug report
 
-- [ ] Here we specify some objectives that has to be completed
-- [ ] Organized my documents
+- [x] Here we specify some objectives that has to be completed
+- [x] Organized my documents
+- [ ] Find where to file the report to
 
 From [[#^spawn-task-c33094]].
 
@@ -97,7 +100,7 @@ So you're trying to resolve this issue, but you need to figure out how to open t
 
 This is what a HowTo is for! 
 
-Spawn [[[#5.1 Open the Windows Registery to fix Paint.exe!]]]. ^spawn-howto-9f5c66
+Spawn [[#5.1 Open the Windows Registery to fix Paint.exe!]]. ^spawn-howto-9f5c66
 
 2025-08-12 Wk 33 Tue - 13:29
 
@@ -158,7 +161,9 @@ From [[#^spawn-invst-eadf79]].
 
 You made it! Not sure if through the spawner or by coming linearly through the file from the HowTos section...
 
-So this is where we write about our concepts. Investigations are more open-ended and they may even involve some operative actions. For example...
+So this is where we write about our concepts, research, open-ended debugging sessions...
+
+Investigations are more open-ended and they may even involve some operative actions. In that case, we can spawn some tasks like...
 
 2025-08-12 Wk 33 Tue - 13:38
 
@@ -168,11 +173,11 @@ Spawn [[#3.2 Setup a fresh installation of Windows on a VM]] ^spawn-task-603822
 
 Once we're satisfied with our investigation, there may be resources here that other records can reference.
 
-We add a code for the reference based on the heading code of this record (6.1), and a simple counter. So now we can refer to [google](https://www.google.com/) [[#^6-1-1]]! Here and everywhere.
+We add a code for the reference based on the heading code of this record (6.1), and a simple counter. So now we can refer to [duckduckgo](https://duckduckgo.com/) [[#^6-1-1]]! The first link is the external link, the second is internal to where it is in the references for indexing purposes.
 
 Back to the [[#^spawn-invst-eadf79|Spawner]]!
 ### 6.1.1 References
-1. [google](https://www.google.com/) ^6-1-1
+1. [duckduckgo](https://duckduckgo.com/) ^6-1-1
 
 # 7 Ideas
 
