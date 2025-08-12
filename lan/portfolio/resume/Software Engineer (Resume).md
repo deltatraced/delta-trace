@@ -27,10 +27,8 @@ Saudi Arabia. Mar 2024 - Current.
 Independent development work including open source development and contribution, freelancing, and independent projects like [dbmint](https://github.com/LanHikari22/dbmint), which improves database tooling by making it very easy and visual to create databases with error correction in Rust.
 
 **Key Accomplishments:**
-- Created a public knowledge base to increase transparency in the development process. You are already here! On Github, [LanHikari22](https://github.com/LanHikari22): 
-	- See [delta-trace](https://github.com/delta-domain-rnd/delta-trace/tree/webview) for project/concept research and development. 
-	- See [lan-setup-notes](https://github.com/LanHikari22/lan-setup-notes/tree/webview) for tooling development, diagnostics, devops, and open source contribution to system builds. 
-	- See [dism-exe-notes](https://github.com/dism-exe/dism-exe-notes/tree/webview/lan) for full reverse engineering and [software reconstruction](https://github.com/dism-exe/bn6f) of the bn6f GBA game.
+- Created a [public knowledge base](https://github.com/delta-domain-rnd/delta-trace/tree/webview) to increase transparency in the development process. This spans many topics like project/concept research and development, tooling development, diagnostics, DevOps, open source contributions and methodology, reverse engineering, and system reproduction.
+	- And you are already here! Feel free to check [[000 Note Taking Philosophy]]!
 
 ## 4.2 Software/Hardware R&D Engineer, Genesis MedTech (USA) Inc.
 Minneapolis, MN, USA.  Sept 2023 - Jan 2024.
