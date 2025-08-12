@@ -1,0 +1,25 @@
+
+# 1 Problem
+
+For many purposes, we can view content directly in obsidian or through github by converting our obsidian vault to [CommonMark](https://spec.commonmark.org/0.31.2/).
+
+However, sometimes we want a full-fledged website for a service, like a portfolio landing page or a website offering services to be sold.
+
+We want to maintain a strict content-style separation and be able to automatically generate websites based on different contents from an obsidian vault.
+
+# 2 Requirements
+
+We need to make standards for how the content is created, how websites can be generated as a result, and how to customize the styling and function of the website or provide hooks for different website implementations to interface with obsidian markdown files. A lot of this should be possible via an obsidian plugin as part of this project.
+
+We need to also configure a data directory for content generated through the website rather. Think for example user comments, or website database content. This is part of the website implementation and does not interact back with the obsidian vault, but it can be good for analytics or any future feature that requires them.
+
+For a functioning demo, we need to provide five working items:
+1. An obsidian plugin that can power the website-generation process
+2. An obsidian vault with example content
+3. A standard defining how website implementations source content from obsidian vaults
+4. Two website implementation skeletons using different web technologies that generate a final website using the obsidian plugin and the example content.
+
+# 3 Goals
+
+- [ ] [[000 Static website sources obsidian content and can be viewed online with a nice URL]]
+
