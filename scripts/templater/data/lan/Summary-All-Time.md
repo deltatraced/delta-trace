@@ -13,4 +13,6 @@
 | [[000 Fork Vscode Extension DBML Live Preview to support DBMT]] | 0h 36m 25s |
 | &nbsp;&nbsp;&nbsp;&nbsp;[[000 Fork Vscode Extension DBML Live Preview to support DBMT#3.1 Clone and run vscode-extension-dbml-viewer\|3.1 Clone and run vscode-extension-dbml-viewer]] | 0h 36m 25s |
 | [[W27 000 Creating a README for my github profile]] | 0h 27m 6s |
+| [[001 Note Entry Header Meanings]] | 0h 2m 23s |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[001 Note Entry Header Meanings#3.2 Setup a fresh installation of Windows on a VM\|3.2 Setup a fresh installation of Windows on a VM]] | 0h 2m 23s |
 

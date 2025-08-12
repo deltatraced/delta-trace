@@ -8,6 +8,15 @@ Here we state the objective of the note in a concise matter. This may include ho
 
 This is a sequential section where we log progress on the task or entry as we move along. It's meant to be linearly read. Other sections below, on the other hand, are record-based. For example we may spawn a task, issue, or investigation from here. The order with which they are spawned will hint at some linearity or progress, but subsequent tasks can also reference prior ones so the ordering is not as strict. 
 
+If you are viewing this on github, note since this has a lot of headings, you can view the headings on github via `Outline`
+
+![[Pasted image 20250812150047.png]]
+
+To get something like this that you can jump through!
+
+![[Pasted image 20250812150118.png]]
+
+
 Let's spawn a task. Let's write some special keyword, like SPW0. This allows this line to be easily identified so that we can create a back reference from the spawned task back here. 
 
 Now when we add the new task under the Tasks section, we can just write `[ [ ^SPW0` and select the line and Obsidian generates a random record for it quickly. We can follow that link back with `Ctrl + .` and replace `SPW0` with  `Spawn {internal link}.`
@@ -75,6 +84,48 @@ from [[#^spawn-task-603822]]
 2025-08-12 Wk 33 Tue - 13:45
 
 We're back in the Tasks section from the Investigation section! Because this is a clearly operative thing to get done!
+
+### 3.2.1 Time logging mini tutorial
+
+You can learn more about setting this up in [obsidian: 000 Setting up time logging in Obsidian](https://github.com/LanHikari22/lan-setup-notes/blob/webview/lan/topics/tooling/obsidian/entries/2025/000%20Setting%20up%20time%20logging%20in%20Obsidian.md) from my other vault [lan-setup-notes](https://github.com/LanHikari22/lan-setup-notes/tree/webview).
+
+We can also time log against any heading in Obsidian using my time logging scripts.
+
+Just put your cursor at the heading, like this
+
+![[Pasted image 20250812145428.png]]
+
+and then do `Alt+k Alt+e`
+
+Given that you've configured this plugin with your user, you see
+
+![[Pasted image 20250812144507.png]]
+
+Write "Sta"  and select "{user} Start Log"
+
+![[Pasted image 20250812144536.png]]
+
+Now let's do Open Timeline Log to check out what happened!
+
+![[Pasted image 20250812144657.png]]
+
+Notice you can click the heading you started this with or even hover over it to see its content:
+
+![[Pasted image 20250812144747.png]]
+
+
+When we're done, we can do `Alt+k Alt+e Stop` or just stop from the logger UI directly.
+
+![[Pasted image 20250812144855.png]]
+
+We can do `Alt+k Alt+e Summarize Time Logs` and this will create a summary by week and all time over in the same director as the timeline.
+
+
+![[Pasted image 20250812145037.png]]
+
+This explained how we can get timing information for our notes, and specifically where! 
+
+If you're curious about the WkNN, those are week numbers according to the [ISO week date](https://www.epochconverter.com/weeks/2025).
 
 OK Let's go back to our [[#^spawn-task-603822|spawner]].
 
