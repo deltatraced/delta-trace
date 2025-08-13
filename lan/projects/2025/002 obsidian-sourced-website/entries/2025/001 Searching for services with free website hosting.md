@@ -1,8 +1,12 @@
+---
+status: done
+---
+
 # 1 Objective
 
 We need to be able to launch a test static html website on the internet using a 3rd party service. Optionally, we need to also be able to configure it with a nice URL name
 
-- [ ] Able to publish a test site over a 3rd party hosted server
+- [x] Able to publish a test site over a 3rd party hosted server
 
 # 2 Journal
 
@@ -61,7 +65,7 @@ They also allow [purchasing of domains names](https://www.freehosting.com/client
 
 This [reddit post](https://www.reddit.com/r/software/comments/1i0av3m/whats_the_best_free_hosting_site_for_a_basic_site/) recommends different possible free hosting services,
 
-[Github pages](https://docs.github.com/en/pages) ([Github pages guide](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)), [wordpress.com](wordpress.com), [wasmer](https://wasmer.io/free-web-hosting),
+[Github pages](https://docs.github.com/en/pages) ([Github pages guide](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)),  [wasmer](https://wasmer.io/free-web-hosting), [wordpress.com](https://www.wordpress.com),
 
 [wasmer](https://wasmer.io/free-web-hosting) supports hosting directly from github which is interesting.
 
