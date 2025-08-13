@@ -9,4 +9,4 @@ One aim with dbmint is to empower creators to create and operate databases in an
 
 # 2 Goals
 
-- [ ] [[000 Dbmint generates Rust db libraries from dbmn]]
+- [ ] [[000 Dbmint generates Rust db libraries from dbmt]]
