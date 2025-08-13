@@ -1,9 +1,10 @@
 
 Project description can be found at [[000 Dbmint]].
 
+
 # 1 Goal
 
-Given a `dbmt` schema file, we need to generate a Rust library which integrates that database information into the rust type system and utilize Rust's type system for correctness in library use.
+Given a `dbmt` schema file, we need to generate a [Rust](https://www.rust-lang.org/) library which integrates that database information into the rust type system and utilize Rust's type system for correctness in library use.
 
 By the end of this goal, we will have a deliverable containing a...
 
@@ -23,5 +24,6 @@ By the end of this goal, we will have a deliverable containing a...
 	2. [ ] Works at scale with respect to the number of tables in a database ^deliver7-2
 	3. [ ] Works at scale with respect to the number of defined table joins ^deliver7-3
 	4. [ ] Provides efficient database operations proven by measurements ^deliver7-4
+8. [ ] Mechanism of converting a `dbmt` file to a structurally equivalent `dbml` file, at least for the purposes of generating a sqlite3 database ^deliver8
 
 # 2 Objectives
