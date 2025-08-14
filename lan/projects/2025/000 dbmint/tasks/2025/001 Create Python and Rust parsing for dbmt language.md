@@ -1,5 +1,4 @@
 
-
 #external
 
 # 1 Objective
@@ -26,7 +25,8 @@ I think in my case, `.dbmt` has different features and approaches, I will mainta
 
 We're going to make them standalone projects with dependencies. For the dependency issue, we could fork the 
 
-[[#3.2 Create repositories dbmt-py and dbmt-rs and reference language spec in delta-trace|Task]]. ^spawn-task-060600
+Spawn [[#3.2 Implement dbmt-py]]. ^spawn-task-060600
+
 
 2025-08-06 Wk 32 Wed - 16:32
 
@@ -80,18 +80,92 @@ I guess this is how we add two different licenses? This project said this can us
 
 2025-08-06 Wk 32 Wed - 17:43
 
-The README.md example doesn't build and is missing `.unwrap()`s. Also that example is not very clear. We should open a PR to add come clear usage examples similar to what we did with python above over an example. [[#3.6 Open a PR for dbml-rs to add better examples and fix README.md broken example|Task]]. ^spawn-task-061745
+The README.md example doesn't build and is missing `.unwrap()`s. Also that example is not very clear. We should open a PR to add come clear usage examples similar to what we did with python above over an example. 
 
+Spawn [[#3.6 Open a PR for dbml-rs to add better examples and fix README.md broken example]]. ^spawn-task-061745
 
-### 3.1.3 Pend
+### 3.1.3 Later
 
-## 3.2 Create repositories dbmt-py and dbmt-rs and reference language spec in delta-trace
+## 3.2 Implement dbmt-py
 
 - [ ] 
 
 From [[#^spawn-task-060600]].
 
 2025-08-06 Wk 32 Wed - 06:01
+
+2025-08-14 Wk 33 Thu - 15:52
+
+Let's create the project!
+
+2025-08-14 Wk 33 Thu - 16:23
+
+We need a python3 library project template. Something similar to [checkpipe](https://github.com/LanHikari22/checkpipe). with a `requirements.txt` and `pyproject.toml`. 
+
+Spawn [[#3.7 Create a python3 library project template]] ^spawn-task-a2863a
+
+2025-08-14 Wk 33 Thu - 19:02
+
+Awesome, we have a template python3 library. Let's create the project!
+
+```sh
+cp -r ~/src/cloned/gh/LanHikari22/lan-exp-scripts/templates/2025/topics/py3/persistant/001-lan-library/library ~/src/cloned/gh/LanHikari22/dbmt-py
+```
+
+Now we need to deal with all the TODOs.
+
+```sh
+# in /home/lan/src/cloned/gh/LanHikari22/dbmt-py
+grep 'TODO' *       
+
+# out
+mypy.sh:app_name="TODO app name"
+pyproject.toml:name = "TODO Project Name"
+pyproject.toml:description = "TODO Description"
+README.md:  TODO library
+README.md:  <p>TODO description</p>
+README.md:- [Why TODO My tool?](#why-todo-my-tool)
+README.md:## Why TODO My tool?
+README.md:pip install TODO my tool
+README.md:TODO How do you use the tool?
+README.md:TODO Thank people!
+```
+
+Some of these are included in a heading, so need to make sure to regenerate the Table of Contents.
+
+There's also the library name itself, `todo_library_name`. 
+
+Make sure to include `pydbml` as a dependency in both `pyproject.toml` and `requirements.txt`. 
+
+2025-08-14 Wk 33 Thu - 19:35
+
+Here's the plan to a functioning `dbmt-py` implementation and release on PyPi:
+
+This is anchored by the [dbmt spec](https://github.com/LanHikari22/dbmint/blob/main/docs/dbmt%20specification%20v1.0.0t.md).
+
+- [ ] Partially parse a `dbmt` script, removing dot and percent commands, and validate the underlying `dbml` using `PyDBML`.
+	- [ ] Test with just basic dot and percent syntax parsing that we have a valid `dbml`.
+	- [ ] Test with complete `dbmt` parsing that the `dbmt` file is valid AND the `dbml` file is valid.
+	- [ ] Test going full circle `dbmt` -> `dbml` -> `dbmt`.
+- [ ] Implement/test parsing for `%virtual`, `%ensure_unique`, `%ensure_join_relation`, `%fixed`, `%immutable`, `%mutable`, `%ephemeral` command parsing
+	- [ ] Test `%virtual`, `%ensure_unique`, `%ensure_join_relation` can only be applied to columns.
+	- [ ] Test `%ensure_unique` can only work for a column with `[unique]` configuration.
+	- [ ] Test `%fixed`, `%immutable`, `%mutable`, `%ephemeral` can only apply to tables.
+	- [ ] Test only one of `%fixed`, `%immutable`, `%mutable`, `%ephemeral`  may apply to a table.
+- [ ] implement/test parsing of `.type` command, which can have configuration of `%signal`. 
+- [ ] Implement/test `%signal` command parsing
+	- [ ] Test `%signal` may only apply to `.type`, tables, and columns.
+	- [ ] Test that each item can have only one symbol defined per specified trigger on trigger types other than `notify`.
+	- [ ] Test that multiple symbols may be defined on trigger type `notify`.
+	- [ ] Test that only the following trigger types are allowed: `notify`, `allow`, `warn`, `trace`, `override`.
+	- [ ] Test that only the following triggers are allowed without using `cust(...)`: `insert`, `update`, `delete`, `write`, `read`, `init`, `shutdown`,
+	- [ ] Test valid use of `cust({symbol})` by ensuring that `{symbol}` is a C-like token.
+- [ ] Implement `.include` command by creating an include tree of `dbmt` files.
+	- [ ] Test being able to combine multiple files into a single `dbmt` file.
+	- [ ] Test that single `dmbt`  file is a valid `dmbt` file.
+- [ ] Generate a `JSON` representation of a given `dmbt` file for interoperability with the Rust library generation code.
+	- [ ] Test going full circle `dmbt` -> `JSON` -> `dbmt`.
+	
 
 ### 3.2.1 Pend
 
@@ -560,6 +634,45 @@ Name is a bit weird, but it's alright. It'd take force pushing to change this, a
 From [[#^spawn-task-061745]].
 
 ### 3.6.1 Pend
+
+## 3.7 Create a python3 library project template
+
+- [x] 
+
+From [[#^spawn-task-a2863a]] in [[#3.2 Implement dbmt-py]].
+
+2025-08-14 Wk 33 Thu - 16:27
+
+2025-08-14 Wk 33 Thu - 16:40
+
+Let's use [checkpipe](https://github.com/LanHikari22/checkpipe) as template starter.
+
+Let's also bring some other things from our [dbmint python app](https://github.com/LanHikari22/dbmint/tree/main/app/py): `install.py` -> `install_local.py` and `mypy.py`.
+
+Modify out the `$project_dir/app/py/` details since this is standalone. 
+
+Also `project_dir="$script_dir/../.."` needs to change to just `$script_dir` since we're not an embedded app. The git root should be where these scripts are.
+
+2025-08-14 Wk 33 Thu - 17:57
+
+We should also include unit tests and integration tests into the template
+
+From [realpython pytest python testing blog](https://realpython.com/pytest-python-testing/), 
+
+Mentions [Arrest-Act-Assert](https://deviq.com/testing/arrange-act-assert).
+
+2025-08-14 Wk 33 Thu - 18:18
+
+Spawn [[#6.2 Looking at how PyDBML tests their project]] ^spawn-invst-2e2ab9
+
+2025-08-14 Wk 33 Thu - 18:39
+
+We added a `test.sh` that runs `python3 -m unittest` to run all the tests under `tests/` as well as instructions for this in the `README.md`.
+
+2025-08-14 Wk 33 Thu - 19:00
+
+You can find the template python3 library project [here](https://github.com/LanHikari22/lan-exp-scripts/tree/main/templates/2025/topics/py3/persistant/001-lan-library/library).
+
 # 4 Issues
 
 ## 4.1 assertEqual on dbml tables fail even though they are copied from print
@@ -1371,6 +1484,71 @@ So between `User_Owns_Posts` and `Posts`,
 `col1` should be `to_post_id` and `col2` should be `id`.
 
 and for some reason we need to do `col1[0]` to get the column because it's a single element wrapped in a list.
+
+## 6.2 Looking at how PyDBML tests their project
+
+- [x] 
+
+From [[#^spawn-invst-2e2ab9]] in [[#3.7 Create a python3 library project template]]
+
+2025-08-14 Wk 33 Thu - 18:24
+
+Looking at how [PyDBML](https://github.com/Vanderhoof/PyDBML) do their testing.
+
+They have many test files per feature or module, and test folders for big modules.
+
+They have a [test_data](https://github.com/Vanderhoof/PyDBML/tree/master/test/test_data) folder with many dbml files.
+
+They use unittest a lot, making many Test Cases. There are no instructions on how to run these tests.
+
+They have a [test](https://github.com/Vanderhoof/PyDBML/blob/master/test/test_docs.py) for the official DBML examples.
+
+2025-08-14 Wk 33 Thu - 18:32
+
+This [blog](https://www.geeksforgeeks.org/python/typical-directory-structure-for-running-tests-using-unittest-in-python/) explains you can use something like
+
+```sh
+python3 -m unittest
+```
+
+Let's test this on PyDBML (we already have it cloned),
+
+```sh
+# in ~/src/cloned/gh/Vanderhoof/PyDBML
+python3 -m unittest                                                                                                                                             
+
+# out
+.................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 305 tests in 1.196s
+
+OK
+```
+
+Yup! We can do something like this!
+
+2025-08-14 Wk 33 Thu - 18:41
+
+They also mock a lot of classes with
+
+```py
+from unittest.mock import Mock
+```
+
+2025-08-14 Wk 33 Thu - 18:47
+
+You can also notice for instance with [test_integration.py](https://github.com/Vanderhoof/PyDBML/blob/master/test/test_integration.py) that `pydbml` is an installed library  already being imported. So they maintain a separation between tests and the library. 
+
+In order to get the `test_data/` files (example: [test_editing.py](https://github.com/Vanderhoof/PyDBML/blob/master/test/test_editing.py)), they use
+
+```python
+import os
+from pathlib import Path
+
+TEST_DATA_PATH = Path(os.path.abspath(__file__)).parent / 'test_data'
+```
+
+We can follow a similar convention. It seems good to be able to have a dedicated place for test data, especially if we are testing language, we can have many example `dbmt` files.
 
 # 7 Ideas
 
