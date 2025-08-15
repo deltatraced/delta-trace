@@ -155,9 +155,10 @@ This is anchored by the [dbmt spec](https://github.com/LanHikari22/dbmint/blob/m
 - [ ] implement/test parsing of `.type` command, which can have configuration of `%signal`. 
 - [ ] Implement/test `%signal` command parsing
 	- [ ] Test `%signal` may only apply to `.type`, tables, and columns.
+	- [ ] Test that symbols defined cannot repeat
 	- [ ] Test that each item can have only one symbol defined per specified trigger on trigger types other than `notify`.
 	- [ ] Test that multiple symbols may be defined on trigger type `notify`.
-	- [ ] Test that only the following trigger types are allowed: `notify`, `allow`, `warn`, `trace`, `override`.
+	- [ ] Test that only the following trigger types are allowed: `notify`, `allow`, `warn`, `trace`, `override`, `default`.
 	- [ ] Test that only the following triggers are allowed without using `cust(...)`: `insert`, `update`, `delete`, `write`, `read`, `init`, `shutdown`,
 	- [ ] Test valid use of `cust({symbol})` by ensuring that `{symbol}` is a C-like token.
 - [ ] Implement `.include` command by creating an include tree of `dbmt` files.
@@ -166,6 +167,42 @@ This is anchored by the [dbmt spec](https://github.com/LanHikari22/dbmint/blob/m
 - [ ] Generate a `JSON` representation of a given `dmbt` file for interoperability with the Rust library generation code.
 	- [ ] Test going full circle `dmbt` -> `JSON` -> `dbmt`.
 	
+
+2025-08-15 Wk 33 Fri - 08:07
+
+I ran into an interesting use case:
+
+```sh
+%signal get_date_now override=[insert]
+%signal is_valid_timestamp allow=[insert, update]
+.type timestamp_t varchar
+```
+
+Right now this is not allowed, because you have two non-notify subscribers on `insert`. But this use case makes sense, it needs a priority concept:  `override` -> `allow` -> {`warn`,  `trace`}
+
+With the priority concept, it is possible for multiple subscribers to exist, just not on the same trigger type, and their execution will follow this order. Then we could have fields that get computed, then get validated, and if valid, they may warn or trace.
+
+Note that `notify` isn't here because that's top priority on its own. 
+
+ Internally, this also could be chained synchronously on the database side. It makes computes `get_date_now` (provided symbol), but then makes requests to `is_valid_timestamp` afterwards to user software.
+
+2025-08-15 Wk 33 Fri - 08:37
+
+Done, see [Signal Trigger Type priority queue](https://github.com/LanHikari22/dbmint/blob/main/docs/dbmt%20specification%20v1.0.0t.md#343-signal-trigger-type-priority-queue) in the spec.
+
+2025-08-15 Wk 33 Fri - 09:03
+
+Added also a `default` as a signal trigger type which is exclusive with `override`, to give the user the option to bypass a computed field. This would be a field that would be computed only if the user decides not to provide a value.
+
+2025-08-15 Wk 33 Fri - 10:40
+
+Spawn [[#6.3 Trying to see dbml data representation for when embedding dbmt as comments]] ^spawn-invst-d0d14e
+
+2025-08-15 Wk 33 Fri - 12:31
+
+Filed [#63](https://github.com/Vanderhoof/PyDBML/issues/63) for the unexpected comment preservation behavior with columns.
+
+
 
 ### 3.2.1 Pend
 
@@ -647,7 +684,7 @@ From [[#^spawn-task-a2863a]] in [[#3.2 Implement dbmt-py]].
 
 Let's use [checkpipe](https://github.com/LanHikari22/checkpipe) as template starter.
 
-Let's also bring some other things from our [dbmint python app](https://github.com/LanHikari22/dbmint/tree/main/app/py): `install.py` -> `install_local.py` and `mypy.py`.
+Let's also bring some other things from our [dbmint python app](https://github.com/LanHikari22/dbmint/tree/main/app/py): `install.py` -> `install_deps.py` and `mypy.py`.
 
 Modify out the `$project_dir/app/py/` details since this is standalone. 
 
@@ -1550,6 +1587,174 @@ TEST_DATA_PATH = Path(os.path.abspath(__file__)).parent / 'test_data'
 
 We can follow a similar convention. It seems good to be able to have a dedicated place for test data, especially if we are testing language, we can have many example `dbmt` files.
 
+## 6.3 Trying to see dbml data representation for when embedding dbmt as comments
+
+- [ ] 
+
+From [[#^spawn-invst-d0d14e]] in [[#3.2 Implement dbmt-py]]
+
+2025-08-15 Wk 33 Fri - 10:54
+
+For example, `// dbmt %signal get_date_now override=[insert]`. 
+
+Doing some transformations to get python `__dict__` viewable as pretty JSON with `jq`.
+
+```sh
+python3 -m unittest tests.test_lib.DbmtPartialParsing.test_scratch \
+	2>/dev/null \
+	| sed -n 1p \
+	| sed "s/{'/{\"/g" \
+	| sed "s/, '/, \"/g" \
+	| sed "s/':/\":/g" \
+	| sed "s/</\"</g" \
+	| sed "s/>/>\"/g" \
+	| sed "s/False/\"False\"/g" \
+	| sed "s/True/\"True\"/g" \
+	| sed "s/None/\"None\"/g" \
+	| jq
+
+# out
+
+# for `print(dbml_data.__dict__)`
+{
+  "sql_renderer": "<class 'pydbml.renderer.sql.default.renderer.DefaultSQLRenderer'>",
+  "dbml_renderer": "<class 'pydbml.renderer.dbml.default.renderer.DefaultDBMLRenderer'>",
+  "tables": [
+    "<Table 'public' 'Users'>",
+    "<Table 'public' 'Posts'>",
+    "<Table 'public' 'User_Owns_Posts'>"
+  ],
+  "table_dict": {
+    "public.Users": "<Table 'public' 'Users'>",
+    "public.Posts": "<Table 'public' 'Posts'>",
+    "public.User_Owns_Posts": "<Table 'public' 'User_Owns_Posts'>"
+  },
+  "refs": [
+    "<Reference '-', ['from_user_id'], ['id']>",
+    "<Reference '-', ['to_post_id'], ['id']>"
+  ],
+  "enums": [],
+  "table_groups": [],
+  "sticky_notes": [],
+  "project": "None",
+  "allow_properties": "False"
+}
+```
+
+2025-08-15 Wk 33 Fri - 11:08
+
+This pipeline method isn't handling quotes easily, and those dictionaries  don't support serialization  with `print(json.dumps(dbml_data.tables[0]))`, so let's just skip prettiftying for now.
+
+Reference table:
+
+```dbml
+Table Users {
+  id integer [primary key]
+
+  // dbmt %signal is_valid_username allow=[insert, update]
+  // dbmt %signal log_new_users notify=[insert]
+  // dbmt %signal log_update_username notify=[update]
+  username varchar
+
+  role varchar
+
+  // dbmt %signal get_date_now override=[insert]
+  created_at varchar
+}
+```
+
+Using
+
+```python
+ex_path = TEST_DATA_PATH / 'ex000_embedding_dbmt_no_types.dbml'
+dbml_data = pydbml.PyDBML.parse_file(ex_path)
+```
+
+```sh
+python3 -m unittest tests.test_lib.DbmtPartialParsing.test_scratch \
+	2>/dev/null \
+	| sed -n 1p
+
+# out
+
+# for `print(dbml_data.tables[0].__dict__)`
+{'database': <Database>, 'name': 'Users', 'schema': 'public', 'columns': [<Column 'id', 'integer'>, <Column 'username', 'varchar'>, <Column 'role', 'varchar'>, <Column 'created_at', 'varchar'>], 'indexes': [], 'alias': None, '_note': Note(''), 'header_color': None, 'comment': None, 'abstract': False, 'properties': {}}
+
+# for `print(dbml_data.tables[0].columns[0].__dict__)`
+{'name': 'id', 'type': 'integer', 'unique': False, 'not_null': False, 'pk': True, 'autoinc': False, 'comment': None, '_note': Note(''), 'properties': {}, 'default': None, 'table': <Table 'public' 'Users'>}
+
+# for `print(dbml_data.tables[0].columns[1].__dict__)`
+{'name': 'username', 'type': 'varchar', 'unique': False, 'not_null': False, 'pk': False, 'autoinc': False, 'comment': None, '_note': Note(''), 'properties': {}, 'default': None, 'table': <Table 'public' 'Users'>}
+
+# for `print(dbml_data.tables[0].columns[2].__dict__)`
+{'name': 'role', 'type': 'varchar', 'unique': False, 'not_null': False, 'pk': False, 'autoinc': False, 'comment': None, '_note': Note(''), 'properties': {}, 'default': None, 'table': <Table 'public' 'Users'>}
+
+# for `print(dbml_data.tables[0].columns[3].__dict__)`
+{'name': 'created_at', 'type': 'varchar', 'unique': False, 'not_null': False, 'pk': False, 'autoinc': False, 'comment': None, '_note': Note(''), 'properties': {}, 'default': None, 'table': <Table 'public' 'Users'>}
+```
+
+No comments are captured. 
+
+And yet does capture comments for tables?
+
+```dbml
+// A one-to-many relationship between users and posts
+Table User_Owns_Posts {
+  id integer [primary key]
+  from_user_id integer [ref: - Users.id]
+  to_post_id integer [ref: - Posts.id]
+}
+```
+
+```sh
+python3 -m unittest tests.test_lib.DbmtPartialParsing.test_scratch \
+	2>/dev/null \
+	| sed -n 1p
+
+# out
+
+# for `print(dbml_data.tables[2].__dict__)`
+{'database': <Database>, 'name': 'User_Owns_Posts', 'schema': 'public', 'columns': [<Column 'id', 'integer'>, <Column 'from_user_id', 'integer'>, <Column 'to_post_id', 'integer'>], 'indexes': [], 'alias': None, '_note': Note(''), 'header_color': None, 'comment': 'A one-to-many relationship between users and posts', 'abstract': False, 'properties': {}}
+```
+
+This is unexpected behavior. But also the [dbml spec](https://dbml.dbdiagram.io/docs/#comments) doesn't really say much about how comments should be handled. It doesn't require that they are preserved in some way... but it does specify what they are.
+
+2025-08-15 Wk 33 Fri - 11:52
+
+We might be interested in [line @ definitions/table.py > parse_table](https://github.com/Vanderhoof/PyDBML/blob/5c6a9173580d7273a6799cdd725eabd3a2e76911/pydbml/definitions/table.py#L108). They parse some `'comment_before'`.  But we can't find that being written anywhere. Let's look at what `tok` is.
+
+[line @ definitions/enum.py > parse_enum_item](https://github.com/Vanderhoof/PyDBML/blob/5c6a9173580d7273a6799cdd725eabd3a2e76911/pydbml/definitions/enum.py#L42) says that comments after settings are a priority. Could this be why?
+
+But there's no settings in
+
+```
+  role varchar
+
+  // dbmt %signal get_date_now override=[insert]
+  created_at varchar
+```
+
+2025-08-15 Wk 33 Fri - 12:09
+
+If you do
+
+```
+  username varchar // an inline comment
+```
+
+Then it is able to recognize it
+
+```sh
+python3 -m unittest tests.test_lib.DbmtPartialParsing.test_scratch \
+        2>/dev/null \
+        | sed -n 1p
+
+# out
+
+# for `print(dbml_data.tables[0].columns[1].__dict__)`
+{'name': 'username', 'type': 'varchar', 'unique': False, 'not_null': False, 'pk': False, 'autoinc': False, 'comment': 'an inline comment', '_note': Note(''), 'properties': {}, 'default': None, 'table': <Table 'public' 'Users'>}
+```
+
 # 7 Ideas
 
 ## 7.1 Test workflows and PyPi Version in README.md
@@ -1558,10 +1763,32 @@ We can follow a similar convention. It seems good to be able to have a dedicated
 
 The [README.md for DBML_SQLite](https://raw.githubusercontent.com/LanHikari22/DBML_SQLite/refs/heads/main/README.md) has many interactive elements to learn from. We could do this also.
 
-# 8 External Links
+# 8 Side Notes
 
-| Reference                                                                                                                                                                                                                                    | Where                                                    |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| [Link](https://github.com/delta-domain-rnd/delta-trace/blob/main/lan/projects/2025/000%20dbmint/tasks/2025/001%20Create%20Python%20and%20Rust%20parsing%20for%20dbmt%20language.md#34-open-a-pr-for--dbml_sqlite-and-bump-version-of-pydbml) | [#9](https://github.com/dvanderweele/DBML_SQLite/pull/9) |
+## 8.1 Pyparsing use in pydbml
 
-# 9 resources
+2025-08-15 Wk 33 Fri - 11:46
+
+This library seems cool!
+
+From [pydbml/definitions/common.py](https://github.com/Vanderhoof/PyDBML/blob/master/pydbml/definitions/common.py),
+
+```python
+import pyparsing as pp
+
+pp.ParserElement.set_default_whitespace_chars(' \t\r')
+
+comment = (
+    pp.Suppress("//") + pp.SkipTo(pp.LineEnd())
+    | pp.Suppress('/*') + ... + pp.Suppress('*/')
+)
+```
+
+# 9 External Links
+
+| Reference                                                                                                                                                                                                                                                            | Where                                                    |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| [Link](https://github.com/delta-domain-rnd/delta-trace/blob/main/lan/projects/2025/000%20dbmint/tasks/2025/001%20Create%20Python%20and%20Rust%20parsing%20for%20dbmt%20language.md#34-open-a-pr-for--dbml_sqlite-and-bump-version-of-pydbml)                         | [#9](https://github.com/dvanderweele/DBML_SQLite/pull/9) |
+| [Link](https://github.com/delta-domain-rnd/delta-trace/blob/webview/lan/projects/2025/000%20dbmint/tasks/2025/001%20Create%20Python%20and%20Rust%20parsing%20for%20dbmt%20language.md#63-trying-to-see-dbml-data-representation-for-when-embedding-dbmt-as-comments) | [#63](https://github.com/Vanderhoof/PyDBML/issues/63)    |
+
+# 10 resources

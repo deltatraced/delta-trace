@@ -1,6 +1,4 @@
 
-
-
 # 1 Time Logs
 
 ```simple-time-tracker
@@ -53,7 +51,17 @@
     },
     {
       "name": "[[001 Create Python and Rust parsing for dbmt language#3.2 Implement dbmt-py]]",
-      "startTime": "2025-08-14T16:02:30.420Z",
+      "startTime": "2025-08-14T16:02:30.000Z",
+      "endTime": "2025-08-14T16:45:00.000Z"
+    },
+    {
+      "name": "[[001 Create Python and Rust parsing for dbmt language#3.2 Implement dbmt-py]]",
+      "startTime": "2025-08-15T02:57:15.204Z",
+      "endTime": "2025-08-15T06:07:11.359Z"
+    },
+    {
+      "name": "[[001 Create Python and Rust parsing for dbmt language#3.2 Implement dbmt-py]]",
+      "startTime": "2025-08-15T07:23:02.198Z",
       "endTime": null
     }
   ]
