@@ -202,6 +202,91 @@ Spawn [[#6.3 Trying to see dbml data representation for when embedding dbmt as c
 
 Filed [#63](https://github.com/Vanderhoof/PyDBML/issues/63) for the unexpected comment preservation behavior with columns.
 
+2025-08-15 Wk 33 Fri - 12:43
+
+We need a more reliable way to preserve dbmt content. Let's keep it simple, don't just comment out lines, generate a comment at the start of the file for a JSON containing the additional dbmt data. Any objects, and what they're associated with, is just written directly there. So we don't need dbml's comment preservation function at all.
+
+2025-08-15 Wk 33 Fri - 14:01
+
+Okay! We have types to distinguish all possible content that is in the [dbmt spec](https://github.com/LanHikari22/dbmint/blob/main/docs/dbmt%20specification%20v1.0.0t.md) in `commands.py`.  We use conventions like `AbstCommand` to mean an abstract class since we do not expect to have any concrete instances of `AbstCommand`, only non-abstract derivates.
+
+This is one way to model the types with inheritence, Command -> {Dot/Perc Command} -> Individual commands. We could have also used interfaces/traits and assigned to classes a trait of being a command, or of being a dot command.
+
+For error types, we expect certain commands to have unique errors. A principle we want to follow is that a user can always expect to be able to handle all possible error types declared. So an error that can only occur for `%signal` should not be available in the type for a `%virtual` command for example.  
+
+For this, we (optionally) associate the command type in the error itself, so that the user knows which specific error type to cast it to and handle all possible errors for that command. For shared error types across commands, we have them inherit enum  `ParseErrorType`.  The associated command type in that case would be `None`, since it applies to all.
+
+Yes I guess we can do python enum inheritence...
+
+Now we just need to parse all lines.
+
+2025-08-15 Wk 33 Fri - 14:35
+
+Spawn [[#5.6 Parse a path string in python]] ^spawn-howto-30bf4d
+
+2025-08-15 Wk 33 Fri - 15:10
+
+A `C-like Token` is identical to a Python Identifier and can be checked with [str.isidentifier](https://www.w3schools.com/python/ref_string_isidentifier.asp).
+
+`Identifier` is a much better name... Let's rename it in the spec.
+
+2025-08-15 Wk 33 Fri - 17:22
+
+It also is `Word(alphas + "_", alphanums + "_")` from this pyparsing [C parser example](https://github.com/pyparsing/pyparsing/blob/master/examples/oc.py). The second argument to `Word` is what is allowed after the first character.
+
+2025-08-15 Wk 33 Fri - 16:28
+
+Spawn [[#5.7 Python parse enum from string with identical name to identifier]] ^spawn-howto-32f6a4
+
+2025-08-15 Wk 33 Fri - 17:00
+
+Spawn [[#5.8 Use TypeVar variables to create generic functions in python]] ^spawn-howto-862a5c
+
+2025-08-15 Wk 33 Fri - 18:28
+
+Seems there's a contradiction in the [dbmt spec](https://github.com/LanHikari22/dbmint/blob/main/docs/dbmt%20specification%20v1.0.0t.md) after we introduced [Signal Trigger Type priority queue](https://github.com/LanHikari22/dbmint/blob/main/docs/dbmt%20specification%20v1.0.0t.md#343-signal-trigger-type-priority-queue).
+
+In [Signals](https://github.com/LanHikari22/dbmint/blob/main/docs/dbmt%20specification%20v1.0.0t.md#34-signals), it says:
+
+(Clause 1)
+
+> The `{trigger_type}=[{trigger}, ...]` argument itself may be used one or more times, up to the number of possible trigger types. Repetition of trigger types is not allowed and would flag an error.
+
+But in [Signal Trigger Type priority queue](https://github.com/LanHikari22/dbmint/blob/main/docs/dbmt%20specification%20v1.0.0t.md#343-signal-trigger-type-priority-queue), it says:
+
+(Clause 2)
+
+> For non-notify signals, there must exist zero or one [subscriber](https://github.com/LanHikari22/dbmint/blob/main/docs/dbmt%20specification%20v1.0.0t.md#48-signal-subscribing) per [signal trigger type](https://github.com/LanHikari22/dbmint/blob/main/docs/dbmt%20specification%20v1.0.0t.md#341-signal-trigger-types) for a given set of [triggers](https://github.com/LanHikari22/dbmint/blob/main/docs/dbmt%20specification%20v1.0.0t.md#33-triggers).
+
+
+(Clause 1) would allow multiple trigger type lists on a single line, this means there can be more than one subscriber for a given set of triggers and (Clause  2) forbids this.
+
+No known use case for (Clause 1) exists as of this writing, so eliminating it in favor of (Clause 2).
+
+This means we're simplifying `%signal` syntax to only be one list a line.
+
+```diff
+-%signal {symbol} {{trigger_type}=[{trigger}, ...] ...}
++%signal {symbol} {trigger_type}=[{trigger}, ...]
+```
+
+2025-08-15 Wk 33 Fri - 20:17
+
+We made it so that `AbstPercCommand` tracks its associated item:
+
+```python
+class AbstPercCommand(AbstCommand):
+    associated_item: AssociatedItem
+
+    def get_command_syntax_type(self) -> CommandSyntaxType:
+        return CommandSyntaxType.PERC
+```
+
+But this `associated_item` information cannot be known by a line parser that only knows the current line. It might be better to track this information separately from percent commands.
+
+2025-08-15 Wk 33 Fri - 20:23
+
+We kept using `pp.Word('virtual')` but this is wrong. This takes characters as input, and NOT an exact string match. I wanted to do this so that it auto-converts into a `ParserElement` for pyparsing.
 
 
 ### 3.2.1 Pend
@@ -1307,13 +1392,139 @@ Because dbmint-py depends on dbml-sqlite (0.3.4) @ git+https://github.com/LanHik
     https://python-poetry.org/docs/dependency-specification/#using-environment-markers
 ```
 
+## 5.6 Parse a path string in python
+
+- [x] 
+
+From [[#^spawn-howto-30bf4d]] in [[#3.2 Implement dbmt-py]]
+
+2025-08-15 Wk 33 Fri - 14:46
+
+We can use the [pathvalidate](https://pypi.org/project/pathvalidate/) library which applies logic on correct paths.
+
+From their example,
+
+```python
+import sys
+from pathvalidate import ValidationError, validate_filename
+
+try:
+    validate_filename("fi:l*e/p\"a?t>h|.t<xt")
+except ValidationError as e:
+    print(f"{e}\n", file=sys.stderr)
+
+```
+
+
+## 5.7 Python parse enum from string with identical name to identifier
+
+- [x] 
+
+From [[#^spawn-howto-32f6a4]] in [[#3.2 Implement dbmt-py]]
+
+2025-08-15 Wk 33 Fri - 16:29
+
+[enum documentation](https://docs.python.org/3/library/enum.html)
+
+2025-08-15 Wk 33 Fri - 16:39
+
+You could do something like
+
+```python
+'NOTIFY' in list(TriggerType.__dict__.keys())
+
+# out
+True
+```
+
+But seems hacky...
+
+But we can use this
+
+```python
+list(TriggerType)[0].name
+
+# out
+'NOTIFY'
+```
+
+
+```python
+import checkpipe as pipe
+
+enum_names = (
+	TriggerType
+		| pipe.OfIter[TriggerType].map(lambda e: e.name)
+		| pipe.OfIter[TriggerType].filter(lambda name: name == 'NOTIFY')
+		| pipe.OfIter[TriggerType].to_list()
+)
+
+enum_names
+
+# out
+['NOTIFY']
+```
+
+I noticed from this enum tutorial section on [iteration](https://docs.python.org/3/howto/enum.html#iteration) that we could convert it to a list like this.
+
+## 5.8 Use TypeVar variables to create generic functions in python
+
+- [x] 
+
+From [[#^spawn-howto-862a5c]] in [[#3.2 Implement dbmt-py]]
+
+2025-08-15 Wk 33 Fri - 17:00
+
+From [Generics python docs](https://docs.python.org/3/library/typing.html#generics),
+
+```python
+from collections.abc import Sequence
+
+def first[T](l: Sequence[T]) -> T:  # Function is generic over the TypeVar "T"
+    return l[0]
+```
+
+```python
+from collections.abc import Sequence
+from typing import TypeVar
+
+U = TypeVar('U')                  # Declare type variable "U"
+
+def second(l: Sequence[U]) -> U:  # Function is generic over the TypeVar "U"
+    return l[1]
+```
+
+I didn't know there were these two forms of syntax! I always used the latter. Let's use the former.
+
+2025-08-15 Wk 33 Fri - 17:49
+
+Hmm, but how do we call it and preserve the types? 
+
+There's this syntax we used with checkpipe and is also used in the docs [here](https://docs.python.org/3/reference/compound_stmts.html#type-parameter-lists).
+
+Similar to this,
+
+```python
+from typing import Optional
+
+class ParseEnumLowerName[T]:
+    @staticmethod
+    def do(lower_name: str) -> Optional[T]:
+        for e in T:
+            if e.name.lower() == lower_name:
+                return e
+        return None
+```
+
+![[Pasted image 20250815182424.png]]
+
 # 6 Investigations
 
 ## 6.1 Invst what happened to table.refs for pydbml
 
 - [x] 
 
-From [[#^spawn-invst-061055]].
+From [[#^spawn-invst-061055]] in [[#3.4 Open a PR for DBML_SQLite and bump version of pydbml]]
 
 2025-08-06 Wk 32 Wed - 10:55
 
@@ -1589,7 +1800,7 @@ We can follow a similar convention. It seems good to be able to have a dedicated
 
 ## 6.3 Trying to see dbml data representation for when embedding dbmt as comments
 
-- [ ] 
+- [x] 
 
 From [[#^spawn-invst-d0d14e]] in [[#3.2 Implement dbmt-py]]
 
@@ -1755,6 +1966,10 @@ python3 -m unittest tests.test_lib.DbmtPartialParsing.test_scratch \
 {'name': 'username', 'type': 'varchar', 'unique': False, 'not_null': False, 'pk': False, 'autoinc': False, 'comment': 'an inline comment', '_note': Note(''), 'properties': {}, 'default': None, 'table': <Table 'public' 'Users'>}
 ```
 
+2025-08-15 Wk 33 Fri - 12:31
+
+Filed [#63](https://github.com/Vanderhoof/PyDBML/issues/63) for the unexpected comment preservation behavior with columns.
+
 # 7 Ideas
 
 ## 7.1 Test workflows and PyPi Version in README.md
@@ -1762,6 +1977,13 @@ python3 -m unittest tests.test_lib.DbmtPartialParsing.test_scratch \
 2025-08-06 Wk 32 Wed - 14:28
 
 The [README.md for DBML_SQLite](https://raw.githubusercontent.com/LanHikari22/DBML_SQLite/refs/heads/main/README.md) has many interactive elements to learn from. We could do this also.
+
+## 7.2 We can contribute parsers for pyparsing
+
+2025-08-15 Wk 33 Fri - 15:35
+
+They seem to maintain a long list of parser examples [here](https://github.com/pyparsing/pyparsing/tree/master/examples)! Including languages, DSLs, Data formats, chemical formulas...
+
 
 # 8 Side Notes
 
@@ -1783,6 +2005,34 @@ comment = (
     | pp.Suppress('/*') + ... + pp.Suppress('*/')
 )
 ```
+
+2025-08-15 Wk 33 Fri - 16:00
+
+They're using `.rst` documentation (for example [here](https://github.com/pyparsing/pyparsing/blob/master/docs/HowToUsePyparsing.rst)) which points to which is this format [ReStructuredText](https://en.wikipedia.org/wiki/ReStructuredText) that is apparently used for python technical documentation.
+
+## 8.2 Pyparsing documentation
+
+2025-08-15 Wk 33 Fri - 14:24
+
+Documentation for `pp.White`
+
+```py
+import pyparsing as pp
+
+pp.White
+```
+
+says:
+
+> Special matching class for matching whitespace. Normally, whitespace is ignored by pyparsing grammars. This class is included when some whitespace structures are significant. Define with a string containing the whitespace characters to be matched; default is `" \t\r\n"`. Also takes optional `min`, `max`, and `exact` arguments, as defined for the `Word` class.
+
+So I guess I don't have to parse whitespace explicitly? What if I want to do exact string reconstruction for in-place writing?
+
+## 8.3 Minimal pytest example
+
+2025-08-15 Wk 33 Fri - 14:55
+
+This [stackoverflow question](https://stackoverflow.com/q/47016013/6944447) gives a minimum pytest use case for reproducing an issue.
 
 # 9 External Links
 
