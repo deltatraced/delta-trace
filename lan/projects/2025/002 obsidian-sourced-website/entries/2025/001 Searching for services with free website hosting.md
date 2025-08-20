@@ -53,7 +53,7 @@ We should also have an email for this. We could set up our own mail exchange, bu
 
 - [ ] 
 
-From [[#^spawn-invst-818f9d]].
+From [[#^spawn-invst-818f9d]] in [[#2 Journal]]
 
 2025-08-12 Wk 33 Tue - 17:05
 

@@ -18,6 +18,7 @@ This task is part of the goal [[000 First prototype of a publicly hosted obsidia
 See also:
 - [[000 On Search Engine Optimization]]
 - [[001 Searching for services with free website hosting]]
+- [[002 Learning about Astro and website deployment]]
 
 # 2 Journal
 
