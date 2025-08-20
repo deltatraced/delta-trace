@@ -23,13 +23,13 @@ Now when we add the new task under the Tasks section, we can just write `[ [ ^SP
 
 This lets Obsidian generate a link for the line quickly. Then we change `^{xxxxxx}` to `^spawn-task-{xxxxxx}` to make the spawn category clear.
 
-Sometimes we may shorten this and just inline the spawned task under a name like "Task." that is clickable followed by the `^spawn-task-xxxxxx`. But for now, let's do it fully:
+Let's go to the new task!
 
 Spawn [[#3.1 File a bug report]]. ^spawn-task-c33094
 
 2025-08-12 Wk 33 Tue - 13:55
 
-I wouldn't normally do the "Go back to Spawner" thing when taking actual notes, but It's a cool thing to insert linearity into our tutorial of a non-linear note taking style. 
+I wouldn't normally do the "Go back to Spawner" thing when taking actual notes, but It's a cool thing to insert linearity into our tutorial which uses a non-linear note taking style. 
 
 We've now covered what many sections do!
 
@@ -49,11 +49,11 @@ Thank you for going through my non-linear note taking style tutorial!
 - [x] Organized my documents
 - [ ] Find where to file the report to
 
-From [[#^spawn-task-c33094]].
+From [[#^spawn-task-c33094]] in [[#2 Journal]]
 
 2025-08-12 Wk 33 Tue - 13:14
 
-As you see I usually add a timestamp above. This could be done in obsidian with `Ctrl+P QuickAdd: Run QuickAdd -> insert-datetime`. I usually do this very quickly. The keys are `Ctrl+P Q <Enter> <Enter>`.
+We reference both the spawn block identifier `^spawn-task-c33094` and also the spawning heading, which in this case is Journal.
 
 We can now  journal for the limited context of this task here, or we can summon other tasks, reference other tasks, add subheadings, etc.
 
@@ -65,7 +65,11 @@ This is in the case I want to signify the task is pending:
 
 2025-08-12 Wk 33 Tue - 13:17
 
-Notice I added another timestamp above. I take notes in a logging style where I come and log the next thought after some time, or I use timestamps to signify context change. For big context change, I use subheadings.
+Notice the timestamps I am adding. This could be done in obsidian with `Ctrl+P QuickAdd: Run QuickAdd -> insert-datetime`. I usually do this very quickly. The keys are `Ctrl+P Q <Enter> <Enter>`.
+
+I take notes in a logging style where I come and log the next thought after some time, or I use timestamps to signify context change. For big context change, I use subheadings.
+
+The timestamp allows me to signify context change, correlate with other time information in deliverables, or track how I switch contexts.
 
 Now let's spawn an issue next to move on with the tutorial! 
 
@@ -79,11 +83,13 @@ And again! [[#^spawn-task-c33094|Spawner]].
 
 ## 3.2 Setup a fresh installation of Windows on a VM
 
-from [[#^spawn-task-603822]]
+from [[#^spawn-task-603822]] in [[#6.1 Investigate the Windows Operating System Internals]]
 
 2025-08-12 Wk 33 Tue - 13:45
 
 We're back in the Tasks section from the Investigation section! Because this is a clearly operative thing to get done!
+
+Now to simulate some work, let's go through a mini tutorial!
 
 ### 3.2.1 Time logging mini tutorial
 
@@ -135,7 +141,7 @@ OK Let's go back to our [[#^spawn-task-603822|spawner]].
 
 - [x] Resolved, turns out I made this error up for demonstration purposes!
 
-From [[#^spawn-issue-252c2b]]
+From [[#^spawn-issue-252c2b]] in [[#3.1 File a bug report]]
 
 2025-08-12 Wk 33 Tue - 13:20
 
@@ -183,9 +189,9 @@ This should cover most things. Let's just keep going back through our [[#^spawn-
 
 ## 5.1 Open the Windows Registery to fix Paint.exe!
 
-- [ ] 
+- [x] 
 
-From [[#^spawn-howto-9f5c66]].
+From [[#^spawn-howto-9f5c66]] in [[#4.1 Paint.exe crashed with error code 0xDEADFEED]]
 
 2025-08-12 Wk 33 Tue - 13:24
 
@@ -206,7 +212,7 @@ Let's return to [[#^spawn-howto-9f5c66|our spawner]]!
 
 ## 6.1 Investigate the Windows Operating System Internals
 
-From [[#^spawn-invst-eadf79]].
+From [[#^spawn-invst-eadf79]] in [[#4.1 Paint.exe crashed with error code 0xDEADFEED]]
 
 2025-08-12 Wk 33 Tue - 13:34
 
@@ -234,7 +240,7 @@ Back to the [[#^spawn-invst-eadf79|Spawner]]!
 
 ## 7.1 Contribute Paint.exe research to open source
 
-From [[#^spawn-idea-2caf16]].
+From [[#^spawn-idea-2caf16]] in [[#4.1 Paint.exe crashed with error code 0xDEADFEED]]
 
 Just an idea! People need to know how Paint.exe works!
 
