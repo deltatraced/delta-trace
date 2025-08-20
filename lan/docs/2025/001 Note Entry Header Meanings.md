@@ -25,7 +25,7 @@ This lets Obsidian generate a link for the line quickly. Then we change `^{xxxxx
 
 Let's go to the new task!
 
-Spawn [[#3.1 File a bug report]]. ^spawn-task-c33094
+Spawn [[#3.1 File a bug report]] ^spawn-task-c33094
 
 2025-08-12 Wk 33 Tue - 13:55
 
@@ -35,7 +35,7 @@ We've now covered what many sections do!
 
 The template for these headings can be found here:
 
-[[Entry Note Headers]].
+[[Entry Note Headers]]
 
 Although there are some manual things right now, like spawning new records, or referencing items from References, they can be done quickly. They could be automated in an obsidian plugin in the future!
 
@@ -73,11 +73,11 @@ The timestamp allows me to signify context change, correlate with other time inf
 
 Now let's spawn an issue next to move on with the tutorial! 
 
-Spawn [[#4.1 Paint.exe crashed with error code 0xDEADFEED]]. ^spawn-issue-252c2b
+Spawn [[#4.1 Paint.exe crashed with error code 0xDEADFEED]] ^spawn-issue-252c2b
 
 2025-08-12 Wk 33 Tue - 13:55
 
-And again! [[#^spawn-task-c33094|Spawner]].
+And again! [[#^spawn-task-c33094|Spawner]]
 
 ### 3.1.1 Status
 
@@ -133,7 +133,7 @@ This explained how we can get timing information for our notes, and specifically
 
 If you're curious about the WkNN, those are week numbers according to the [ISO week date](https://www.epochconverter.com/weeks/2025).
 
-OK Let's go back to our [[#^spawn-task-603822|spawner]].
+OK Let's go back to our [[#^spawn-task-603822|spawner]]
 
 # 4 Issues
 
@@ -157,7 +157,7 @@ So you're trying to resolve this issue, but you need to figure out how to open t
 
 This is what a HowTo is for! 
 
-Spawn [[#5.1 Open the Windows Registery to fix Paint.exe!]]. ^spawn-howto-9f5c66
+Spawn [[#5.1 Open the Windows Registery to fix Paint.exe!]] ^spawn-howto-9f5c66
 
 2025-08-12 Wk 33 Tue - 13:29
 
@@ -169,7 +169,7 @@ What an open-ended conceptual task! Tasks should preferably be operative and hav
 
 If I'm exploring a concept, a system, or doing some open-ended debugging and diagnosis, it will likely end up there. Let's investigate!
 
-Spawn [[#6.1 Investigate the Windows Operating System Internals]]. ^spawn-invst-eadf79
+Spawn [[#6.1 Investigate the Windows Operating System Internals]] ^spawn-invst-eadf79
 
 2025-08-12 Wk 33 Tue - 13:48
 
