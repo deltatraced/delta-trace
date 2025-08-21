@@ -20,9 +20,10 @@ To capture design considerations for the generated rust library from a dbmt sche
 
 # 7 Ideas
 
-## 7.1 Features we can add
+## 7.1 Feature Proposals
 
 ### 7.1.1 Tablegroup to trait
+
 
 2025-08-21 Wk 34 Thu - 10:45
 
@@ -59,7 +60,133 @@ For this, we propose two marks, `%relation` for a table, and optionally a `%rela
 
 This can also work with [[#7.1.1 Tablegroup to trait]] in that relationship tables may be divided into table groups. For example, maybe both `Users` and `Robots` can post. so we can have a `GrRelPosts` with just the sink information, a foreign key to `Posts`, and we can then create `RelUserPosts` and `RelRobotPosts` which have `Users` or `Robots` as a source, and share a common `GrRelPosts` for sink. This way we could iterate over all such relationships, like all that can post.
 
+### 7.1.3 Configurable Extension Tables with extension compatibility rules
+
+Similar to [[#7.1.1 Tablegroup to trait|Tablegroup to trait]],
+
+Table extensions would create a set of all possible fully extended table types.
+
+These are different from join supertables, because we do not want to join them but retrieve them individually as conditional fragments. This means that join structures are valid for all rows while what extensions to retrieve for a given table are row-dependent!
+
+Consider the following case:
+
+You have a table, `Shoes`, and your customers really love your shoes and commend you for how comfortable they are. However, some want `SkeeingShoes`, others want `Runningshoes`, and some want `LEDShoes` for children.
+
+You realize each of these tables host different kinds of data, but they all share attributes with `Shoes`. 
+
+Also your customers are so happy they have requested you sell 50 different types of extensions to your shoes! Some extensions go well with one another, while others you would choose only one of.
+
+Using the proposed [[#7.1.1 Tablegroup to trait|Tablegroup to trait]] you could create a `GrShoes` table group and embed it in all of the 50 shoe extensions. That could work. But your company has many tables that depend on `Shoes` already, and it would require effort to ask everyone to maintain every possible type of shoe the customers love.
+
+Another solution is you could add new columns. Maybe 50 columns like `opt_skeeing_shoe_type_id` , where many are set to null, and the valid extensions not set to null. Your team shrugs that you're adding many columns, but they find this better than supporting 50 tables at least.
+
+If you opted for referencing a base `shoe_id`  in 50 different extended shoe tables, you now have 50 reverse lookups for your team to deal with when they want to go from `shoe_id` to one of 50 possible extended shoes.
+
+To deal with this issue in a more scalable manner, we propose adding Extension Tables.
+
+```mermaid
+erDiagram
+	Shoes {
+		key_t id
+		u32 shoe_size_cm
+	}
+	
+	RelShoeSupportsExt {
+		key_t id
+		key_t from_shoe_id
+		ShoeExtType ext
+	}
+	
+	SkeeingShoeExt {
+		key_t id
+		key_t shoe_id
+		u32 max_temperature
+	}
+	
+	RunningShoeExt {
+		key_t id
+		key_t shoe_id
+		u32 comfort_ranking
+		u32 breathing_room_ranking
+	}
+	
+	LedShoeExt {
+		key_t id
+		key_t shoe_id
+		string led_pattern_name
+		u32 freq
+	}
+	
+	RelShoeSupportsExt ||--o{ Shoes : relate
+	SkeeingShoeExt ||--|| Shoes : compose
+	RunningShoeExt ||--|| Shoes : compose
+	LedShoeExt ||--|| Shoes : compose
+```
+
+
+`ShoeExtType` enum:
+
+| Variant    | Meaning                                                  |
+| ---------- | -------------------------------------------------------- |
+| SkeeingExt | Shoes with skeeing attributes                            |
+| RunningExt | Shoes with additional comfort and breathing room metrics |
+| LedExt     | Shoes with additional rainbow LED lighting patterns      |
+
+This should eliminate reverse lookups. All extensions for the Shoes type can be gathered from `RelShoeSupportsExt`. 
+
+We  can configure the relationship as `%extension ShoeExtType`, and configure each extension table (`SkeeingShoeExt`, `RunningShoeExt`, `LedShoeExt`) as `%extension ShoeExtType.SkeeingExt shoe_id`, etc.
+
+We configure the enum `ShoeExtType` as an extension enum: `%extension_enum shoe_id SkeeingShoeExt RunningShoeExt LedShoeExt`.
+
+We configure the support extensions table `%extension`, and any registered extension types within it are picked up.
+
+it should be possible for us to retrieve all extensions for a table seamlessly in the generated rust library for any shoe id. Now the team doesn't have to worry about the 50 shoe extensions, we do!
+
+In addition, we can provide a set of rules that enforce extension use. For example, we do not allow duplicate extensions, but the user may provide extra constraints:
+
+```
+%extension_exclusive(SkeeingExt, RunningExt),
+%extension_requires(LedExt, RunningExt),
+```
+
+Constraints apply in the order given and include 
+- `%extension_exclusive Ext ... `, 
+- `%extension_requires ExtSource ExtSinks ...`, 
+- `%extensions_incompatible Ext ...`
+- `%extensions_compatible Ext ...`
+- `%extensions_required Ext ...`
+
+For `%extensions_incompatible` it would provide a combination that should be illegal, while `%extensions_compatible` would provide a whitelist of possible combinations explicitly.
+
+Those could be then enforced on init, write, and read with `%extension_validate trigger ...`
+
+Another benefit of this pattern is that it provides extra constraints for our type generation. If you had 50 shoe extensions, but it was only possible to have one exclusive choice of extension, you shouldn't have Rust generate supertable combinations that violate this!
+
+So this would reduce the number of possible supertables, from the size of the powerset of all tables [[#^calc-2-to-50|(math)]] to only 1! They will not be retrieved as supertables anymore but rather as extensions to the shoe table in Rust.
+
+In general, the autogen code will have a safety upper limit when dealing with large combinations.
+
+This feature could also allow some cool things like 
+- each extension having a trait to allow general code to be written about any tables that include the extensions
+- enumeration completeness guarantees. If an extension type enum is configured, all its variants must have extensions. 
+- Feature parity guarantees over in Rust code. This can map nicely to rust's rich enum types. Any table that supports a specific extension type could be made to implement its new features against every possible variant for consistency.
+- Being able to search a table for an extension that is anywhere within its extension tree without using any complicated joins.
+
+As this diverts from standard SQL use, more design work needs to be put into how they are queried.
+
 # 8 Side Notes
+
+## 8.1 Exponential explosion
+
+
+Since you asked... ^calc-2-to-50
+
+
+$$
+2^{50} = 1125899906842624
+$$
+
+
 # 9 External Links
 
 # 10 References
