@@ -1,4 +1,4 @@
-# 1 Time Summary – All Time
+# Time Summary – All Time
 
 | Note/Heading | Time Spent |
 |--------------|------------|
