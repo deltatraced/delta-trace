@@ -254,6 +254,10 @@ This can be overriden for an expensive check always on read/write with `[always-
 | ------------ | -------------------------------------------------------------------- |
 | get_date_now | Calculates the current date now according to user timezone settings. |
 
+2025-08-21 Wk 34 Thu - 10:44
+
+Table groups already exist as part of dbml. We need
+
 
 ## 2.2 Lower priority things to add later
 
