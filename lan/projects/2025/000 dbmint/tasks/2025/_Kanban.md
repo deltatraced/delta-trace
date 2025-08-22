@@ -6,11 +6,11 @@ kanban-plugin: list
 
 ## Backlog
 
+- [ ] [[000 Fork Vscode Extension DBML Live Preview to support DBMT]]
 
 
 ## Todo
 
-- [ ] [[000 Fork Vscode Extension DBML Live Preview to support DBMT]]
 
 
 ## Active
