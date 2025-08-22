@@ -1,11 +1,10 @@
-
-![[Pasted image 20250629030032.png]]
+![Pasted image 20250629030032.png](../../../../../../../../../../attachments/Pasted%20image%2020250629030032.png)
 
 # 1 Journal
 
 2025-06-29 Wk 26 Sun - 03:47
 
-```sh
+````sh
 # /home/lan/src/exp/puzzles/ctf/2025-06/NUMEROLOGY/crypto-numerology
 ls -al               
 total 500
@@ -16,43 +15,40 @@ drwxrwxr-x 3 lan lan   4096 Jun 29 03:47 ..
 -rw-r--r-- 1 lan lan   1180 Dec 31  1979 init.sh
 drwxrwxr-x 2 lan lan   4096 Jun 29 03:47 __pycache__
 -rw-r--r-- 1 lan lan    135 Dec 31  1979 readme.md
-```
+````
 
+[blog on reading markdown in terminal](https://opensource.com/article/20/3/markdown-apps-linux-command-line).
 
-[blog on reading markdown in terminal](<https://opensource.com/article/20/3/markdown-apps-linux-command-line>).
-
-```sh
+````sh
 snap install mdless
-```
+````
 
-```sh
+````sh
 cat readme.md | mdless
 
 # output
 I have created a bunch of message/ciphertext pairs with this new technique.
 
 I gave you the "key" to decrypt the flag, is that enough?
-```
-^readme
+````
 
+<a name="readme" />^readme
 
-```sh
+````sh
 chmod +x init.sh
 ./init.sh             
 
 # output
 ERROR: secrets.env not found. Please run set_secrets.sh first.
-```
+````
 
-
-```sh
+````sh
 ls -al __pycache__                                   
 total 28
 drwxrwxr-x 2 lan lan  4096 Jun 29 03:57 .
 drwxrwxr-x 3 lan lan  4096 Jun 29 03:54 ..
 -rw-r--r-- 1 lan lan 18108 Dec 31  1979 crypto_numerology.cpython-312.pyc
-```
-
+````
 
 ## 1.1 Checking for clues on ChaCha20
 
@@ -62,9 +58,9 @@ My teammate said they saw this somewhere here...
 
 Let's check the clues again...
 
-The [[#^readme]] clues that this is a "new technique".
+The [^readme](003%20NUMEROLOGY.md#readme) clues that this is a "new technique".
 
-```sh
+````sh
 cat init.sh
 
 # output
@@ -100,25 +96,24 @@ python3 crypto_numerology.py \
     --secret_target_counter_int ${SECRET_TARGET_COUNTER_INT} \
     --num_nonce_variations ${NUM_NONCE_VARS} \
     --num_counter_variations ${NUM_COUNTER_VARS} \
-```
+````
 
-The message size is 64 bytes... consistent with our [[#^json-schema|diagnostics]]
+The message size is 64 bytes... consistent with our [diagnostics](003%20NUMEROLOGY.md#json-schema)
 
 There are 32 samples as well...
 
-And what looks like a discrepancy of `crypto_numerology.py` <-> `init_cryptoanalysis.py` <-> `linear_cryptanalysis.sh`
-
+And what looks like a discrepancy of `crypto_numerology.py` \<-> `init_cryptoanalysis.py` \<-> `linear_cryptanalysis.sh`
 
 We have confirmation that this uses CHACHA within the puzzle itself, as my teammate said:
 
-```sh
+````sh
 strings __pycache__/crypto_numerology.cpython-312.pyc | less
 
 # output
 [...]
 CHACHA_CONSTANTSr
 [...]
-```
+````
 
 # 2 Investigations
 
@@ -126,13 +121,12 @@ CHACHA_CONSTANTSr
 
 https://docs.kanaries.net/topics/Python/pycache
 
-
 (LLM chatgpt-4o)
 
-```sh
+````sh
 pip install uncompyle6
 uncompyle6 __pycache__/example.cpython-38.pyc
-```
+````
 
 https://pypi.org/project/pyhidra/
 
@@ -140,7 +134,7 @@ https://pypi.org/project/pyhidra/
 
 Ghidra is not able to load the pyc file
 
-```sh
+````sh
 uncompyle6 __pycache__/crypto_numerology.cpython-312.pyc                                                                                  
 
 # output
@@ -174,21 +168,19 @@ Traceback (most recent call last):
     return op_imports[canonic_python_version[vers_str]]
                       ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
 KeyError: '3.13'
-```
+````
 
 To install pyhidra for ghidra,
 
-```sh
+````sh
 GHIDRA_INSTALL_DIR=/home/lan/Downloads/ghidra_11.4_PUBLIC pyhidra
-```
+````
 
 restart ghidra
 
-![[Pasted image 20250629041710.png]]
+![Pasted image 20250629041710.png](../../../../../../../../../../attachments/Pasted%20image%2020250629041710.png)
 
-![[Pasted image 20250629041725.png]]
-
-
+![Pasted image 20250629041725.png](../../../../../../../../../../attachments/Pasted%20image%2020250629041725.png)
 
 Still can't load the pyc.
 
@@ -198,11 +190,11 @@ https://stackoverflow.com/questions/5287253/is-it-possible-to-decompile-a-compil
 
 [decompyle3](https://github.com/rocky/python-decompile3) i
 
-```
+````
 pip install decompyle3
-```
+````
 
-```sh
+````sh
 decompyle3 __pycache__/crypto_numerology.cpython-312.pyc 
 I don't know about Python version '3.13' yet.
 Python versions 3.9 and greater are not supported.
@@ -233,11 +225,11 @@ Unsupported Python version, 3.12.0, for decompilation
 # Unsupported bytecode in file __pycache__/crypto_numerology.cpython-312.pyc
 # Unsupported Python version, 3.12.0, for decompilation
 
-```
+````
 
 ## 2.2 Format of challenge_package.json
 
-```
+````
 {
     "cipher_parameters": {
         "key": "000000005c5470020000000031f4727bf7d4923400000000e7bbb1c900000000",
@@ -263,11 +255,11 @@ Unsupported Python version, 3.12.0, for decompilation
     "flag_ciphertext": "692f09e677335f6152655f67304e6e40141fa702e7e5b95b46756e63298d80a9bcbbd95465795f21ef0a"
 }
 
-```
+````
 
 2025-06-29 Wk 26 Sun - 11:39
 
-```json
+````json
 {
 	"sample_id": "sample_n31_c30",
 	"plaintext_hex": "9de16236ae1521cffe67ab68fd1325951b2a1b11b75bec946325faca2a8db02a013b9c18ddd31f168e6dd472ebccdfc7d92c85e96546e822dd7002a2691f9392",
@@ -275,84 +267,85 @@ Unsupported Python version, 3.12.0, for decompilation
 	"nonce_hex": "000000800000000000000000",
 	"counter_int": 1073741824
 },
-```
+````
 
 What do the different fields mean? `nonce_hex` is just basically the same for everything.
 
 We have the plaintext, the ciphertext, and the key
 
-```
+````
 "key": "000000005c5470020000000031f4727bf7d4923400000000e7bbb1c900000000",
-```
-
+````
 
 ---
 
 2025-06-29 Wk 26 Sun - 11:42
 
-
 (LLM chatgpt-4o)
 
-| JSON field       | what it literally is                                                 | why it’s interesting                                                                                      |
-| ---------------- | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `sample_id`      | just a label (`sample_n31_c30`)                                      | n-value and c-value are just bookkeeping; you can ignore it once you know which row you’re looking at     |
-| `plaintext_hex`  | the original data **before** encryption, written in hex              | if you XOR this with the ciphertext you recover the cipher’s keystream for _this one block_               |
-| `ciphertext_hex` | the encrypted output for that same block                             | lets you verify the cipher or extract the keystream                                                       |
-| `nonce_hex`      | a 12-byte “number used once” (`00000080 00000000 00000000`)          | ChaCha20 needs a nonce; all samples that share the same value are guaranteed to be in the **same stream** |
-| `counter_int`    | a 32-bit block counter (here `1 073 741 824`, which is `0x40000000`) | tells the cipher **which 64-byte block** of keystream was used                                            |
+|JSON field|what it literally is|why it’s interesting|
+|----------|--------------------|--------------------|
+|`sample_id`|just a label (`sample_n31_c30`)|n-value and c-value are just bookkeeping; you can ignore it once you know which row you’re looking at|
+|`plaintext_hex`|the original data **before** encryption, written in hex|if you XOR this with the ciphertext you recover the cipher’s keystream for *this one block*|
+|`ciphertext_hex`|the encrypted output for that same block|lets you verify the cipher or extract the keystream|
+|`nonce_hex`|a 12-byte “number used once” (`00000080 00000000 00000000`)|ChaCha20 needs a nonce; all samples that share the same value are guaranteed to be in the **same stream**|
+|`counter_int`|a 32-bit block counter (here `1 073 741 824`, which is `0x40000000`)|tells the cipher **which 64-byte block** of keystream was used|
 
-- `plaintext ⊕ keystream = ciphertext
+* \`plaintext ⊕ keystream = ciphertext
 
 ChaCha20 is a **stream cipher**. That means:
-- It doesn’t encrypt in blocks like AES.
-- Instead, it **generates a stream of pseudorandom bytes** called a **keystream**.
-- You don’t need to hide the algorithm — all the security comes from the **secret key**.
 
-```
+* It doesn’t encrypt in blocks like AES.
+* Instead, it **generates a stream of pseudorandom bytes** called a **keystream**.
+* You don’t need to hide the algorithm — all the security comes from the **secret key**.
+
+````
 # encrypt
 Plaintext  ⊕  Keystream  =  Ciphertext
 # decrypt
 Ciphertext  ⊕  Keystream  =  Plaintext
-```
+````
 
 Procedure
+
 1. **Ask ChaCha20 to generate the keystream**, using the key, nonce, and counter.
-2. **XOR the plaintext with the keystream.**
-3. If the result = ciphertext → then yes, it’s ChaCha20.
+1. **XOR the plaintext with the keystream.**
+1. If the result = ciphertext → then yes, it’s ChaCha20.
 
 ChaCha20 is **deterministic** — that means:
-> Same key + same nonce + same counter → always produces the same 64-byte output.
 
-
+ > 
+ > Same key + same nonce + same counter → always produces the same 64-byte output.
 
 (/LLM chatgpt-4o)
-
 
 (LLM chatgpt-4o)
 
 On figuring out the algorithm from zero knowledge
 
 You’re given some structured data (JSON) that looks like:
-- Some kind of hex blobs labeled `plaintext` and `ciphertext`.
-- A key — also in hex, 64 characters (32 bytes).
-- A `nonce` — also hex, always 12 bytes.
-- A number called `counter`.
+
+* Some kind of hex blobs labeled `plaintext` and `ciphertext`.
+* A key — also in hex, 64 characters (32 bytes).
+* A `nonce` — also hex, always 12 bytes.
+* A number called `counter`.
 
 To show schema:
-```sh
+
+````sh
 jq 'def s: type as $t | if $t == "object" then with_entries(.value |= s) elif $t == "array" then map(s) | unique else $t end; s' ctf_challenge_package.json
-```
+````
 
 Get Sizes of parameters
 (/LLM chatgpt-4o)
 
 Schema:
 
-```sh
+````sh
 jq 'def s: type as $t | if $t == "object" then with_entries(.value |= s) elif $t == "array" then map(s) | unique else $t end; s' ctf_challenge_package.json
-```
+````
 
-```json
+````json
 {
   "cipher_parameters": {
     "key": "string",
@@ -369,74 +362,76 @@ jq 'def s: type as $t | if $t == "object" then with_entries(.value |= s) elif $t
   ],
   "flag_ciphertext": "string"
 }
-```
-^json-schema
+````
+
+<a name="json-schema" />^json-schema
 
 Size of the key:
 
-```sh
+````sh
 # no need to tr -d '\n', output invariant.
 cat ctf_challenge_package.json | jq .cipher_parameters.key | xargs echo -n | wc -c
 
 # output
 64
-```
+````
 
 Size of the nonce:
 
-```sh
+````sh
 cat ctf_challenge_package.json | jq ".learning_dataset_for_player.[0].nonce_hex" | xargs echo | tr -d '\n' | wc -c
 
 # output
 24
-```
+````
 
 Size of plaintext
 
-```sh
+````sh
 cat ctf_challenge_package.json | jq ".learning_dataset_for_player.[0].plaintext_hex" | xargs echo | tr -d '\n' |  wc -c
 
 # output
 128
-```
+````
 
 Size of ciphertext:
 
-```sh
+````sh
 cat ctf_challenge_package.json | jq ".learning_dataset_for_player.[0].ciphertext_hex" | xargs echo | tr -d '\n' | wc -c
 
 # output
 128
-```
+````
 
 Size of flag ciphertext:
 
-```sh
+````sh
 cat ctf_challenge_package.json | jq ".flag_ciphertext" | xargs echo | tr -d '\n' | wc -c
 
 # output
 84
-```
+````
 
 Size of common plaintext:
 
-```sh
+````sh
 cat ctf_challenge_package.json | jq ".cipher_parameters.common_plaintext" | xargs echo | tr -d '\n' | wc -c
 
 # output
 128
-```
+````
 
 2025-06-29 Wk 26 Sun - 12:16
 
 The counts are in characters. Each byte would make two characters, so 64 characters is a 32-bit token.
 
 So we have an encryption scheme with a
-- 32-byte key 12-byte nonce 64-byte text
+
+* 32-byte key 12-byte nonce 64-byte text
 
 DDGing "encryption with 32-byte key 12-byte nonce 64-byte text", you do find in the third result, `ChaCha20`.
 
-![[Pasted image 20250629122424.png]]
+![Pasted image 20250629122424.png](../../../../../../../../../../attachments/Pasted%20image%2020250629122424.png)
 
 ## 2.3 On the ChaCha20 Encryption Algorithm
 
@@ -448,60 +443,62 @@ byte strings can be little endian, or big endian.
 
 Definition:
 
-> Little Endian Order means the **least significant byte** is **stored first** in memory (at the lowest address).
-> Big Endian Order means the **most significant byte** is **stored first** in memory (at the lowest address).
+ > 
+ > Little Endian Order means the **least significant byte** is **stored first** in memory (at the lowest address).
+ > Big Endian Order means the **most significant byte** is **stored first** in memory (at the lowest address).
 
 Depending on our choice, how we interpret byte strings changes.
 
-Let's say we have a `u32`: `0xDEADFEED`. 
+Let's say we have a `u32`: `0xDEADFEED`.
 
 In little endian, this would encode the following byte string:
 
-```
+````
 ED FE AD DE
-```
+````
 
 On big endian, this would encode the following byte string:
 
-```
+````
 DE AD FE ED
-```
+````
 
 It could be thought of as writing the byte strings in reverse order. So endianness can be tested for in systems by reversing byte strings.
 
 Reversing in the shell:
 
-```sh
+````sh
 echo deadfeed | fold -w2 | tac | tr -d '\n'
 
 # output
 edfeadde
-```
-^ex-fold-tac
+````
+
+<a name="ex-fold-tac" />^ex-fold-tac
 
 (LLM chatgpt-4o)
-- Suggestion of `fold -w2` and `tac` combination
-(/LLM chatgpt-4o)
+
+* Suggestion of `fold -w2` and `tac` combination
+  (/LLM chatgpt-4o)
 
 ---
 
-
-
 (LLM chatgpt-4o)
 
-| what you’ll use it for                  | tool / package                                                     | why it matters                                                                                                                                                                                                                                                                                                                                                         |
-| --------------------------------------- | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **pull values out of the JSON quickly** | `jq`                                                               | one-liner to grab the key, nonce or counter without writing Python                                                                                                                                                                                                                                                                                                     |
-| **turn hex strings ↔︎ raw bytes**       | `xxd` _(or)_ `hexdump`                                             | converts the JSON’s hex fields to real bytes and back again ([man7.org](https://man7.org/linux/man-pages/man1/hexdump.1.html?utm_source=chatgpt.com "hexdump(1) - Linux manual page - man7.org"))                                                                                                                                                                      |
-| **run the actual cipher**               | `openssl` (≥ 1.1.1 / 3.x)                                          | has a built-in **`enc -chacha20`** and **`enc -chacha20-poly1305`** target so you can encrypt/decrypt or just generate keystream blocks from the shell ([docs.openssl.org](https://docs.openssl.org/3.3/man1/openssl-enc/?utm_source=chatgpt.com "openssl-enc"))                                                                                                       |
-|                                         | `hpenc` (GitHub, package name usually the same)                    | a tiny high-speed CLI that supports ChaCha20-Poly1305 and AES-GCM with simple flags — handy when you want authenticated encryption without OpenSSL’s quirks ([github.com](https://github.com/vstakhov/hpenc?utm_source=chatgpt.com "vstakhov/hpenc - fast encryption command line tool - GitHub"))                                                                     |
-|                                         | `age` (Filippo Valsorda’s _age_)                                   | modern file-encryption tool that uses **XChaCha20-Poly1305** under the hood; good for sanity-checking that your key/nonce sizes look right, even if you don’t use it to decrypt the challenge ([reddit.com](https://www.reddit.com/r/crypto/comments/nbjq71/chachapoly_from_command_line/?utm_source=chatgpt.com "ChaCha-Poly from command line : r/crypto - Reddit")) |
-|                                         | `libsodium-utils` _(sometimes packaged as `sodium-cli`)_           | command-line front-end to the libsodium library; exposes raw **crypto_stream_chacha20** and AEAD functions, so you can generate or XOR keystream bytes without writing C ([doc.libsodium.org](https://doc.libsodium.org/?utm_source=chatgpt.com "Introduction \| libsodium"))                                                                                          |
-| **quick XORs and checksum work**        | `xor` (from the _moreutils_ package) or even `openssl xor -inkey…` | lets you combine plaintext & ciphertext blocks to see the keystream directly                                                                                                                                                                                                                                                                                           |
-| **optional niceties**                   | `base64`, `od`, `tr`                                               | common helpers when inputs are in other encodings or you need pretty printing                                                                                                                                                                                                                                                                                          |
-- [ ] Not Fact checked
+|what you’ll use it for|tool / package|why it matters|
+|----------------------|--------------|--------------|
+|**pull values out of the JSON quickly**|`jq`|one-liner to grab the key, nonce or counter without writing Python|
+|**turn hex strings ↔︎ raw bytes**|`xxd` *(or)* `hexdump`|converts the JSON’s hex fields to real bytes and back again ([man7.org](https://man7.org/linux/man-pages/man1/hexdump.1.html?utm_source=chatgpt.com "hexdump(1) - Linux manual page - man7.org"))|
+|**run the actual cipher**|`openssl` (≥ 1.1.1 / 3.x)|has a built-in **`enc -chacha20`** and **`enc -chacha20-poly1305`** target so you can encrypt/decrypt or just generate keystream blocks from the shell ([docs.openssl.org](https://docs.openssl.org/3.3/man1/openssl-enc/?utm_source=chatgpt.com "openssl-enc"))|
+||`hpenc` (GitHub, package name usually the same)|a tiny high-speed CLI that supports ChaCha20-Poly1305 and AES-GCM with simple flags — handy when you want authenticated encryption without OpenSSL’s quirks ([github.com](https://github.com/vstakhov/hpenc?utm_source=chatgpt.com "vstakhov/hpenc - fast encryption command line tool - GitHub"))|
+||`age` (Filippo Valsorda’s *age*)|modern file-encryption tool that uses **XChaCha20-Poly1305** under the hood; good for sanity-checking that your key/nonce sizes look right, even if you don’t use it to decrypt the challenge ([reddit.com](https://www.reddit.com/r/crypto/comments/nbjq71/chachapoly_from_command_line/?utm_source=chatgpt.com "ChaCha-Poly from command line : r/crypto - Reddit"))|
+||`libsodium-utils` *(sometimes packaged as `sodium-cli`)*|command-line front-end to the libsodium library; exposes raw **crypto_stream_chacha20** and AEAD functions, so you can generate or XOR keystream bytes without writing C ([doc.libsodium.org](https://doc.libsodium.org/?utm_source=chatgpt.com "Introduction | libsodium"))|
+|**quick XORs and checksum work**|`xor` (from the *moreutils* package) or even `openssl xor -inkey…`|lets you combine plaintext & ciphertext blocks to see the keystream directly|
+|**optional niceties**|`base64`, `od`, `tr`|common helpers when inputs are in other encodings or you need pretty printing|
 
-**`openssl enc -chacha20`** (or **`hpenc` / libsodium’s CLI) to push data through the cipher or generate keystream.
+* [ ] Not Fact checked
+
+**`openssl enc -chacha20`** (or \*\*`hpenc` / libsodium’s CLI) to push data through the cipher or generate keystream.
 
 (/LLM chatgpt-4o)
 
@@ -509,22 +506,25 @@ edfeadde
 
 ## 3.1 Prove that the algorithm we have is ChaCha20
 
-
 (LLM chatgpt-4o)
 
 We’ll test this statement:
-> “If I run ChaCha20 using the given key, nonce, and counter, and encrypt the known plaintext, I should get exactly the ciphertext from the sample.”
 
-> We’ll use Python + PyCryptodome because it allows you to set the **counter directly** (OpenSSL can’t do that easily for ChaCha20).
-- [ ] Not Fact Checked
+ > 
+ > “If I run ChaCha20 using the given key, nonce, and counter, and encrypt the known plaintext, I should get exactly the ciphertext from the sample.”
 
-```sh
+ > 
+ > We’ll use Python + PyCryptodome because it allows you to set the **counter directly** (OpenSSL can’t do that easily for ChaCha20).
+
+* [ ] Not Fact Checked
+
+````sh
 pip install pycryptodome
-```
+````
 
 in `scripts/verify_chacha20.py`:
 
-```python
+````python
 #!/usr/bin/env python3
 """
 verify_chacha20.py
@@ -601,50 +601,48 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
-^script-match-check-1
+````
 
-```sh
+<a name="script-match-check-1" />^script-match-check-1
+
+````sh
 python -c "import Crypto, sys; print(Crypto.__version__)"
 
 # output
 3.23.0
-```
+````
 
-
-
-- Use `jq -r` to remove whitespace, etc just in case. Instead of `| xargs echo | tr -d '\n'`
+* Use `jq -r` to remove whitespace, etc just in case. Instead of `| xargs echo | tr -d '\n'`
 
 (/LLM chatgpt-4o)
 
-```sh
+````sh
 chmod +x ~/src/exp/puzzles/ctf/2025-06/NUMEROLOGY/scripts/verify_chacha20.py
-```
+````
 
-```sh
+````sh
 ~/src/exp/puzzles/ctf/2025-06/NUMEROLOGY/scripts/verify_chacha20.py \
 	--key "$(cat ctf_challenge_package.json | jq -r .cipher_parameters.key)" \
 	--nonce "$(cat ctf_challenge_package.json | jq -r ".learning_dataset_for_player.[0].nonce_hex")" \
 	--counter "$(cat ctf_challenge_package.json | jq -r  ".learning_dataset_for_player.[0].counter_int")" \
 	--plaintext "$(cat ctf_challenge_package.json | jq -r ".learning_dataset_for_player.[0].plaintext_hex")" \
 	--ciphertext "$(cat ctf_challenge_package.json | jq -r ".learning_dataset_for_player.[0].ciphertext_hex")"
-```
+````
 
 This fails.
 
-The [C source](<https://github.com/Legrandin/pycryptodome/blob/master/src/chacha20.c>) for ChaCha20 encryption for [pycryptodome](<https://github.com/Legrandin/pycryptodome>). Here is the [python](<https://github.com/Legrandin/pycryptodome/blob/master/lib/Crypto/Cipher/ChaCha20.py>).
-
-
+The [C source](https://github.com/Legrandin/pycryptodome/blob/master/src/chacha20.c) for ChaCha20 encryption for [pycryptodome](https://github.com/Legrandin/pycryptodome). Here is the [python](https://github.com/Legrandin/pycryptodome/blob/master/lib/Crypto/Cipher/ChaCha20.py).
 
 (LLM chatgpt-4o)
-Your “ground-truth” code shows PyCryptodome’s ChaCha20 uses the **standard** 20-round core and the IETF 12-byte nonce layout. Since that _doesn’t_ match your sample, the encryption in the JSON is either:
-- a **different ChaCha variant**, or
-- **not ChaCha at all**.
+Your “ground-truth” code shows PyCryptodome’s ChaCha20 uses the **standard** 20-round core and the IETF 12-byte nonce layout. Since that *doesn’t* match your sample, the encryption in the JSON is either:
 
-Exploring those two branches with the XOR-keystream method above will tell you which—_and that_ is the rigorous way to move from “guess” to “proof.”
+* a **different ChaCha variant**, or
+* **not ChaCha at all**.
+
+Exploring those two branches with the XOR-keystream method above will tell you which—*and that* is the rigorous way to move from “guess” to “proof.”
 (/LLM chatgpt-4o)
-- [ ] Not Fact checked
 
+* [ ] Not Fact checked
 
 2025-06-29 Wk 26 Sun - 13:10
 
@@ -652,17 +650,16 @@ I should do something about obsidian, adding tabs instead of spaces and python n
 
 2025-06-29 Wk 26 Sun - 13:34
 
-
 (LLM chatgpt-4o)
 For XOR,
 
-```sh
+````sh
 sudo apt install moreutils
-```
+````
 
 xor.py:
 
-```python
+````python
 #!/usr/bin/env python3
 """
 xor.py  –  XOR the contents of two files/streams.
@@ -691,46 +688,46 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
+````
 
 Will drop into `~/src/exp/puzzles/ctf/2025-06/NUMEROLOGY/scripts/xor.py`:
 
-```sh
+````sh
 chmod +x ~/src/exp/puzzles/ctf/2025-06/NUMEROLOGY/scripts/xor.py
-```
+````
 
 Example usage:
 
-```sh
+````sh
 ~/src/exp/puzzles/ctf/2025-06/NUMEROLOGY/scripts/xor.py <(echo 02000000 | xxd -r -p) <(echo 00005000 | xxd -r -p) | xxd -p
 
 # output
 02005000
-```
-(/LLM chatgpt-4o)
+````
 
+(/LLM chatgpt-4o)
 
 (LLM chatgpt-4o)
 
 Because XOR is its own inverse, the three algebraic identities are always true:
 
-```
+````
 plaintext   ⊕  ciphertext   = keystream
 plaintext   ⊕  keystream    = ciphertext
 ciphertext  ⊕  keystream    = plaintext
-```
-- [ ] Prove mathematically
+````
+
+* [ ] Prove mathematically
 
 The process for the ChaCha20 cipher:
 
-```rust
+````rust
 // ChaCha20 is a keystream generator
 let keystream = cipher(key, nonce, counter)
 let plaintext = xor(ciphertext, keystream)
-```
+````
 
-
-```sh
+````sh
 # pull the two hex blobs straight out of the JSON
 pt_hex=$(jq -r '.learning_dataset_for_player[0].plaintext_hex'   ctf_challenge_package.json)
 ct_hex=$(jq -r '.learning_dataset_for_player[0].ciphertext_hex'  ctf_challenge_package.json)
@@ -740,42 +737,43 @@ ct_hex=$(jq -r '.learning_dataset_for_player[0].ciphertext_hex'  ctf_challenge_p
     <(echo "$pt_hex" | xxd -r -p) \
     <(echo "$ct_hex" | xxd -r -p) \
 | xxd -p
-```
+````
 
-```
+````
 49734f3d000000000000000000000000dfbe3624b8a8e0040000000062e8
 e5f62bf399b700000000ce776393000000003e49734e0200000000000000
 00000000
-```
+````
 
-> “If any cipher, with the given key/nonce/counter, produces this exact byte sequence — that’s the cipher.”
-
+ > 
+ > “If any cipher, with the given key/nonce/counter, produces this exact byte sequence — that’s the cipher.”
 
 (/LLM chatgpt-4o)
 
 2025-06-29 Wk 26 Sun - 13:56
 
-So let's rewrite the earlier [[#^script-match-check-1|script]] but this time just for producing the keystream:
+So let's rewrite the earlier [script](003%20NUMEROLOGY.md#script-match-check-1) but this time just for producing the keystream:
 
 We will put this in `~/src/exp/puzzles/ctf/2025-06/NUMEROLOGY/scripts/chacha20.py`
 
 (LLM chatgpt-4o)
 Because ChaCha20 is a **keystream cipher**, encrypting an all-zero input gives you the raw keystream bytes
 
-```
+````
 ciphertext = plaintext XOR keystream
 ⟹
 keystream  = ciphertext XOR plaintext
 ⟹
 keystream  = cipher.encrypt(0x00…00)
-```
+````
 
-```python
+````python
 keystream = cipher.encrypt(b"\x00" * len(plaintext))
-```
+````
+
 (/LLM chatgpt-4o)
 
-```python
+````python
 #!/usr/bin/env python3
 """
 chacha20.py
@@ -837,38 +835,37 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
+````
 
-```sh
+````sh
 chmod +x /home/lan/src/exp/puzzles/ctf/2025-06/NUMEROLOGY/scripts/chacha20.py
-```
+````
 
 Now let's use it.
 
-```sh
+````sh
 ~/src/exp/puzzles/ctf/2025-06/NUMEROLOGY/scripts/chacha20.py \
 	--key "$(cat ctf_challenge_package.json | jq -r .cipher_parameters.key)" \
 	--nonce "$(cat ctf_challenge_package.json | jq -r ".learning_dataset_for_player.[0].nonce_hex")" \
 	--counter "$(cat ctf_challenge_package.json | jq -r  ".learning_dataset_for_player.[0].counter_int")" \
 	--plaintext "$(cat ctf_challenge_package.json | jq -r ".learning_dataset_for_player.[0].plaintext_hex")" \
 	--ciphertext "$(cat ctf_challenge_package.json | jq -r ".learning_dataset_for_player.[0].ciphertext_hex")"
-```
+````
 
-```
+````
 0f7db32985dc8cf1295d0aac306b97d1921299baf84b38b990be4f5c0b4338a0bc920b1cf89c0628a5b89765cafe514e246704348b1d38dbc33ba724298ba6fc
-```
+````
 
-This should be the keystream. 
+This should be the keystream.
 
 We now can check:
 
-```
+````
 plaintext   ⊕  keystream    = ciphertext
 ciphertext  ⊕  keystream    = plaintext
-```
+````
 
-
-```sh
+````sh
 idx=0
 key="$(cat ctf_challenge_package.json | jq -r .cipher_parameters.key)"
 nonce="$(cat ctf_challenge_package.json | jq -r ".learning_dataset_for_player.[$idx].nonce_hex")"
@@ -920,9 +917,9 @@ echo
 echo sizes of xors
 echo $xor1 | tr -d '\n' | wc -c
 echo $xor2 | tr -d '\n' | wc -c
-```
+````
 
-```
+````
 ciphertext
 d4922d0bae1521cffe67ab68fd132595c4942d350ff30c906325faca486555dc2ac805afddd31f16401ab7e1ebccdfc7e765f6a76746e822dd7002a2691f9392
 
@@ -941,18 +938,19 @@ dbef9e222bc9ad3ed73aa1c4cd78b2445686b48ff7b83429f39bb59643266d7c965a0eb3254f193e
 sizes of xors
 128
 128
-```
+````
 
 So we are still unable to match expectations.
 
 (LLM chatgpt-4o)
 
 LLM Suggests few issues with `chacha20.py`:
-- JSON counter is 1-based, but we should be 0-based.
-- `keystream = cipher.encrypt(b"\x00" * len(plaintext))` is unnecessarily referencing `plaintext`. We know the keystream is 64 bytes.
-- We no longer take `plaintext` or `ciphertext` as input
 
-```python
+* JSON counter is 1-based, but we should be 0-based.
+* `keystream = cipher.encrypt(b"\x00" * len(plaintext))` is unnecessarily referencing `plaintext`. We know the keystream is 64 bytes.
+* We no longer take `plaintext` or `ciphertext` as input
+
+````python
 #!/usr/bin/env python3
 """
 chacha20.py – emit the raw 64-byte ChaCha20-IETF keystream block
@@ -994,10 +992,11 @@ def main():
 if __name__ == "__main__":
     main()
 
-```
+````
+
 (/LLM chatgpt-4o)
 
-```sh
+````sh
 idx=0
 key="$(cat ctf_challenge_package.json | jq -r .cipher_parameters.key)"
 nonce="$(cat ctf_challenge_package.json | jq -r ".learning_dataset_for_player.[$idx].nonce_hex")"
@@ -1057,14 +1056,15 @@ echo
 echo sizes of xors
 echo $xor1 | tr -d '\n' | wc -c
 echo $xor2 | tr -d '\n' | wc -c
-```
+````
 
 We do subtract by 1:
-```python
-cipher.seek((a.counter - 1) * 64)      # ← JSON counters start at 1
-```
 
-```
+````python
+cipher.seek((a.counter - 1) * 64)      # ← JSON counters start at 1
+````
+
+````
 ciphertext
 d4922d0bae1521cffe67ab68fd132595c4942d350ff30c906325faca486555dc2ac805afddd31f16401ab7e1ebccdfc7e765f6a76746e822dd7002a2691f9392
 
@@ -1086,7 +1086,7 @@ xor inferred keystream [ER]
 sizes of xors
 128
 128
-```
+````
 
 2025-06-29 Wk 26 Sun - 14:39
 
@@ -1094,11 +1094,11 @@ The keystream changed now that we generate 64 byte zeros and subtract 1 based on
 
 If we do not subtract 1:
 
-```python
+````python
 cipher.seek((a.counter) * 64)
-```
+````
 
-```
+````
 ciphertext
 d4922d0bae1521cffe67ab68fd132595c4942d350ff30c906325faca486555dc2ac805afddd31f16401ab7e1ebccdfc7e765f6a76746e822dd7002a2691f9392
 
@@ -1120,8 +1120,7 @@ xor inferred keystream [ER]
 sizes of xors
 128
 128
-```
-
+````
 
 2025-06-29 Wk 26 Sun - 14:46
 
@@ -1129,13 +1128,13 @@ Including also check against xor inferred keystream
 
 2025-06-29 Wk 26 Sun - 14:56
 
-LLM Suggests [RFC 8439](<https://www.rfc-editor.org/rfc/rfc8439>). This is for the ChaCha20 cipher, but it may be that it is custom or different.
+LLM Suggests [RFC 8439](https://www.rfc-editor.org/rfc/rfc8439). This is for the ChaCha20 cipher, but it may be that it is custom or different.
 
 ### 3.1.1 Try to invert endianness
 
 Originally, we are not able to reproduce the keystream:
 
-```sh
+````sh
 idx=0
 key="$(cat ctf_challenge_package.json | jq -r .cipher_parameters.key)"
 nonce="$(cat ctf_challenge_package.json | jq -r ".learning_dataset_for_player.[$idx].nonce_hex")"
@@ -1167,10 +1166,11 @@ echo
 echo xor inferred keystream $(test_s $xor3 $keystream)
 echo $keystream_xor
 echo
-```
-^script-check-keystream
+````
 
-```
+<a name="script-check-keystream" />^script-check-keystream
+
+````
 counter: 1
 
 chacha20 processed keystream
@@ -1178,13 +1178,13 @@ chacha20 processed keystream
 
 xor inferred keystream [ER]
 49734f3d000000000000000000000000dfbe3624b8a8e0040000000062e8e5f62bf399b700000000ce776393000000003e49734e020000000000000000000000
-```
+````
 
 2025-06-29 Wk 26 Sun - 16:05
 
-Let's try by [[#2.4 On Endianness of byte streams|changing the endian order]] of the tokens.
+Let's try by [changing the endian order](003%20NUMEROLOGY.md#24-on-endianness-of-byte-streams) of the tokens.
 
-```sh
+````sh
 idx=0
 key="$(cat ctf_challenge_package.json | jq -r .cipher_parameters.key | fold -w2 | tac | tr -d '\n')"
 nonce="$(cat ctf_challenge_package.json | jq -r ".learning_dataset_for_player.[$idx].nonce_hex")"
@@ -1214,9 +1214,9 @@ echo
 echo xor inferred keystream $(test_s $xor3 $keystream)
 echo $keystream_xor
 echo
-```
+````
 
-```
+````
 counter: 1
 
 chacha20 processed keystream
@@ -1224,13 +1224,11 @@ chacha20 processed keystream
 
 xor inferred keystream [ER]
 49734f3d000000000000000000000000dfbe3624b8a8e0040000000062e8e5f62bf399b700000000ce776393000000003e49734e020000000000000000000000
-```
+````
 
 ### 3.1.2 Try using openssl
 
 2025-06-29 Wk 26 Sun - 15:26
-
-
 
 ## 3.2 Check keystreams of all samples
 
@@ -1238,7 +1236,7 @@ xor inferred keystream [ER]
 
 If this matches ChaCha20, I expect that all samples have the same keystream.
 
-```sh
+````sh
 key="$(cat ctf_challenge_package.json | jq -r .cipher_parameters.key)"
 
 for idx in $(seq 0 31); do
@@ -1253,10 +1251,11 @@ for idx in $(seq 0 31); do
     echo "keystream_xor[$idx] (plaintext xor ciphertext)"
 	echo $keystream_xor
 done
-```
-^script-keystream-all-1
+````
 
-```
+<a name="script-keystream-all-1" />^script-keystream-all-1
+
+````
 keystream_xor[0] (plaintext xor ciphertext)
 49734f3d000000000000000000000000dfbe3624b8a8e0040000000062e8e5f62bf399b700000000ce776393000000003e49734e020000000000000000000000
 keystream_xor[1] (plaintext xor ciphertext)
@@ -1268,40 +1267,38 @@ keystream_xor[3] (plaintext xor ciphertext)
 [...]
 keystream_xor[31] (plaintext xor ciphertext)
 49734f35000000000000000000000000d8b2f6e4b8a8e0040000000062e8e5f6237319b900000000ce776393000000003549f3cf020000000000000000000000
-```
+````
 
 It's all different...
 
 I guess we expect the identities
 
-```
+````
 plaintext   ⊕  ciphertext   = keystream
 plaintext   ⊕  keystream    = ciphertext
 ciphertext  ⊕  keystream    = plaintext
-```
+````
 
-To only hold per sample. 
+To only hold per sample.
 
 So more accurately,
 
-```
+````
 plaintext   ⊕  ciphertext   = keystream
 plaintext   ⊕  keystream    = ciphertext
 ciphertext  ⊕  keystream    = plaintext
 
 where
 	keystream: generate_keystream(key, nonce, counter)
-```
+````
 
 The objective is to figure out the encryption algorithm, generate the keystream, and XOR plaintext and ciphertext to get the expected keystream from the example.
 
 So far we have failed with ChaCha20.
 
+Earlier [script](003%20NUMEROLOGY.md#script-keystream-all-1) with more prints:
 
-
-Earlier [[#^script-keystream-all-1|script]] with more prints:
-
-```sh
+````sh
 key="$(cat ctf_challenge_package.json | jq -r .cipher_parameters.key)"
 
 for idx in $(seq 0 31); do
@@ -1335,9 +1332,9 @@ for idx in $(seq 0 31); do
 	echo
 done
 
-```
+````
 
-```sh
+````sh
 
 function test_s() {
 	if [[ "$1" = "$2" ]]; then echo "[OK]"; else echo "[ER]"; fi
@@ -1386,34 +1383,33 @@ echo
 echo sizes of xors
 echo $xor1 | tr -d '\n' | wc -c
 echo $xor2 | tr -d '\n' | wc -c
-```
-
+````
 
 ## 3.3 LLM Pattern check on pyc file
 
 2025-06-29 Wk 26 Sun - 16:25
 
-```sh
+````sh
 strings __pycache__/crypto_numerology.cpython-312.pyc | nvim --
-```
-
+````
 
 (LLM chatgpt-4o)
 
-| clue in the dump                                                                                  | why it matters                                                                                                                                                                                     |
-| ------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`CHACHA_CONSTANTS`**                                                                            | Confirms the author started from a ChaCha/Salsa code-base.                                                                                                                                         |
-| **`iexpaind 3i2-byite kc`**                                                                       | That is a _corrupted_ version of ChaCha’s ASCII constant “`expand 32-byte k`”. Whatever they finally compiled had a **mutated 16-byte constant block** (the first four 32-bit words of the state). |
-| **`rounds_to_execute must be between 1 and 8 for this modified version.`**                        | Standard ChaCha20 always does 20 rounds; this variant deliberately runs **only 1-8 rounds** (extremely weak).                                                                                      |
-| **`mix_bits`, `qr_operations_sequence`**                                                          | The quarter-round is still there, but they expose it so they can run only part of the round sequence.                                                                                              |
-| **`make_block(key_bytes, nonce_bytes, counter_int, current_constants_tuple, rounds_to_execute)`** | Signature of a helper that builds **one 64-byte keystream block** while letting the caller pick _which_ constant tuple and _how many_ rounds.                                                      |
-| **`construct_structured_key`** with “pattern_a/pattern_b” and _“active material”_                 | The key given to players is mostly zeros: only four 32-bit words (“active material”) are non-zero. That explains the long **runs of `00 00 00 00`** you saw in every XOR-derived keystream block.  |
-| **`secret_target_nonce_hex must be 24 hex chars and start with "0000"`**                          | Every nonce is 12 bytes, but the first two bytes are **forced to 0**. Again: easy to brute-force.                                                                                                  |
-| **`Warning: counter for nonce … wrapped around to 0`**                                            | The engine lets the 32-bit counter overflow — so samples explore very high block numbers (e.g., `0x40000000`).                                                                                     |
-| **`selected_constants`** / **`current_constants_tuple`**                                          | There are _multiple_ 16-byte constant blocks in play; the generator chooses one per sample row.                                                                                                    |
-| **`Error: rounds_to_execute must be between 1 and 8`**                                            | Reinforces that **`num_double_rounds` is hard-coded to 1** (i.e., one ChaCha “double round”) and `rounds_to_execute` ∈ {1…8} picks how many of those quarter-round operations actually happen.     |
-| **`rotl32`, `add32`, `bytes_to_words`, `words_to_bytes`**                                         | The arithmetic is straight ChaCha; only the inputs (constants/round-count) differ.                                                                                                                 |
-- [ ] Not Fact Checked
+|clue in the dump|why it matters|
+|----------------|--------------|
+|**`CHACHA_CONSTANTS`**|Confirms the author started from a ChaCha/Salsa code-base.|
+|**`iexpaind 3i2-byite kc`**|That is a *corrupted* version of ChaCha’s ASCII constant “`expand 32-byte k`”. Whatever they finally compiled had a **mutated 16-byte constant block** (the first four 32-bit words of the state).|
+|**`rounds_to_execute must be between 1 and 8 for this modified version.`**|Standard ChaCha20 always does 20 rounds; this variant deliberately runs **only 1-8 rounds** (extremely weak).|
+|**`mix_bits`, `qr_operations_sequence`**|The quarter-round is still there, but they expose it so they can run only part of the round sequence.|
+|**`make_block(key_bytes, nonce_bytes, counter_int, current_constants_tuple, rounds_to_execute)`**|Signature of a helper that builds **one 64-byte keystream block** while letting the caller pick *which* constant tuple and *how many* rounds.|
+|**`construct_structured_key`** with “pattern_a/pattern_b” and *“active material”*|The key given to players is mostly zeros: only four 32-bit words (“active material”) are non-zero. That explains the long **runs of `00 00 00 00`** you saw in every XOR-derived keystream block.|
+|**`secret_target_nonce_hex must be 24 hex chars and start with "0000"`**|Every nonce is 12 bytes, but the first two bytes are **forced to 0**. Again: easy to brute-force.|
+|**`Warning: counter for nonce … wrapped around to 0`**|The engine lets the 32-bit counter overflow — so samples explore very high block numbers (e.g., `0x40000000`).|
+|**`selected_constants`** / **`current_constants_tuple`**|There are *multiple* 16-byte constant blocks in play; the generator chooses one per sample row.|
+|**`Error: rounds_to_execute must be between 1 and 8`**|Reinforces that **`num_double_rounds` is hard-coded to 1** (i.e., one ChaCha “double round”) and `rounds_to_execute` ∈ {1…8} picks how many of those quarter-round operations actually happen.|
+|**`rotl32`, `add32`, `bytes_to_words`, `words_to_bytes`**|The arithmetic is straight ChaCha; only the inputs (constants/round-count) differ.|
+
+* [ ] Not Fact Checked
 
 (/LLM chatgpt-4o)
 
@@ -1421,48 +1417,47 @@ strings __pycache__/crypto_numerology.cpython-312.pyc | nvim --
 
 So the big hint is that we should spawn up our own ChaCha20 project and vary some parameters.
 
-```
+````
 zMActual number of rounds to execute (1-8, default: 2 for a very weak variant).z
 --message_size_bytesrU
 z:Size of P_common in learning dataset (bytes, default: 64).z
 --known_key_active_material_hexz3Hex string for the non-zero part of the known key. z
 --secret_target_nonce_hexz
 SECRET nonce (hex, 24 chars, first 4 hex chars/2 bytes must be '0000') to be recovered by player. Typically from set_secrets.sh.z
-```
+````
 
-This seems like a reliable signal for setting up our own ChaCha20: [gh RustCrypto chacha20](<https://github.com/RustCrypto/stream-ciphers/tree/master/chacha20>) [[#^1]]
+This seems like a reliable signal for setting up our own ChaCha20: [gh RustCrypto chacha20](https://github.com/RustCrypto/stream-ciphers/tree/master/chacha20) [^1](003%20NUMEROLOGY.md#1)
 
 ## 3.4 Experimenting with chacha20 rust impl
 
 2025-06-29 Wk 26 Sun - 17:13
 
-Project is setup [[#4.1 Setup [gh RustCrypto chacha20](<https //github.com/RustCrypto/stream-ciphers/tree/master/chacha20>) 1|here]]. 
+Project is setup \[\[\#4.1 Setup [gh RustCrypto chacha20](<https //github.com/RustCrypto/stream-ciphers/tree/master/chacha20>) 1|here\]\].
 
 <img src="https://raw.githubusercontent.com/RustCrypto/media/8f1a9894/img/stream-ciphers/chacha20.png" width="300px">
 
-Tangent, but this image is referenced in the implementation. Also I can paste it this way that it could probably be seen from github! See [problem entry](<https://github.com/LanHikari22/lan-setup-notes/blob/main/lan/llm/weekly/Wk%2026%20007%20Github%20compatible%20screenshot%20links%20in%20Obsidian.md>).
-
+Tangent, but this image is referenced in the implementation. Also I can paste it this way that it could probably be seen from github! See [problem entry](https://github.com/LanHikari22/lan-setup-notes/blob/main/lan/llm/weekly/Wk%2026%20007%20Github%20compatible%20screenshot%20links%20in%20Obsidian.md).
 
 2025-06-29 Wk 26 Sun - 18:15
 
 2025-06-29 Wk 26 Sun - 18:38
 
-![[Pasted image 20250629183846.png]]
+![Pasted image 20250629183846.png](../../../../../../../../../../attachments/Pasted%20image%2020250629183846.png)
 
 Not much time is left... Only 2 hours...
 
 2025-06-29 Wk 26 Sun - 18:43
 
-In this line in [lib.rs](<https://github.com/RustCrypto/stream-ciphers/blob/07ee501ac9067abe0679a596aa771a575baec68e/chacha20/src/lib.rs#L148>),
+In this line in [lib.rs](https://github.com/RustCrypto/stream-ciphers/blob/07ee501ac9067abe0679a596aa771a575baec68e/chacha20/src/lib.rs#L148),
 
-```rust
+````rust
 /// State initialization constant ("expand 32-byte k")
 const CONSTANTS: [u32; 4] = [0x6170_7865, 0x3320_646e, 0x7962_2d32, 0x6b20_6574];
-```
+````
 
 This is a big hint. Exactly as in the strings:
 
-```sh
+````sh
 strings __pycache__/crypto_numerology.cpython-312.pyc | less
 
 # output
@@ -1471,20 +1466,20 @@ iexpaind 3i2-byite kc
 [...]
 CHACHA_CONSTANTSr
 [...]
-```
+````
 
-```sh
+````sh
 xxd __pycache__/crypto_numerology.cpython-312.pyc | less
 
 00002cc0: 4143 4841 5f43 4f4e 5354 414e 5453 7218  ACHA_CONSTANTSr.
 00002cd0: 0000 00da 057a 6572 6f73 725c 0000 0072  .....zerosr\...r
-```
+````
 
 After `CONSTANTS` we see the byte stream
 
-```
+````
 18 00 00 00 da 05
-```
+````
 
 Which ends just before "zeros"...
 
@@ -1492,7 +1487,7 @@ Though unsure if that is relevant.
 
 Other parameters in the project:
 
-```rust
+````rust
 /// Number of 32-bit words in the ChaCha state
 const STATE_WORDS: usize = 16;
 
@@ -1521,15 +1516,15 @@ impl Rounds for R20 {
     const COUNT: usize = 10;
 }
 
-```
-
+````
 
 (LLM chatgpt-4o)
-- Suggestion for fast experimentation, expose `const_${rounds}` in Cargo features to set `COUNT` at compile-time.
 
-We already [[#^script-check-keystream|established]]:
+* Suggestion for fast experimentation, expose `const_${rounds}` in Cargo features to set `COUNT` at compile-time.
 
-```
+We already [established](003%20NUMEROLOGY.md#script-check-keystream):
+
+````
 xor inferred keystream
 49734f3d000000000000000000000000dfbe3624b8a8e0040000000062e8e5f62bf399b700000000ce776393000000003e49734e020000000000000000000000
 
@@ -1538,31 +1533,31 @@ xor inferred keystream
 49 73 4f 3d
 
 read as a little endian u32, is 0x3d4f7349.
-```
+````
 
-```rust
+````rust
 const CONSTANTS: [u32; 4] = [
     0x3d4f7349,      // from sample’s keystream
     0x00000000,      // word1 (set zero for now)
     0x00000000,      // word2
     0x00000000,      // word3
 ];
-```
+````
 
 The constants are:
 
-```sh
+````sh
 "expa" 0x61707865  
 "nd 3" 0x3320646e  
 "2-by" 0x79622d32  
 "te k" 0x6b206574
-```
+````
 
 Together they spell:
 
-```C
+````C
 "expand 32-byte k"
-```
+````
 
 (/LLM chatgpt-4o)
 
@@ -1570,32 +1565,32 @@ Together they spell:
 
 Really?
 
-```sh
+````sh
 echo "expand 32-byte k" | xxd -p | fold -w4 | xargs
 
 # output
 6578 7061 6e64 2033 322d 6279 7465 206b 0a
-```
+````
 
-```
+````
 65 78 70 61 6e 64 20 33 32 2d 62 79 74 65 20 6b 0a
 e- x- p- a- n- d-  - 3- 2- -  b- y- t- e-  - k- \n
-```
+````
 
 OK. Let's try the string we got then... "iexpaind 3i2-byite k".  It's more than 16 characters. So something must be missing.
 
 What if we try to print the string we got from the keystream?
 
-```sh
+````sh
 $ echo "49 73 4f 3d" | tr -d ' ' | xxd -r -p
 
 IsO=%
 
 $ echo "49 73 4f 3d" | tr -d ' ' | fold -w2 | tac | tr -d '\n' | xxd -r -p
 =OsI
-```
+````
 
-Nothing seems to be similar to the string they have there. 
+Nothing seems to be similar to the string they have there.
 
 LLM suggests that expecting the first constant to be string is not a good approach.
 
@@ -1607,8 +1602,7 @@ I need to understand what these constants mean in the spec.
 
 37 minutes. Just going in circles
 
-
-```sh
+````sh
 $ echo "49734f3d000000000000000000000000dfbe3624b8a8e0040000000062e8e5f62bf399b700000000ce776393000000003e49734e020000000000000000000000" | fold -w2 | cat | xargs
 
 49 73 4f 3d 00 00 00 00 00 00 00 00 00 00 00 00 df be 36 24 b8 a8 e0 04 00 00 00 00 62 e8 e5 f6 2b f3 99 b7 00 00 00 00 ce 77 63 93 00 00 00 00 3e 49 73 4e 02 00 00 00 00 00 00 00 00 00 00 00
@@ -1616,9 +1610,9 @@ $ echo "49734f3d000000000000000000000000dfbe3624b8a8e0040000000062e8e5f62bf399b7
 $ echo "49734f3d000000000000000000000000dfbe3624b8a8e0040000000062e8e5f62bf399b700000000ce776393000000003e49734e020000000000000000000000" | fold -w2 | tac | xargs
 
 00 00 00 00 00 00 00 00 00 00 00 02 4e 73 49 3e 00 00 00 00 93 63 77 ce 00 00 00 00 b7 99 f3 2b f6 e5 e8 62 00 00 00 00 04 e0 a8 b8 24 36 be df 00 00 00 00 00 00 00 00 00 00 00 00 3d 4f 73 49
-```
+````
 
-```sh
+````sh
 0x3d4f7349, 0x00000000, 0x2436bedf, 0x04e0a8b8,
 
 00 00 00 00 00 00 00 00 00 00 00 02 4e 73 49 3e 00 00 00 00 93 63 77 ce 00 00 00 00 b7 99 f3 2b f6 e5 e8 62 00 00 00 00 [04 e0 a8 b8] [24 36 be df] 00 00 00 00 00 00 00 00 [00 00 00 00] [3d 4f 73 49]
@@ -1627,29 +1621,30 @@ $ echo "49734f3d000000000000000000000000dfbe3624b8a8e0040000000062e8e5f62bf399b7
 4-7
 16-9
 20-23
-```
+````
 
 # 4 Tooling
-## 4.1 Setup [gh RustCrypto chacha20](<https://github.com/RustCrypto/stream-ciphers/tree/master/chacha20>) [[#^1]]
+
+## 4.1 Setup [gh RustCrypto chacha20](https://github.com/RustCrypto/stream-ciphers/tree/master/chacha20) [^1](003%20NUMEROLOGY.md#1)
 
 2025-06-29 Wk 26 Sun - 16:52
 
-```sh
+````sh
 mkdir -p /home/lan/src/exp/puzzles/ctf/2025-06/NUMEROLOGY/cloned/gh/RustCrypto
 cd /home/lan/src/exp/puzzles/ctf/2025-06/NUMEROLOGY/cloned/gh/RustCrypto
 git clone git@github.com:RustCrypto/stream-ciphers.git
 cd stream-ciphers/chacha20/
-```
+````
 
 This is a library. We also need to setup a rust project here to use it!
 
-```sh
+````sh
 mkdir -p /home/lan/src/exp/puzzles/ctf/2025-06/NUMEROLOGY/repos/cust_chacha
 cd /home/lan/src/exp/puzzles/ctf/2025-06/NUMEROLOGY/repos/cust_chacha
 cargo init
-```
+````
 
-```toml
+````toml
 # Cargo.toml
 
 [package]
@@ -1660,24 +1655,24 @@ edition = "2024"
 [dependencies]
 
 chacha20 = { path = "/home/lan/src/exp/puzzles/ctf/2025-06/NUMEROLOGY/cloned/gh/RustCrypto/stream-ciphers/chacha20", version = "0.10.0-rc.0" }
-```
+````
 
-```sh
+````sh
 # in /home/lan/src/exp/puzzles/ctf/2025-06/NUMEROLOGY/repos/cust_chacha
 cargo build --release
-```
+````
 
 2025-06-29 Wk 26 Sun - 17:02
 
-OK. We are able to build chacha20. Now let's use the example they have in the [docs](<https://docs.rs/chacha20/latest/chacha20/#example>),
+OK. We are able to build chacha20. Now let's use the example they have in the [docs](https://docs.rs/chacha20/latest/chacha20/#example),
 
 Some missing crates the example uses:
 
-```sh
+````sh
 cargo add hex_literal
-```
+````
 
-```rust
+````rust
 /// main.rs
 
 fn main() {
@@ -1728,9 +1723,9 @@ mod tests {
 
     }
 }
-```
+````
 
-```sh
+````sh
 cargo test           
 
 # output
@@ -1751,21 +1746,22 @@ running 1 test
 test tests::test_docs_example ... ok
 
 test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
-```
-
+````
 
 OK
 
 # 5 References
 
-1. [gh RustCrypto chacha20](<https://github.com/RustCrypto/stream-ciphers/tree/master/chacha20>) ^1
+1. [gh RustCrypto chacha20](https://github.com/RustCrypto/stream-ciphers/tree/master/chacha20) ^1
 
 **Curious**
+
 1. https://github.com/Wind-River/crypto-detector
-2. https://github.com/RadjahDri/identify-crypto-algorithm
-3. https://github.com/salvacorts/smashcrack
-4. https://github.com/j4ik2i5x0/Encryption-Algorithm-Detector
+1. https://github.com/RadjahDri/identify-crypto-algorithm
+1. https://github.com/salvacorts/smashcrack
+1. https://github.com/j4ik2i5x0/Encryption-Algorithm-Detector
 
 **Search**
-1.  https://datatracker.ietf.org/doc/html/rfc5116
-2. https://www.iana.org/assignments/aead-parameters/aead-parameters.xhtml
+
+1. https://datatracker.ietf.org/doc/html/rfc5116
+1. https://www.iana.org/assignments/aead-parameters/aead-parameters.xhtml

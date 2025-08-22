@@ -4,7 +4,7 @@ status: todo
 
 # 1 Objective
 
-In [[000 Get a domain name to publish in for self-hosting]] we setup an [astro website](https://docs.astro.build/en/getting-started/) starter over [wasmer](https://wasmer.io).
+In [000 Get a domain name to publish in for self-hosting](../../tasks/000%20Get%20a%20domain%20name%20to%20publish%20in%20for%20self-hosting.md) we setup an [astro website](https://docs.astro.build/en/getting-started/) starter over [wasmer](https://wasmer.io).
 
 Here we learn more about those different tools!
 
@@ -20,12 +20,11 @@ Here we learn more about those different tools!
 
 ## 6.1 Inspecting astro deployment
 
-- [ ] 
+* [ ] 
 
 2025-08-20 Wk 34 Wed - 00:53
 
-From [[000 Get a domain name to publish in for self-hosting]],
-
+From [000 Get a domain name to publish in for self-hosting](../../tasks/000%20Get%20a%20domain%20name%20to%20publish%20in%20for%20self-hosting.md),
 
 ### 6.1.1 Pend
 
@@ -36,7 +35,6 @@ From [[000 Get a domain name to publish in for self-hosting]],
 ## 8.1 Astro Resources
 
 [gh astro-examples](https://github.com/MicroWebStacks/astro-examples).
-
 
 # 9 External Links
 

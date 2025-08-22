@@ -1,16 +1,14 @@
-
-
 # 1 Journal
 
 2025-06-28 Wk 26 Sat - 20:50
 
-![[Pasted image 20250628205024.png]]
+![Pasted image 20250628205024.png](../../../../../../../../attachments/Pasted%20image%2020250628205024.png)
 
 Lots of categories!
 
 and announcements!
 
-```
+````
 - #### 24 Hours Left!
     
     21:00 Jun 28 2025
@@ -75,19 +73,17 @@ and announcements!
     14:00 Jun 23 2025
     
     Dust off your hacking tools and prep your coffee pots, because the competition is about to get real! Get ready to unleash your inner keyboard warrior as we dive into a 48-hour hacking frenzy starting June 27th at 6:00 PM UTC. Brace yourselves for sleepless nights, adrenaline-fueled coding, and the ultimate test of your cyber skills. So, sharpen your reflexes, stock up on energy drinks, and get ready to dominate!
-```
+````
 
 Let's maybe start with `reversing`
 
-![[Pasted image 20250628205214.png]]
-
+![Pasted image 20250628205214.png](../../../../../../../../attachments/Pasted%20image%2020250628205214.png)
 
 Let's start with `MULTIARCH-1`:
 
-![[Pasted image 20250628205318.png]]
+![Pasted image 20250628205318.png](../../../../../../../../attachments/Pasted%20image%2020250628205318.png)
 
-[[000 Multiarch]]
-
+[000 Multiarch](../topics/reversing/entries/000%20Multiarch.md)
 
 2025-06-29 Wk 26 Sun - 02:27
 
@@ -99,27 +95,29 @@ Anyway, let's try to get all of the puzzle attachments.
 
 All good
 
-
 2025-06-29 Wk 26 Sun - 18:40
 
-![[Pasted image 20250629183846.png]]
+![Pasted image 20250629183846.png](../../../../../../../../attachments/Pasted%20image%2020250629183846.png)
 
 Not much time is left...
 
 2025-06-29 Wk 26 Sun - 21:01
 
-![[Pasted image 20250629210103.png]]
+![Pasted image 20250629210103.png](../../../../../../../../attachments/Pasted%20image%2020250629210103.png)
 
 Seems I was close with this flag
 
 2025-06-29 Wk 26 Sun - 21:30
-- #### Send feedback!
-    21:01 Jun 29 2025
-    Please send us feedback, thanks! [https://forms.gle/KACEBk3rb3EUtRSx9](https://www.google.com/url?sa=D&q=https%3A%2F%2Fforms.gle%2FKACEBk3rb3EUtRSx9)
-    
-- #### Google CTF is over!
-    21:00 Jun 29 2025
-    Thanks for playing :) And congratulations to the winners!
+
+* #### Send feedback!
+  
+  21:01 Jun 29 2025
+  Please send us feedback, thanks! [https://forms.gle/KACEBk3rb3EUtRSx9](https://www.google.com/url?sa=D&q=https%3A%2F%2Fforms.gle%2FKACEBk3rb3EUtRSx9)
+
+* #### Google CTF is over!
+  
+  21:00 Jun 29 2025
+  Thanks for playing :) And congratulations to the winners!
 
 2025-06-29 Wk 26 Sun - 21:30
 

@@ -6,7 +6,7 @@ status: done
 
 We need to be able to launch a test static html website on the internet using a 3rd party service. Optionally, we need to also be able to configure it with a nice URL name
 
-- [x] Able to publish a test site over a 3rd party hosted server
+* [x] Able to publish a test site over a 3rd party hosted server
 
 # 2 Journal
 
@@ -14,13 +14,13 @@ We need to be able to launch a test static html website on the internet using a 
 
 Let's start by looking for options!
 
-Spawn [[#6.1 Initial web search for 3rd party hosting]]. ^spawn-invst-818f9d
+Spawn [6.1 Initial web search for 3rd party hosting](001%20Searching%20for%20services%20with%20free%20website%20hosting.md#61-initial-web-search-for-3rd-party-hosting). <a name="spawn-invst-818f9d" />^spawn-invst-818f9d
 
 # 3 Tasks
 
 ## 3.1 Purchasing a Domain Name
 
-- [x] 
+* [x] 
 
 2025-08-12 Wk 33 Tue - 18:12
 
@@ -28,18 +28,18 @@ Since this repository is `delta-trace`, let's get a `deltatraced.com` domain nam
 
 A comparison of costs from different domain name brokers as of this writing,
 
-| Domain Name     | Registrar                                                                                                | Cost (USD) |
-| --------------- | -------------------------------------------------------------------------------------------------------- | ---------- |
-| deltatraced.com | [hostinger](https://www.hostinger.com/domain-name-results?domain=deltatraced&from=domain-name-search)    | 2.99       |
-| deltatraced.com | [freehosting](https://www.freehosting.com/client/cart.php?a=add&domain=register)                         | 18.99      |
-| deltatraced.com | [cloudflare](https://domains.cloudflare.com/?domain=deltatraced.com)                                     | 10.44      |
-| deltatraced.com | [namecheap](https://www.namecheap.com/domains/registration/results/?domain=deltatraced.com)              | 11.28      |
-| deltatraced.io  | [hostinger](https://www.hostinger.com/domain-name-results?domain=deltatraced.io&from=domain-name-search) | 31.99      |
-| deltatraced.io  | [freehosting](https://www.freehosting.com/client/cart.php?a=add&domain=register)                         | 89.29      |
-| deltatraced.io  | [cloudflare](https://domains.cloudflare.com/?domain=deltatraced.io)                                      | 45.00      |
-| deltatraced.io  | [namecheap](https://www.namecheap.com/domains/registration/results/?domain=deltatraced.io)               | 34.98      |
+|Domain Name|Registrar|Cost (USD)|
+|-----------|---------|----------|
+|deltatraced.com|[hostinger](https://www.hostinger.com/domain-name-results?domain=deltatraced&from=domain-name-search)|2.99|
+|deltatraced.com|[freehosting](https://www.freehosting.com/client/cart.php?a=add&domain=register)|18.99|
+|deltatraced.com|[cloudflare](https://domains.cloudflare.com/?domain=deltatraced.com)|10.44|
+|deltatraced.com|[namecheap](https://www.namecheap.com/domains/registration/results/?domain=deltatraced.com)|11.28|
+|deltatraced.io|[hostinger](https://www.hostinger.com/domain-name-results?domain=deltatraced.io&from=domain-name-search)|31.99|
+|deltatraced.io|[freehosting](https://www.freehosting.com/client/cart.php?a=add&domain=register)|89.29|
+|deltatraced.io|[cloudflare](https://domains.cloudflare.com/?domain=deltatraced.io)|45.00|
+|deltatraced.io|[namecheap](https://www.namecheap.com/domains/registration/results/?domain=deltatraced.io)|34.98|
 
-Once purchased and we have an IPv4 to host over, we will need to assign an A record to the purchased domain name. 
+Once purchased and we have an IPv4 to host over, we will need to assign an A record to the purchased domain name.
 
 We should also have an email for this. We could set up our own mail exchange, but this is low priority for now.
 
@@ -51,9 +51,9 @@ We should also have an email for this. We could set up our own mail exchange, bu
 
 ## 6.1 Initial web search for 3rd party hosting
 
-- [ ] 
+* [ ] 
 
-From [[#^spawn-invst-818f9d]] in [[#2 Journal]]
+From [^spawn-invst-818f9d](001%20Searching%20for%20services%20with%20free%20website%20hosting.md#spawn-invst-818f9d) in [2 Journal](001%20Searching%20for%20services%20with%20free%20website%20hosting.md#2-journal)
 
 2025-08-12 Wk 33 Tue - 17:05
 
@@ -69,24 +69,24 @@ This [reddit post](https://www.reddit.com/r/software/comments/1i0av3m/whats_the_
 
 [wasmer](https://wasmer.io/free-web-hosting) supports hosting directly from github which is interesting.
 
-
 ### 6.1.1 Pend
 
 ## 6.2 Finding different domain name registrars
 
 2025-08-12 Wk 33 Tue - 18:19
 
-So far we have [freehosting](https://www.freehosting.com/), [hostinger](https://www.hostinger.com/domain-name-results), 
+So far we have [freehosting](https://www.freehosting.com/), [hostinger](https://www.hostinger.com/domain-name-results),
 
-See some cost comparisons for a sample domain name in [[#3.1 Purchasing a Domain Name]].
+See some cost comparisons for a sample domain name in [3.1 Purchasing a Domain Name](001%20Searching%20for%20services%20with%20free%20website%20hosting.md#31-purchasing-a-domain-name).
 
 Recommendations from this [reddit post from 2024](https://www.reddit.com/r/webdev/comments/1bjfqse/whats_the_best_domain_registrar_in_2024/),
 
-[cloudflare](https://domains.cloudflare.com/), [namecheap](https://www.namecheap.com/), 
+[cloudflare](https://domains.cloudflare.com/), [namecheap](https://www.namecheap.com/),
 
 # 7 Ideas
 
 # 8 Side Notes
+
 # 9 External Links
 
 # 10 References

@@ -1,6 +1,4 @@
-
-
-![[Pasted image 20250629024644.png]]
+![Pasted image 20250629024644.png](../../../../../../../../../../../attachments/Pasted%20image%2020250629024644.png)
 
 https://fbg3rlga-fishmaze.instancer.2025.ctfcompetition.com/
 
