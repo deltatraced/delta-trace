@@ -53,7 +53,7 @@ It seems in the case that multiple files like `main.py` and `dbml.py` include th
 
 2025-08-06 Wk 32 Wed - 04:32
 
-[[#4.1 assertEqual on dbml tables fail even though they are copied from print|Issue]]. ^spawn-issue-060433
+Spawn [[#4.1 assertEqual on dbml tables fail even though they are copied from print]]. ^spawn-issue-060433
 
 2025-08-06 Wk 32 Wed - 16:58
 
@@ -166,7 +166,8 @@ This is anchored by the [dbmt spec](https://github.com/LanHikari22/dbmint/blob/m
 	- [ ] Test that single `dmbt`  file is a valid `dmbt` file.
 - [ ] Generate a `JSON` representation of a given `dmbt` file for interoperability with the Rust library generation code.
 	- [ ] Test going full circle `dmbt` -> `JSON` -> `dbmt`.
-	
+
+^impl-dbmt-py-objectives
 
 2025-08-15 Wk 33 Fri - 08:07
 
@@ -286,7 +287,16 @@ But this `associated_item` information cannot be known by a line parser that onl
 
 2025-08-15 Wk 33 Fri - 20:23
 
-We kept using `pp.Word('virtual')` but this is wrong. This takes characters as input, and NOT an exact string match. I wanted to do this so that it auto-converts into a `ParserElement` for pyparsing.
+We kept using `pp.Word('virtual')` but this is wrong. This takes characters as input, and NOT an exact string match. I wanted to do this so that it auto-converts into a `ParserElement` for `pyparsing`.
+
+2025-08-22 Wk 34 Fri - 10:55
+
+We're creating a new repository for `dbmt-py`. Let's do this properly and apply what we learned from obsidian-export: 
+
+[7.1 Setting up rustfmt and clippy in CI](https://github.com/LanHikari22/lan-setup-notes/blob/webview/lan/topics/tooling/obsidian/tasks/2025/004%20Fix%20obsidian%20export%20to%20support%20internal%20links.md#71-setting-up-rustfmt-and-clippy-in-ci)
+[7.3 Including pre-commit hooks in my repositories](https://github.com/LanHikari22/lan-setup-notes/blob/webview/lan/topics/tooling/obsidian/tasks/2025/004%20Fix%20obsidian%20export%20to%20support%20internal%20links.md#73-including-pre-commit-hooks-in-my-repositories)
+
+Spawn [[#3.8 Add python pre-commit hooks to the project for style and correctness]] ^spawn-task-11080d
 
 
 ### 3.2.1 Pend
@@ -295,7 +305,7 @@ We kept using `pp.Word('virtual')` but this is wrong. This takes characters as i
 
 - [x] 
 
-From [[#^spawn-task-060606]].
+From [[#^spawn-task-060606]] in [[#4.1 assertEqual on dbml tables fail even though they are copied from print]]
 
 2025-08-06 Wk 32 Wed - 06:15
 
@@ -753,7 +763,7 @@ Name is a bit weird, but it's alright. It'd take force pushing to change this, a
 
 - [ ] 
 
-From [[#^spawn-task-061745]].
+From [[#^spawn-task-061745]] in [[#3.1 Go through reading and writing dbml in rust and python]]
 
 ### 3.6.1 Pend
 
@@ -795,13 +805,177 @@ We added a `test.sh` that runs `python3 -m unittest` to run all the tests under 
 
 You can find the template python3 library project [here](https://github.com/LanHikari22/lan-exp-scripts/tree/main/templates/2025/topics/py3/persistant/001-lan-library/library).
 
+## 3.8 Add python pre-commit hooks to the project for style and correctness
+
+- [ ] 
+
+From [[#^spawn-task-11080d]] in [[#3.2 Implement dbmt-py]]
+
+2025-08-22 Wk 34 Fri - 11:13
+
+2025-08-22 Wk 34 Fri - 11:34
+
+Added instructions in `CONTRIBUTING.md` for setting up the pre-commit hooks.
+
+From [pre-commit](https://pre-commit.com/),
+
+```sh
+pre-commit sample-config > .pre-commit-config.yaml
+```
+
+We want [psf/black](https://github.com/psf/black) formatting in python. We can also [setup an icon](https://github.com/psf/black?tab=readme-ov-file#show-your-style) in our repo according to black:
+
+```
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+```
+
+They had another option also for README.rst which is innteresting. I just use README.md
+
+We added it as
+
+```html
+  <a href="https://github.com/psf/black">
+    <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Style: Black"/>
+  </a>
+```
+
+For consistency with the other icons and centering.
+
+(update)
+Add `Black` as a hook:
+
+```yaml
+repos:
+  # Using this mirror lets us use mypyc-compiled black, which is about 2x faster
+  - repo: https://github.com/psf/black-pre-commit-mirror
+    rev: 25.1.0
+    hooks:
+      - id: black
+        # It is recommended to specify the latest version of Python
+        # supported by your project here, or alternatively use
+        # pre-commit's default_language_version, see
+        # https://pre-commit.com/#top_level-default_language_version
+        language_version: python3.11
+```
+
+<details>
+<summary>errata</summary>
+
+2025-08-22 Wk 34 Fri - 15:08
+
+I mentioned
+
+```yaml
+-   repo: https://github.com/psf/black
+    rev: 25.1.0
+    hooks:
+    -   id: black
+```
+
+but in [Version control integration](https://github.com/psf/black/blob/main/docs/integrations/source_version_control.md#version-control-integration) they recommended
+
+```yaml
+repos:
+  # Using this mirror lets us use mypyc-compiled black, which is about 2x faster
+  - repo: https://github.com/psf/black-pre-commit-mirror
+    rev: 25.1.0
+    hooks:
+      - id: black
+        # It is recommended to specify the latest version of Python
+        # supported by your project here, or alternatively use
+        # pre-commit's default_language_version, see
+        # https://pre-commit.com/#top_level-default_language_version
+        language_version: python3.11
+```
+
+
+
+
+
+</details>
+
+(/update)
+
+2025-08-22 Wk 34 Fri - 12:17
+
+Spawn [[#3.9 File issue for non-recommended black hooks in pre-commit]] ^spawn-task-9bdc4c
+
+2025-08-22 Wk 34 Fri - 15:07
+
+That issues was not necessary, they do not want the documentation to be up to date with examples from other sources it seems.
+
+2025-08-22 Wk 34 Fri - 15:27
+
+[mirrors-mypy](https://github.com/pre-commit/mirrors-mypy) has a recommended hook. Let's adapt it as:
+
+```
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: 'v1.17.1'
+    hooks:
+      - id: mypy
+        args: [--strict, --ignore-missing-imports]
+```
+
+Notice we also changed where the dashes are from `-   repo` to `  - repo` for example. We'll also have to watch out with this since mypy isn't going to scan third-party dependencies just with this. They mention because it's put in its own isolated virtualenv.
+
+Let's also use a linter. There's [ruff](https://github.com/astral-sh/ruff) which seems very fast. They [also](https://github.com/zoni/obsidian-export/pull/373/commits/9841ecff2283585518b0374e24a67217af778959) recommend uv since it's faster than pip... Maybe we can do this too in the project.
+
+Here is their [hook](https://github.com/astral-sh/ruff-pre-commit):
+
+```
+repos:
+- repo: https://github.com/astral-sh/ruff-pre-commit
+  # Ruff version.
+  rev: v0.12.10
+  hooks:
+    # Run the linter.
+    - id: ruff-check
+      args: [ --fix ]
+    # Run the formatter.
+    - id: ruff-format
+```
+
+They have a formatter too... Let's be more integrated and use ruff then.
+
+Here is their [icon](https://github.com/astral-sh/ruff?tab=readme-ov-file#show-your-support):
+
+```html
+<a href="https://github.com/astral-sh/ruff"><img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json" alt="Ruff" style="max-width:100%;"></a>
+```
+
+
+
+### 3.8.1 Pend
+
+
+## 3.9 File issue for non-recommended black hooks in pre-commit
+
+- [x] 
+
+From [[#^spawn-task-9bdc4c]] in [[#3.8 Add python pre-commit hooks to the project for style and correctness]]
+
+2025-08-22 Wk 34 Fri - 12:17
+
+In Black's [.pre-commit-hooks.yaml](https://github.com/psf/black/blob/main/.pre-commit-hooks.yaml) they write:
+
+> Note that we recommend using https://github.com/psf/black-pre-commit-mirror instead
+ > This will work about 2x as fast as using the hooks in this repository
+
+but yet [pre-commit](https://pre-commit.com/#2-add-a-pre-commit-configuration) uses the non-recommended configuration. 
+
+2025-08-22 Wk 34 Fri - 12:50
+
+2025-08-22 Wk 34 Fri - 14:23
+
+Filed [#3526](https://github.com/pre-commit/pre-commit/issues/3526)
+
 # 4 Issues
 
 ## 4.1 assertEqual on dbml tables fail even though they are copied from print
 
 - [x] 
 
-From [[#^spawn-issue-060433]].
+From [[#^spawn-issue-060433]] in [[#3.1 Go through reading and writing dbml in rust and python]]
 
 2025-08-06 Wk 32 Wed - 04:34
 
@@ -915,7 +1089,7 @@ Requirement already satisfied: pyparsing>=2.4.7 in /home/lan/miniconda3/lib/pyth
 
 2025-08-06 Wk 32 Wed - 06:03
 
-[[#3.3 Add Docker build option to provide a shell for troubleshooting|Task]]. ^spawn-task-060606
+Spawn [[#3.3 Add Docker build option to provide a shell for troubleshooting]]. ^spawn-task-060606
 
 2025-08-06 Wk 32 Wed - 07:30
 
@@ -1130,7 +1304,9 @@ poetry add git+https://github.com/LanHikari22/DBML_SQLite@v0.3.4
 'Tag' object has no attribute 'parents'
 ```
 
-Not sure what's with this... It seems to have given a different issue before, then I bumped [DBML_SQLite fork](https://github.com/LanHikari22/DBML_SQLite) python requirement to $\ge 3.8$ and it's back to this issue... [[#4.2 poetry add github project says Tag object has no attribute parents|Issue]]. ^spawn-issue-061610
+Not sure what's with this... It seems to have given a different issue before, then I bumped [DBML_SQLite fork](https://github.com/LanHikari22/DBML_SQLite) python requirement to $\ge 3.8$ and it's back to this issue... 
+
+Spawn [[#4.2 poetry add github project says Tag object has no attribute parents]]. ^spawn-issue-061610
 
 2025-08-06 Wk 32 Wed - 16:11
 
@@ -1184,7 +1360,7 @@ OK! We're able to confirm all the data in `ex000.dbml`!
 
 - [ ] 
 
-From [[#^spawn-issue-061610]].
+From [[#^spawn-issue-061610]] in [[#4.1 assertEqual on dbml tables fail even though they are copied from print]]
 
 ```sh
 poetry add git+https://github.com/LanHikari22/DBML_SQLite@v0.3.4
@@ -1984,6 +2160,17 @@ The [README.md for DBML_SQLite](https://raw.githubusercontent.com/LanHikari22/DB
 
 They seem to maintain a long list of parser examples [here](https://github.com/pyparsing/pyparsing/tree/master/examples)! Including languages, DSLs, Data formats, chemical formulas...
 
+## 7.3 Open-collective sponsorship with pre-commit
+
+pre-commit can be contributed to in [pre-commit](https://opencollective.com/pre-commit). We can learn from this to setup project-based funding and having multiple projects under our account there.
+
+Also they have a game! [OpenHV](https://github.com/OpenHV/OpenHV) which is a mod for [OpenRA](https://www.openra.net/).
+
+## 7.4 Org for a project
+
+[pre-commit](https://github.com/pre-commit) has an org where they host the project, and the corresponding website documentation which they host. They also link the website on the org. This can be a good idea  also for dbmint. Especially since we already have multiple projects on it. 
+
+Spawn [[002 Migrate dbmint and related to own org]] ^spawn-task-b0ef6d
 
 # 8 Side Notes
 
