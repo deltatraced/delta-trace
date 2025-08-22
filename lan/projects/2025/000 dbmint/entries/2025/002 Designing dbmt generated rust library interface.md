@@ -136,7 +136,7 @@ erDiagram
 		AccessoryExtType ext
 	}
 	
-	RelShoeSupportsExt ||--o{ Shoes : relate
+	RelShoeSupportsExt ||--|| Shoes : relate
 ```
 
 And configure this relationship table `RelShoeSupportsExt` with `%extension AcessoryExtType`.
@@ -237,6 +237,72 @@ An example of an extension tree search is if we had the query "Give me all entit
 If you say you support an extension, you say you've considered every facet of it. if 2 years later you decide to add a new LED type and forgot all this, the system forces you to go consider shoes gloves, and helmets now because you have explicitly stated they support LED extensions and must consider ALL variants!
 
 This can be used to maintain feature parity and consistency for common concepts.
+
+### 7.1.4 Event sourcing commands
+
+2025-08-22 Wk 34 Fri - 01:33
+
+With event sourcing patterns, given a table like `Shoes`, we want `ShoeEvents` which duplicates all its columns, relations, and extensions by just marking the table `%events_clone`. 
+
+We need to be able to also define new columns against an events clone, such as references to other events.
+
+These would be the supported event  actions:
+
+Enum for event actions.  ^type-event-action
+
+| Variant  | Meaning                                                                                                 |
+| -------- | ------------------------------------------------------------------------------------------------------- |
+| insert   | An event to insert a new record to the database                                                         |
+| update   | An event to update a record in the database                                                             |
+| delete   | An event to delete a record in the database                                                             |
+| seek     | An event that issues reconstruction of a table's contents by going to the nth position in the event log |
+| delegate | A subevent has been issued instead. Current events table contains no difference itself.                 |
+
+This way we can create an event tree (or even a directed acyclic graph!) for a causal description of how information propagates in the system. When a subevent triggers, it would have a parent full system information event corresponding to it.
+
+```mermaid
+erDiagram
+	ShoeMCUEvents {
+		key_t id
+		key_t shoe_mcu_id
+		Option[key_t] opt_card_event_id
+		Option[key_t] opt_bluetooth_event_id
+		EventAction action
+	}
+	ShoeMCUEvents ||--o{ ShoeMCU : compose
+	ShoeMCUEvents ||--|| HeatSystemEvents : compose
+	ShoeMCUEvents ||--|| BluetoothEvents : compose
+	
+	HeatSystemEvents {
+		key_t id
+		key_t heat_system_id
+		Optionn[key_t] opt_thermostat_event_id
+		EventAction action
+	}
+	HeatSystemEvents ||--o{ HeatSystem : compose
+	HeatSystemEvents ||--o{ ThermostatEvents : compose
+	
+	ThermostatEvents {
+		key_t id
+		key_t thermostat_id
+		EventAction action
+	}
+	ThermostatEvents ||--o{ Thermostat : compose
+	
+	BluetoothEvents {
+		key_t id
+		key_t bluetooth_id
+		EventAction action
+	}
+	BluetoothEvents ||--o{ Bluetooth : compose
+```
+
+
+The underlying tables `ShoeMCU`, `HeatSystem`, `ThermoStat`, and `Bluetooth` would be reconstructable from the their corresponding event tables! And when an action occurs in the system, it can propagate according to the event tree or event DAG. Because an entire event branch would ping, it is possible to address to the specific event updated through a `delegate` action chain.
+
+This way services can subscribe to events at any level in the chain to watch for activity, and only address to the specific event if they need to or filter out `delegate` actions to only watch for changes at a specific level.
+
+By making it easy to create events tables, we can create a causal history of our system and even reconstruct  our system or rewind it with an Events Tree or an Events DAG!
 
 # 8 Side Notes
 
