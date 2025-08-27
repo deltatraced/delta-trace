@@ -66,7 +66,7 @@ We've now covered what many sections do!
 
 The template for these headings can be found here:
 
-[[Entry Note Headings]]
+[[Note Headings]]
 
 Although there are some manual things right now, like spawning new records, or referencing items from References, they can be done quickly. They could be automated in an obsidian plugin in the future!
 
