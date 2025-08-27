@@ -231,6 +231,7 @@ $$
 & = 4R^- \\
 \end{aligned}
 $$
+
 (/math)
 
 So if you divide two damages and see a factor of 4, know you went $R^-$ -> $R^+$.
@@ -360,7 +361,7 @@ On end turn, golgra loses burn mark but no burn damage. Also sometimes there's a
 | 3     | yellow | `Sl Bm1 Bk Br R-? Cb Q00 ` | 1143   | SwordBallet | 3       |
 | 2     | yellow | `Sl Bm1 Bk Br R-? Cb Q00 ` | 4573   | SwordBallet | 4       |
 
-### 4.5.8 Numerical Estimation of Golgra Damage
+### 4.5.8 Numerical Estimation of Golgra HP
 
 2025-08-27 Wk 35 Wed - 12:23
 
