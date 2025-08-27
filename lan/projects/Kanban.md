@@ -6,7 +6,6 @@ kanban-plugin: list
 
 ## Feature Development
 
-- [ ] [[000 Dbmint]]
 
 
 ## Done
