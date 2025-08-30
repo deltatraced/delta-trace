@@ -6,7 +6,7 @@ status: done
 
 I used to write math in vscode. I came up with a system for equational reasoning using LaTeX.  It allowed steps and annotations/comments. I would like to replicate some of this here.
 
-Maybe we would approach it differently by having many LaTeX blocks instead with the step-no/annotations being just in markdown. 
+Maybe we would approach it differently by having many LaTeX blocks instead with the step-no/annotations being just in markdown.
 
 but we also had custom math functions and symbols and that could be good to replicate too, like some LaTeX file to load here.
 
@@ -24,13 +24,11 @@ This could also be useful:
 
 [gh RyotaUshio/Obsidian LaTeX theorem equation referencerer](https://github.com/RyotaUshio/obsidian-latex-theorem-equation-referencer) [(obsidian)](obsidian://show-plugin?id=math-booster).
 
-
 [gh artisticat1/obsidian-tikzjax](https://github.com/artisticat1/obsidian-tikzjax) [(obsidian)](obsidian://show-plugin?id=obsidian-tikzjax).
 
 This one can render really cool graphs.
 
-
-For what we need, there is 
+For what we need, there is
 
 [gh raineszm/Obsidian latex environments](https://github.com/raineszm/obsidian-latex-environments) [(obsidian)](obsidian://show-plugin?id=obsidian-latex-environments).
 
@@ -38,7 +36,21 @@ Seems to be local to the place it's injected? And requires some safe mode thing 
 
 [this forum post](https://forum.obsidian.md/t/requires-latex-functionality/57270/7) explains that new commands can be added, but are only loaded if the page itself is being opened. I guess... we could try to reference a setting page in every note that uses its commands?
 
-![[LaTeX config#^argmin-argmax]]
+# 1 Config
+
+## 1.1 Argmin Argmax
+
+$$
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+$$
+<a name="argmin-argmax" />^argmin-argmax
+
+## 1.2 Of Type
+
+$$
+$$
+<a name="operator-oft" />^operator-oft
 
 They have some example
 
@@ -48,21 +60,19 @@ $$
 $$
 $$
 
-
 It seems I have to reload the app to apply changes to these commands with `Ctrl+P Reload app without saving`. Or just closing the page and reopening it again seems to bring about effect too.
-
 
 These commands are now rendering in github
 
-![[Pasted image 20250728061104.png]]
+![Pasted image 20250728061104.png](../../../../../../attachments/Pasted%20image%2020250728061104.png)
 
-I don't mind mirroring X sections from other notes for tailored inclusion of commands like this. But doing it automatically would be good. There should be an original section, and mirroring sections. See [[#3.1 On obsidian extensions for mirrored and synced text across notes]].
+I don't mind mirroring X sections from other notes for tailored inclusion of commands like this. But doing it automatically would be good. There should be an original section, and mirroring sections. See [3.1 On obsidian extensions for mirrored and synced text across notes](000%20Creating%20equation%20chain%20LaTeX%20shortcuts%20and%20others.md#31-on-obsidian-extensions-for-mirrored-and-synced-text-across-notes).
 
 2025-07-28 Wk 31 Mon - 06:59
 
 Let's try to find some of my equation commands from before and embed them for use here.
 
-```
+````
 $$
 
 % Custom commands
@@ -82,9 +92,9 @@ $$
     \endgroup
 }
 $$
-```
+````
 
-This doesn't really fit in right away, and it may be easier to just do hybrid markdown + LaTeX for long equational reasoning chains. 
+This doesn't really fit in right away, and it may be easier to just do hybrid markdown + LaTeX for long equational reasoning chains.
 
 ## 2.2 Redoing equational reasoning chains with Markdown and LaTeX
 
@@ -98,7 +108,6 @@ They recommend the [Latex Suite plugin](https://github.com/artisticat1/obsidian-
 
 This [post](https://forum.obsidian.md/t/create-aligned-latex-equations/27554/2) talks about aligned equations.
 
-
 1. Describe first logical step
 
 $$
@@ -110,8 +119,7 @@ $$
 \end{aligned}
 $$
 
-^6d7ec9
-
+<a name="6d7ec9" />^6d7ec9
 
 2. Describe second logical step
 
@@ -124,7 +132,6 @@ $$
 &= 6-4 \\
 \end{aligned}
 $$
-
 
 This seems cleaner, keep the math LaTeX and the text markdown.
 
@@ -142,17 +149,16 @@ $$
 h(x)
 $$
 
-^b5d125
+<a name="b5d125" />^b5d125
 
 We can add links to the equations by doing `[ [ # ^` (without spaces, obsidian insists on interpreting) and then details of the equation content. But it doesn't yet show numbering.
 
+[^b5d125](000%20Creating%20equation%20chain%20LaTeX%20shortcuts%20and%20others.md#b5d125)
 
-[[#^b5d125]]
-
-[[#^6d7ec9]]
-
+[^6d7ec9](000%20Creating%20equation%20chain%20LaTeX%20shortcuts%20and%20others.md#6d7ec9)
 
 ### 2.2.1 Pend
+
 # 3 Investigations
 
 ## 3.1 On obsidian extensions for mirrored and synced text across notes
@@ -163,8 +169,13 @@ We can add links to the equations by doing `[ [ # ^` (without spaces, obsidian i
 
 We can already copy sections this way:
 
-![[000 About book - A transition to Advanced Mathematics]]
+I found this book [here](../../../../resources/math/2025/000%20Math%20Studying%20Direction.md#22-finding-recommendations-on-prereqs-for-type-theory).
 
+It can be read [here](https://mathdept.byu.edu/%7Epace/Transition_v104.pdf).
+
+# 1 Entries
+
+[Wk 30 Starting out](../../../books/math/2025/000%20A%20transition%20to%20Advanced%20Mathematics/entries/weekly/2025/Wk%2030%20000%20Math%20Book%20000%20Starting%20out.md)
 
 This feature is [embeds](https://help.obsidian.md/embeds) in obsidian.
 

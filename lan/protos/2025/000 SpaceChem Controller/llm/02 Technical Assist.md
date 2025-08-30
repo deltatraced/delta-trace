@@ -1,5 +1,3 @@
-
-
 User
 In rust, I want to include libraries conditionally based on a compiler flag/config/feature. How do I do this?
 
@@ -13,7 +11,7 @@ Rust provides several mechanisms for conditionally including code and libraries 
 
 The `cfg!` attribute is the most straightforward way to conditionally compile code. It evaluates a configuration option at compile time.
 
-```rust
+````rust
 #[cfg(feature = "my_feature")]
 mod my_feature_module {
     // Code that will only be compiled if the "my_feature" feature is enabled.
@@ -33,27 +31,27 @@ mod my_feature_module {
 fn main() {
     my_feature_module::do_something();
 }
-```
+````
 
 In this example:
 
-*   `#[cfg(feature = "my_feature")]` ensures the first `my_feature_module` block is compiled only if the `my_feature` feature is enabled in the `Cargo.toml` file.
-*   `#[cfg(not(feature = "my_feature"))]` ensures the second `my_feature_module` block is compiled only if the `my_feature` feature is *not* enabled.
+* `#[cfg(feature = "my_feature")]` ensures the first `my_feature_module` block is compiled only if the `my_feature` feature is enabled in the `Cargo.toml` file.
+* `#[cfg(not(feature = "my_feature"))]` ensures the second `my_feature_module` block is compiled only if the `my_feature` feature is *not* enabled.
 
 **Cargo.toml Configuration:**
 
 To enable or disable the feature, you need to define it in your `Cargo.toml` file:
 
-```toml
+````toml
 [features]
 my_feature = [] # An empty array means the feature has no dependencies.
-```
+````
 
 To enable the feature during compilation, use the `--features` flag:
 
-```bash
+````bash
 cargo build --features my_feature
-```
+````
 
 To disable the feature, simply omit the `--features` flag.
 
@@ -61,7 +59,7 @@ To disable the feature, simply omit the `--features` flag.
 
 You can also use `if` statements combined with the `cfg!` attribute for more complex conditional logic:
 
-```rust
+````rust
 #[cfg(feature = "my_feature")]
 let use_feature = true;
 #[cfg(not(feature = "my_feature"))]
@@ -76,7 +74,7 @@ fn main() {
         // Alternative code
     }
 }
-```
+````
 
 This approach is useful when you have a small amount of code that needs to be conditionally executed.
 
@@ -84,7 +82,7 @@ This approach is useful when you have a small amount of code that needs to be co
 
 The `option-env` feature allows you to conditionally compile code based on environment variables.
 
-```rust
+````rust
 #[cfg(feature = "option-env")]
 let use_feature = std::env::var("USE_FEATURE").is_ok();
 #[cfg(not(feature = "option-env"))]
@@ -97,40 +95,40 @@ fn main() {
         println!("Not using my feature.");
     }
 }
-```
+````
 
 In this example:
 
-*   The `USE_FEATURE` environment variable must be set to any value for the `use_feature` variable to be `true`.
+* The `USE_FEATURE` environment variable must be set to any value for the `use_feature` variable to be `true`.
 
 ### 4. Conditional Dependencies in `Cargo.toml`
 
 You can conditionally include dependencies in your `Cargo.toml` file using the `features` section:
 
-```toml
+````toml
 [dependencies]
 serde = { version = "1.0", optional = true }
 
 [features]
 serde_support = ["serde"]
-```
+````
 
 In this example:
 
-*   The `serde` crate is an optional dependency.
-*   The `serde_support` feature enables the `serde` dependency.
+* The `serde` crate is an optional dependency.
+* The `serde_support` feature enables the `serde` dependency.
 
 To enable the `serde` dependency during compilation:
 
-```bash
+````bash
 cargo build --features serde_support
-```
+````
 
 ### Choosing the Right Approach
 
-*   Use `cfg!` attributes for simple conditional compilation of code blocks or modules.
-*   Use `if` statements with `cfg!` attributes for more complex conditional logic within a function.
-*   Use `option-env` for conditional compilation based on environment variables.
-*   Use conditional dependencies in `Cargo.toml` for conditionally including external crates.
+* Use `cfg!` attributes for simple conditional compilation of code blocks or modules.
+* Use `if` statements with `cfg!` attributes for more complex conditional logic within a function.
+* Use `option-env` for conditional compilation based on environment variables.
+* Use conditional dependencies in `Cargo.toml` for conditionally including external crates.
 
 These methods provide flexibility in managing code and dependencies based on different build configurations and environments.

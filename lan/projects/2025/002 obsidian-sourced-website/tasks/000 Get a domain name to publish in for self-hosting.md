@@ -1,24 +1,25 @@
 ---
-has_goal: "[[000 First prototype of a publicly hosted obsidian-sourced website]]"
+has_goal: '[[000 First prototype of a publicly hosted obsidian-sourced website]]'
 status: done
 ---
+
 # 1 Objective
 
 I need to have a domain name that I can configure for a self-hosted website to have a nice URL.
 
-- [x] Purchased domain name
-Purchased www.deltatraced.com!
+* [x] Purchased domain name
+  Purchased www.deltatraced.com!
 
-- [x] Hosted a website using it
-This is done! www.deltatraced.com  can be deployed via [wasmer](https://wasmer.io/)!
+* [x] Hosted a website using it
+  This is done! www.deltatraced.com  can be deployed via [wasmer](https://wasmer.io/)!
 
-
-This task is part of the goal [[000 First prototype of a publicly hosted obsidian-sourced website]].
+This task is part of the goal [000 First prototype of a publicly hosted obsidian-sourced website](../goals/2025/000%20First%20prototype%20of%20a%20publicly%20hosted%20obsidian-sourced%20website.md).
 
 See also:
-- [[000 On Search Engine Optimization]]
-- [[001 Searching for services with free website hosting]]
-- [[002 Learning about Astro and website deployment]]
+
+* [000 On Search Engine Optimization](../entries/2025/000%20On%20Search%20Engine%20Optimization.md)
+* [001 Searching for services with free website hosting](../entries/2025/001%20Searching%20for%20services%20with%20free%20website%20hosting.md)
+* [002 Learning about Astro and website deployment](../entries/2025/002%20Learning%20about%20Astro%20and%20website%20deployment.md)
 
 # 2 Journal
 
@@ -26,12 +27,12 @@ See also:
 
 To deploy changes to wasmer based on changes the first time,
 
-```sh
+````sh
 curl https://get.wasmer.io -sSfL | sh
 npm install
 npm run build
 wasmer deploy
-```
+````
 
 This CLI tool immediately authenticates you via a web browser link if you're logged in already which is very cool.
 
@@ -39,21 +40,21 @@ From [wasmer docs cli](https://docs.wasmer.io/edge/cli),
 
 Use this  to delete a deployed app:
 
-```sh
+````sh
 wasmer app delete
-```
+````
 
 But then you'd have to create a new app:
 
-```sh
+````sh
 wasmer app create
-```
+````
 
 But we have a website hosted on our own cool domain name now! Objective complete!
 
 www.deltatraced.com
 
-![[Pasted image 20250813071716.png]]
+![Pasted image 20250813071716.png](../../../../../attachments/Pasted%20image%2020250813071716.png)
 
 # 3 Tasks
 
@@ -71,7 +72,7 @@ From [hostinger domain name tutorial](https://www.hostinger.com/tutorials/what-i
 
 Something like www.google.com is a domain name. It's broken into 3 levels:
 
-- Top-Level Domain (TLD)
+* Top-Level Domain (TLD)
 
 In our case, `www.google.com` -> `.com`.
 
@@ -81,11 +82,11 @@ It's also referred to as the domain name extension.
 
 You can find a list of different top level domains in [wikipedia](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains) -> [iana.org domain db](https://www.iana.org/domains/root/db).
 
-- Second-Level Domain (SLD)
+* Second-Level Domain (SLD)
 
-In our case, `www.google.com` -> `google`. 
+In our case, `www.google.com` -> `google`.
 
-- Third-Level Domain (subdomain)
+* Third-Level Domain (subdomain)
 
 This is the `www` in `www.google.com`, but it also could be the `howtos` in `howtos.mywebsite.com`
 
@@ -109,11 +110,11 @@ So now we know that a DNS is a domain name server that is able to fetch domain n
 
 From [AWS post on dynamic dns](https://aws.amazon.com/what-is/dynamic-dns/),
 
-so that stands for Dynamics DNS (DDNS). 
+so that stands for Dynamics DNS (DDNS).
 
-A DDNS allows for dynamic rouiting of IP addresses to the same domain name. 
+A DDNS allows for dynamic rouiting of IP addresses to the same domain name.
 
-This mentions DHCP use of reassignment of IP addresses to devices on a network, which could lead to issues with static DNS that expects static IPs. 
+This mentions DHCP use of reassignment of IP addresses to devices on a network, which could lead to issues with static DNS that expects static IPs.
 
 # 7 Ideas
 
@@ -121,9 +122,10 @@ This mentions DHCP use of reassignment of IP addresses to devices on a network, 
 
 ## 8.1 Firefox styling of domain name
 
-![[Pasted image 20250813064928.png]]
+![Pasted image 20250813064928.png](../../../../../attachments/Pasted%20image%2020250813064928.png)
 
 It's interesting `www.` is shaded differently, I guess to signify it's a less important part of the domain name maybe? It can be omitted and inferred automatically as a subdomain
+
 # 9 External Links
 
 # 10 References

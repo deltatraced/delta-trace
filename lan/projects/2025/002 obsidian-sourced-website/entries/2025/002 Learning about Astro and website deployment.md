@@ -1,9 +1,10 @@
 ---
 status: todo
 ---
+
 # 1 Objective
 
-In [[000 Get a domain name to publish in for self-hosting]] we setup an [astro website](https://docs.astro.build/en/getting-started/) starter over [wasmer](https://wasmer.io).
+In [000 Get a domain name to publish in for self-hosting](../../tasks/000%20Get%20a%20domain%20name%20to%20publish%20in%20for%20self-hosting.md) we setup an [astro website](https://docs.astro.build/en/getting-started/) starter over [wasmer](https://wasmer.io).
 
 Here we learn more about those different tools!
 
@@ -19,11 +20,11 @@ Here we learn more about those different tools!
 
 ## 6.1 Inspecting astro deployment
 
-- [ ] 
+* [ ] 
 
 2025-08-20 Wk 34 Wed - 00:53
 
-From [[000 Get a domain name to publish in for self-hosting]],
+From [000 Get a domain name to publish in for self-hosting](../../tasks/000%20Get%20a%20domain%20name%20to%20publish%20in%20for%20self-hosting.md),
 
 2025-08-26 Wk 35 Tue - 20:37
 
@@ -31,7 +32,7 @@ Looking at [wasmer templates](https://wasmer.io/templates). Their [static websit
 
 Ok looking at the [static website repo](https://github.com/static-web-server/static-web-server) it seems not simple, it's using Rust and many things. Need just basic HTML + CSS + JS hosting.
 
-Let's create a reference and see if we can deploy it. [[001 Create a reference basic website and host it with wasmer]].
+Let's create a reference and see if we can deploy it. [001 Create a reference basic website and host it with wasmer](../../tasks/001%20Create%20a%20reference%20basic%20website%20and%20host%20it%20with%20wasmer.md).
 
 2025-08-26 Wk 35 Tue - 22:04
 
@@ -43,9 +44,9 @@ There's also a [simple python server on wasmer](https://wasmer.io/templates/pyth
 
 2025-08-26 Wk 35 Tue - 08:32
 
-LLM-based brainstorming in [[Wk 35 000 webdev brainstorm]]
+LLM-based brainstorming in [Wk 35 000 webdev brainstorm](../../llm/weekly/2025/Wk%2035%20000%20webdev%20brainstorm.md)
 
-Need to pick a stack. Say, Next.js, [prisma](https://www.prisma.io/), 
+Need to pick a stack. Say, Next.js, [prisma](https://www.prisma.io/),
 
 2025-08-26 Wk 35 Tue - 08:57
 
@@ -70,7 +71,6 @@ For rust... [are we web yet?](https://www.arewewebyet.org/)
 ## 8.1 Astro Resources
 
 [gh astro-examples](https://github.com/MicroWebStacks/astro-examples).
-
 
 # 9 External Links
 

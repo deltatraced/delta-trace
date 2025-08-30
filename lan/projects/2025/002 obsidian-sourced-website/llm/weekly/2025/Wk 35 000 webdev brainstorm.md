@@ -1,9 +1,9 @@
-
 # 1 Objective
 
 Using an LLM for some webdev-related brainstorming
 
-From [[002 Learning about Astro and website deployment#7.1 Brainstorming webdev things to look into]]
+From [002 Learning about Astro and website deployment > 7.1 Brainstorming webdev things to look into](../../../entries/2025/002%20Learning%20about%20Astro%20and%20website%20deployment.md#71-brainstorming-webdev-things-to-look-into)
+
 # 2 Journal
 
 # 3 Tasks
@@ -22,13 +22,14 @@ From [[002 Learning about Astro and website deployment#7.1 Brainstorming webdev 
 
 From ChatGPT5,
 
-> Next.js (frontend) + Node/NestJS (backend) + Prisma ORM + PostgreSQL (DB) + Vercel/Render (deployment)
+ > 
+ > Next.js (frontend) + Node/NestJS (backend) + Prisma ORM + PostgreSQL (DB) + Vercel/Render (deployment)
 
 2025-08-26 Wk 35 Tue - 08:43
 
 From ChatGPT5,
 
-```
+````
 ### **Infrastructure**
 
 - **Deployment**:
@@ -40,10 +41,10 @@ From ChatGPT5,
 - **CI/CD**: GitHub Actions (build Rust + TS, run tests, deploy)
     
 - **Containerization**: optional, Docker for portability
-```
+````
 
 # 8 Side Notes
-# 9 External Links
 
+# 9 External Links
 
 # 10 References
