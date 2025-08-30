@@ -6,7 +6,9 @@ Capture my thoughts on a direction for math studying and look for some resources
 
 # 2 Journal
 
-## 2.1 Some initial thoughts and resources
+# 3 Tasks
+
+## 3.1 Some initial thoughts and resources
 
 2025-07-27 Wk 30 Sun - 12:38
 
@@ -36,7 +38,7 @@ Some bullet overview and resources like books or conferences by [Michael Kirchne
 
 [15-819 Homotopy Type Theory Course](https://www.cs.cmu.edu/~rwh/courses/hott/) (recommended by this [post](https://math.stackexchange.com/a/2438477)).
 
-## 2.2 Finding recommendations on prereqs for type theory
+## 3.2 Finding recommendations on prereqs for type theory
 
 2025-07-27 Wk 30 Sun - 14:08
 
@@ -58,3 +60,46 @@ From [this mathoverflow answer](https://mathoverflow.net/a/389314),
 - [A transition to Advanced Mathemtics by Darrin Doud and Pace P. Nielsen](https://mathdept.byu.edu/%7Epace/Transition_v104.pdf)
 
 [Category theory basics slides](https://ethz.ch/content/dam/ethz/special-interest/mavt/dynamic-systems-n-control/idsc-dam/Research_Frazzoli/TuesdayTalks/category-theory-basics.pdf).
+
+## 3.3 Looking into books and resources for learning statistics
+
+2025-08-30 Wk 35 Sat - 05:49
+
+This [reddit user](https://www.reddit.com/r/statistics/comments/yofikt/comment/ivhyx5e/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button) recommends [Visualize This By Nathan Yau](https://book.flowingdata.com/) and [The Signal and The Noise by Nate Silver](https://www.amazon.com/Signal-Noise-Many-Predictions-Fail-but/dp/0143125087) for getting into a data analytic mindset.
+
+This [math stackexchange answer](https://math.stackexchange.com/a/4767192) offers some recommendations:
+- Free
+	- [Elementary Probability for Applications by Rick Durrett](https://sites.math.duke.edu/~rtd/EP4A/EP4A.html)
+	- [Probability: Theory and Examples by Rick Durrett](https://sites.math.duke.edu/~rtd/PTE/pte.html)
+
+
+
+Find some content categorized below,
+
+### 3.3.1 Roadmaps
+
+[MIT math roadmap](https://math.mit.edu/academics/undergrad/roadmaps.php) has a statistics section which covers:
+- [18.05 Introduction to Probability and Statistics Course](https://dspace.mit.edu/bitstream/handle/1721.1/153490/18-05-spring-2014/contents/index.htm?sequence=54)
+
+[gh TalalAlrawajfeh/mathematics-roadmap](https://github.com/TalalAlrawajfeh/mathematics-roadmap)
+
+[Cal Poly Pomona University: Applied Mathematics/Statistics degree roadmap](https://catalog.cpp.edu/preview_program.php?catoid=68&poid=18805&print)
+
+[Data Analyst roadmap](https://roadmap.sh/data-analyst)
+
+[geeksforgeeks data scientist roadmap](https://www.geeksforgeeks.org/blogs/data-scientist-roadmap/)
+
+### 3.3.2 Courses
+
+- [MIT courses related to statistics](http://statistics.mit.edu/classes.htm).
+- [Harvard courses on statistics](https://pll.harvard.edu/subject/statistics).
+
+### 3.3.3 Statistical learning
+
+-  [An Introduction to Statistical Learning](https://www.statlearning.com/)
+- [The Elements of Statistical Learning](https://link.springer.com/book/10.1007/978-0-387-84858-7)
+
+### 3.3.4 Mathematical Intro
+
+- [Elementary Probability for Applications by Rick Durrett](https://sites.math.duke.edu/~rtd/EP4A/EP4A.html)
+- [Probability: Theory and Examples by Rick Durrett](https://sites.math.duke.edu/~rtd/PTE/pte.html)
