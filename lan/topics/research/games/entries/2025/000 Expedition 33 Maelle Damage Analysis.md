@@ -3,7 +3,7 @@ similar_to: "[[Wk 27 000 Expedition 33 Lune Fire Rage Scaling]]"
 status: pend
 resolved: "false"
 ---
-
+2025-08-28 Wk 35 Thu - 16:38
 # 1 Objective
 
 To map out the damage Maelle does against Golgra and understand it.
@@ -199,6 +199,7 @@ We seem to always see a burn icon but not always a burn mark ("burn" text) for p
 For roulette, we may either get 50% damage or 200% damage. 
 
 (math)
+
 (1)
 
 Let `Atk` be normal damage
@@ -390,15 +391,21 @@ This boundary is 659x7 pixels, and $\frac{659}{16} \approx 41.2$.
 Now let's count the total damage for one box.
 
 First Turn
+
 9999, 726, 2042, 1452, 2042, 
+
 490, 123, 123, 123, 490, 184, 490, 184,
+
 980,
 
 Second Turn
+
 3312, 9999, 9999, 2552, 9999, 3829, 1452, 3063,
+
 1715, 6861, 1715, 1715, 6861,
 
 Third Turn
+
 5082,
 
 So in total, 
@@ -411,6 +418,71 @@ python3 -c "l=[9999, 726, 2042, 1452, 2042, 490, 123, 123, 123, 490, 184, 490, 1
 ```
 
 So we estimate that golgra has $87,602 \times \frac{659}{16} \approx 3,608,107$ HP 
+
+2025-08-27 Wk 35 Wed - 13:28
+
+If we keep dealing 43,801 $\frac{\text{dmg}}{\text{turn}}$ we could win within 83 turns.
+
+2025-08-27 Wk 35 Wed - 13:58
+
+Every turn seems to take around 50 seconds (video of 2 turns is around 1:41 minutes), so 83 turns can expect to take $50\ \frac{\text{s}}{\text{turn}} \times 83\ \text{turn} = 4150\ \text{s} \approx 69\  \text{min}$.
+
+## 4.6 Investigate parry error range
+
+2025-08-27 Wk 35 Wed - 21:33
+
+Created a script to sample parrying error ranges:
+
+[3.1 Create Script to press keys at exact intervals](https://github.com/LanHikari22/lan-setup-notes/blob/webview/lan/topics/gaming/tasks/2025/000%20Create%20script%20to%20analyze%20expedition%2033%20golgra%20fight%20and%20count%20turns.md#31-create-script-to-press-keys-at-exact-intervals)
+
+2025-08-27 Wk 35 Wed - 21:47
+
+Testing on fast...
+
+```python
+INPUT_DEV='/dev/input/event{N}' ON_KEYS="KEY_KP6,KEY_2" KEY='18' INTERVALS_MS="380,1000,1000" python3 run_sequence.py
+```
+
+This is a pass for the first touch once golgra's feet lands on ground.
+
+## 4.7 Sampling passing touches via run_sequence
+
+We will tweak this script and see what ranges give us a passing parry:
+
+```python
+INPUT_DEV='/dev/input/event{N}' ON_KEYS="KEY_KP6,KEY_2" KEY='18' INTERVALS_MS="380,1000,1000" python3 run_sequence.py
+```
+
+The source of noise here is the time it takes for us to trigger the parry sequence. We try to do this right on golgra's feet landing, which is an error source.
+
+There is code overhead from callback detection to pressing the first key of about 26.96 ms - 28.72 ms. This is also the overhead between each successful ydotool presses.
+
+| Column         | Meaning                                                                                |
+| -------------- | -------------------------------------------------------------------------------------- |
+| Attack         | The name of the attack sampled                                                         |
+| TouchN (ms)    | The interval before the Nth touch in a parry                                           |
+| Passed (#/all) | Num of touches passed, or all                                                          |
+| Other          | When re-running the test, we get N (M) where N is the number of times we get M passed. |
+| Valid (#)      | Num of times this test was reproduced to reduce noise                                  |
+| Invalid (#)    | Num of times this test failed to be reproduced                                         |
+
+| Attack | Touch1 (ms) | Touch2 (ms) | Touch3 (ms) | Touch4 (ms) | Passed (#/all) | Other               | Valid (#) | Invalid (#) |
+| ------ | ----------- | ----------- | ----------- | ----------- | -------------- | ------------------- | --------- | ----------- |
+| fast   | 300         | 1000        | 1000        |             | 0              |                     | 1         | 0           |
+| fast   | 350         | 1000        | 1000        |             | 2              |                     | 1         | 2           |
+| fast   | 380         | 1000        | 1000        |             | 1              |                     | 1         | 0           |
+| fast   | 400         | 1000        | 1000        |             | 1              | 2 (2) 1 (0) 1 (all) | 5         | 4           |
+| fast   | 410         | 1000        | 1000        |             | 1              | 3 (2) 3 (0) 1 (all) | 4         | 8           |
+| fast   | 420         | 1000        | 1000        |             | 0              |                     | 5         | 4           |
+| fast   | 430         | 1000        | 1000        |             | 0              |                     | 8         | 6           |
+| fast   | 450         | 1000        | 1000        |             | 0              |                     | 2         | 0           |
+
+
+## 4.8 Sampling string performance as I play
+
+2025-08-28 Wk 35 Thu - 00:54
+
+I wrote a monitoring script that would cluster the events by time, each cluster having its events close to one another within 2s. Then, I'm able to validate the clusters for ones matching an expected string, finally... I reference all pN and bN (pause, blank) times from the first string key.
 
 # 5 Ideas
 ## 5.1 See if analysis here can be added to a wiki somewhere
