@@ -43,8 +43,6 @@ There's also a [simple python server on wasmer](https://wasmer.io/templates/pyth
 
 2025-08-26 Wk 35 Tue - 08:32
 
-LLM-based brainstorming in [[Wk 35 000 webdev brainstorm]]
-
 Need to pick a stack. Say, Next.js, [prisma](https://www.prisma.io/), 
 
 2025-08-26 Wk 35 Tue - 08:57

@@ -66,7 +66,7 @@ I don't mind mirroring X sections from other notes for tailored inclusion of com
 
 We can already copy sections this way:
 
-![[000 About book - A transition to Advanced Mathematics]]
+![[lan/topics/study/books/math/2025/000 A transition to Advanced Mathematics/README]]
 
 
 
