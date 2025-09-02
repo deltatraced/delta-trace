@@ -14,12 +14,12 @@ kanban-plugin: list
 
 ## WIP
 
-- [ ] [[000 obsidian-sourced-website]]
+- [ ] [[lan/projects/2025/002 obsidian-sourced-website/README|Obsidian Sourced Website]]
 
 
 ## Backlog
 
-- [ ] [[000 Teensy2 Tiny Piano]]
+- [ ] [[lan/projects/2025/001 teensy2-tiny-piano/README|teensy2 tiny piano]]
 
 
 ## Archived

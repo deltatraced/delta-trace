@@ -1,11 +1,15 @@
 
-2025-09-01 Wk 36 Mon
+#post #process #attention
+
+| Created              | Updated              |
+| -------------------- | -------------------- |
+| 2025-09-01 Wk 36 Mon | 2025-09-02 Wk 36 Tue |
 
 # 1 Quick Description
 
-A star day is a day declared one day in advance for the cause of only one topic. In a star day, everything besides daily habits, self care, and the most urgent of matters becomes noise. There only exists the topic of the day to engage with, or silence! 
+A star day is a day declared one day in advance to only one cause. In a star day, everything besides daily habits, self care, and the most urgent of matters becomes noise. There only exists the topic of the day to engage with, or silence! 
 
-Unrelated thoughts as well as actions become noise unless they serve the cause of the star topic.
+Unrelated thoughts as well as actions become noise unless they serve the mission.
 
 # 2 Purpose
 
@@ -19,8 +23,26 @@ Rather than fighting to stay focused in a world of distractions, or negotiating 
 
 Productivity is concerned with external measures of performance and delivery. Many tools focus on optimizing productivity metrics, meeting deadlines, etc.
 
-This tool takes a different approach. Its only measure of success is singular attention. So long as you maintain full presence, you will use the best tools at your disposal. There is nothing else to it.
+This tool takes a different approach. It relies on internal pressure instead. Its only measure of success is singular attention. So long as you maintain full presence, you can use the best tools at your disposal. There is nothing else to it.
 
 The section is called "anti-productivity" to signify that what truly matters is full presence with the star subject alone. Ideas on improving execution efficiency are noise in this period. It also highlights that commitment is set on a different axis from performance, and so deserves a category apart from productivity.
 
 Productivity concerns can be reviewed later, or they can be made the star topic of the day for deliberate planning!
+
+# 4 Motivation
+
+External productivity tools often fix symptoms rather than causes. If one is not careful, they can be used to make unfocused days bearable rather than promote deep work and flow states. They can introduce planning overhead and fixation on details that may not make a big impact in the long term such as precise placement of scheduled events, or counts of to-dos done. They risk being a source of guilt to their users by putting them in a perpetual catching-up state with seemingly endless work. 
+
+But why maximize the number of to-do items completed a day, dream of an ideal of an empty to-do list, or perfectly execute a weekly schedule? What is the goal for this?
+
+One goal is to work at our best and be fulfilled, and to be able focus on the specifics of our work and not any unnecessary scaffolding around it. 
+
+The problem begins internally, before any productivity tool is put in place. The bottleneck to flow is often in how we pay attention to the daily objects of experience and how we negotiate commitments with ourselves and others. 
+
+With low attention, the cost of multitasking and distractions becomes too high that no productivity tool can recover it. With low commitment, we may stray from our objectives, only do the easy parts, or cut corners. Star days begin from this earlier stage of experience, focusing on attention and commitment as foundations. 
+
+One cannot be behind in a star day, because all they need is full presence with the mission.
+
+Another motivation is that by declaring an entire day for one cause, we have more incentive to put in all the effort necessary and face hardships that require high mental preparation and perseverance. This is harder to do when you're trying to squeeze them into a 2 hour slot window. This also allows momentum to build quicker since we can absorb the problem domain more deeply than if we had no clear purpose for day.
+
+The star topic doesn't have to be work-related only. It could be for a hobby you've always wanted to start, or social activities with friends!

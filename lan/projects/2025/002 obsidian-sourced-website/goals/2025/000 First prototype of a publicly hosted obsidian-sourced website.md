@@ -4,7 +4,7 @@ status: todo
 
 #goal
 
-For the project description, see [[000 obsidian-sourced-website]].
+For the project description, see [[lan/projects/2025/002 obsidian-sourced-website/README]].
 
 # 1 Goal
 
