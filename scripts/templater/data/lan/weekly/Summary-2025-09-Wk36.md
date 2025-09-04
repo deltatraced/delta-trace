@@ -1,31 +1,18 @@
-# Time Summary – All Time
+# Time Summary – Week 36
 
 | Note/Heading | Time Spent |
 |--------------|------------|
-| [[001 Create a reference basic website and host it with wasmer]] | 11h 51m 43s |
+| **Total** | **18h 56m 39s** |
+| [[001 Create a reference basic website and host it with wasmer]] | 10h 28m 31s |
 | &nbsp;&nbsp;&nbsp;&nbsp;[[001 Create a reference basic website and host it with wasmer#3.3 Follow with wweb static npm website tutorial\|3.3 Follow with wweb static npm website tutorial]] | 8h 22m 55s |
 | &nbsp;&nbsp;&nbsp;&nbsp;[[001 Create a reference basic website and host it with wasmer#3.5 Find and follow process to deploy multiple npm projects under wasmer\|3.5 Find and follow process to deploy multiple npm projects under wasmer]] | 1h 38m 51s |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[001 Create a reference basic website and host it with wasmer#3.1 Follow along wasmer documentation\|3.1 Follow along wasmer documentation]] | 1h 23m 12s |
 | &nbsp;&nbsp;&nbsp;&nbsp;[[001 Create a reference basic website and host it with wasmer#3.4 Deploy wwebdev tutorial project with wasmer\|3.4 Deploy wwebdev tutorial project with wasmer]] | 0h 26m 45s |
 | [[002 Hosting delta trace vault on my website]] | 6h 30m 51s |
 | &nbsp;&nbsp;&nbsp;&nbsp;[[002 Hosting delta trace vault on my website#3.2 Host Obsidian vault with Perlite\|3.2 Host Obsidian vault with Perlite]] | 4h 29m 42s |
 | &nbsp;&nbsp;&nbsp;&nbsp;[[002 Hosting delta trace vault on my website#4.1 Quartz codepoint 2764-fe0e not found in map\|4.1 Quartz codepoint 2764-fe0e not found in map]] | 0h 58m 47s |
 | &nbsp;&nbsp;&nbsp;&nbsp;[[002 Hosting delta trace vault on my website#6.1 Look into available obsidian vault hosting solutions\|6.1 Look into available obsidian vault hosting solutions]] | 0h 34m 52s |
 | &nbsp;&nbsp;&nbsp;&nbsp;[[002 Hosting delta trace vault on my website#3.1 Host Obsidian vault with Quartz\|3.1 Host Obsidian vault with Quartz]] | 0h 27m 30s |
-| [[000 Get a domain name to publish in for self-hosting]] | 5h 24m 37s |
-| [[003 NUMEROLOGY]] | 4h 53m 11s |
-| [[Wk 35 000 Starting out Probability Theory and Examples]] | 4h 29m 31s |
-| [[000 Multiarch]] | 4h 12m 9s |
-| [[002 Learning about Astro and website deployment]] | 2h 13m 26s |
+| [[002 Learning about Astro and website deployment]] | 1h 57m 18s |
 | &nbsp;&nbsp;&nbsp;&nbsp;[[002 Learning about Astro and website deployment#6.4 Looking into the npm package manager\|6.4 Looking into the npm package manager]] | 1h 31m 53s |
 | &nbsp;&nbsp;&nbsp;&nbsp;[[002 Learning about Astro and website deployment#6.3 Looking into CSS Resources\|6.3 Looking into CSS Resources]] | 0h 25m 25s |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[002 Learning about Astro and website deployment#6.2 Brainstorming webdev things to look into\|6.2 Brainstorming webdev things to look into]] | 0h 16m 8s |
-| [[000 Attention is all you need]] | 2h 3m 22s |
-| [[000 Math Studying Direction]] | 1h 39m 13s |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[000 Math Studying Direction#3.3 Looking into books and resources for learning statistics\|3.3 Looking into books and resources for learning statistics]] | 1h 39m 13s |
-| [[Wk 27 000 Creating a README for my github profile]] | 0h 27m 6s |
-| [[000 Finding resource material for software engineering]] | 0h 14m 26s |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[000 Finding resource material for software engineering#3.1 Initial searching for reference material\|3.1 Initial searching for reference material]] | 0h 14m 26s |
-| [[001 Note heading categories and method]] | 0h 2m 22s |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[001 Note heading categories and method#3.2 Setup a fresh installation of Windows on a VM\|3.2 Setup a fresh installation of Windows on a VM]] | 0h 2m 22s |
 

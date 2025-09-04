@@ -3,7 +3,7 @@ similar_to: "[[Wk 27 000 Expedition 33 Lune Fire Rage Scaling]]"
 status: pend
 resolved: "false"
 ---
-2025-08-28 Wk 35 Thu - 16:38
+2025-09-04 Wk 36 Thu - 10:572025-08-28 Wk 35 Thu - 16:38
 # 1 Objective
 
 To map out the damage Maelle does against Golgra and understand it.

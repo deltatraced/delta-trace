@@ -7,10 +7,10 @@ status: todo
 This is for reference. We need a basic template website infrastructure to see how processes like deployment integrate in with it.
 
 This website should 
-- [ ] Have a basic static website built out of html + css + javascript/typescript.
+- [x] Have a basic static website built out of html + css + javascript/typescript.
 - [ ] Have a basic backend including http request capabilities over a simple REST API
 - [ ] Have a basic database solution
-- [ ] Can be deployed over wasmer
+- [x] Can be deployed over wasmer
 
 # 2 Journal
 
@@ -800,6 +800,8 @@ There are a few differences:
 - Added pre-commit hooks for formatting and linting
 - Added configuration for wasmer deployment
 
+The comment ended up being routed to [Vincenius/wwebdev-comments #3](https://github.com/Vincenius/wwebdev-comments/issues/3).
+
 ## 3.4 Deploy wwebdev tutorial project with wasmer
 
 - [x] 
@@ -871,6 +873,53 @@ wasmer deploy
 
 And it works! 
 
+## 3.5 Find and follow process to deploy multiple npm projects under wasmer
+
+- [ ] 
+
+2025-09-02 Wk 36 Tue - 13:05
+
+We are able to deploy two different projects now, but they do not share the same domain name. We have a single domain name, and would like to dedicate different pages to different npm projects. This tutorial might help.
+
+Tutorial is [here](https://turbocloud.dev/book/deploying-node.js-under-one-domain-with-caddy/).
+
+2025-09-02 Wk 36 Tue - 13:07
+
+Let's make a temporary tutorial project.
+
+```sh
+mkdir -p ~/src/tmp/del/tut
+```
+
+2025-09-02 Wk 36 Tue - 13:44
+
+They use [Caddy](https://caddyserver.com/).
+
+We might need some integration to use this with wasmer. There is [valpackett/caddy-wasm-wcgi](https://codeberg.org/valpackett/caddy-wasm-wcgi)
+
+2025-09-02 Wk 36 Tue - 14:56
+
+I asked on wasmer discord, and the founder said that it's not an available feature yet, but it is possible yet with 3 apps but it is possible with a custom router in a single app?
+
+2025-09-02 Wk 36 Tue - 16:21
+
+You can also find some of the language projects implemented under WASIX [here](https://github.com/wasix-org).
+
+2025-09-02 Wk 36 Tue - 16:38
+
+In [cowsay wasmer.toml](https://github.com/wapm-packages/cowsay/blob/master/wasmer.toml) they are feeding a `cowsay.wasm` executable directly, but this is for a command rather than a service.
+
+2025-09-02 Wk 36 Tue - 16:55
+
+Spawn [[#4.2 Open an issue to Wasmer docs for broken links]] ^spawn-issue-fe8e6b
+
+2025-09-02 Wk 36 Tue - 17:18
+
+It's pretty streamlined on rust: [wasmer.io rust-wcgi](https://wasmer.io/templates/rust-wcgi?intent=at_ynm3Iet1Cr2Z). Just gotta add the right build target!
+
+
+### 3.5.1 Pend
+
 # 4 Issues
 
 ## 4.1 npm audit reports security vulnerabilities for tutorial template project
@@ -913,7 +962,30 @@ npm audit fix --force
 
 This is strange how this is changing. It seems each force switches us to a different configuration with its own vulnerabilities. We definitely don't want the one with critical issues.
 
+## 4.2 Open an issue to Wasmer docs for broken links
 
+- [x] 
+
+From [[#^fe8e6b]] in [[#3.5 Find and follow process to deploy multiple npm projects under wasmer]]
+
+2025-09-02 Wk 36 Tue - 16:56
+
+I found these again!
+
+The problem itself is not in docs.wasmer.io, but in the website. [wasmer.io](https://wasmer.io/)
+
+Hi, there are broken links in [wasmer.io](https://wasmer.io/) (404):
+- Developers > C: https://github.com/wasmerio/wasmer-c
+- Developers > Rust: https://github.com/wasmerio/wasmer-rust
+
+
+```sh
+git clone git@github.com:LanHikari22/docs.wasmer.io.git ~/src/cloned/gh/LanHikari22/forked/wasmerio/docs.wasmer.io 
+```
+
+2025-09-02 Wk 36 Tue - 17:15
+
+Since this isn't the docs website, can't file an issue nor PR. Just informed them on discord.
 # 5 HowTos
 
 # 6 Investigations
@@ -1002,5 +1074,11 @@ Added to [[Mn 09 003 Ideas|Ideas]]
 
 # 8 Side Notes
 # 9 External Links
+
+
+| Internal                                                                                                                                                                                                                                                        | External                                                                                |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| [link](https://github.com/deltatraced/delta-trace/blob/webview/lan/projects/2025/002%20obsidian-sourced-website/tasks/2025/001%20Create%20a%20reference%20basic%20website%20and%20host%20it%20with%20wasmer.md#33-follow-with-wweb-static-npm-website-tutorial) | [Vincenius/wwebdev-comments #3](https://github.com/Vincenius/wwebdev-comments/issues/3) |
+
 
 # 10 References

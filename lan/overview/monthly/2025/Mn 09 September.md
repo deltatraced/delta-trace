@@ -24,18 +24,20 @@ To capture different aspects of how my month unfolded!
 
 # 4 Star Days
 
-
 Learn more about [[001 Star Days ★|Star Days ★]]!
 
-| Week | Day | Date       | 💫            |
-| ---- | --- | ---------- | ------------- |
-| 36   | Mon | 2025-09-01 | **🕸️** `</>` |
-| 36   | Tue | 2025-09-02 | 🕸️ `</>`<br> |
-| 36   | Wed |            |               |
-| 36   | Thu |            |               |
-| 36   | Fri |            |               |
-| 36   | Sat |            |               |
-| 36   | Sun |            |               |
+Links in the 💫 column reference the items worked on.
+Links in the Date column reference an overview summary written after the fact.
+
+| Week | Day | Date           | 💫                                    |
+| ---- | --- | -------------- | ------------------------------------- |
+| 36   | Mon | 2025-09-01     | [[Summary-2025-09-01\|🕸️ `</>`]]     |
+| 36   | Tue | [[2025-09-02]] | [[Summary-2025-09-02\|🕸️ `</>`]]<br> |
+| 36   | Wed | 2025-09-03     | ` `                                   |
+| 36   | Thu | 2025-09-04     | 🕹️ `</>`                             |
+| 36   | Fri |                |                                       |
+| 36   | Sat |                |                                       |
+| 36   | Sun |                |                                       |
 
 
 | Week | Day | Date | 💫  |
@@ -69,4 +71,5 @@ Learn more about [[001 Star Days ★|Star Days ★]]!
 | 39   | Fri |      |     |
 | 39   | Sat |      |     |
 | 39   | Sun |      |     |
+
 
