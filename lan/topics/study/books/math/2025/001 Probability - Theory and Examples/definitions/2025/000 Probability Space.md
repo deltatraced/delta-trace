@@ -1,15 +1,16 @@
 
+
 # 1 Definition
 
 A probability space is a 3-tuple $(\Omega, \mathcal{F}, P)$ where
 - $\Omega$ is the set of outcomes
 - $\mathcal{F}$ is set of events. 
 	- It is also a [[007 σ-algebra|σ-algebra]] over $\Omega$.
-- $P:\mathcal{F} \arw [0,1]$ is a function assigning probabilities to events $\mathcal{F}$
+- $P:\mathcal{F} \to [0,1]$ is a function assigning probabilities to events in $\mathcal{F}$
 
 Being a σ-algebra over $\Omega$, $\mathcal{F}$ includes all non-empty [[005 subset|subsets]] of $\Omega$ and satisfies the conditions:
 1. if $A \in \mathcal{F}$, then $A^c \in \mathcal{F}$
-2. if $\forall i \in I, A_i \in \mathcal{F}$, then $\bigcup_{i \in \mathbb{I}} A_i \in \mathcal{F}$ where $I$ is the size of the sequence $A_i$.
+2. if $\forall i \in I, A_i \in \mathcal{F}$, then $\bigcup_{i \in \mathbb{I}} A_i \in \mathcal{F}$ where $I$ is $[1..|A_i|]$ and $|A_i|$ is the size of the sequence $A_i$.
 
 # 2 Consequences
 
@@ -49,10 +50,11 @@ $A_i \downarrow A$ denotes continuity from below, and translates to $A1 \supset 
 
 (6)
 
+if $A_i \uparrow A$, 
 
 # 4 Related Entries
 
-- [[Wk 35 000 Starting out Probability Theory and Examples]]
+- [[000 Starting out Probability Theory and Examples]]
 
 # 5 Notes
 
@@ -60,7 +62,17 @@ $A_i \downarrow A$ denotes continuity from below, and translates to $A1 \supset 
 
 The notation $A_i \in \mathcal{F}$  used in the book is shorthand for $\forall i \in I, A_i \in \mathcal{F}$ , where $I$ is the length of the sequence in consideration. 
 
-# 6 Config
+## 5.2 Wiki naming scheme
+
+In [wiki Probability space](https://en.wikipedia.org/wiki/Probability_space), 
+
+they call $\Omega$ the *sample space* which is a set of outcomes, and $\mathcal{F}$ the *event space*.
+
+Their explanation that we can think of an event under $\mathcal{F}$ as a query which may yield a zero-or-more subset of outcomes in $\Omega$. For example, "die landing on 6" is an event $\{6\}$, and "die landing on a number less than 4" is an event $\{1, 2, 3\}$.
+
+# 6 Resources
+
+# 7 Config
 
 
 $$

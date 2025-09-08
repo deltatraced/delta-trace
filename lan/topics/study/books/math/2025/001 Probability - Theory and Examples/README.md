@@ -17,4 +17,4 @@ The book can be found [here](https://sites.math.duke.edu/~rtd/PTE/PTE5_011119.pd
 
 # 2 Entries
 
-- [[Wk 35 000 Starting out Probability Theory and Examples|Wk 35 Starting out]]
+- [[000 Starting out Probability Theory and Examples|Starting out]]

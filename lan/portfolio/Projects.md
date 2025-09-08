@@ -21,15 +21,13 @@ To learn more, see [[Project - bn6f]].
 ## 1.2 dbmint
 github: [dbmint](https://github.com/LanHikari22/dbmint)
 
-This project brings the visual intuition of 
-
 Creating databases from scratch can be very intuitive. I learned it was possible with  [dbml](https://dbdiagram.io/home) to create schemas very quickly in a markdown like language and also see them visualized as graph of connections.
 
 I wanted to bring that intuition to sqlite3 database tooling. dbmint is able to take a dbml schema file and generate a sqlite3 database file. It supports docker, and so many operations that make dbml file use concrete can be done in one line, on any system. It also supports sync operations and more. See the [README](https://github.com/LanHikari22/dbmint) for more details. 
 
 Upcoming:
-- Creating a language dbmn that extends dbml but allows multi file support, error validation, computed fields, and much more.
-- Generating a database library in Rust for a given dbmn schema to give types for all columns and tables and prevent invalid query use via the compiler.
+- Creating a language dbmt that extends dbml but allows multi file support, error validation, computed fields, and much more.
+- Generating a database library in Rust for a given dbmt schema to give types for all columns and tables and prevent invalid query use via the compiler.
 
 ## 1.3 TTM 
 github: [TTM](https://github.com/LanHikari22/TTM)

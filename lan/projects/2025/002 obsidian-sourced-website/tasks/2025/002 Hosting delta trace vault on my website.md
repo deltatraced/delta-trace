@@ -98,22 +98,6 @@ But it seems to require `/.styles`. It was at least able to load the content wit
 
 And if we change the left hand value `/app`, nothing even gets logged, so we can't mess around with the filesystem bit there.
 
-2025-09-02 Wk 36 Tue - 22:01
-
-With a quick LLM suggestion I noticed the `$uriPath` setting. In settings.php, `$uriPath = "/";`
-
-Set that to `app/`
-
-Now we get 
-
-```
-[Tue Sep  2 19:03:43 2025] 127.0.0.100:8080 [404]: GET /app/.styles/katex.min.css - No such file or directory
-```
-
-What is the absolute path?
-
-`[fs]` *does* say `/app` so how come those don't exist? Also `GET /` returns 200. 
-
 2025-09-02 Wk 36 Tue - 22:32
 
 ```
