@@ -28,8 +28,8 @@
 | [[000 Attention is all you need]] | **2h 3m 22s** |
 | [[000 Math Studying Direction]] | **1h 39m 13s** |
 | &nbsp;&nbsp;&nbsp;&nbsp;[[000 Math Studying Direction#3.3 Looking into books and resources for learning statistics\|3.3 Looking into books and resources for learning statistics]] | 1h 39m 13s |
-| [[Wk 37 000 Addressing shi PR 10]] | **1h 0m 29s** |
-| &nbsp;&nbsp;&nbsp;&nbsp;[[Wk 37 000 Addressing shi PR 10#3.1 [[000 Looking into quotation removal\|3.1 [[000 Looking into quotation removal]] | 0h 0m 29s |
+| [[001 Sept 8 Obsidian note process change]] | **1h 23m 37s** |
+| [[Wk 37 000 Addressing shi PR 10]] | **1h 0m 0s** |
 | [[Mn 09 007 Flies]] | **0h 57m 3s** |
 | &nbsp;&nbsp;&nbsp;&nbsp;[[Mn 09 007 Flies#2.1 Capturing and prioritizing Sept 8 Flies\|2.1 Capturing and prioritizing Sept 8 Flies]] | 0h 57m 3s |
 | [[Wk 27 000 Creating a README for my github profile]] | **0h 27m 6s** |

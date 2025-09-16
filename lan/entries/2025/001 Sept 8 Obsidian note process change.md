@@ -83,11 +83,11 @@ This means that `NNN Task Name` is required to have a heading `Index`:
 ## Issues
 ```
 
-This follows the same heading procedure detailed in [[001 Note heading categories and method]] and [[Note Headings]], except they are just for indexing.
+This follows the same heading procedure detailed in [[001 Note heading categories and method]] and `(now deleted) Note Headings`, except they are just for indexing.
 
 This will allow us to decouple from the folder structure and navigate through the note content itself. We will also know by the note content that it is a big context by seeing whether it contains an Index heading.
 
-In addition, we used to add `### Pend` to entries currently pending, and similar status segregation headings within one big file. These categories can instead be put as level-3 headings inside `Index/Category`. 
+In addition, we used to add `### Pend` to entries currently pending, and similar status segregation headings within one big file. These categories can included as bolded status above the entry index link.
 
 Let's do an Index file example for `015 Do my math homework`:
 
@@ -97,18 +97,18 @@ Let's do an Index file example for `015 Do my math homework`:
 ## Tasks
 
 [[000 Solve Problem 3.4]]
-[[002 Recap what we learned from material]]
 
-### Pend
-
+**Pend**
 [[001 Solve Problem 3.5]]
+
+**Pend**
+[[002 Recap what we learned from material]]
 
 ## Issues
 
 [[000 Do not understand book notation in page 65]]
 
-### Watch
-
+**Watch**
 [[001 Contact someone about a confusion]]
 
 ## HowTos
@@ -129,13 +129,15 @@ Let's do an Index file example for `015 Do my math homework`:
 
 ```
 
-### 1.3.1 What this will acheieve
+### 1.3.1 What this will achieve
 
 With this, we achieve the effect that every file is a single atom of context. 
 
 This also opens our entries to the power of having tags.
 
-Obsidian and other tools can treat each context note file as a first class citizens. So graph relations will work out of the box and they can have named relations to other notes.
+Obsidian and other tools can treat each context note file as a first class citizens.  This comes with the following benefits:
+-  graph relations will work out of the box and they can have named relations to other notes.
+- Obsidian maintains a history of notes visited. This did not work for headings visited before, so we can go back to the previous note we came from much more easily.
 
 # 2 Clarified Timestamp Proposal
 
@@ -150,6 +152,10 @@ Ok, 18:56 in what timezone? It is unclear. So it makes correlating times with ot
 We will no longer use `HH:mm` time but `HH:mm Z`
 
 You can learn about Zulu time in [time.is Z](https://time.is/Z), and the particular time format string in [momentjs format](https://momentjs.com/docs/#/displaying/format/).
+
+This can be configured in `Obsidian Settings > Core Plugins > Templates > Time Format`, to be set to `HH:mm Z`.
+
+`Obsidian Settings > Core Plugins > Templates > Date Format` remains as `YYYY-MM-DD \W\k \\W ddd`.
 
 Now we include timestamps like
 
@@ -183,6 +189,16 @@ These are very central changes. Almost every note file we've written follows the
 
 This process should also be automated to reduce human error. Here are some things that should be automated:
 
-- [ ] Command to turn a note file into a big context file and makes it compliant with the category folders, index heading template, and expected folder structure.
+- [ ] Command to turn a note file into a big note file and makes it compliant with the category folders, index heading template, and expected folder structure.
+- [ ] Command to convert between small and big notes, but only for notes with zero sub entries.
+- [ ] Command to spawn new entries under the same big note context and tracks the specific spawning entry and links position spawned from. 
+	- [ ] Allows the user to specify the category by selection (tasks/issues/ ...)
+	- [ ] Estalbishes a dual link bridges between spawner and spawned
+	- [ ] Updates the big note index and ensures the new small note specifies it as a parent
+	- [ ] triple indices are automatically added.
+	- [ ] Does not include spawner information if spawned from the big note outside any heading within it
 
-- [ ] 
+# 5 Related Tasks
+
+- [ ] Rewrite [[001 Note heading categories and method]]
+- [ ] [Migration Task](https://github.com/LanHikari22/lan-setup-notes/blob/webview/lan/tasks/2025/000%20Note%20Repo%20Migration%20Sept%208/000%20Note%20Repo%20Migration%20Sept%208.md)

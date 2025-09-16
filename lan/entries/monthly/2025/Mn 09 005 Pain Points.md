@@ -40,7 +40,6 @@ Referencing things across obsidian repositories is difficult. These references n
 
 (4)
 
-2025-09-08 Wk 37 Mon - 18:51
-
 2025-09-08 Wk 37 Mon - 18:55 +0300
 
+Obsidian graph can get too slow. my PC is strong, this should not be the case. Is there a way to make it faster? Also, it doesn't show the graph as an individual element to be rendered but the entire app.

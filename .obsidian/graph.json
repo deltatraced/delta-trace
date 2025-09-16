@@ -1,10 +1,10 @@
 {
-  "collapse-filter": false,
-  "search": "Journal",
+  "collapse-filter": true,
+  "search": "-summary",
   "showTags": false,
   "showAttachments": false,
   "hideUnresolved": true,
-  "showOrphans": true,
+  "showOrphans": false,
   "collapse-color-groups": false,
   "colorGroups": [
     {
@@ -53,6 +53,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.9811243535862737,
+  "scale": 0.08613437397739572,
   "close": false
 }
