@@ -1,3 +1,6 @@
+---
+status: watch
+---
 #oss #shell #pr
 
 # 1 Objective
@@ -22,7 +25,6 @@ pre-commit run
 [All OK]
 ```
 
-
 # 3 Index
 
 ## 3.1 Entries
@@ -37,6 +39,4 @@ pre-commit run
 
 [[000 Look into tarpaulin use]]
 
-## 3.4 Tasks
-
-[[000 Looking into quotation removal]]
+[[001 Looking into shi quotation removal]]
