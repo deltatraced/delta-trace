@@ -55,4 +55,5 @@ They're used together...
 
 So it's not necessary to keep the specific quotations, since immediately after the library is only concerned with quoted blobs. They can just be removed, the importance of the exact quote characters is handled when [`QuoteLoc`](https://github.com/Utagai/shi/blob/ef0428b1440153818ee5512adf378ba1544e0598/src/tokenizer.rs#L27) are turned into [`QuotePair`](https://github.com/Utagai/shi/blob/ef0428b1440153818ee5512adf378ba1544e0598/src/tokenizer.rs#L36) by [`split_into_quote_blobs`](https://github.com/Utagai/shi/blob/ef0428b1440153818ee5512adf378ba1544e0598/src/tokenizer.rs#L213).
 
-Removed its use.
+Removed its use. 
+
