@@ -78,7 +78,7 @@ Okay, this looks good. README.md example and all examples are updated, since cre
 cargo +nightly fmt --
 cargo test --all-targets --all-features
 
-out (relevant)
+# out (relevant)
 [OK]
 ```
 

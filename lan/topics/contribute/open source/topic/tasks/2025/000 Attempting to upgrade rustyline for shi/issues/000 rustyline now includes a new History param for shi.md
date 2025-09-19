@@ -48,7 +48,15 @@ let mut rl = Editor::with_config(config);
 
 would give us `Editor<ExecHelper<'_, S>>` in rustyline v7.1.0.
 
-In rustyline v17.0.1, it instead returns `Result<Editor<{unknown}, FileHistory>, ReadlineError>`.
+(update)
+
+In rustyline v17.0.1, it instead returns  `Result<Editor<ExecHelper<'_, S>, FileHistory>, ReadlineError>`
+
+2025-09-19 Wk 38 Fri - 08:31 +03:00
+
+vscode intellisense says `{unknown}` for `ExecHelper<'_, S>` for some reason there.
+
+(/update)
 
 [`ReadLine -> new`](https://github.com/Utagai/shi/blob/ef0428b1440153818ee5512adf378ba1544e0598/src/readline.rs#L28) now can fail, so it needs to return a result.
 
