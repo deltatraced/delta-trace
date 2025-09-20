@@ -2,7 +2,7 @@
 parent: "[[002 Move credit_store_demo project to deltachives]]"
 spawned_by: "[[002 Move credit_store_demo project to deltachives]]"
 context_type: task
-status: todo
+status: done
 ---
 
 Parent: [[002 Move credit_store_demo project to deltachives]]
@@ -45,5 +45,8 @@ Spawn [[000 Internal state for shi shell not passing to new thread safely]] ^spa
 
  2025-09-19 Wk 38 Fri - 04:14 +03:00
 
-
 Spawn [[001 Getting many debugging logs from rustyline while using shi]] ^spawn-issue-229e4a
+
+2025-09-19 Wk 38 Fri - 10:43 +03:00
+
+Okay! `expt001` has a basic example of spawning a shell on its own thread with internal and external facing state. It has a simple counter function for demonstration. This should cover our needs for the shell!

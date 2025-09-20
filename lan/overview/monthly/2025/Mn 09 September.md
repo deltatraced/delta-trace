@@ -7,7 +7,7 @@ To capture different aspects of how my month unfolded!
 
 | Category                                 | Entries (#) | Purpose                                                                                                                                                                              |
 | ---------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [[Mn 09 000 Learning\|Learning]]         | 1           | Capturing highlights of practices and lessons learned this month!                                                                                                                    |
+| [[Mn 09 000 Learning\|Learning]]         | 2           | Capturing highlights of practices and lessons learned this month!                                                                                                                    |
 | [[Mn 09 001 Resources\|Resources]]       | 4           | Things that could be useful for me now or in the future!                                                                                                                             |
 | [[Mn 09 002 Review\|Review]]             | 0           | What did I do this month? What are the takeaways? and more!                                                                                                                          |
 | [[Mn 09 003 Ideas\|Ideas]]               | 4           | Ideas flash by throughout the month, so I capture them here to get a better sense for possibilities!                                                                                 |
