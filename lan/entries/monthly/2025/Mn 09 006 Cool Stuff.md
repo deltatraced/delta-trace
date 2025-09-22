@@ -12,3 +12,4 @@ A casual place to gather things I found to be cool throughout the month!
 (2)
 
 [gh mathe00/obsidian-plugin-python-bridge](https://github.com/mathe00/obsidian-plugin-python-bridge) if we want to bring out python tools when writing obsidian plugins
+

@@ -20,3 +20,13 @@ They also have social information included, and a way to view the entire changel
 This is a cool way to keep users engaged and up to date! And the logo is simply and colorful!
 
 You can learn more about it in [ohmyz.sh](https://ohmyz.sh/).
+
+# 3 Stream
+
+(2)
+
+2025-09-23 Wk 39 Tue - 00:15 +03:00
+
+Found another developer who also likes to put timesheets publicly! [Bryon timesheets 2025](https://github.com/Byron/byron/blob/main/timesheets/2025.csv). The project, client, and purpose are clear. Can be an inspiration for what I do!
+
+This inspired me to add a focus column to overview to give a key highlight, just like a git commit for the day!
