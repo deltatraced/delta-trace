@@ -1,3 +1,36 @@
 ---
 status: todo
 ---
+# 1 Journal
+
+2025-09-20 Wk 38 Sat - 20:46 +03:00
+
+Spawn [[000 Allow users to append new credit store events in various ways]] ^spawn-task-b96c13
+
+2025-09-21 Wk 38 Sun - 20:29 +03:00
+
+We need to revise how event sourcing is implemented. Using complex instructions for the event accumulator like `undo N` and `redo N` would make it extremely difficult to query events. Similar for global/local events. Instead of popping frames, we can simply add local events which are where actual objects are touched, at a specific scale no and frame no. Frame no is so that even though we may add events at the same scale, we start from scratch (relative to that scale) on a new frame. It's up to software how events at different scales interact. Whether higher scales aggregate into lower scales, or whether lower scales are treated as more permanent effects that are applied to higher scales.
+
+We might not need a Head managed by an event accumulator and a Version to check out with, if we can simply get the state of affairs by filter by scale, and frame no.  We should look into use of query projections to get the state of current objects. We might also need to leave it to software what updating means. For numerical values it may be differential, so that the column needs to aggregate. For others, we may need to replace the column value by the latest. Another thing is how deletions affect
+
+2025-09-21 Wk 38 Sun - 21:01 +03:00
+
+Might be best to separate local and global events. Local being changes to objects, and global being changes to the entire state of affairs. 
+
+Objects should have a status that can be aggregated. Inserted, Updated, Deleted. An Insert event followed by updates, gives us Updated. An Insert event alone gives us Inserted, and if it ends with a Delete, we get Deleted. This could be satisfied with a sum aggregate with the following rules:
+
+1 is inserted. 0 is deleted. $\gt$ 1 is updated. On insert, the value is set to 1. On each update, it's incremented once, and finally on a delete, the number of events added for that object are counted, and then they are subtracted, so $-N$ to get us to 0. Now a sum aggregate will work to give us what objects currently exist. 
+
+2025-09-21 Wk 38 Sun - 21:34 +03:00
+
+Spawn [[000 Investigate summing and latest aggregation with diesel]] ^spawn-invst-bb50da
+
+Spawn [[001 Use of views with rust and diesel and possibly other db viewers in sqlite3]] ^spawn-invst-3617a0
+
+2025-09-21 Wk 38 Sun - 23:07 +03:00
+
+Spawn [[000 Resources encountered during event accumulator impl]] ^spawn-entry-4b539d
+
+2025-09-21 Wk 38 Sun - 23:21 +03:00
+
+Spawn [[001 Create coin table events to experiment with aggregation being in views]] ^spawn-task-9b8a2b

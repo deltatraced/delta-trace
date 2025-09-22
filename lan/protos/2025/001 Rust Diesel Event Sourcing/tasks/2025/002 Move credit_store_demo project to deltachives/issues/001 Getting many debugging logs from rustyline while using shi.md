@@ -41,7 +41,7 @@ This [rust forum post](https://users.rust-lang.org/t/how-to-exclude-a-library-lo
 
 And this [reddit post](https://www.reddit.com/r/rust/comments/85qp50/how_to_disable_logging_for_certain_crates/) has discussion on using various other logging crates to solve the issue... Like [gh rust-cli/env_logger](https://github.com/rust-cli/env_logger) which can be configured via environment variables.
 
-2025-09-19 Wk 38 Fr - 05:15 +03:00i
+2025-09-19 Wk 38 Fri - 05:15 +03:00
 
 Should this library even be emitting these debug messages? I filed an issue [gh Utagai/shi #11](https://github.com/Utagai/shi/issues/11) noting the old versions of [rustyline](https://github.com/kkawakam/rustyline).
 
