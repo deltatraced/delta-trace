@@ -1,5 +1,6 @@
 ---
 writing_for: "[[000 Note Taking Philosophy]]"
+status: paused
 ---
 #lan #task #notes #writing #st/pend
 

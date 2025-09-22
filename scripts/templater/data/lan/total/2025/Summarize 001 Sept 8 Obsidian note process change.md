@@ -1,4 +1,4 @@
-# Time Summary – 001 Sept 8 Obsidian note process change
+# 1 Time Summary – 001 Sept 8 Obsidian note process change
 
 | Note/Heading | Time Spent |
 |--------------|------------|

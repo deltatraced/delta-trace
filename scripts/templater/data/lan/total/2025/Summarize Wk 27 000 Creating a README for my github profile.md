@@ -1,4 +1,4 @@
-# Time Summary – Wk 27 000 Creating a README for my github profile
+# 1 Time Summary – Wk 27 000 Creating a README for my github profile
 
 | Note/Heading | Time Spent |
 |--------------|------------|

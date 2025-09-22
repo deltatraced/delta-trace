@@ -1,4 +1,4 @@
-# Time Summary – 000 Math Studying Direction
+# 1 Time Summary – 000 Math Studying Direction
 
 | Note/Heading | Time Spent |
 |--------------|------------|

@@ -1,4 +1,4 @@
-# Time Summary – 002 Move credit_store_demo project to deltachives
+# 1 Time Summary – 002 Move credit_store_demo project to deltachives
 
 | Note/Heading | Time Spent |
 |--------------|------------|

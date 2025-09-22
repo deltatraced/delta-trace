@@ -1,4 +1,4 @@
-# Time Summary – 001 Create a reference basic website and host it with wasmer
+# 1 Time Summary – 001 Create a reference basic website and host it with wasmer
 
 | Note/Heading | Time Spent |
 |--------------|------------|

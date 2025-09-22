@@ -1,4 +1,4 @@
-# Time Summary – 001 Note heading categories and method
+# 1 Time Summary – 001 Note heading categories and method
 
 | Note/Heading | Time Spent |
 |--------------|------------|

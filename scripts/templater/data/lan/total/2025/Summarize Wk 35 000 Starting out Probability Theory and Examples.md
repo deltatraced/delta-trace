@@ -1,4 +1,4 @@
-# Time Summary – Wk 35 000 Starting out Probability Theory and Examples
+# 1 Time Summary – Wk 35 000 Starting out Probability Theory and Examples
 
 | Note/Heading | Time Spent |
 |--------------|------------|

@@ -1,4 +1,4 @@
-# Time Summary – 002 Learning about Astro and website deployment
+# 1 Time Summary – 002 Learning about Astro and website deployment
 
 | Note/Heading | Time Spent |
 |--------------|------------|

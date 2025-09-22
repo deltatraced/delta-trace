@@ -1,4 +1,4 @@
-# Time Summary – 000 Get a domain name to publish in for self-hosting
+# 1 Time Summary – 000 Get a domain name to publish in for self-hosting
 
 | Note/Heading | Time Spent |
 |--------------|------------|
