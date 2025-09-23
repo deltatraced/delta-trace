@@ -13,3 +13,8 @@ A casual place to gather things I found to be cool throughout the month!
 
 [gh mathe00/obsidian-plugin-python-bridge](https://github.com/mathe00/obsidian-plugin-python-bridge) if we want to bring out python tools when writing obsidian plugins
 
+(3)
+
+2025-09-23 Wk 39 Tue - 02:37 +03:00
+
+[gh brettkromkamp/contextualise](https://github.com/brettkromkamp/contextualise) is a cool project and exploring it can give us ideas on atomic context management!

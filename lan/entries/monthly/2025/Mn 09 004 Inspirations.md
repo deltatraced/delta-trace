@@ -30,3 +30,9 @@ You can learn more about it in [ohmyz.sh](https://ohmyz.sh/).
 Found another developer who also likes to put timesheets publicly! [Bryon timesheets 2025](https://github.com/Byron/byron/blob/main/timesheets/2025.csv). The project, client, and purpose are clear. Can be an inspiration for what I do!
 
 This inspired me to add a focus column to overview to give a key highlight, just like a git commit for the day!
+
+(3)
+
+2025-09-23 Wk 39 Tue - 01:06 +03:00
+
+We learned during contributing to [gh Utagai/shi](https://github.com/Utagai/shi) about [docs.rs thiserror](https://docs.rs/thiserror/latest/thiserror/) and the ability to combine error messages and codes in one enum. Also its use of `#[from]` shortened many functions that would otherwise be mapping from one error type to another all the time. If a function can output an Io error, then it may have its own error type with `Io` variant, and using `#[from]` conversion happens automatically with `?`!
