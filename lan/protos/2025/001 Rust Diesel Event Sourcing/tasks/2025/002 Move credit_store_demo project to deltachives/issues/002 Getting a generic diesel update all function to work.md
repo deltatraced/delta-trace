@@ -13,55 +13,6 @@ Spawned in: [[002 Move credit_store_demo project to deltachives#^spawn-issue-861
 
 # 1 Journal
 
-2025-09-19 Wk 38 Fri - 19:33 +03:00
-
-This turned out to be extremely picky with its constraints:
-
-```rust
-pub trait UpdateHeadRec {
-    fn update_head_rec<Model, Tab>(
-        conn: &mut SqliteConnection,
-        table: Tab,
-        object: Model,
-        tx_ea_msg: Sender<EaThreadMessage>,
-    ) -> Result<usize, HeadRecOpError>
-    where
-        Model: AsChangeset<Target = Tab> + Insertable<Tab>,
-        Tab: Identifiable
-            + QueryFragment<Sqlite>
-            + HasTable<Table = Tab>
-            + diesel::Table
-            + IntoUpdateTarget
-            + AsChangeset
-            + GetTableName,
-        <Tab as QuerySource>::FromClause: QueryFragment<Sqlite>,
-        <Tab as IntoUpdateTarget>::WhereClause: QueryFragment<Sqlite>,
-        <Model as AsChangeset>::Changeset: QueryFragment<Sqlite>,
-        UpdateStatement<
-            Tab,
-            <Tab as IntoUpdateTarget>::WhereClause,
-            <Model as AsChangeset>::Changeset,
-        >: AsQuery,
-    {
-        let written = diesel::update(table)
-            .set(object)
-            .execute(conn)?;
-
-        tx_ea_msg.send(EaThreadMessage::DbWrite {
-            table_name: table.get_table_name(),
-        })?;
-
-        Ok(written)
-    }
-}
-```
-
-I arrived here in a mixture of experimentation, using this [stackoverflow answer](https://stackoverflow.com/a/73461668/6944447) as template replacing Pg with Sqlite, and some LLM assistance, but they likely don't want this to be built explicitly like this as the answer suggests.
-
-I was also not able to get it to work generically with returning records, but this can do.
-
-A more sustainable way to do this might be to create derives or macros.
-
 2025-09-19 Wk 38 Fri - 19:45 +03:00
 
 Automation for Insert was much simpler:
