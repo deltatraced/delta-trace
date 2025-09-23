@@ -28,11 +28,13 @@ Learn more about [[001 Star Days ★|Star Days ★]]!
 
 Links in the 💫 column reference the items worked on that day. 
 
-Links marked Σ show all time spent for a group of items. If they have the same number like Σ1, it means they're the same effort with the same total summary.
+Links marked Σ show all time spent for a group of items. If the same number repeats like Σ1, it implies identical total summaries.
 
 Links in the Date column reference an overview summary written after the fact.
 
 Highlight is a short description after the fact of a key highlight of the day.
+
+Week numbers are according to the [ISO week date](https://www.epochconverter.com/weeks/2025).
 
 | Week | Day | Date           | 💫                                  | Highlight                                                                |
 | ---- | --- | -------------- | ----------------------------------- | ------------------------------------------------------------------------ |
