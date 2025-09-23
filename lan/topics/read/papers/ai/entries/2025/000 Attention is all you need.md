@@ -21,15 +21,15 @@ Skim through the paper and note foundational next concepts to learn about to und
 
 
 > dominant sequence transduction models
-[[#^quote-paper]]
+> [[#^quote-paper]]
 ^keyword-000
 
 > Achieving {N} BLEU on the WMT 2014 English-to-German translation task
-[[#^quote-paper-paraphrase]]
+> [[#^quote-paper-paraphrase]]
 ^keyword-001
 
 > sequence modeling and transduction problems such as language modeling and machine translation
-[[#^quote-paper]]
+> [[#^quote-paper]]
 ^keyword-002
 
 # 2 Tasks
