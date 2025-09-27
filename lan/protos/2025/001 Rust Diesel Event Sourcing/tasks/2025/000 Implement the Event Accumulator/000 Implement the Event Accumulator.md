@@ -21,11 +21,13 @@ Objects should have a status that can be aggregated. Inserted, Updated, Deleted.
 
 1 is inserted. 0 is deleted. $\gt$ 1 is updated. On insert, the value is set to 1. On each update, it's incremented once, and finally on a delete, the number of events added for that object are counted, and then they are subtracted, so $-N$ to get us to 0. Now a sum aggregate will work to give us what objects currently exist. 
 
+^recall-244d1b
+
 2025-09-21 Wk 38 Sun - 21:34 +03:00
 
 Spawn [[000 Investigate summing and latest aggregation with diesel]] ^spawn-invst-bb50da
 
-Spawn [[001 Use of views with rust and diesel and possibly other db viewers in sqlite3]] ^spawn-invst-3617a0
+Spawn [[001 Use of views and CTEs with sqlite3 and diesel-rs]] ^spawn-invst-3617a0
 
 2025-09-21 Wk 38 Sun - 23:07 +03:00
 

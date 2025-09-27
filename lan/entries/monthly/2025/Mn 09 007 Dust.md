@@ -3,7 +3,7 @@
 
 # 1 Purpose
 
-The buzz of all the little things to do but get de-prioritized. This noise can accumulate and deserves respect and direct confrontation!
+Accumulating de-prioritized items deserve a time of their own and direct engagement!
 
 # 2 Tasks
 
