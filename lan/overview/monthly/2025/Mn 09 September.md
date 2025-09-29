@@ -22,7 +22,11 @@ To capture different aspects of how my month unfolded!
 | -------------------------------- | -------------------- | -------------------- |
 | [[001 Star Days ★\|Star Days ★]] | 2025-09-01 Wk 36 Mon | 2025-09-02 Wk 36 Tue |
 
-# 4 Star Days
+# 4 Related
+
+- [[Mn 10 October]]
+
+# 5 Star Days
 
 Learn more about [[001 Star Days ★|Star Days ★]]!
 
@@ -74,6 +78,6 @@ Week numbers are according to the [ISO week date](https://www.epochconverter.com
 | 39   | Thu | 2025-09-25 | ` `                                                                                                                                                                                                                                                                                                 | [bn6f reverse engineering](https://github.com/dism-exe/dism-exe-notes/blob/533fe36a409b68bfb47b9b59632df1f5973c562f/lan/topics/bn6f/explorations/entries/2025/000%20Exploring%20bn6f%20save%20data/entries/000%20Wk%2039%20Exploring%20bn6f%20save%20data.md) |
 | 39   | Fri | 2025-09-26 | [[Summary-2025-09-26 \|🕹️ </>]]                                                                                                                                                                                                                                                                    | Impl event accumulation all in a SQL View                                                                                                                                                                                                                     |
 | 39   | Sat | 2025-09-27 | [[Summary-2025-09-27 \|🕹️ </>]]                                                                                                                                                                                                                                                                    |                                                                                                                                                                                                                                                               |
-| 39   | Sun |            |                                                                                                                                                                                                                                                                                                     |                                                                                                                                                                                                                                                               |
+| 39   | Sun | 2025-09-28 |                                                                                                                                                                                                                                                                                                     |                                                                                                                                                                                                                                                               |
 
 

@@ -1,15 +1,17 @@
+---
+parent: "[[Mn 09 007 Dust]]"
+spawned_by: "[[Mn 09 007 Dust]]"
+context_type: task
+status: done
+---
 
-[[Mn 09 September]]
+Parent: [[Mn 09 007 Dust]]
 
-# 1 Purpose
+Spawned by: [[Mn 09 007 Dust]] 
 
-Accumulating de-prioritized items deserve a time of their own and direct engagement!
+Spawned in: [[Mn 09 007 Dust#^spawn-task-2b96d3|^spawn-task-2b96d3]]
 
-# 2 Tasks
-
-## 2.1 Capturing and prioritizing Sept 8 Flies
-
-- [x] 
+# 1 Journal
 
 2025-09-08 Wk 37 Mon - 15:01
 

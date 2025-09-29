@@ -37,8 +37,18 @@ So what we want to do is group by
 
 So for all frames, we want to group by:
 
+(update)
+
 1. All Items within the current frame and span; unioned with
-2. All items whose span is $\lt$ the frame span AND their timestamp $\le$ the frame latest update time
+2. All items whose span is $\lt$ the frame span AND their timestamp $\lt$ the frame latest creation time
+
+2025-09-28 Wk 39 Sun - 01:37 +03:00
+
+Timestamp updated from $\le$ frame latest update time to just $\lt$ frame creation time. 
+
+Once a frame is created, it sources information from lowers span and then freezes its input from the outside world. This allows multiple span frames to operate independently, and we will always know the state of affairs at any event at any frame at any span.
+
+(/update)
 
 This will give us the property that every frame is self-contained with its own set of objects, even from lower spans (or higher persistence layers). This way objects in all past contexts are accessible for querying. They should be given a unique identifier, like group_frame and frame_updated_on. 
 
@@ -234,3 +244,235 @@ This is `v_coin_store_events_grouped`. We can filter this by `grp_id` to get the
 This is `v_coin_store_objects` which accumulates all events into unique object ids per group id. `transactions` will show 0 for deleted objects, otherwise will show how many times the object has been modified. Other properties, such as `coins` now show the accumulated amount of coins the person has!
 
 ![[Pasted image 20250927073411.png]]
+
+2025-09-28 Wk 39 Sun - 01:29 +03:00
+
+We've done some reorganization of the columns and added `ev_action` and `ev_id` to the grouped view so that we have full information about the events.
+
+We fixed timestamps used by sql being identical by adding a small offset like `+0.1` at each row. 
+
+We also added a local reset at span 2 frame 2 and confirmed it retained state from span 1 frame 1 prior to creating it. It includes the newly created `person003` which group id 2 does not because it was created after that frame, but before the new group id 3 frame.
+
+For global reset span 1 frame 2, it does not show up as a view with empty items in `v_coin_store_objects`, since every row that shows up there is a unique object relative to a group id.
+
+2025-09-28 Wk 39 Sun - 01:53 +03:00
+
+We're also changing the `frame` event. We're adding `open` and `close` global event actions. `open` opens a new frame while `close` closes it to signify that it no longer accepts new events. This way in the application we can give the user the ability to maintain a session tree with their changes, and we may do special actions on close, such as merge into parent session or discard.
+
+Here are the changes:
+
+```sql
+CREATE TABLE coin_store_diffs (
+  id INTEGER NOT NULL PRIMARY KEY,
+  obj_id INTEGER NOT NULL,
+  person TEXT NOT NULL,
+  coins INTEGER NOT NULL
+);
+
+CREATE TABLE coin_store_events (
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  opt_diff_id INTEGER NULL REFERENCES coin_store_diffs(id),
+  transactions INTEGER NOT NULL,
+  ev_action TEXT CHECK(ev_action IN ('insert', 'update', 'delete', 'frame')) NOT NULL,
+  span INTEGER NOT NULL,
+  frame INTEGER NOT NULL,
+  created_on_ts REAL NOT NULL
+);
+
+INSERT INTO coin_store_diffs (id, obj_id, person, coins) VALUES 
+	(1, 1, 'person001', 10),
+	(2, 1, 'person001', 15),
+	(3, 1, 'person001', 5),
+	(4, 2, 'person002', 7),
+	(5, 2, 'person002', 14),
+	(6, 3, 'person003', 8),
+	(7, 1, 'person001', 0)
+;
+
+INSERT INTO coin_store_events (opt_diff_id, transactions, ev_action, span, frame, created_on_ts) VALUES
+	(null, 0, 'frame', 1, 1, 1758935304.168087602),
+	(1, 1, 'insert', 1, 1, 1758935465.865269566),
+	(2, 1, 'update', 1, 1, 1758935520.052601247),
+	(3, 1, 'update', 1, 1, 1758935543.867800435),
+	(null, 0, 'frame', 2, 1, unixepoch('subsec') + 0.1),
+	(4, 1, 'insert', 2, 1, unixepoch('subsec') + 0.2),
+	(5, 1, 'update', 2, 1, unixepoch('subsec') + 0.3),
+	(6, 1, 'insert', 1, 1, unixepoch('subsec') + 0.4),
+	(7, -3, 'delete', 1, 1, unixepoch('subsec') + 0.5),
+	(null, 0, 'frame', 2, 2, unixepoch('subsec') + 0.6),
+	(null, 0, 'frame', 1, 2, unixepoch('subsec') + 0.7)
+;
+
+CREATE VIEW v_coin_store_events_grouped AS
+	WITH RECURSIVE duplicator(dup, ev_id, obj_id, transactions, ev_action, span, frame, created_on_ts, person, coins) AS (
+		SELECT 1, t1.id, t2.obj_id, t1.transactions, t1.ev_action, t1.span, t1.frame, t1.created_on_ts, t2.person, t2.coins
+			FROM coin_store_events AS t1
+			INNER JOIN coin_store_diffs AS t2
+				ON t1.opt_diff_id = t2.id
+			WHERE ev_action != 'frame'
+		UNION
+		SELECT dup + 1, ev_id, obj_id, transactions, ev_action, span, frame, created_on_ts, person, coins 
+			FROM duplicator
+			WHERE 
+				(dup + 1) <= (
+					SELECT COUNT(*) 
+						FROM coin_store_events
+						WHERE ev_action = 'frame'
+				)
+	)
+	SELECT t2.*, t1.*
+		FROM duplicator AS t1
+		JOIN 
+			(SELECT ROW_NUMBER() OVER () AS grp_id, * 
+				FROM (
+					SELECT u1.span AS grp_span, u1.frame AS grp_frame, u1.created_on_ts AS grp_created_on_ts
+						FROM coin_store_events AS u1
+						WHERE ev_action = 'frame'
+				)
+			) AS t2
+		ON t1.dup = t2.grp_id
+	  WHERE
+			(t1.frame == t2.grp_frame AND t1.span == t2.grp_span) OR
+			(t1.span < t2.grp_span AND t1.created_on_ts < t2.grp_created_on_ts)
+	;
+
+
+CREATE VIEW v_coin_store_objects AS
+	SELECT
+		grp_id,
+		grp_span,
+		grp_frame,
+		obj_id,
+		SUM(transactions) AS transactions,
+		MAX(person) AS person,
+		SUM(coins) AS coins
+	FROM v_coin_store_events_grouped
+	GROUP BY 
+		obj_id, grp_id, grp_span, grp_frame, grp_created_on_ts
+;
+
+.save "events.db"
+```
+
+2025-09-29 Wk 40 Mon - 17:51 +03:00
+
+- [x] We will need to change that `MAX(person) AS person` and things like it into getting the latest. We did transactions into a sum but also could have been just latest state. This will require a subquery.
+
+- [ ] We also need to see how this interacts with more complex data loads that use joins. Would diesel recognize joins for views? Do we need to join against events instead?
+
+If we need to preserve one-to-one, they may need to be created only against insert events. If it's possible relations themselves may change, we may need to get the latest. 
+
+2025-09-29 Wk 40 Mon - 18:57 +03:00
+
+This is the latest experiment:
+
+```sql
+CREATE TABLE coin_store_diffs (
+  id INTEGER NOT NULL PRIMARY KEY,
+  obj_id INTEGER NOT NULL,
+  person TEXT NOT NULL,
+  coins INTEGER NOT NULL
+);
+
+CREATE TABLE coin_store_events (
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  opt_diff_id INTEGER NULL REFERENCES coin_store_diffs(id),
+  ev_action TEXT CHECK(ev_action IN ('insert', 'update', 'delete', 'open', 'close', 'reopen')) NOT NULL,
+  span INTEGER NOT NULL,
+  frame INTEGER NOT NULL,
+  created_on_ts REAL NOT NULL,
+  ev_desc TEXT NOT NULL
+);
+
+INSERT INTO coin_store_diffs (id, obj_id, person, coins) VALUES 
+	(1, 1, 'person001', 10),
+	(2, 1, 'Z', 15),
+	(3, 1, 'A', 5),
+	(4, 2, 'person002', 7),
+	(5, 2, 'person002', 14),
+	(6, 3, 'person003', 8),
+	(7, 1, 'C', 0)
+;
+
+INSERT INTO coin_store_events (opt_diff_id, ev_action, span, frame, created_on_ts, ev_desc) VALUES
+	(null, 'open', 1, 1, 1758935304.168087602, 'New Years Eve'),
+	(1, 'insert', 1, 1, 1758935465.865269566, ''),
+	(2, 'update', 1, 1, 1758935520.052601247, ''),
+	(3, 'update', 1, 1, 1758935543.867800435, ''),
+	(null, 'open', 2, 1, unixepoch('subsec') + 0.1, 'New Years Eve Plan 1'),
+	(4, 'insert', 2, 1, unixepoch('subsec') + 0.2, ''),
+	(5, 'update', 2, 1, unixepoch('subsec') + 0.3, ''),
+	(null, 'close', 2, 1, unixepoch('subsec') + 0.4, 'New Years Eve Plan 1'),
+	(6, 'insert', 1, 1, unixepoch('subsec') + 0.5, ''),
+	(7, 'delete', 1, 1, unixepoch('subsec') + 0.6, ''),
+	(null, 'open', 2, 2, unixepoch('subsec') + 0.7, 'New Years Eve Plan 2'),
+	(null, 'open', 1, 2, unixepoch('subsec') + 0.8, 'Birthday Party')
+;
+
+CREATE VIEW v_coin_store_events_grouped AS
+	WITH RECURSIVE duplicator(dup, ev_id, obj_id, ev_action, span, frame, created_on_ts, person, coins, ev_desc) AS (
+		SELECT 1, t1.id, t2.obj_id, t1.ev_action, t1.span, t1.frame, t1.created_on_ts, t2.person, t2.coins, t1.ev_desc
+			FROM coin_store_events AS t1
+			INNER JOIN coin_store_diffs AS t2
+				ON t1.opt_diff_id = t2.id
+			WHERE ev_action != 'open' AND ev_action != 'close' AND ev_action != 'reopen'
+		UNION
+		SELECT dup + 1, ev_id, obj_id, ev_action, span, frame, created_on_ts, person, coins, ev_desc
+			FROM duplicator
+			WHERE 
+				(dup + 1) <= (
+					SELECT COUNT(*) 
+						FROM coin_store_events
+						WHERE ev_action = 'open'
+				)
+	)
+	SELECT t2.*, t1.*
+		FROM duplicator AS t1
+		JOIN 
+			(SELECT ROW_NUMBER() OVER () AS grp_id, * 
+				FROM (
+					SELECT u1.span AS grp_span, u1.frame AS grp_frame, u1.created_on_ts AS grp_created_on_ts
+						FROM coin_store_events AS u1
+						WHERE ev_action = 'open'
+				)
+			) AS t2
+		ON t1.dup = t2.grp_id
+	  WHERE
+			(t1.frame == t2.grp_frame AND t1.span == t2.grp_span) OR
+			(t1.span < t2.grp_span AND t1.created_on_ts < t2.grp_created_on_ts)
+		ORDER BY
+			t1.created_on_ts
+	;
+
+CREATE VIEW v_coin_store_objects AS
+	WITH aggr AS (
+		SELECT
+			grp_id, grp_span, grp_frame, obj_id,
+			SUM(coins) AS coins,
+			grp_created_on_ts
+		FROM v_coin_store_events_grouped
+		GROUP BY obj_id, grp_id, grp_span, grp_frame, grp_created_on_ts
+	),
+	latest AS (
+		SELECT 
+			grp_id, obj_id, obj_state, person
+		FROM (
+			SELECT
+				grp_id, obj_id, person,
+				ev_action AS obj_state,
+				ROW_NUMBER() OVER (PARTITION BY grp_id, obj_id ORDER BY created_on_ts DESC) AS rn
+			FROM v_coin_store_events_grouped
+		)
+		WHERE
+			rn = 1
+	)
+	SELECT
+		a.grp_id, a.grp_span, a.grp_frame, a.obj_id, l.obj_state, l.person, a.coins
+	FROM aggr AS a
+	JOIN latest AS l
+		ON l.grp_id = a.grp_id AND l.obj_id = a.obj_id
+	ORDER BY a.grp_id;
+
+
+.save "events.db"
+```

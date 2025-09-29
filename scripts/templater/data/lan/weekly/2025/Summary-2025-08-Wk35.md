@@ -2,8 +2,9 @@
 
 | Note/Heading | Time Spent |
 |--------------|------------|
-| **Total** | **7h 48m 4s** |
-| [[Wk 35 000 Starting out Probability Theory and Examples]] | **4h 29m 31s** |
+| **Total** | **8h 52m 10s** |
+| [[000 Starting out Probability Theory and Examples]] | **5h 33m 37s** |
+| &nbsp;&nbsp;&nbsp;&nbsp;[[000 Starting out Probability Theory and Examples#6.2 Why F contains all unions of its underlying elements\|6.2 Why F contains all unions of its underlying elements]] | 1h 4m 6s |
 | [[000 Math Studying Direction]] | **1h 39m 13s** |
 | &nbsp;&nbsp;&nbsp;&nbsp;[[000 Math Studying Direction#3.3 Looking into books and resources for learning statistics\|3.3 Looking into books and resources for learning statistics]] | 1h 39m 13s |
 | [[001 Create a reference basic website and host it with wasmer]] | **1h 23m 12s** |

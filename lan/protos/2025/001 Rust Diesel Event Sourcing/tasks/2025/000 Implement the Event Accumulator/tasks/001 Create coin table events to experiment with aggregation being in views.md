@@ -5,6 +5,7 @@ context_type: task
 status: todo
 ---
 
+
 Parent: [[000 Implement the Event Accumulator]]
 
 Spawned by: [[000 Implement the Event Accumulator]] 
@@ -277,3 +278,52 @@ erDiagram
 	}
 ```
 
+2025-09-28 Wk 39 Sun - 00:51 +03:00
+
+Now it is
+
+```mermaid
+erDiagram
+	coin_store_diffs {
+		key_t id
+		key_t obj_id
+		string person
+		i32 coins
+	}
+
+	coin_store_events {
+		key_t id
+		Option[key_t] opt_diff_id
+		i32 transactions
+		EventAction ev_action
+		u32 span
+		u32 frame
+		f64 created_on_ts
+	}
+	coin_store_events ||--|| coin_store_diffs : compose
+	
+	v_coin_store_events_grouped {
+		key_t dup
+		key_t obj_id
+		string person
+		i32 coins
+		i32 transactions
+		u32 span
+		u32 frame
+		f64 created_on_ts
+		key_t grp_id
+		u32 grp_span
+		u32 grp_frame
+		f64 grp_created_on_ts
+	}
+	
+	v_coin_store {
+		key_t obj_id
+		key_t grp_id
+		u32 grp_span
+		u32 grp_frame
+		i32 transactions
+		string person
+		i32 coins
+	}
+```

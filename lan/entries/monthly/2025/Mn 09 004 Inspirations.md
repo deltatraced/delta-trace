@@ -1,4 +1,6 @@
+
 [[Mn 09 September]]
+
 # 1 Purpose
 
 Things that have inspired me throughout the month deserve to be highlighted and captured!

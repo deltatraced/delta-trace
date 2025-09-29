@@ -7,12 +7,7 @@ status: todo
 
 2025-07-27 Wk 30 Sun - 15:11
 
-<<<<<<< HEAD
-Gonna put any sketches in [[Drawing 2025-07-27 15.10.08.excalidraw|here]].
-
-=======
 Gonna put any sketches in [[Wk 30 Drawing Math Book 000 Starting out.excalidraw]]
->>>>>>> 17f7e5e (rename excalidraw file to have correct ext excalidraw.md)
 
 ## 1.2 Annotations
 
