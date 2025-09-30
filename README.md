@@ -38,15 +38,15 @@ For higher browser viewing compatibility, switch to the [webview branch](https:/
 # 2 See also
 
 1. [delta-trace](https://github.com/deltatraced/delta-trace/tree/webview) **You are here!**
-	- A knowledge base for researching, developing, studying, and experimenting!
+   - A knowledge base for researching, developing, studying, and experimenting!
 2. [lan-setup-notes](https://github.com/LanHikari22/lan-setup-notes/tree/webview)
-	- A knowledge base for tooling, diagnosing, investigating, and setting up systems!
+   - A knowledge base for tooling, diagnosing, investigating, and setting up systems!
 3. [dism-exe-notes](https://github.com/dism-exe/dism-exe-notes/tree/webview/lan)
-	- A knowledge base for reverse engineering and analyzing Mega Man Battle Network games!
+   - A knowledge base for reverse engineering and analyzing Mega Man Battle Network games!
 4. [goldensun-notes](https://github.com/FutureFractal/goldensun-notes/tree/webview/lan)
-	- A knowledge base for reverse engineering and analyzing Golden Sun GBA games!
+   - A knowledge base for reverse engineering and analyzing Golden Sun GBA games!
 5. [dbmint-notes](https://github.com/dbmint/dbmint-notes/tree/webview)
-	- A knowledge base for developing intuitive and type correct database tools in Rust!
+   - A knowledge base for developing intuitive and type correct database tools in Rust!
 
 
 # 3 Contributing
