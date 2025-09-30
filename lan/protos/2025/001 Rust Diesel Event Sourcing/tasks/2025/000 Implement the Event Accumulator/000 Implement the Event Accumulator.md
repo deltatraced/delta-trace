@@ -15,11 +15,11 @@ We might not need a Head managed by an event accumulator and a Version to check 
 
 2025-09-21 Wk 38 Sun - 21:01 +03:00
 
-Might be best to separate local and global events. Local being changes to objects, and global being changes to the entire state of affairs. 
+Might be best to separate local and global events. Local being changes to objects, and global being changes to the entire state of affairs.
 
 Objects should have a status that can be aggregated. Inserted, Updated, Deleted. An Insert event followed by updates, gives us Updated. An Insert event alone gives us Inserted, and if it ends with a Delete, we get Deleted. This could be satisfied with a sum aggregate with the following rules:
 
-1 is inserted. 0 is deleted. $\gt$ 1 is updated. On insert, the value is set to 1. On each update, it's incremented once, and finally on a delete, the number of events added for that object are counted, and then they are subtracted, so $-N$ to get us to 0. Now a sum aggregate will work to give us what objects currently exist. 
+1 is inserted. 0 is deleted. $\gt$ 1 is updated. On insert, the value is set to 1. On each update, it's incremented once, and finally on a delete, the number of events added for that object are counted, and then they are subtracted, so $-N$ to get us to 0. Now a sum aggregate will work to give us what objects currently exist.
 
 ^recall-244d1b
 

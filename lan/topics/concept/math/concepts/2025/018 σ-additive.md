@@ -1,23 +1,20 @@
-
 # 1 Definition
 
 ## 1.1 Wiki
 
 See the wiki: [σ-additive set function](https://en.wikipedia.org/wiki/Sigma-additive_set_function)
 
-(1) 
+(1)
 
 Let $\mathcal{F}$ be a [[007 σ-algebra|σ-algebra]] over some [[001 Set|set]] $\Omega$
 
 (2)
 
-Let $\mu$ be a [[019 set function|set function]] $\mu : \mathcal{F} \to \overline{\mathbb{R}}$ 
-
+Let $\mu$ be a [[019 set function|set function]] $\mu : \mathcal{F} \to \overline{\mathbb{R}}$
 
 (3) ^199261-premise-3
 
-
-Let $S$ be the set of all [[020 Seq|sequences]] of pairwise disjoint [^1] sets in $\mathcal{F}$ 
+Let $S$ be the set of all [[020 Seq|sequences]] of pairwise disjoint [^1] sets in $\mathcal{F}$
 
 (3)
 
@@ -63,7 +60,6 @@ This is satisfied by definition of σ-additivity
 
 (3)
 
-
 $$
 \begin{aligned}
 & \mu(A) \\
@@ -73,11 +69,9 @@ $$
 \end{aligned}
 $$
 
-$\therefore$  So because $\mu(A)$  is finite,  $\mu(\varnothing)$ must be 0. 
+$\therefore$  So because $\mu(A)$  is finite,  $\mu(\varnothing)$ must be 0.
 
 Note that if $\mu(A) = \pm \infty$, then $\mu(\varnothing)$ could be any value other than $-\infty$ here. That's because the result would produce $\infty - \infty$ which is an [[017 RealExt#^undefined-forms|undefined form]].
-
-
 
 [^1]: pairwise disjoint means if you pick any random pair of sets, you find they are disjoint (share no elements)
 

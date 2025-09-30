@@ -13,9 +13,9 @@ Gonna put any sketches in [[Wk 30 Drawing Math Book 000 Starting out.excalidraw]
 
 2025-07-27 Wk 30 Sun - 15:19
 
-> vpg 12 
+> vpg 12
 > There is a special symbol, ∈,
-> used to express the idea that an element belongs to a set. 
+> used to express the idea that an element belongs to a set.
 
 I guess for some set $A = \lbrace a_1, a_2, a_3 \rbrace$, we would say $a_1$ element-of A, or $a_1 \in A$ .
 
@@ -25,7 +25,7 @@ I would write
 
 ![[Pasted image 20250727152418.png]]
 
-to say $a_1$ is `of-type` A. 
+to say $a_1$ is `of-type` A.
 
 When I figure out including LaTeX stuff here I'd bring it back as `\oft`...
 
@@ -41,13 +41,12 @@ I'm pretty sure I've talked with someone before who disagreed with this conventi
 > vpg 13
 > We use the fancy letter “Z” because the word “integer” in German is “Zahlen.”
 
-
 2025-07-27 Wk 30 Sun - 15:36
 
 > vpg 14
 > We read the colon as “such that,” [...] Writing sets with a colon is called set-builder notation.
 
-so $\lbrace 2x : x \in Z \rbrace$ reads "The set of the form 2x such-that x is-in Z". 
+so $\lbrace 2x : x \in Z \rbrace$ reads "The set of the form 2x such-that x is-in Z".
 
 > vpg 15
 > When A is a subset of B we write A ⊆ B and if it is not a subset we write A ⊈ B.
@@ -60,7 +59,7 @@ subset-of relation!
 They have interesting convention for specifying inputs to a problem. `Fix "inputs". Problem query"`. I guess I usually see Given {inputs}, query.
 
 > vpg 16
-> Definition 1.13. 
+> Definition 1.13.
 > If A ⊆ S and A̸ = S, we say that A is a proper subset of S, and we write A ⊊ S.
 ^defn1-13
 

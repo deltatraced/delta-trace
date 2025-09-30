@@ -7,7 +7,7 @@ status: done
 
 Parent: [[000 Implement the Event Accumulator]]
 
-Spawned by: [[001 Use of views and CTEs with sqlite3 and diesel-rs]] 
+Spawned by: [[001 Use of views and CTEs with sqlite3 and diesel-rs]]
 
 Spawned in: [[001 Use of views and CTEs with sqlite3 and diesel-rs#^spawn-howto-d079c0|^spawn-howto-d079c0]]
 

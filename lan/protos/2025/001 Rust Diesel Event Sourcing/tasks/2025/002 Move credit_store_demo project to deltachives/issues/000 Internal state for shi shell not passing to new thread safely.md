@@ -7,7 +7,7 @@ status: done
 
 Parent: [[002 Move credit_store_demo project to deltachives]]
 
-Spawned by: [[000 Modularize shi shell use in credit store demo]] 
+Spawned by: [[000 Modularize shi shell use in credit store demo]]
 
 Spawned in: [[000 Modularize shi shell use in credit store demo#^spawn-issue-26db0c|^spawn-issue-26db0c]]
 
@@ -58,5 +58,3 @@ help: consider further restricting type parameter `S` with trait `Send`
 We can mark to the compiler it's safe with `+ Send + 'static`. That seems to work fine
 
 I opted to also create those values inside the thread since they do not need to be shared across the thread.
-
-

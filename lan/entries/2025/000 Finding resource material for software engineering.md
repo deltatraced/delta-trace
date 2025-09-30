@@ -11,13 +11,13 @@ Whether it's patterns, software design practices, functional programming and dif
 
 ## 3.1 Initial searching for reference material
 
-- [ ] 
+- [ ]
 
 2025-08-14 Wk 33 Thu - 12:34
 
 ---
 
-From [hackr.io blog](https://hackr.io/blog/software-engineering-books), 
+From [hackr.io blog](https://hackr.io/blog/software-engineering-books),
 
 [Clean Architecture: A Craftsman's Guide to Software Structure and Design by Robert C. Martin](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164/)
 

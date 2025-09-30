@@ -1,4 +1,3 @@
-
 # 1 Config
 
 ## 1.1 Argmin Argmax
@@ -12,5 +11,5 @@ $$
 ## 1.2 Of Type
 
 $$
-$$ 
+$$
 ^operator-oft

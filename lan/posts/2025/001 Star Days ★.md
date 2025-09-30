@@ -1,4 +1,3 @@
-
 #post #process #attention
 
 | Created              | Updated              |
@@ -7,13 +6,13 @@
 
 # 1 Quick Description
 
-A star day is a day declared one day in advance to only one cause. In a star day, everything besides daily habits, self care, and the most urgent of matters becomes noise. There only exists the topic of the day to engage with, or silence! 
+A star day is a day declared one day in advance to only one cause. In a star day, everything besides daily habits, self care, and the most urgent of matters becomes noise. There only exists the topic of the day to engage with, or silence!
 
 Unrelated thoughts as well as actions become noise unless they serve the mission.
 
 # 2 Purpose
 
-This is an attention-management strategy and not a task or time management strategy. 
+This is an attention-management strategy and not a task or time management strategy.
 
 It is set a day in advance, where we agree on the singular attention of the day to come so that we can prepare mentally for it.
 
@@ -31,15 +30,15 @@ Productivity concerns can be reviewed later, or they can be made the star topic 
 
 # 4 Motivation
 
-External productivity tools often fix symptoms rather than causes. If one is not careful, they can be used to make unfocused days bearable rather than promote deep work and flow states. They can introduce planning overhead and fixation on details that may not make a big impact in the long term such as precise placement of scheduled events, or counts of to-dos done. They risk being a source of guilt to their users by putting them in a perpetual catching-up state with seemingly endless work. 
+External productivity tools often fix symptoms rather than causes. If one is not careful, they can be used to make unfocused days bearable rather than promote deep work and flow states. They can introduce planning overhead and fixation on details that may not make a big impact in the long term such as precise placement of scheduled events, or counts of to-dos done. They risk being a source of guilt to their users by putting them in a perpetual catching-up state with seemingly endless work.
 
 But why maximize the number of to-do items completed a day, dream of an ideal of an empty to-do list, or perfectly execute a weekly schedule? What is the goal for this?
 
-One goal is to work at our best and be fulfilled, and to be able focus on the specifics of our work and not any unnecessary scaffolding around it. 
+One goal is to work at our best and be fulfilled, and to be able focus on the specifics of our work and not any unnecessary scaffolding around it.
 
-The problem begins internally, before any productivity tool is put in place. The bottleneck to flow is often in how we pay attention to the daily objects of experience and how we negotiate commitments with ourselves and others. 
+The problem begins internally, before any productivity tool is put in place. The bottleneck to flow is often in how we pay attention to the daily objects of experience and how we negotiate commitments with ourselves and others.
 
-With low attention, the cost of multitasking and distractions becomes too high that no productivity tool can recover it. With low commitment, we may stray from our objectives, only do the easy parts, or cut corners. Star days begin from this earlier stage of experience, focusing on attention and commitment as foundations. 
+With low attention, the cost of multitasking and distractions becomes too high that no productivity tool can recover it. With low commitment, we may stray from our objectives, only do the easy parts, or cut corners. Star days begin from this earlier stage of experience, focusing on attention and commitment as foundations.
 
 One cannot be behind in a star day, because all they need is full presence with the mission.
 

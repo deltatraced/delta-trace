@@ -12,7 +12,6 @@ To map out the damage Maelle does against Golgra and understand it.
 
 ![[Pasted image 20250726232540.png]]
 
-
 ![[Pasted image 20250727001245.png]]
 
 ![[Pasted image 20250726232831.png]]
@@ -35,11 +34,9 @@ The current strategy is that we alternate defensive and offensive stances. When 
 
 Still need practice on always getting Sword Ballet Perfects though...
 
-
-
 # 4 Investigations
 
-## 4.1 On use of Roulette 
+## 4.1 On use of Roulette
 
 2025-07-26 Wk 30 Sat - 23:30
 
@@ -63,13 +60,11 @@ $$
 \text{Expected} = 125 \ \frac{\text{dmg}}{\text{atk}} \times 50 \ \text{atk} = 6250 \ \text{dmg}
 $$
 
-
-(b) 
+(b)
 
 $$
 \text{Expected} = 100 \ \frac{\text{dmg}}{\text{atk}} \times 50 \ \text{atk} = 5000 \ \text{dmg}
 $$
-
 
 So we should use this. Normally this adds risk because the enemies can deal 200% damage on us. But with golgra, we cannot afford to be hit even once. So we have all the reward and none of the risk.
 
@@ -77,7 +72,7 @@ So we should use this. Normally this adds risk because the enemies can deal 200%
 
 We play without sound, and only by carrying a string on a cue (feet landing). We read `.` as pause and `-` as blank. `.` is a key that doesn't do anything, but exists so that we can have accurate tempo.
 
-So far the successful strings have been 
+So far the successful strings have been
 
 | Fast       | Swift         | Impressive      |
 | ---------- | ------------- | --------------- |
@@ -155,9 +150,7 @@ $$
 \text{white} = \frac{2}{3}\text{yellow}
 $$
 
-
 We increment variant for same attack but different damage. We increment subvariant for same attack same damage different stats.
-
 
 ## 4.5 Procedure
 
@@ -188,7 +181,7 @@ We seem to always see a burn icon but not always a burn mark ("burn" text) for p
 
 2025-08-24 Wk 34 Sun - 10:08
 
-For roulette, we may either get 50% damage or 200% damage. 
+For roulette, we may either get 50% damage or 200% damage.
 
 (math)
 
@@ -215,14 +208,12 @@ $$
 R^+ = 2\text{Atk}
 $$
 
-
 $$
 \begin{aligned}
 & R^+ \\
 & = 2\text{Atk} \\
 & = 2(2R^-) \\
-& = 4R^- \\
-\end{aligned}
+& = 4R^- \\\end{aligned}
 $$
 
 (/math)
@@ -251,7 +242,7 @@ Also white -> yellow is a factor of 1.5, so we now know that those are related
 | 1     | yellow | `Sl Bm1 Bk Br R+?`    | 8168   | counter | 4.1     |
 | 3<br> | yellow | `Sl Bm1 Bk Br R+? Cb` | 8168   | counter | 4.2     |
 
- Correct them to also be $R^+$.
+Correct them to also be $R^+$.
 
 2025-08-24 Wk 34 Sun - 10:24
 
@@ -323,7 +314,7 @@ Ontology update, `Bm` for burn mark is not enough. Sometimes we inflict multiple
 
 ![[Pasted image 20250824110819.png]]
 
-This is on a burn. I'm assuming the `x2` is for 
+This is on a burn. I'm assuming the `x2` is for
 
 2025-08-27 Wk 35 Wed - 12:05
 
@@ -334,9 +325,6 @@ On end turn, golgra loses burn mark but no burn damage. Also sometimes there's a
 | Times | Color  | Stats              | Damage | Attack  | Variant |
 | ----- | ------ | ------------------ | ------ | ------- | ------- |
 | 0     | yellow | `Sl Bm1 Bk Br R--` | 2042   | counter | 3.1     |
-
-
-
 
 ### 4.5.6 Sampling Sword Ballet on Start of Third Turn
 
@@ -364,13 +352,13 @@ This is 1:37 minutes in, died in the third turn first attack.
 
 ![[Pasted image 20250827122748.png]]
 
-This box measures 16x7 pixels. 
+This box measures 16x7 pixels.
 
 2025-08-27 Wk 35 Wed - 12:37
 
 ![[Pasted image 20250827123703.png]]
 
-Approximately 41 of those would fill the bar. 
+Approximately 41 of those would fill the bar.
 
 Another quick way to measure is to approximately box the HP bar
 
@@ -384,7 +372,7 @@ Now let's count the total damage for one box.
 
 First Turn
 
-9999, 726, 2042, 1452, 2042, 
+9999, 726, 2042, 1452, 2042,
 
 490, 123, 123, 123, 490, 184, 490, 184,
 
@@ -400,7 +388,7 @@ Third Turn
 
 5082,
 
-So in total, 
+So in total,
 
 ```sh
 python3 -c "l=[9999, 726, 2042, 1452, 2042, 490, 123, 123, 123, 490, 184, 490, 184, 980, 3312, 9999, 9999, 2552, 9999, 3829, 1452, 3063, 1715, 6861, 1715, 1715, 6861, 5082,]; print(sum(l))"
@@ -409,7 +397,7 @@ python3 -c "l=[9999, 726, 2042, 1452, 2042, 490, 123, 123, 123, 490, 184, 490, 1
 87602
 ```
 
-So we estimate that golgra has $87,602 \times \frac{659}{16} \approx 3,608,107$ HP 
+So we estimate that golgra has $87,602 \times \frac{659}{16} \approx 3,608,107$ HP
 
 2025-08-27 Wk 35 Wed - 13:28
 
@@ -468,7 +456,6 @@ There is code overhead from callback detection to pressing the first key of abou
 | fast   | 420         | 1000        | 1000        |             | 0              |                     | 5         | 4           |
 | fast   | 430         | 1000        | 1000        |             | 0              |                     | 8         | 6           |
 | fast   | 450         | 1000        | 1000        |             | 0              |                     | 2         | 0           |
-
 
 ## 4.8 Sampling string performance as I play
 

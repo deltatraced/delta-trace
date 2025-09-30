@@ -1,9 +1,8 @@
-
 # 1 Objective
 
-Create a credit store demo where the user is able to use shell commands to add new persons, delete persons, edit the credits a person has, and can have different levels of reports to group their transactions in which aggregate into prior reports. 
+Create a credit store demo where the user is able to use shell commands to add new persons, delete persons, edit the credits a person has, and can have different levels of reports to group their transactions in which aggregate into prior reports.
 
-They need to be able to have different currencies to manage, with their own registered persons: Credits, and (Arcade) Coins. 
+They need to be able to have different currencies to manage, with their own registered persons: Credits, and (Arcade) Coins.
 
 # 2 Goal
 
@@ -27,4 +26,3 @@ They need to be able to have different currencies to manage, with their own regi
 **Developer-facing**
 
 - [ ] Developer can add new managed tables in a similar fashion to credit or coin with minimal setup
-

@@ -7,7 +7,7 @@ status: skipped
 
 Parent: [[002 Move credit_store_demo project to deltachives]]
 
-Spawned by: [[002 Move credit_store_demo project to deltachives]] 
+Spawned by: [[002 Move credit_store_demo project to deltachives]]
 
 Spawned in: [[002 Move credit_store_demo project to deltachives#^spawn-issue-861a54|^spawn-issue-861a54]]
 

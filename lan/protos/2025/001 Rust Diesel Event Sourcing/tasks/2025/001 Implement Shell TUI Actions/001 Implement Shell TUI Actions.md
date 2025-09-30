@@ -17,7 +17,7 @@ And the two functions allow us to get input from the user, and allows them to si
 
 2025-09-21 Wk 38 Sun - 03:28 +03:00
 
-We created the first driver to insert an event via a shi command! 
+We created the first driver to insert an event via a shi command!
 
 2025-09-21 Wk 38 Sun - 03:48 +03:00
 
@@ -50,7 +50,7 @@ Even with the freeze, our previous event has been registered.
 
 2025-09-21 Wk 38 Sun - 04:06 +03:00
 
-Okay sending an `Unimplemented` error instead of saying that we're done. 
+Okay sending an `Unimplemented` error instead of saying that we're done.
 
 ```
 | db credit_store insert

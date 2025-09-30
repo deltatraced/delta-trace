@@ -7,7 +7,7 @@ status: done
 
 Parent: [[000 Implement the Event Accumulator]]
 
-Spawned by: [[001 Create coin table events to experiment with aggregation being in views]] 
+Spawned by: [[001 Create coin table events to experiment with aggregation being in views]]
 
 Spawned in: [[001 Create coin table events to experiment with aggregation being in views#^spawn-invst-bd7e4d|^spawn-invst-bd7e4d]]
 
@@ -19,21 +19,21 @@ Spawned in: [[001 Create coin table events to experiment with aggregation being 
 
 2025-09-26 Wk 39 Fri - 04:43 +03:00
 
-The aggregate view will show unique objects within a respective frame, but the scales will differ. Let's use the notation `sNfM` to mean `scale N frame M`. 
+The aggregate view will show unique objects within a respective frame, but the scales will differ. Let's use the notation `sNfM` to mean `scale N frame M`.
 
-Suppose we have `s0f0`, `s1f1`, and `s1f2`. 
+Suppose we have `s0f0`, `s1f1`, and `s1f2`.
 
-We need to show 3 separate states of afairs, so object ids can duplicate potentially 3 times, but are guaranteed to be unique within a frame. 
+We need to show 3 separate states of afairs, so object ids can duplicate potentially 3 times, but are guaranteed to be unique within a frame.
 
-All objects in frame 1 need to be `f1`, but they may be `s0` or `s1`. 
+All objects in frame 1 need to be `f1`, but they may be `s0` or `s1`.
 
-Remember that only frames are "separate worlds", but all scales mix. Previously, we used an analogy that `s0` could mean the monthly aggregates, while `s1` could be the individual transactions. This doesn't work. Scales refer to layers of *persistence* and not literally different timescales. 
+Remember that only frames are "separate worlds", but all scales mix. Previously, we used an analogy that `s0` could mean the monthly aggregates, while `s1` could be the individual transactions. This doesn't work. Scales refer to layers of *persistence* and not literally different timescales.
 
-I can't rename to `lifetime` at least because it would be confusing given it lights up blue in sql indicating it's a keyword somewhere. Let's call it `span`. 
+I can't rename to `lifetime` at least because it would be confusing given it lights up blue in sql indicating it's a keyword somewhere. Let's call it `span`.
 
 2025-09-26 Wk 39 Fri - 07:14 +03:00
 
-So what we want to do is group by 
+So what we want to do is group by
 
 So for all frames, we want to group by:
 
@@ -44,13 +44,13 @@ So for all frames, we want to group by:
 
 2025-09-28 Wk 39 Sun - 01:37 +03:00
 
-Timestamp updated from $\le$ frame latest update time to just $\lt$ frame creation time. 
+Timestamp updated from $\le$ frame latest update time to just $\lt$ frame creation time.
 
 Once a frame is created, it sources information from lowers span and then freezes its input from the outside world. This allows multiple span frames to operate independently, and we will always know the state of affairs at any event at any frame at any span.
 
 (/update)
 
-This will give us the property that every frame is self-contained with its own set of objects, even from lower spans (or higher persistence layers). This way objects in all past contexts are accessible for querying. They should be given a unique identifier, like group_frame and frame_updated_on. 
+This will give us the property that every frame is self-contained with its own set of objects, even from lower spans (or higher persistence layers). This way objects in all past contexts are accessible for querying. They should be given a unique identifier, like group_frame and frame_updated_on.
 
 2025-09-26 Wk 39 Fri - 07:25 +03:00
 
@@ -135,7 +135,6 @@ SELECT COUNT(*)
 	WHERE ev_action = 'update'
 ;
 ```
-
 
 2025-09-27 Wk 39 Sat - 07:29 +03:00
 
@@ -249,7 +248,7 @@ This is `v_coin_store_objects` which accumulates all events into unique object i
 
 We've done some reorganization of the columns and added `ev_action` and `ev_id` to the grouped view so that we have full information about the events.
 
-We fixed timestamps used by sql being identical by adding a small offset like `+0.1` at each row. 
+We fixed timestamps used by sql being identical by adding a small offset like `+0.1` at each row.
 
 We also added a local reset at span 2 frame 2 and confirmed it retained state from span 1 frame 1 prior to creating it. It includes the newly created `person003` which group id 2 does not because it was created after that frame, but before the new group id 3 frame.
 
@@ -360,7 +359,7 @@ CREATE VIEW v_coin_store_objects AS
 
 - [ ] We also need to see how this interacts with more complex data loads that use joins. Would diesel recognize joins for views? Do we need to join against events instead?
 
-If we need to preserve one-to-one, they may need to be created only against insert events. If it's possible relations themselves may change, we may need to get the latest. 
+If we need to preserve one-to-one, they may need to be created only against insert events. If it's possible relations themselves may change, we may need to get the latest.
 
 2025-09-29 Wk 40 Mon - 18:57 +03:00
 

@@ -7,7 +7,7 @@ status: skipped
 
 Parent: [[002 Move credit_store_demo project to deltachives]]
 
-Spawned by: [[001 Register tables to process for event accumulator]] 
+Spawned by: [[001 Register tables to process for event accumulator]]
 
 Spawned in: [[001 Register tables to process for event accumulator#^spawn-task-bcd457|^spawn-task-bcd457]]
 
@@ -50,7 +50,7 @@ Seems to have ran fine still.
 
 2025-09-19 Wk 38 Fri - 23:43 +03:00
 
-Need to update `actions.rs` also. Actions here are what the user can do but is not managed by the event accumulator. Those are implemented as actions for event sourcable objects passed in. 
+Need to update `actions.rs` also. Actions here are what the user can do but is not managed by the event accumulator. Those are implemented as actions for event sourcable objects passed in.
 
 Users shouldn't write to the version table directly, they should instruct the event accumulator to change versions.
 

@@ -7,7 +7,7 @@ status: done
 
 Parent: [[000 Attempting to upgrade rustyline for shi]]
 
-Spawned by: [[000 Attempting to upgrade rustyline for shi]] 
+Spawned by: [[000 Attempting to upgrade rustyline for shi]]
 
 Spawned in: [[000 Attempting to upgrade rustyline for shi#^spawn-task-8c0363|^spawn-task-8c0363]]
 

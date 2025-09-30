@@ -7,7 +7,7 @@ status: done
 
 Parent: [[Mn 09 007 Dust]]
 
-Spawned by: [[Mn 09 007 Dust]] 
+Spawned by: [[Mn 09 007 Dust]]
 
 Spawned in: [[Mn 09 007 Dust#^spawn-task-2b96d3|^spawn-task-2b96d3]]
 
@@ -39,7 +39,6 @@ In [lan-setup-notes](https://github.com/LanHikari22/lan-setup-notes/tree/webview
 
 - [ ] Look into kubernetes and similar solutions for shared compute between devices
 
-
 (unprioritized)
 
 - [ ] Perform cleaning procedure on 3D printing and print something
@@ -50,7 +49,7 @@ In [delta-trace](https://github.com/deltatraced/delta-trace/tree/webview),
 
 - [ ] Look into setting up github sponsorship
 
-(4) 
+(4)
 
 - [ ] Setup github packages for checkpipe and other library repos to see who includes it as dependencies
 

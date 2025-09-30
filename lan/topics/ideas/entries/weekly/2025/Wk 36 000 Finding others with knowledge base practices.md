@@ -1,4 +1,3 @@
-
 [[Mn 09 003 Ideas]]
 
 # 1 Idea
@@ -9,8 +8,7 @@ There are names for similar knowledge base practices others use:
 
 I've seen this come across in various names:
 
-Knowledge base, 
-
+Knowledge base,
 
 Obsidian apparently has a page on [digital gardens](https://dg-docs.ole.dev/)
 

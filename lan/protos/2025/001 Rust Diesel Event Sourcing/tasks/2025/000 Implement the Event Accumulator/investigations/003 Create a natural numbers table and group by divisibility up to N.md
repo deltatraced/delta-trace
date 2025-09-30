@@ -8,7 +8,7 @@ status: done
 
 Parent: [[000 Implement the Event Accumulator]]
 
-Spawned by: [[002 Investigate group by logic for frame and span to include up to span]] 
+Spawned by: [[002 Investigate group by logic for frame and span to include up to span]]
 
 Spawned in: [[002 Investigate group by logic for frame and span to include up to span#^spawn-invst-3a334f|^spawn-invst-3a334f]]
 
@@ -21,7 +21,7 @@ So the natural numbers table `[0, 1, 2, 3, 4, 5, ...]`  would give us groups lik
 - `[0, 3, 6, ...]`
 - `[0, 4, 8, ...]`
 
-And so on. Notice that the rows (individual elements) duplicate in the groups, since we're grouping by properties, and not by distinct values. 
+And so on. Notice that the rows (individual elements) duplicate in the groups, since we're grouping by properties, and not by distinct values.
 
 # 2 Related
 
@@ -99,7 +99,7 @@ cat main.sql | sqlite3 && vd main.sql
 
 2025-09-26 Wk 39 Fri - 23:47 +03:00
 
-So one way we can achieve this is by using an $N$-duplicator, and filtering each duplication of `nat` by divisibility by `dep`. 
+So one way we can achieve this is by using an $N$-duplicator, and filtering each duplication of `nat` by divisibility by `dep`.
 
 2025-09-27 Wk 39 Sat - 00:38 +03:00
 
@@ -149,4 +149,3 @@ cat divisibility.sql | sqlite3 | xargs
 # out
 2|0 2|2 2|4 2|6 2|8 2|10 2|12 2|14 2|16 2|18 3|0 3|3 3|6 3|9 3|12 3|15 3|18 4|0 4|4 4|8 4|12 4|16
 ```
-

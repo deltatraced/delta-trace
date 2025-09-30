@@ -5,10 +5,9 @@ context_type: task
 status: todo
 ---
 
-
 Parent: [[000 Implement the Event Accumulator]]
 
-Spawned by: [[000 Implement the Event Accumulator]] 
+Spawned by: [[000 Implement the Event Accumulator]]
 
 Spawned in: [[000 Implement the Event Accumulator#^spawn-task-9b8a2b|^spawn-task-9b8a2b]]
 
@@ -21,7 +20,6 @@ Spawned in: [[000 Implement the Event Accumulator#^spawn-task-9b8a2b|^spawn-task
 2025-09-21 Wk 38 Sun - 23:21 +03:00
 
 Currently our schema for credit is
-
 
 ```mermaid
 erDiagram
@@ -56,7 +54,6 @@ erDiagram
 	}
 	credit_store_events ||--o{ credit_store_events : compose
 ```
-
 
 And our actions are:
 
@@ -156,13 +153,13 @@ Both the events and the diffs are append-only stores. They are separated for con
 
 Both `opt_obj_id` and `opt_diff_id` may be null together, or present together, but you cannot null one and not the other, this should result in an error. This would be worse with `obj_state`, now all three may be present or may be null. T
 
-To simplify, we moved `obj_id` and `obj_state` to the diff table. Now they must always be present if there's a diff. 
+To simplify, we moved `obj_id` and `obj_state` to the diff table. Now they must always be present if there's a diff.
 
 Differential values in diffs and how diffs accumulate should be determined by software.
 
 2025-09-26 Wk 39 Fri - 02:36 +03:00
 
-Technically now, `ev_action` has been made redundant by `obj_state` and presence of `opt_diff_id`. If no diff is present, we know it's a `frame`. If a diff is present, we can check the `obj_state` and know that $1$ is insert, $\gt 1$ is update, and $0$ is delete. 
+Technically now, `ev_action` has been made redundant by `obj_state` and presence of `opt_diff_id`. If no diff is present, we know it's a `frame`. If a diff is present, we can check the `obj_state` and know that $1$ is insert, $\gt 1$ is update, and $0$ is delete.
 
 (update)
 But actually this is only in the case that the diffs accumulate themselves, and they shouldn't. So `obj_state` will show $1$ on both insert and update and $-N$ on delete, making a delete aggregating. So when we delete objects, we need to know the count of the preceding diffs, but on insert and update, we always say $1$, so we can still keep the event action to be a source of truth for the kind of event this is.
@@ -223,7 +220,7 @@ Had to update `event_action` in the CHECK to `ev_action` for it to compile, but 
 
 2025-09-26 Wk 39 Fri - 03:07 +03:00
 
-Let's also update `EventAction` to only have the four states, and change that also in credit store. 
+Let's also update `EventAction` to only have the four states, and change that also in credit store.
 
 2025-09-26 Wk 39 Fri - 03:32 +03:00
 
@@ -242,7 +239,6 @@ Renamed and reordered some items. `ev_tags` are just event specific, but `scale`
 2025-09-26 Wk 39 Fri - 10:37 +03:00
 
 So far, we have
-
 
 ```mermaid
 erDiagram

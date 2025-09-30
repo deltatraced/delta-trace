@@ -1,4 +1,3 @@
-
 # 1 Definition
 
 ## 1.1 Wiki
@@ -14,8 +13,6 @@ A \cup B \equiv \lbrace a \in U \suchthat a \in A \lor a \in B \rbrace
 $$
 
 which can be read as "$A$ union $B$ is equivalent to the set of all $a$ in the [[006 compliment#^term-universe|universe]] such that $a$ is in $A$ or $a$ is in $B$."
-
-
 
 # 2 Resources
 

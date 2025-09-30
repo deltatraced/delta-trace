@@ -7,7 +7,7 @@ status: done
 
 Parent: [[002 Move credit_store_demo project to deltachives]]
 
-Spawned by: [[002 Move credit_store_demo project to deltachives]] 
+Spawned by: [[002 Move credit_store_demo project to deltachives]]
 
 Spawned in: [[002 Move credit_store_demo project to deltachives#^spawn-task-0a20b1|^spawn-task-0a20b1]]
 
@@ -17,7 +17,7 @@ Spawned in: [[002 Move credit_store_demo project to deltachives#^spawn-task-0a20
 
 In order to generalize and separate the managed tables from the event accumulator implementation, we need to be able to provide a way to register which tables to work on.
 
-We need to know the `x_head`, `x_events`, `x`, and `x_version` tables. 
+We need to know the `x_head`, `x_events`, `x`, and `x_version` tables.
 
 2025-09-19 Wk 38 Fri - 22:25 +03:00
 
@@ -36,7 +36,6 @@ pub trait EventSourcable:
 ```
 
 Now we can get a hash map of event sourcable objects. Let's implement this for the credit store.
-
 
 2025-09-19 Wk 38 Fri - 22:35 +03:00
 

@@ -7,7 +7,7 @@ status: done
 
 Parent: [[002 Move credit_store_demo project to deltachives]]
 
-Spawned by: [[000 Modularize shi shell use in credit store demo]] 
+Spawned by: [[000 Modularize shi shell use in credit store demo]]
 
 Spawned in: [[000 Modularize shi shell use in credit store demo#^spawn-invst-3cfcad|^spawn-invst-3cfcad]]
 
@@ -68,7 +68,7 @@ This information is lost with `impl Talk`, so prefer to use [generic parameters]
 
 2025-09-18 Wk 38 Thu - 20:42 +03:00
 
-There are some discussions on how to name traits: [gh rust-lang/api-guidelines discussion #28 ](https://github.com/rust-lang/api-guidelines/discussions/28) where the preference is imperative names. 
+There are some discussions on how to name traits: [gh rust-lang/api-guidelines discussion #28 ](https://github.com/rust-lang/api-guidelines/discussions/28) where the preference is imperative names.
 
 We should strive to have one-function traits, and they're basically the CamelCase name of that that function.
 
@@ -78,7 +78,7 @@ As explained in the [reference](https://doc.rust-lang.org/reference/types/impl-t
 
 2025-09-18 Wk 38 Thu - 22:52 +03:00
 
-In my context, 
+In my context,
 
 I'm getting this error:
 
@@ -98,5 +98,3 @@ error[E0790]: cannot call associated function on trait without specifying the co
 This is reproduced in `expt000`,
 
 ![[Pasted image 20250918231512.png]]
-
-

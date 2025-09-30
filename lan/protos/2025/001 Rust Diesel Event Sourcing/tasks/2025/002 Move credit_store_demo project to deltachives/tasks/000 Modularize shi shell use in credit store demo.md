@@ -7,7 +7,7 @@ status: done
 
 Parent: [[002 Move credit_store_demo project to deltachives]]
 
-Spawned by: [[002 Move credit_store_demo project to deltachives]] 
+Spawned by: [[002 Move credit_store_demo project to deltachives]]
 
 Spawned in: [[002 Move credit_store_demo project to deltachives#^spawn-task-dfb856|^spawn-task-dfb856]]
 
@@ -19,10 +19,9 @@ Spawn [[000 Reviewing impl Trait type meaning]] ^spawn-invst-3cfcad
 
 2025-09-18 Wk 38 Thu
 
-
 2025-09-18 Wk 38 Thu - 22:12 +03:00
 
-Trying to figure out  expected signatures for [`cmd!`](https://github.com/Utagai/shi/blob/ef0428b1440153818ee5512adf378ba1544e0598/src/lib.rs#L59) macro in shi, we see it traces to `pub type BasicCommandFn<S> = Rc<dyn Fn(&mut S, &[String]) -> Result<String>>;` 
+Trying to figure out  expected signatures for [`cmd!`](https://github.com/Utagai/shi/blob/ef0428b1440153818ee5512adf378ba1544e0598/src/lib.rs#L59) macro in shi, we see it traces to `pub type BasicCommandFn<S> = Rc<dyn Fn(&mut S, &[String]) -> Result<String>>;`
 
 which I added
 
@@ -43,7 +42,7 @@ For the [register](https://github.com/Utagai/shi/blob/ef0428b1440153818ee5512adf
 
 Spawn [[000 Internal state for shi shell not passing to new thread safely]] ^spawn-issue-26db0c
 
- 2025-09-19 Wk 38 Fri - 04:14 +03:00
+2025-09-19 Wk 38 Fri - 04:14 +03:00
 
 Spawn [[001 Getting many debugging logs from rustyline while using shi]] ^spawn-issue-229e4a
 

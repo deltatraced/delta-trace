@@ -7,7 +7,7 @@ status: todo
 
 Parent: [[000 Implement the Event Accumulator]]
 
-Spawned by: [[000 Implement the Event Accumulator]] 
+Spawned by: [[000 Implement the Event Accumulator]]
 
 Spawned in: [[000 Implement the Event Accumulator#^spawn-task-b96c13|^spawn-task-b96c13]]
 
@@ -46,7 +46,7 @@ cargo add chrono
  - unstable-locales
 ```
 
-We can use this to add a current time string for `created_on` field for events with 
+We can use this to add a current time string for `created_on` field for events with
 
 ```rust
 format!("{:?}", chrono::offset::Local::now())

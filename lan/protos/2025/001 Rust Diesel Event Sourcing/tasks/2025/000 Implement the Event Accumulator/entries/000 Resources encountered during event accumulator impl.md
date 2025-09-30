@@ -8,7 +8,7 @@ context_type: entry
 
 Parent: [[000 Implement the Event Accumulator]]
 
-Spawned by: [[000 Implement the Event Accumulator]] 
+Spawned by: [[000 Implement the Event Accumulator]]
 
 Spawned in: [[000 Implement the Event Accumulator#^spawn-entry-4b539d|^spawn-entry-4b539d]]
 

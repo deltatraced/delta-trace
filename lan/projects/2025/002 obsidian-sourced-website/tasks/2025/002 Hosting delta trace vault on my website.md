@@ -1,4 +1,3 @@
-
 # 1 Objective
 
 - [ ] Investigate various ways to get the obsidian vault up and running in www.deltatraced.com.
@@ -12,7 +11,7 @@
 
 ## 3.1 Host Obsidian vault with Quartz
 
-- [ ] 
+- [ ]
 
 From [[#^spawn-task-a5c5eb]] in [[#6.1 Look into available obsidian vault hosting solutions]]
 
@@ -41,7 +40,7 @@ Gonna await on the issue and try other methods for now
 
 ## 3.2 Host Obsidian vault with Perlite
 
-- [ ] 
+- [ ]
 
 From [[#^spawn-task-5bd793]] in [[#6.1 Look into available obsidian vault hosting solutions]]
 
@@ -75,7 +74,6 @@ By changing the name to `app` it deploys, but...
 
 ![[Pasted image 20250902213716.png]]
 
-
 ```
 [Tue Sep  2 18:32:50 2025] 127.0.0.100:8080 [404]: GET /.styles/katex.min.css - No such file or directory
 [Tue Sep  2 18:32:50 2025] 127.0.0.100:8080 [404]: GET /.js/katex.min.js - No such file or directory
@@ -88,7 +86,6 @@ It can't find styles, or other files too like js.
 When we move `wasmer.toml` and `app.yaml` to the app director, and change `app/` to `/`  we get
 
 ![[Pasted image 20250902214211.png]]
-
 
 But it seems to require `/.styles`. It was at least able to load the content without the js and styles when we used `app/`. How come it can't retrieve anything in `/`?
 
@@ -147,13 +144,13 @@ But where would that go? We don't know how the image is built.
 
 2025-09-03 Wk 36 Wed - 11:27
 
-So after changing the dot folders to not be dotted, it seems to work. 
+So after changing the dot folders to not be dotted, it seems to work.
 
 We have basic rendering:
 
 ![[Pasted image 20250903112811.png]]
 
-That symbol for of-type fails to render under github LaTeX so it is nice that it is functional here. 
+That symbol for of-type fails to render under github LaTeX so it is nice that it is functional here.
 
 ### 3.2.1 Pend
 
@@ -161,7 +158,7 @@ That symbol for of-type fails to render under github LaTeX so it is nice that it
 
 ## 4.1 Quartz codepoint 2764-fe0e not found in map
 
-- [ ] 
+- [ ]
 
 ### 4.1.1 Later
 
@@ -171,7 +168,7 @@ That symbol for of-type fails to render under github LaTeX so it is nice that it
 
 ## 6.1 Look into available obsidian vault hosting solutions
 
-- [ ] 
+- [ ]
 
 2025-09-02 Wk 36 Tue - 17:29
 

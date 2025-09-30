@@ -7,7 +7,7 @@ status: done
 
 Parent: [[000 Implement the Event Accumulator]]
 
-Spawned by: [[001 Use of views and CTEs with sqlite3 and diesel-rs]] 
+Spawned by: [[001 Use of views and CTEs with sqlite3 and diesel-rs]]
 
 Spawned in: [[001 Use of views and CTEs with sqlite3 and diesel-rs#^spawn-howto-1d4875|^spawn-howto-1d4875]]
 
@@ -23,7 +23,6 @@ Given some table, duplicate its rows $N$ times, and append an extra column for e
 - [[003 Create a natural numbers table and group by divisibility up to N]]
 
 # 3 Journal
-
 
 2025-09-26 Wk 39 Fri - 23:34 +03:00
 
@@ -162,7 +161,7 @@ cat duplicator.sql | sqlite3
 
 2025-09-27 Wk 39 Sat - 02:18 +03:00
 
-In case `id` does not match `dup` for some reason but we expect the tables to be of the same size, we can use a windowing function to generate an index and then join on that index 
+In case `id` does not match `dup` for some reason but we expect the tables to be of the same size, we can use a windowing function to generate an index and then join on that index
 
 ```sql
 --- in duplicator.sql

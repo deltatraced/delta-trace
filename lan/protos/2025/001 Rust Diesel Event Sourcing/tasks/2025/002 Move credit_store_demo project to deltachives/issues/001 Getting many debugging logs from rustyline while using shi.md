@@ -7,7 +7,7 @@ status: done
 
 Parent: [[002 Move credit_store_demo project to deltachives]]
 
-Spawned by: [[000 Modularize shi shell use in credit store demo]] 
+Spawned by: [[000 Modularize shi shell use in credit store demo]]
 
 Spawned in: [[000 Modularize shi shell use in credit store demo#^spawn-issue-229e4a|^spawn-issue-229e4a]]
 
@@ -106,7 +106,7 @@ Our situation did not improve!
 
 2025-09-19 Wk 38 Fri - 10:14 +03:00
 
-We're using [gh LOSEARDES77/fstdout-logger](https://github.com/LOSEARDES77/fstdout-logger). 
+We're using [gh LOSEARDES77/fstdout-logger](https://github.com/LOSEARDES77/fstdout-logger).
 
 Let's try [docs.rs env_logger](https://docs.rs/env_logger/latest/env_logger/) ([gh rust-cli/env_logger](https://github.com/rust-cli/env_logger)). It should have capability to filter out target logs.
 

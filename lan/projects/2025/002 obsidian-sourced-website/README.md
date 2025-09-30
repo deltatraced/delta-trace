@@ -1,4 +1,3 @@
-
 # 1 Problem
 
 For many purposes, we can view content directly in obsidian or through github by converting our obsidian vault to [CommonMark](https://spec.commonmark.org/0.31.2/).
@@ -18,9 +17,8 @@ For a functioning demo, we need to provide six working items:
 2. An obsidian vault with example content
 3. A standard defining how website implementations source content from obsidian vaults
 4. Two website implementation skeletons using different web technologies that generate a final website using the obsidian plugin and the example content.
-5. Configuration source for obsidian vault conventions to be used by the obsidian plugin 
+5. Configuration source for obsidian vault conventions to be used by the obsidian plugin
 
 # 3 Goals
 
 - [ ] [[000 First prototype of a publicly hosted obsidian-sourced website]]
-

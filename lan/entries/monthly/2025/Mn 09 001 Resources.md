@@ -1,4 +1,3 @@
-
 [[Mn 09 September]]
 
 # 1 Purpose
@@ -21,7 +20,7 @@ From  [[2025-09-04]]
 
 [wiki Glossery of mathematical symbols](https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols) is a good reference for math symbols.
 
-Also a good tip is that you can copy LaTeX equations from wikpedia. 
+Also a good tip is that you can copy LaTeX equations from wikpedia.
 
 Here I selected pasted an equation under Leibniz's notation for the derivative under `$$ $$`:
 
@@ -45,7 +44,7 @@ $$
 
 2025-09-07 Wk 36 Sun - 00:52
 
-While looking for the definition of `sup` through the wikis in [[000 Starting out Probability Theory and Examples#6.4 Union continuity operations applied to set functions|Union continuity operations applies to set functions]], 
+While looking for the definition of `sup` through the wikis in [[000 Starting out Probability Theory and Examples#6.4 Union continuity operations applied to set functions|Union continuity operations applies to set functions]],
 
 I found this this course notes on Real Analysis by Professor John Hunter: [m125b](https://www.math.ucdavis.edu/~hunter/m125b/m125b.html). There are also many other resources On Calculus, Measure theory, Analysis, Differential equations, etc.
 

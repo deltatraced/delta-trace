@@ -1,4 +1,3 @@
-
 # 1 Idea
 
 To have a working demo of using event sourcing in diesel, where we can have versioned databases managed by software for reads and events for writes.

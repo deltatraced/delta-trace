@@ -6,7 +6,7 @@ status: todo
 
 This is for reference. We need a basic template website infrastructure to see how processes like deployment integrate in with it.
 
-This website should 
+This website should
 - [x] Have a basic static website built out of html + css + javascript/typescript.
 - [ ] Have a basic backend including http request capabilities over a simple REST API
 - [ ] Have a basic database solution
@@ -18,7 +18,7 @@ This website should
 
 ## 3.1 Follow along wasmer documentation
 
-- [ ] 
+- [ ]
 
 From [[#^spawn-task-229769]] in [[#6.1 Investigate Wasmer deployment]]
 
@@ -80,11 +80,9 @@ I'm wonder if by each node being stateless it would also mean that they are alwa
 
 Spawn [[#6.2 Stateless nodes that share nothing but where does the database go and how is it integrated?]] ^spawn-invst-f3bfe8
 
-
-
 ## 3.2 Creating basic file structure for basic-ref-website-wasmer
 
-- [ ] 
+- [ ]
 
 2025-08-26 Wk 35 Tue - 22:16
 
@@ -132,10 +130,9 @@ module = "basic-ref-website-wasmer"
 runner = "wasi"
 ```
 
-
 ## 3.3 Follow with wweb static npm website tutorial
 
-- [ ] 
+- [ ]
 
 2025-09-01 Wk 36 Mon - 21:08
 
@@ -214,8 +211,7 @@ Then we include a similar `index.html` in the tut:
 </html>
 ```
 
-For some reason `open index.html` is not able to find the existing file at `file:///tmp/del/tut/index.html`... But we can open it in `~/tmp/del/tut
-`
+For some reason `open index.html` is not able to find the existing file at `file:///tmp/del/tut/index.html`... But we can open it in `~/tmp/del/tut`
 2025-09-01 Wk 36 Mon - 22:25
 
 Right now the content says `<body></body>` despite us having some content...
@@ -330,7 +326,6 @@ body {
 ```
 
 Seems even though it's called `_variables.scss`, we can import it as `variables.scss`, maybe related to it being a compilation flag to ignore the file...
-
 
 ```sh
 npm run css:scss
@@ -595,9 +590,7 @@ npm i -D --save-exact @biomejs/biome
   }
 ```
 
-
 `css:lint` with `stylelint` seems necessary still because it doesn't seem biome handles scss.
-
 
 2025-09-02 Wk 36 Tue - 09:20
 
@@ -760,7 +753,7 @@ Add build and watch for html:
 "watch:html": "onchange \"src/views\" -- npm run build:html",
 ```
 
-Move `dist/index.html` into `src/views/index.html` and split the head into its own file, `src/views/components/head.html` then import it with 
+Move `dist/index.html` into `src/views/index.html` and split the head into its own file, `src/views/components/head.html` then import it with
 
 ```html
 <module href="/components/head.html"></module>
@@ -782,7 +775,7 @@ The file /home/lan/tmp/del/tut/src/views/index.html has been saved!
 
 Awesome! We got a lot of tools for modular html, css, js, images, linting, formatting, pre-commit hooks...
 
-One last thing! Let's add to this tutorial by deploying with wasmer! 
+One last thing! Let's add to this tutorial by deploying with wasmer!
 
 Let's move this template somewhere more permanent. You can view it in [gh lan-exp-scripts tut](https://github.com/LanHikari22/lan-exp-scripts/tree/main/tutorials/2025/topics/frontend/wwebdev/tut).
 
@@ -790,7 +783,7 @@ Spawn [[#3.4 Deploy wwebdev tutorial project with wasmer]] ^spawn-task-7ad6e5
 
 2025-09-02 Wk 36 Tue - 12:19
 
-It's all deployed now! 
+It's all deployed now!
 
 Let's make add a comment to the tutorial with the process we went through here.
 
@@ -804,7 +797,7 @@ The comment ended up being routed to [Vincenius/wwebdev-comments #3](https://git
 
 ## 3.4 Deploy wwebdev tutorial project with wasmer
 
-- [x] 
+- [x]
 
 From [[#^spawn-task-7ad6e5]] in [[#3.3 Follow with wweb static npm website tutorial]]
 
@@ -859,11 +852,11 @@ wasmer app create # and deploy
 
 (/update)
 
-Copy their [settings/config.toml](https://raw.githubusercontent.com/wasmer-examples/static-website/refs/heads/main/settings/config.toml). 
+Copy their [settings/config.toml](https://raw.githubusercontent.com/wasmer-examples/static-website/refs/heads/main/settings/config.toml).
 
 Copy [app.yaml](https://raw.githubusercontent.com/wasmer-examples/static-website/refs/heads/main/app.yaml).
 
-Then, we can deploy with 
+Then, we can deploy with
 
 ```sh
 wasmer deploy
@@ -871,11 +864,11 @@ wasmer deploy
 
 2025-09-02 Wk 36 Tue - 12:19
 
-And it works! 
+And it works!
 
 ## 3.5 Find and follow process to deploy multiple npm projects under wasmer
 
-- [ ] 
+- [ ]
 
 2025-09-02 Wk 36 Tue - 13:05
 
@@ -916,7 +909,6 @@ Spawn [[#4.2 Open an issue to Wasmer docs for broken links]] ^spawn-issue-fe8e6b
 2025-09-02 Wk 36 Tue - 17:18
 
 It's pretty streamlined on rust: [wasmer.io rust-wcgi](https://wasmer.io/templates/rust-wcgi?intent=at_ynm3Iet1Cr2Z). Just gotta add the right build target!
-
 
 ### 3.5.1 Pend
 
@@ -964,7 +956,7 @@ This is strange how this is changing. It seems each force switches us to a diffe
 
 ## 4.2 Open an issue to Wasmer docs for broken links
 
-- [x] 
+- [x]
 
 From [[#^fe8e6b]] in [[#3.5 Find and follow process to deploy multiple npm projects under wasmer]]
 
@@ -977,7 +969,6 @@ The problem itself is not in docs.wasmer.io, but in the website. [wasmer.io](htt
 Hi, there are broken links in [wasmer.io](https://wasmer.io/) (404):
 - Developers > C: https://github.com/wasmerio/wasmer-c
 - Developers > Rust: https://github.com/wasmerio/wasmer-rust
-
 
 ```sh
 git clone git@github.com:LanHikari22/docs.wasmer.io.git ~/src/cloned/gh/LanHikari22/forked/wasmerio/docs.wasmer.io 
@@ -992,7 +983,7 @@ Since this isn't the docs website, can't file an issue nor PR. Just informed the
 
 ## 6.1 Investigate Wasmer deployment
 
-- [ ] 
+- [ ]
 
 2025-08-26 Wk 35 Tue - 21:32
 
@@ -1002,7 +993,7 @@ Spawn [[#3.1 Follow along wasmer documentation]] ^spawn-task-229769
 
 ## 6.2 Stateless nodes that share nothing but where does the database go and how is it integrated?
 
-- [ ] 
+- [ ]
 
 From [[#^spawn-invst-f3bfe8]] in [[#3.1 Follow along wasmer documentation]]
 
@@ -1012,7 +1003,7 @@ In [wasmer architecture](https://docs.wasmer.io/edge/architecture),
 
 Nodes follow the [shared-nothing architecture](https://en.wikipedia.org/wiki/Shared-nothing_architecture), so we expect that a request can be fulfilled by a single node, and each node can provide full independent service.
 
-In [Wasmer Distributed Networking (DNET)](https://docs.wasmer.io/edge/architecture#wasmer-distributed-networking-dnet), 
+In [Wasmer Distributed Networking (DNET)](https://docs.wasmer.io/edge/architecture#wasmer-distributed-networking-dnet),
 
 They mention that its principles include being fully stateless:
 
@@ -1028,13 +1019,13 @@ Spawn [[Drawing 2025-08-26 23.59.32.excalidraw]]
 
 ![[Pasted image 20250827001107.png]]
 
-So this is one idea, where we create a cluster of nodes, each containing only one stateful db node they communicate with.  
+So this is one idea, where we create a cluster of nodes, each containing only one stateful db node they communicate with.
 
 This should not break the shared-nothing constraint, because each node can be assumed to have its own independent hardware. All state is only stored by the DB node. And there is no single point of failure database instance, because sync can happen between all db nodes. We could run some fault tolerance algorithms here, like best-2-of-3 of 3 duplicate processes fulfilling a user request that depends on the db. And all 3 node clusters must agree, or at least 2 of 3, or the operation is deemed a failure. On pass, information syncs between other triplet clusters.
 
 Anyway we need to keep in mind that each node here is likely a fully functional service and we're trying to scale service here. Any further module break-up is on the application level, and not the service level.
 
-Still I am trying to understand how we can go about ensuring that all spawned services give the user the same user account information for example without a single point of failure node. 
+Still I am trying to understand how we can go about ensuring that all spawned services give the user the same user account information for example without a single point of failure node.
 
 ### 6.2.1 Backlog
 
@@ -1075,10 +1066,8 @@ Added to [[Mn 09 003 Ideas|Ideas]]
 # 8 Side Notes
 # 9 External Links
 
-
 | Internal                                                                                                                                                                                                                                                        | External                                                                                |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
 | [link](https://github.com/deltatraced/delta-trace/blob/webview/lan/projects/2025/002%20obsidian-sourced-website/tasks/2025/001%20Create%20a%20reference%20basic%20website%20and%20host%20it%20with%20wasmer.md#33-follow-with-wweb-static-npm-website-tutorial) | [Vincenius/wwebdev-comments #3](https://github.com/Vincenius/wwebdev-comments/issues/3) |
-
 
 # 10 References

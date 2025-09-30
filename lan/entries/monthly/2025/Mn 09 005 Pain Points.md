@@ -13,13 +13,13 @@ Throughout daily life we encounter things that are inconvenient or could be bett
 
 Need more work in obsidian-export possibly? Some titled links won't work.
 
-This is easily fixed though, by just removing the code `blocks`. 
+This is easily fixed though, by just removing the code `blocks`.
 
 (2)
 
 2025-09-04 Wk 36 Thu - 23:33
 
-Obsidian vim mode has marks you can set like with 
+Obsidian vim mode has marks you can set like with
 ```
 m A
 ```

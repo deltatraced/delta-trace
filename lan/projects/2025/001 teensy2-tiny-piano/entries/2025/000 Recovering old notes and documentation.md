@@ -70,7 +70,7 @@ Facing the square side, Left to right: Emitter, Base, Collector
 
 The symbol has an arrow on the emitter down pointing *towards* the base. This means PNP. If it was pointing *away*, it would be NPN. For PNP, current flows from emitter to collector, as indicated by the arrow on the emitter towards the base.
 
-To satisfy the condition Vb < Ve - 0.7V, we connect Ve to VCC. This lets it conduct on Vb=0 -> 0 < VCC - 0.7V and not conduct on Vb=VCC -> VCC </< VCC - 0.7V 
+To satisfy the condition Vb < Ve - 0.7V, we connect Ve to VCC. This lets it conduct on Vb=0 -> 0 < VCC - 0.7V and not conduct on Vb=VCC -> VCC </< VCC - 0.7V
 
 Judging by the amplitude of the output sound, I seem to get a louder signal. However, it is strange that VCC also outputs sound (and a kind of sinusoid), which might mean that this system ground is not attenuating the cap current.
 
@@ -82,9 +82,6 @@ May 27 2024
 
 [electronics stackexchange tri-state circuit answer](https://electronics.stackexchange.com/questions/509380/how-is-high-impedance-state-physically-different-from-a-logic-low-state/509386#509386).
 
-
 2025-08-02 Wk 31 Sat - 11:55
 
 [In-browser circuit simulator](https://www.falstad.com/circuit/)
-
-

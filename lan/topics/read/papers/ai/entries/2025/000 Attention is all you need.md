@@ -4,7 +4,6 @@ status: pend
 
 You can find the paper [here](https://arxiv.org/abs/1706.03762) [[#^1]].
 
-
 # 1 Journal
 
 ## 1.1 Reading 000
@@ -14,18 +13,17 @@ Skim through the paper and note foundational next concepts to learn about to und
 
 ### 1.1.2 Concepts
 
-
 ### 1.1.3 Annotations
 
 ### 1.1.4 Keywords
 
 
 > dominant sequence transduction models
-> [[#^quote-paper]]
+>[[#^quote-paper]]
 ^keyword-000
 
 > Achieving {N} BLEU on the WMT 2014 English-to-German translation task
-> [[#^quote-paper-paraphrase]]
+>[[#^quote-paper-paraphrase]]
 ^keyword-001
 
 > sequence modeling and transduction problems such as language modeling and machine translation
@@ -36,11 +34,11 @@ Skim through the paper and note foundational next concepts to learn about to und
 
 ## 2.1 Find a working example implementation of Attention in section 3.2
 
-- [ ] 
+- [ ]
 
 2025-08-10 Wk 32 Sun - 11:02
 
-So there are two components here, Scaled Dot-Product Attention, and also it is vertically scaled as a component in Multi-Head Attention. 
+So there are two components here, Scaled Dot-Product Attention, and also it is vertically scaled as a component in Multi-Head Attention.
 
 From what I understand, [[#3.1 On Self Attention|self attention]] is implemented using this Multi-Head Attention component passing to a forward pass neural net from what the paper describes.
 
@@ -62,7 +60,6 @@ where
 - $\text{softmax}$ is defined as in [[#3.2 On Softmax]]
 - $d_k$ is the dimension of the vectors
 
-
 ### 3.1.1 Pend
 
 ## 3.2 On Softmax
@@ -73,11 +70,11 @@ where
 
 (1)
 
-Let $\vec{X}$ be a vector of real-valued inputs of size `n` where `n` denotes the number of elements in $\vec{X}$. 
+Let $\vec{X}$ be a vector of real-valued inputs of size `n` where `n` denotes the number of elements in $\vec{X}$.
 
 So $\vec{X} \equiv \lbrace x_1, \cdots, x_n \rbrace$ .
 
-(2) 
+(2)
 
 Let $\vec{Y}$ be the output vector computed through $\text{softmax}$.
 
@@ -108,7 +105,7 @@ Show that the range of $\vec{Y} = \text{softmax}(\vec{X})$  must be $[0, 1]$ .
 
 (`Prms 1.1`)
 
-The first property [[#^softmax-constr1]] will hold if and only if 
+The first property [[#^softmax-constr1]] will hold if and only if
 
 $$
 e^{x_i} \le \sum_{j=1}^n{e^{x_j}} \ \text{for any i}
@@ -116,15 +113,15 @@ $$
 
 (`Prms 1.2`)
 
-For any positive real number $a$, and any negative, zero, or positive real number $b$, 
+For any positive real number $a$, and any negative, zero, or positive real number $b$,
 
-$a^b$ is always a positive number. 
+$a^b$ is always a positive number.
 
-- When  $b \ge 1$, then $a^b \ge a$. 
+- When  $b \ge 1$, then $a^b \ge a$.
 - When $b \in (0, 1)$, then $a^b \in (0, a)$.
 - When $b = 0$, then $a^b = 1$.
 
-(`Prs 1.3`) 
+(`Prs 1.3`)
 
 Given (`Prms 1.2`) where $a=e$ and $b=x_i$ for any i,
 
@@ -137,7 +134,6 @@ Given (`Prms 1.3`), (`Prms 1.1`) must be satisfied.
 #### 3.2.2.2 Showing property 2 holds
 
 (`Prbl 2`)
-
 
 For values $\vec{Y} \equiv \lbrace y_1, \cdots, y_n \rbrace$ computed via $\vec{Y} = \text{softmax}(\vec{X})$, we want to show that $\text{sum}(\vec{Y}) = 1$
 
@@ -163,27 +159,25 @@ $$
 
 2025-08-11 Wk 33 Mon - 04:34
 
-Before I have written 
+Before I have written
 
-> (`Prms 2.1`) 
-> $\sum^n_{j=1}{e^{x_j}}$ can be interpreted as a weighted average of elements with weighting $e^{x_j}$. 
+> (`Prms 2.1`)
+> $\sum^n_{j=1}{e^{x_j}}$ can be interpreted as a weighted average of elements with weighting $e^{x_j}$.
 
 But really it's the total sum. The average (mean) of an n-sized set $A \equiv \lbrace a_1, \cdots, a_n \rbrace$ is $\frac{\sum_{i=1}^n{a_i}}{n}$.
 
-I likely made this mistake because I was interpreting $\text{softmax}$  to have a proportion of part to whole (one factor to the total sum). 
+I likely made this mistake because I was interpreting $\text{softmax}$  to have a proportion of part to whole (one factor to the total sum).
 
 But either way, none of these premises are needed to prove the property. So (`Prms 2.1`) and (`Prms 2.2`) are removed, and (`Prms 2.3`) is renamed to (`Prms 2.1`).
 
-> (`Prms 2.1`) 
->  $\sum^n_{j=1}{e^{x_j}}$ can be interpreted as a weighted average of elements with weighting $e^{x_j}$. 
+> (`Prms 2.1`)
+>$\sum^n_{j=1}{e^{x_j}}$ can be interpreted as a weighted average of elements with weighting $e^{x_j}$.
 > (`Prms 2.2`)
 > In
 
 ![[#^softmax-eq]]
 
 >We can see that $e^{x_i}$ can  be interpreted as one weight from the elements that are taken a weighted average of in $\sum^n_{j=1}{e^{x_j}}$.
-
-
 
 # 4 References
 
@@ -245,4 +239,3 @@ A4 --> |has_paper| A5
     pages = "37--42",
 }
 ```
-

@@ -1,4 +1,3 @@
-
 # 1 Purpose
 
 To capture different aspects of how my month unfolded!
@@ -30,7 +29,7 @@ To capture different aspects of how my month unfolded!
 
 Learn more about [[001 Star Days ★|Star Days ★]]!
 
-Links in the 💫 column reference the items worked on that day. 
+Links in the 💫 column reference the items worked on that day.
 
 Links marked Σ show all time spent for a group of items. If the same number repeats like Σ1, it implies identical total summaries.
 
@@ -79,5 +78,3 @@ Week numbers are according to the [ISO week date](https://www.epochconverter.com
 | 39   | Fri | 2025-09-26 | [[Summary-2025-09-26 \|🕹️ </>]]                                                                                                                                                                                                                                                                    | Impl event accumulation all in a SQL View                                                                                                                                                                                                                     |
 | 39   | Sat | 2025-09-27 | [[Summary-2025-09-27 \|🕹️ </>]]                                                                                                                                                                                                                                                                    |                                                                                                                                                                                                                                                               |
 | 39   | Sun | 2025-09-28 |                                                                                                                                                                                                                                                                                                     |                                                                                                                                                                                                                                                               |
-
-

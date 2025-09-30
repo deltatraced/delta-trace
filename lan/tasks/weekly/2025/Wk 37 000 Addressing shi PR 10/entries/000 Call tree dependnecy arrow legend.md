@@ -6,7 +6,7 @@ context_type: entry
 
 Parent: [[Wk 37 000 Addressing shi PR 10]]
 
-Spawned by: [[001 Looking into shi quotation removal]] 
+Spawned by: [[001 Looking into shi quotation removal]]
 
 Spawned in: [[001 Looking into shi quotation removal#^spawn-entry-ee5e79|^spawn-entry-ee5e79]]
 

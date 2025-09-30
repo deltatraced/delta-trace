@@ -23,13 +23,13 @@ Any entry may spawn/create any other entry, and this is labeled two-way.
 | External Links | Capture any external resources that refer to this note file                                                                                                                                                                                                                                                                                                                                 |
 | References     | Shared references for everything in this document. Can also<br> additional include resources.                                                                                                                                                                                                                                                                                               |
 
-Order of the headings is by objectivity in scope. 
-1. Objective is most clear in scope. 
-2. Journal is clear progress logged towards the objective. 
-3. Tasks have a clear signal to completion, 
+Order of the headings is by objectivity in scope.
+1. Objective is most clear in scope.
+2. Journal is clear progress logged towards the objective.
+3. Tasks have a clear signal to completion,
 4. Issues can but may not have a clear signal to resolution
 5. HowTos can but may not have a clear way to perform them.
-6. Investigations could be open-ended in scope 
+6. Investigations could be open-ended in scope
 7. Ideas are very open-ended
 8. Side Notes is for anything outside the scopes.
 
@@ -37,7 +37,7 @@ This should be all you need. If you want, you can go through a short tutorial be
 
 # 2 Journal
 
-This is a sequential section where we log progress on the task or entry as we move along. It's meant to be linearly read. Other sections below, on the other hand, are record-based. For example we may spawn a task, issue, or investigation from here. The order with which they are spawned will hint at some linearity or progress, but subsequent tasks can also reference prior ones so the ordering is not as strict. 
+This is a sequential section where we log progress on the task or entry as we move along. It's meant to be linearly read. Other sections below, on the other hand, are record-based. For example we may spawn a task, issue, or investigation from here. The order with which they are spawned will hint at some linearity or progress, but subsequent tasks can also reference prior ones so the ordering is not as strict.
 
 If you are viewing this on github, note since this has a lot of headings, you can view the headings on github via `Outline`
 
@@ -47,8 +47,7 @@ To get something like this that you can jump through!
 
 ![[Pasted image 20250812150118.png]]
 
-
-Let's spawn a task. Let's write some special keyword, like SPW0. This allows this line to be easily identified so that we can create a back reference from the spawned task back here. 
+Let's spawn a task. Let's write some special keyword, like SPW0. This allows this line to be easily identified so that we can create a back reference from the spawned task back here.
 
 Now when we add the new task under the Tasks section, we can just write `[ [ ^SPW0` and select the line and Obsidian generates a random record for it quickly. We can follow that link back with `Ctrl + .` and replace `SPW0` with  `Spawn {internal link}.`
 
@@ -60,7 +59,7 @@ Spawn [[#3.1 File a bug report]] ^spawn-task-c33094
 
 2025-08-12 Wk 33 Tue - 13:55
 
-I wouldn't normally do the "Go back to Spawner" thing when taking actual notes, but It's a cool thing to insert linearity into our tutorial which uses a non-linear note taking style. 
+I wouldn't normally do the "Go back to Spawner" thing when taking actual notes, but It's a cool thing to insert linearity into our tutorial which uses a non-linear note taking style.
 
 We've now covered what many sections do!
 
@@ -88,7 +87,7 @@ We reference both the spawn block identifier `^spawn-task-c33094` and also the s
 
 We can now  journal for the limited context of this task here, or we can summon other tasks, reference other tasks, add subheadings, etc.
 
-Notice I added a `### Status` below. This shows the status for the Task in the outline quickly so I know what is pending. Typically if the task is finished, I put no such heading status for brevity. 
+Notice I added a `### Status` below. This shows the status for the Task in the outline quickly so I know what is pending. Typically if the task is finished, I put no such heading status for brevity.
 
 This is in the case I want to signify the task is pending:
 
@@ -102,7 +101,7 @@ I take notes in a logging style where I come and log the next thought after some
 
 The timestamp allows me to signify context change, correlate with other time information in deliverables, or track how I switch contexts.
 
-Now let's spawn an issue next to move on with the tutorial! 
+Now let's spawn an issue next to move on with the tutorial!
 
 Spawn [[#4.1 Paint.exe crashed with error code 0xDEADFEED]] ^spawn-issue-252c2b
 
@@ -150,17 +149,15 @@ Notice you can click the heading you started this with or even hover over it to 
 
 ![[Pasted image 20250812144747.png]]
 
-
 When we're done, we can do `Alt+k Alt+e Stop` or just stop from the logger UI directly.
 
 ![[Pasted image 20250812144855.png]]
 
 We can do `Alt+k Alt+e Summarize Time Logs` and this will create a summary by week and all time over in the same director as the timeline.
 
-
 ![[Pasted image 20250812145037.png]]
 
-This explained how we can get timing information for our notes, and specifically where! 
+This explained how we can get timing information for our notes, and specifically where!
 
 If you're curious about the WkNN, those are week numbers according to the [ISO week date](https://www.epochconverter.com/weeks/2025).
 
@@ -186,7 +183,7 @@ Issues may be marked resolved or unresolved, they may be skipped if we believe w
 
 So you're trying to resolve this issue, but you need to figure out how to open the windows registry... Wait how do we do that again?
 
-This is what a HowTo is for! 
+This is what a HowTo is for!
 
 Spawn [[#5.1 Open the Windows Registery to fix Paint.exe!]] ^spawn-howto-9f5c66
 
@@ -194,7 +191,7 @@ Spawn [[#5.1 Open the Windows Registery to fix Paint.exe!]] ^spawn-howto-9f5c66
 
 You're back! You just got exposed to non-linear note flow! Hopefully you did follow the spawn instead of just following through here?
 
-Anyway we discover now that in order to resolve this issue, it's not enough to figure out registry stuff... We actually need to learn about the internals of the Windows operating system! 
+Anyway we discover now that in order to resolve this issue, it's not enough to figure out registry stuff... We actually need to learn about the internals of the Windows operating system!
 
 What an open-ended conceptual task! Tasks should preferably be operative and have a strong sense of what it means to complete them. For the more open-ended conceptual stuff, we got the Investigations section!
 
@@ -220,13 +217,13 @@ This should cover most things. Let's just keep going back through our [[#^spawn-
 
 ## 5.1 Open the Windows Registery to fix Paint.exe!
 
-- [x] 
+- [x]
 
 From [[#^spawn-howto-9f5c66]] in [[#4.1 Paint.exe crashed with error code 0xDEADFEED]]
 
 2025-08-12 Wk 33 Tue - 13:24
 
-Maybe link some external resources, maybe find our the official windows documentation and do the exercise of translating technical specifications to specific needs here. 
+Maybe link some external resources, maybe find our the official windows documentation and do the exercise of translating technical specifications to specific needs here.
 
 This is a HowTo! It's where knowledge checks happen, it's where documentation is referenced often, the more general it is (such as translating official documentation to your specific context) the more useful it is. Because that methodology will be documented here, and likely can be referenced to solve many similar queries in the future.
 
@@ -237,7 +234,6 @@ Now this is your first encounter with non-linearity! We have just solved this Ho
 If you're using Obsidian with my settings here, you can put your editor cursor in those links and do `Ctrl + . ` to enter them quickly.
 
 Let's return to [[#^spawn-howto-9f5c66|our spawner]]!
-
 
 # 6 Investigations
 

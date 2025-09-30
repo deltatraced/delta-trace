@@ -14,11 +14,9 @@
   </a>
 </p>
 
-
 <div align="center">
   <sub>Built with ❤︎ by Mohammed Alzakariya</sub>
 </div>
-
 
 1. [1 What is this?](#1-what-is-this)
 2. [2 See also](#2-see-also)
@@ -48,10 +46,9 @@ For higher browser viewing compatibility, switch to the [webview branch](https:/
 5. [dbmint-notes](https://github.com/dbmint/dbmint-notes/tree/webview)
    - A knowledge base for developing intuitive and type correct database tools in Rust!
 
-
 # 3 Contributing
 
-All contributions are welcome! 
+All contributions are welcome!
 
 If you have any comments or suggestions you can reach out by opening an issue ticket or emailing lanhikarixx@gmail.com.
 

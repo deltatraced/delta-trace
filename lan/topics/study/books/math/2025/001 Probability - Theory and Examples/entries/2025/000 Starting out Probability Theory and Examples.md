@@ -1,5 +1,3 @@
-
-
 # 1 Objective
 
 Go through the first chapter.
@@ -16,7 +14,7 @@ How do you write "(Ω, F, P )"
 
 2025-08-30 Wk 35 Sat - 14:11
 
-So I found that $\mathcal{F}$ is notation for family of sets! You can learn more about it in this wiki [wiki Set function](https://en.wikipedia.org/wiki/Set_function) which talks about the same notation also with $\Omega$! 
+So I found that $\mathcal{F}$ is notation for family of sets! You can learn more about it in this wiki [wiki Set function](https://en.wikipedia.org/wiki/Set_function) which talks about the same notation also with $\Omega$!
 
 (update)
 So to say that $\mathcal{F}$ is a family of sets over $\Omega$ is to say that $\mathcal{F} \subseteq \wp(\Omega)$ where $\wp(\Omega)$ is the powerset of $\Omega$.
@@ -52,11 +50,11 @@ The [book](https://sites.math.duke.edu/~rtd/PTE/PTE5_011119.pdf) started in page
 
 A probability space is a 3-tuple $(\Omega, \mathcal{F}, P)$ where
 - $\Omega$ is a set of outcomes.
-	- ([[#^check-3-1-1|check]]) Example: A dice has the set of outcomes $\Omega = \lbrace 1, 2, 3, 4, 5, 6 \rbrace$. ^checked-3-1-1954
+- ([[#^check-3-1-1|check]]) Example: A dice has the set of outcomes $\Omega = \lbrace 1, 2, 3, 4, 5, 6 \rbrace$. ^checked-3-1-1954
 - $\mathcal{F}$ is a family of sets including sets up to the power set of outcomes: $\mathcal{F} \subseteq \wp({\Omega})$. This denotes our set of events.
-	- For our dice,  $\mathcal{F}$ can have at a maximum $2^{6} = 64$ events as per the powerset maximum count.
-		- This includes individual outcomes as well any combination of unique outcomes. 
-		- ([[#^check-3-1-2|false]]) If we're modeling a problem about tossing a single dice, we may only want to consider 6 possible events. $\mathcal{F} = \lbrace \lbrace 1 \rbrace, \lbrace 2 \rbrace, \lbrace 3 \rbrace, \lbrace 4 \rbrace, \lbrace 5 \rbrace, \lbrace 6 \rbrace  \rbrace$. ^checked-3-1-2012
+- For our dice,  $\mathcal{F}$ can have at a maximum $2^{6} = 64$ events as per the powerset maximum count.
+- This includes individual outcomes as well any combination of unique outcomes.
+- ([[#^check-3-1-2|false]]) If we're modeling a problem about tossing a single dice, we may only want to consider 6 possible events. $\mathcal{F} = \lbrace \lbrace 1 \rbrace, \lbrace 2 \rbrace, \lbrace 3 \rbrace, \lbrace 4 \rbrace, \lbrace 5 \rbrace, \lbrace 6 \rbrace  \rbrace$. ^checked-3-1-2012
 - ([[#^check-3-1-1|false]]) $P: \mathcal{F} \times [0,1] \to \mathbb{R}^{\pm \infty}$ ^checked-3-1-1
 
 What we know about $P$:
@@ -74,8 +72,8 @@ $$
 
 ([[#^check-3-1-2|false]]) $(\mathcal{F}, P)$ together form a measure space. ^checked-3-1-2003
 
-For any [[019 set function|set function]] $\mu$, 
-- $\mu(\varnothing) = 0$ 
+For any [[019 set function|set function]] $\mu$,
+- $\mu(\varnothing) = 0$
 - $\mu$'s range yields non-negative values
 
 **proofs**
@@ -90,8 +88,7 @@ $$
 & = C\\
 & = P(A \cup \varnothing) \\
 & = P(A) + P(\varnothing)\\
-& = C + P(\varnothing)\\
-\end{aligned}
+& = C + P(\varnothing)\\\end{aligned}
 $$
 
 This yields
@@ -100,9 +97,7 @@ $$
 C = C + P(\varnothing)
 $$
 
-
 Proving that if there is at least one finite measure, $P(\varnothing)$ must be 0.
-
 
 **Some struggles I've had last week**
 
@@ -121,7 +116,6 @@ $\mathcal{F}$ is a set of sets, and I thought $A_i$ here meant it was a particul
 Given some sequence $a_1, a_2, a_3, \dots, a_n \in \mathcal{F}$. So we may sample a sequence of sets from $\mathcal{F}$ and use the shorthand $A_i \in \mathcal{F}$ instead of
 $\forall i \in I, a_i \in \mathcal{F}$  where $I$ is $\{1,\dots,n\}$.
 
-
 **Things I'm unsure of**
 
 (1)
@@ -136,7 +130,7 @@ $P: \mathcal{F} \times [0, 1] \to \mathbb{R}^+$ would mean that P does not opera
 
 I had the idea that *outcome* and *event* are separate... That our dice events would be $\{1, 2, 3, 4, 5, 6\}$ but I am more confident that $\mathcal{F}$ is a family of sets and those are sets of sets, and not individual items. I am not sure what else outcome would refer to besides just the collection of possible states.
 
-(3) 
+(3)
 
 I'm using $\mathbb{R}^+$ to denote the [[017 RealExt|extended real number set]]. But some other symbol may be more standardly used. But this could also be used to mean the positive real numbers, so it's not good... Let's use $\mathbb{R}^{\pm \infty}$.  ([[#^check-3-1-3|true]]) It might have just been a line on top of $\mathbb{R}$... ^checked-3-1-2256
 
@@ -144,15 +138,15 @@ I'm using $\mathbb{R}^+$ to denote the [[017 RealExt|extended real number set]].
 
 2025-09-06 Wk 36 Sat - 19:25
 
-Ok, let's check! 
+Ok, let's check!
 
 (check 1)
 
 2025-09-06 Wk 36 Sat - 19:25
 
-The [book](https://sites.math.duke.edu/~rtd/PTE/PTE5_011119.pdf) specifies $P: \mathcal{F} \to [0, 1]$. $P$ simply assigns probabilities for $\mathcal{F}$. 
+The [book](https://sites.math.duke.edu/~rtd/PTE/PTE5_011119.pdf) specifies $P: \mathcal{F} \to [0, 1]$. $P$ simply assigns probabilities for $\mathcal{F}$.
 
-It also specifies that $\mu$ is a probability measure in the case that $\mu(\Omega) = 1$, and that it is usually denoted $P$. 
+It also specifies that $\mu$ is a probability measure in the case that $\mu(\Omega) = 1$, and that it is usually denoted $P$.
 
 So the definition $P: \mathcal{F} \times [0, 1] \to \mathbb{R}^{\pm \infty}$ is not correct. A value in $[0,1]$ would be the assigned measure.
 
@@ -163,7 +157,7 @@ Because $\mu(\Omega) = 1$ for a probability measure, this is supporting evidence
 Checks:
 - [x]  [[#^checked-3-1-1]], (false) definition of $P$
 - [x]  [[#^checked-3-1-2]], unsure (1): definition of $P$
-- [x] [[#^checked-3-1-1954]], Dice example for $\Omega$ 
+- [x] [[#^checked-3-1-1954]], Dice example for $\Omega$
 
 ^check-3-1-1
 
@@ -171,11 +165,11 @@ Checks:
 
 2025-09-06 Wk 36 Sat - 19:51
 
-The book specifies in (pg 1, vpg 9/490) that $\mathcal{F}$ is a [[007 σ-algebra|σ-algebra]] over $\Omega$ and clarifies that this means means that 
+The book specifies in (pg 1, vpg 9/490) that $\mathcal{F}$ is a [[007 σ-algebra|σ-algebra]] over $\Omega$ and clarifies that this means means that
 
 1. $\mathcal{F}$ is a non-empty collection
 2. if $A \in \mathcal{F}$ then $A^c \in \mathcal{F}$.
-3. Sample some sequence $A_i \in \mathcal{F}$, then $\bigcup_i A_i \in \mathcal{F}$.  
+3. Sample some sequence $A_i \in \mathcal{F}$, then $\bigcup_i A_i \in \mathcal{F}$.
 
 The book specifies that $(\Omega, \mathcal{F})$ form a measure space. This is the space we can *put* a measure on. It's not correct to say it's $(\mathcal{F}, P)$.
 
@@ -183,10 +177,9 @@ The book specifies that $(\Omega, \mathcal{F})$ form a measure space. This is th
 
 I wrote:
 
->  If we're modeling a problem about tossing a single dice, we may only want to consider 6 possible events. $\mathcal{F} = \lbrace \lbrace 1 \rbrace, \lbrace 2 \rbrace, \lbrace 3 \rbrace, \lbrace 4 \rbrace, \lbrace 5 \rbrace, \lbrace 6 \rbrace  \rbrace$. 
+>If we're modeling a problem about tossing a single dice, we may only want to consider 6 possible events. $\mathcal{F} = \lbrace \lbrace 1 \rbrace, \lbrace 2 \rbrace, \lbrace 3 \rbrace, \lbrace 4 \rbrace, \lbrace 5 \rbrace, \lbrace 6 \rbrace  \rbrace$.
 
-
-But does this satisfy the properties of $\mathcal{F}$?  
+But does this satisfy the properties of $\mathcal{F}$?
 
 (steps)
 
@@ -196,11 +189,11 @@ Consider $A = \{1\}$
 
 (2)
 
-$A^c = \{\varnothing, 2, 3, 4, 5, 6\}$ considering our universe of consideration only spans over items of $\Omega + \{\varnothing\}$. 
+$A^c = \{\varnothing, 2, 3, 4, 5, 6\}$ considering our universe of consideration only spans over items of $\Omega + \{\varnothing\}$.
 
 (3)
 
-Is $A^c$ in $\mathcal{F}$? 
+Is $A^c$ in $\mathcal{F}$?
 
 No.
 
@@ -210,7 +203,7 @@ So it does not satisfy property 2
 
 2. if $A \in \mathcal{F}$ then $A^c \in \mathcal{F}$.
 
-$\therefore$ This is a false example of $\mathcal{F}$. 
+$\therefore$ This is a false example of $\mathcal{F}$.
 
 (/steps)
 
@@ -241,11 +234,11 @@ Checks:
 
 ## 3.2 Writing Continuity from above and below theorems for probability space
 
-- [ ] 
+- [ ]
 
 2025-09-07 Wk 36 Sun - 03:42
 
-So in page 2 they're trying to write a proof for continuity from above and from below. 
+So in page 2 they're trying to write a proof for continuity from above and from below.
 
 We investigated the meaning of the notation in [[#6.4 Union continuity operations applied to set functions]].
 
@@ -253,8 +246,8 @@ We investigated the meaning of the notation in [[#6.4 Union continuity operation
 
 So this is our interpretation:
 
-- $\mu(A_i) \uparrow \mu(A)$ means the value of $\mu(A_i)$ approaches $\mu(A)$ from the left. 
--  $\mu(A_i) \downarrow \mu(A)$ means the value of $\mu(A_i)$ approaches $\mu(A)$ from the right (edited)
+- $\mu(A_i) \uparrow \mu(A)$ means the value of $\mu(A_i)$ approaches $\mu(A)$ from the left.
+-$\mu(A_i) \downarrow \mu(A)$ means the value of $\mu(A_i)$ approaches $\mu(A)$ from the right (edited)
 
 Let's write and attempt to explain the proof.
 
@@ -266,7 +259,7 @@ Let two sets $A$ and $B$ be subsets of $\Omega$.
 
 Define the difference of two sets $A$ and $B$ as $B - A \defeq B \cap A^c$.
 
-So we know that $B \cap A^c$ will not contain anything $A$ since it must be the part of $B$ that intersects $A^c$. 
+So we know that $B \cap A^c$ will not contain anything $A$ since it must be the part of $B$ that intersects $A^c$.
 
 (2)
 
@@ -287,14 +280,14 @@ $$
 $$
 
 Given
-1. A and B are non-empty subsets of $\Omega$. This means $\mu(A)$ and $\mu(B)$ are not $0$. 
-2. There exists a probability measure $P$ that assigns a value in $[0, 1]$ for all subsets of $\Omega$. 
-3. So $\mu(B - A)$ is not equal to values in $\{\infty, -\infty\}$. 
+1. A and B are non-empty subsets of $\Omega$. This means $\mu(A)$ and $\mu(B)$ are not $0$.
+2. There exists a probability measure $P$ that assigns a value in $[0, 1]$ for all subsets of $\Omega$.
+3. So $\mu(B - A)$ is not equal to values in $\{\infty, -\infty\}$.
 $\therefore$  $\mu(A) + C \ge \mu(A)$ follows since $C = \mu(B - A)$ is a finite non-negative constant.
 
 (4)
 
-Let 
+Let
 
 $$
 A_n' = A_n \cap A,
@@ -308,16 +301,13 @@ A_n' - \bigcup_{m=1}^{n-1} A_m' & \text{else}
 \end{cases}
 $$
 
-
 Pending...
 
 (/steps)
 
-
 ### 3.2.1 References
 
 1. [stackexchange answer](https://tex.stackexchange.com/questions/365953/how-do-i-define-a-piecewise-function-in-latex) for piecewise definitions in LaTeX.
-
 
 ### 3.2.2 Pend
 
@@ -343,14 +333,13 @@ But what about the F? that's not $F$.
 
 ## 6.1 What does pairwise mean in pairwise disjoint sets?
 
-- [x] 
+- [x]
 
 2025-08-30 Wk 35 Sat - 15:18
 
 I know disjoin sets share no elements, but pairwise? The context is the description of sigma additivity in the [wiki](https://en.wikipedia.org/wiki/Sigma-additive_set_function):
 
 > Suppose that A ![{\displaystyle \scriptstyle {\mathcal {A}}}](https://wikimedia.org/api/rest_v1/media/math/render/svg/0d586ece9308bf4ef901494079b434c71aac7d41) is a [σ-algebra](https://en.wikipedia.org/wiki/Sigma_algebra "Sigma algebra"). If for every [sequence](https://en.wikipedia.org/wiki/Sequence "Sequence") A 1 , A 2 , … , A n , … ![{\displaystyle A_{1},A_{2},\ldots ,A_{n},\ldots }](https://wikimedia.org/api/rest_v1/media/math/render/svg/7a121200e0c558612beb99e748a738814d788c3f) of pairwise disjoint sets in A ,
-
 
 [statisticshowto pairwise-disjoint](https://www.statisticshowto.com/pairwise-disjoint/) talks about this, but they keep mentioning "pairwise disjoint" together, without decomposing them into individual concepts!
 
@@ -364,7 +353,7 @@ So I think pairwise + disjoint then would mean, if you take all possible pairs f
 
 ## 6.2 Why F contains all unions of its underlying elements
 
-- [x] 
+- [x]
 
 So in pg1 (vpg 9/490) of the [book](https://sites.math.duke.edu/~rtd/PTE/PTE5_011119.pdf),
 
@@ -386,21 +375,21 @@ $\mathcal{F}$ is a [[007 σ-algebra|σ-algebra]] over $\Omega$, so it can hold e
 
 Spawn [[Drawing 2025-08-30 18.25.14.excalidraw]] (sketch)
 
-$\mathcal{F}$'s elements are possible *subsets* of $\Omega$, yet here the book says that an element $A_i$ is a countable *sequence*? 
+$\mathcal{F}$'s elements are possible *subsets* of $\Omega$, yet here the book says that an element $A_i$ is a countable *sequence*?
 
 An element $A$ of $\mathcal{F}$ should be a subset of $\Omega$. An element $A_i$ of $A$ should be considered an individual item.
 
 2025-08-30 Wk 35 Sat - 18:58
 
-In [[018 σ-additive#^199261-premise-3|σ-additive defn premise 3]], 
+In [[018 σ-additive#^199261-premise-3|σ-additive defn premise 3]],
 
 We also mention sequences, and this might be where this comes from.
 
-> Let $S$ be the set of all [[020 Seq|sequences]] of pairwise disjoint [^1] sets in $\mathcal{F}$ 
+> Let $S$ be the set of all [[020 Seq|sequences]] of pairwise disjoint [^1] sets in $\mathcal{F}$
 
 What motivated this is the writing in the [σ-additive set function wiki](https://en.wikipedia.org/wiki/Sigma-additive_set_function),
 
-> Suppose that A ![{\displaystyle \scriptstyle {\mathcal {A}}}](https://wikimedia.org/api/rest_v1/media/math/render/svg/0d586ece9308bf4ef901494079b434c71aac7d41) is a [σ-algebra](https://en.wikipedia.org/wiki/Sigma_algebra "Sigma algebra"). If for every [sequence](https://en.wikipedia.org/wiki/Sequence "Sequence") A 1 , A 2 , … , A n , … ![{\displaystyle A_{1},A_{2},\ldots ,A_{n},\ldots }](https://wikimedia.org/api/rest_v1/media/math/render/svg/7a121200e0c558612beb99e748a738814d788c3f) of pairwise disjoint sets in A , 
+> Suppose that A ![{\displaystyle \scriptstyle {\mathcal {A}}}](https://wikimedia.org/api/rest_v1/media/math/render/svg/0d586ece9308bf4ef901494079b434c71aac7d41) is a [σ-algebra](https://en.wikipedia.org/wiki/Sigma_algebra "Sigma algebra"). If for every [sequence](https://en.wikipedia.org/wiki/Sequence "Sequence") A 1 , A 2 , … , A n , … ![{\displaystyle A_{1},A_{2},\ldots ,A_{n},\ldots }](https://wikimedia.org/api/rest_v1/media/math/render/svg/7a121200e0c558612beb99e748a738814d788c3f) of pairwise disjoint sets in A ,
 
 I think the point here is because you could take the union of any number of subsets, and the result will hold, not just 2. If you pick two subsets at random and form a pair, you find that they are disjoint, so it follows any randomly sampled sequence too will be disjoint.
 
@@ -414,11 +403,11 @@ OK I external help/correction on this.
 
 $A_i$ *is* the sequence. I misinterpreted it to be an element. or "$A$ being indexed".
 
-They gave an instructive concrete example like $A, B, C \in \mathcal{F} \implies A \cup B \cup C \in \mathcal{F}$ 
+They gave an instructive concrete example like $A, B, C \in \mathcal{F} \implies A \cup B \cup C \in \mathcal{F}$
 
-So I guess it is shorthand for something like $A, B, ...$ 
+So I guess it is shorthand for something like $A, B, ...$
 
-I also thought $A_i \subseteq \mathcal{F}$, but this also doesn't make sense since $A_i$ is a sequence $A, B, ... \in \mathcal{F}$. Since it is a sequence, it can always exist outside the bounds of any subset of $\mathcal{F}$. 
+I also thought $A_i \subseteq \mathcal{F}$, but this also doesn't make sense since $A_i$ is a sequence $A, B, ... \in \mathcal{F}$. Since it is a sequence, it can always exist outside the bounds of any subset of $\mathcal{F}$.
 
 2025-08-30 Wk 35 Sat - 21:15
 
@@ -434,7 +423,7 @@ I think it is just a restatement of the requirement that [[007 σ-algebra|σ-alg
 
 ## 6.3 How do we deal with the empty set in compliments of the sigma algebra?
 
-- [x] 
+- [x]
 
 From [[#^7b43a3]] in [[#3.1 Wk 36 Last Week Recap]]
 
@@ -447,7 +436,7 @@ Let's say we have some Polyhedral d3 Dice:
 
 We're interested in just rolling this dice once. Now we have $\Omega = \{1, 2, 3\}$ .
 
-We want to check that the powerset $\wp(\Omega) \equiv \{\varnothing, \{1\}, \{2\}, \{3\}, \{1, 2\}, \{1, 3\}, \{2, 3\}, \{1, 2, 3\} \}$ with $|\wp(\Omega)| = 2^{|\Omega|} = 2^3 = 8$  is a valid [[007 σ-algebra|σ-algebra]] over $\Omega$. 
+We want to check that the powerset $\wp(\Omega) \equiv \{\varnothing, \{1\}, \{2\}, \{3\}, \{1, 2\}, \{1, 3\}, \{2, 3\}, \{1, 2, 3\} \}$ with $|\wp(\Omega)| = 2^{|\Omega|} = 2^3 = 8$  is a valid [[007 σ-algebra|σ-algebra]] over $\Omega$.
 
 Let's check closure under [[006 compliment|compliment]], this must satisfy:
 
@@ -463,13 +452,13 @@ Let's try it.
 
 Here's the problem:
 
-What's $\{1\}^c$? 
+What's $\{1\}^c$?
 
 I think most likely $\{2, 3\}$ but could it be $\{\varnothing, 2, 3\}$?
 
 I think maybe the universe if we only consider elements of $\Omega$ would be $\{1, 2, 3\}$, and we should treat $\varnothing$ as the set with no elements *in the universe* and not an element of the universe itself.
 
-We know that $A \cup \varnothing = A$. 
+We know that $A \cup \varnothing = A$.
 
 It should be the case that for distinct elements $a, b \in U$, then $\{a\} \cup \{b\} \ne \{a\} \land \{a\} \cup \{b\} \ne \{b\}$. Meaning that union of sets of distinct universal elements always gives a different set from the inputs.
 
@@ -483,11 +472,11 @@ if $A, \varnothing \in \wp(\Omega)$, then $A \cup \varnothing \in \wp(\Omega)$.
 
 ## 6.4 Union continuity operations applied to set functions
 
-- [ ] 
+- [ ]
 
 2025-09-06 Wk 36 Sat - 23:03
 
-So the book in (pg 2, vpg 10/490) mentions that if $A_i \uparrow A$ (meaning $A_1 \subset A_2 \subset \ldots \subset A$ and $\bigcup_i A_i = A$  ) then it is also the case that $\mu(A_i) \uparrow \mu(A)$. 
+So the book in (pg 2, vpg 10/490) mentions that if $A_i \uparrow A$ (meaning $A_1 \subset A_2 \subset \ldots \subset A$ and $\bigcup_i A_i = A$  ) then it is also the case that $\mu(A_i) \uparrow \mu(A)$.
 
 But what would $\mu(A_i) \uparrow \mu(A)$ mean?
 
@@ -499,9 +488,7 @@ $$
 \mu \left(\bigcup _{i=1}^{\infty }E_{i}\right)~=~\lim _{i\to \infty }\mu (E_{i})=\sup _{i\geq 1}\mu (E_{i})
 $$
 
-
-$sup$ here may refer to the [supremum](https://en.wikipedia.org/wiki/Infimum_and_supremum) of a set, but $\mu(E_i)$ is not a set. It's a single value in $\overline{\mathbb{R}}$. 
-
+$sup$ here may refer to the [supremum](https://en.wikipedia.org/wiki/Infimum_and_supremum) of a set, but $\mu(E_i)$ is not a set. It's a single value in $\overline{\mathbb{R}}$.
 
 But maybe the minimum value across the set $\{i \in \mathbb{N} | \mu(E_i) \}$
 
@@ -539,15 +526,15 @@ $$
 \mu \left(\bigcup _{i=1}^{\infty }E_{i}\right)~=~\lim _{i\to \infty }\mu (E_{i})=\sup _{i\geq 1}\mu (E_{i})
 $$
 
-It seems that the measure on continuity from below $\mu \left( \bigcup_{i=1}^\infty E_i \right)$ is equal to the least upper bound $\sup_{i \ge 1} \mu(E_i)$ or equivalently, the measure of $E_i$ at $\infty$. 
+It seems that the measure on continuity from below $\mu \left( \bigcup_{i=1}^\infty E_i \right)$ is equal to the least upper bound $\sup_{i \ge 1} \mu(E_i)$ or equivalently, the measure of $E_i$ at $\infty$.
 
 So $\mu(A_i) \uparrow \mu(A)$ might mean that $\mu(A_i)$ holds continuity from below for $\mu(A)$ and is equivalent to that statement?
 
 2025-09-07 Wk 36 Sun - 01:44
 
-In this resource for [calculus analysis symbols](https://mathvault.ca/hub/higher-math/math-symbols/calculus-analysis-symbols/), they mention, 
+In this resource for [calculus analysis symbols](https://mathvault.ca/hub/higher-math/math-symbols/calculus-analysis-symbols/), they mention,
 
-In $\lim_{x \uparrow a}$ $x \uparrow a$ means "x tends to a from the left" and it can also be written as $\lim_{x \to a^-}$. 
+In $\lim_{x \uparrow a}$ $x \uparrow a$ means "x tends to a from the left" and it can also be written as $\lim_{x \to a^-}$.
 
 In $\lim_{x \downarrow a}$, $x \downarrow a$ means "x tends to a from the right" and it can also be written as $\lim_{x \to a^+}$.
 
@@ -567,7 +554,7 @@ But how could this achieve parity with  $\mu \left( A_i \right) \downarrow A$ an
 
 We cannot approach $\infty$ from the right or above!
 
-But I would think the general idea still applies, that 
+But I would think the general idea still applies, that
 
 $$
 \mu \left(\lim_{i \to \infty^-} A_i \right) = \mu \left( A \right)
@@ -591,10 +578,9 @@ $$
 \mu \left(\lim_{i \to \infty} A_i \right) \ge \mu \left( A \right)
 $$
 
-
 2025-09-07 Wk 36 Sun - 02:27
 
-Seeking confirmation for math help volunteers in discord. 
+Seeking confirmation for math help volunteers in discord.
 
 Nothing right now.
 
@@ -604,14 +590,13 @@ Maybe we will get a textbook confirmation on this interpretation as we go throug
 
 ### 6.4.1 Pend
 
-
 # 7 Errata
 
 ## 7.1 non-empty collection not missing empty subset
 
 In [[#^errata-e14827]]
 
-I wrote 
+I wrote
 
 > $\mathcal{F}$ is a [[007 σ-algebra|σ-algebra]] over $\Omega$, so it can holds elements up to $\wp(\Omega) - \lbrace \varnothing \rbrace$ where $\wp$ denotes the powerset.
 
@@ -624,7 +609,6 @@ The algebra itself must be a *non-empty collection*. I interpreted it as *not ha
 So as correction,
 
 $\mathcal{F}$ is a [[007 σ-algebra|σ-algebra]] over $\Omega$, so it can hold elements up to $\wp(\Omega)$ where $\wp$ denotes the powerset.
-
 
 # 8 LaTeX Config
 

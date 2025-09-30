@@ -1,5 +1,3 @@
-
-
 2025-09-08 Wk 37 Mon - 18:07 +03:00
 
 # 1 File Breakdown Proposal
@@ -33,9 +31,9 @@ NNN Task Name/
 	NNN Task Name
 ```
 
-For weekly entries, replace `NNN` with `Wk WW NNN`. 
+For weekly entries, replace `NNN` with `Wk WW NNN`.
 
-It is important that the folder and main note name match. This is how we will automatically understand the meaning of this folder structure. 
+It is important that the folder and main note name match. This is how we will automatically understand the meaning of this folder structure.
 
 Here's an example:
 
@@ -67,7 +65,7 @@ Here's an example:
 
 ## 1.3 Index heading
 
-Big context notes should still maintain an **index** of all their small context notes to not require users to rely on folder structure. 
+Big context notes should still maintain an **index** of all their small context notes to not require users to rely on folder structure.
 
 This means that `NNN Task Name` is required to have a heading `Index`:
 
@@ -131,12 +129,12 @@ Let's do an Index file example for `015 Do my math homework`:
 
 ### 1.3.1 What this will achieve
 
-With this, we achieve the effect that every file is a single atom of context. 
+With this, we achieve the effect that every file is a single atom of context.
 
 This also opens our entries to the power of having tags.
 
 Obsidian and other tools can treat each context note file as a first class citizens.  This comes with the following benefits:
--  graph relations will work out of the box and they can have named relations to other notes.
+-graph relations will work out of the box and they can have named relations to other notes.
 - Obsidian maintains a history of notes visited. This did not work for headings visited before, so we can go back to the previous note we came from much more easily.
 
 # 2 Clarified Timestamp Proposal
@@ -147,7 +145,7 @@ In every note we've written, we've included timestamps like
 2025-09-08 Wk 37 Mon 18:56
 ```
 
-Ok, 18:56 in what timezone? It is unclear. So it makes correlating times with other artifacts like git commits difficult for others, and potentially even for me if I travel countries. 
+Ok, 18:56 in what timezone? It is unclear. So it makes correlating times with other artifacts like git commits difficult for others, and potentially even for me if I travel countries.
 
 We will no longer use `HH:mm` time but `HH:mm Z`
 
@@ -163,7 +161,7 @@ Now we include timestamps like
 2025-09-08 Wk 37 Mon - 19:02 +03:00
 ```
 
-to signify UTC+03:00. 
+to signify UTC+03:00.
 
 # 3 Consequences
 
@@ -171,7 +169,7 @@ to signify UTC+03:00.
 
 Our time logging treated headings within a file as sub-entry logs naturally, which gave us a nice big context time logging + small context divisions.
 
-This no longer works for us. We would like to preserve this presentation however. It is still the case that we create a big context, and many attached small contexts, although now they have their own files. Since they follow a predetermined file structure, this should be detected to treat them as sub-entries. 
+This no longer works for us. We would like to preserve this presentation however. It is still the case that we create a big context, and many attached small contexts, although now they have their own files. Since they follow a predetermined file structure, this should be detected to treat them as sub-entries.
 
 We are not currently interested in logging time in a tree-fashion. A big/small context seperation is preferable. It's preferable for contexts to remain fairly flat and to leave the dependencies to be expresseed as relations between them.
 
@@ -191,12 +189,12 @@ This process should also be automated to reduce human error. Here are some thing
 
 - [ ] Command to turn a note file into a big note file and makes it compliant with the category folders, index heading template, and expected folder structure.
 - [ ] Command to convert between small and big notes, but only for notes with zero sub entries.
-- [ ] Command to spawn new entries under the same big note context and tracks the specific spawning entry and links position spawned from. 
-	- [ ] Allows the user to specify the category by selection (tasks/issues/ ...)
-	- [ ] Estalbishes a dual link bridges between spawner and spawned
-	- [ ] Updates the big note index and ensures the new small note specifies it as a parent
-	- [ ] triple indices are automatically added.
-	- [ ] Does not include spawner information if spawned from the big note outside any heading within it
+- [ ] Command to spawn new entries under the same big note context and tracks the specific spawning entry and links position spawned from.
+- [ ] Allows the user to specify the category by selection (tasks/issues/ ...)
+- [ ] Estalbishes a dual link bridges between spawner and spawned
+- [ ] Updates the big note index and ensures the new small note specifies it as a parent
+- [ ] triple indices are automatically added.
+- [ ] Does not include spawner information if spawned from the big note outside any heading within it
 
 # 5 Related Tasks
 

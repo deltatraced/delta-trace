@@ -8,9 +8,9 @@ For the project description, see [[lan/projects/2025/002 obsidian-sourced-websit
 
 # 1 Goal
 
-We need to get some foundational ground for the project. 
+We need to get some foundational ground for the project.
 
-We need a basic prototype website implementation that can source obsidian content. 
+We need a basic prototype website implementation that can source obsidian content.
 
 Our test case will be sourcing a page per deployment marked issues and HowTos in an obsidian vault.
 
@@ -18,8 +18,8 @@ Our test case will be sourcing a page per deployment marked issues and HowTos in
 
 **Deployment**
 
-- [x] We need to to be able to publish content online and the links should be professional. 
-	- [x] [[000 Get a domain name to publish in for self-hosting]]
+- [x] We need to to be able to publish content online and the links should be professional.
+- [x] [[000 Get a domain name to publish in for self-hosting]]
 
 **Design**
 

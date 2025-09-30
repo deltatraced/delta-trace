@@ -12,7 +12,6 @@ Purchased www.deltatraced.com!
 - [x] Hosted a website using it
 This is done! www.deltatraced.com  can be deployed via [wasmer](https://wasmer.io/)!
 
-
 This task is part of the goal [[000 First prototype of a publicly hosted obsidian-sourced website]].
 
 See also:
@@ -83,7 +82,7 @@ You can find a list of different top level domains in [wikipedia](https://en.wik
 
 - Second-Level Domain (SLD)
 
-In our case, `www.google.com` -> `google`. 
+In our case, `www.google.com` -> `google`.
 
 - Third-Level Domain (subdomain)
 
@@ -109,11 +108,11 @@ So now we know that a DNS is a domain name server that is able to fetch domain n
 
 From [AWS post on dynamic dns](https://aws.amazon.com/what-is/dynamic-dns/),
 
-so that stands for Dynamics DNS (DDNS). 
+so that stands for Dynamics DNS (DDNS).
 
-A DDNS allows for dynamic rouiting of IP addresses to the same domain name. 
+A DDNS allows for dynamic rouiting of IP addresses to the same domain name.
 
-This mentions DHCP use of reassignment of IP addresses to devices on a network, which could lead to issues with static DNS that expects static IPs. 
+This mentions DHCP use of reassignment of IP addresses to devices on a network, which could lead to issues with static DNS that expects static IPs.
 
 # 7 Ideas
 

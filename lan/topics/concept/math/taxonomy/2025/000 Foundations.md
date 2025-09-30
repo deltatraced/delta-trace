@@ -1,9 +1,6 @@
-
 # 1 Taxonomy
 
 ## 1.1 Structure
-
-
 
 ## 1.2 Narrative
 

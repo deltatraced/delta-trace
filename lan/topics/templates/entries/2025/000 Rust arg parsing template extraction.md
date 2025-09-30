@@ -1,10 +1,8 @@
-
-#lan #rust #template 
-
+#lan #rust #template
 
 2025-06-20 Wk 25 Fri - 14:44
 
-This is gonna be extracted from [bn_repo_editor](<https://github.com/LanHikari22/bn_repo_editor>) [[#^link1]].
+This is gonna be extracted from [bn_repo_editor](https://github.com/LanHikari22/bn_repo_editor) [[#^link1]].
 
 # 1 Original extract
 
@@ -127,9 +125,8 @@ fn main() {
 
 # 2 Playground
 
-Interact with the code in the Rust [Playground](<https://play.rust-lang.org/?version=stable&mode=debug&edition=2024&gist=2e5c344fe0740c7c1c610b143985ace1>) [[#^link2]]
+Interact with the code in the Rust [Playground](https://play.rust-lang.org/?version=stable&mode=debug&edition=2024&gist=2e5c344fe0740c7c1c610b143985ace1) [[#^link2]]
 
 # 3 References
 1. https://github.com/LanHikari22/bn_repo_editor ^link1
-2. [Playground](<https://play.rust-lang.org/?version=stable&mode=debug&edition=2024&gist=2e5c344fe0740c7c1c610b143985ace1>) ^link2
-
+2. [Playground](https://play.rust-lang.org/?version=stable&mode=debug&edition=2024&gist=2e5c344fe0740c7c1c610b143985ace1) ^link2

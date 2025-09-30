@@ -1,9 +1,8 @@
-
 # 1 Objective
 
 - [ ] Complete the tutorial [here](https://www.tensorflow.org/text/tutorials/text_generation) [[#^1]].
 
-The code for this is in `lan-exp-scripts` `tutorials/2025/topics/ai/tensorflow.org/persistent/000-transorflow-text-generation` 
+The code for this is in `lan-exp-scripts` `tutorials/2025/topics/ai/tensorflow.org/persistent/000-transorflow-text-generation`
 
 # 2 Journal
 

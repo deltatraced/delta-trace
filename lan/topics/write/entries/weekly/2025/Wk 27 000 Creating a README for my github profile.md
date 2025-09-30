@@ -4,12 +4,11 @@ is_entry:
 ---
 #lan #entry #writing
 
-
 # 1 Journal
 
 2025-07-03 Wk 27 Thu - 17:21
 
-According to [github docs on creating profile README](<https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme>) [[#^1]], 
+According to [github docs on creating profile README](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme) [[#^1]],
 
 I need to create a repository with the same name as my github username.
 
@@ -57,16 +56,15 @@ Changed to
 
 > Computer engineer interested in reproducibility of knowledge and computer systems, reverse engineering, data analysis, and tooling.
 
-
 ## 1.1 Inspiration
 
 2025-07-03 Wk 27 Thu - 17:41
 
-[Juniper Tyree github README](<https://github.com/juntyr>)
+[Juniper Tyree github README](https://github.com/juntyr)
 
 2025-07-04 Wk 27 Fri - 23:40
 
-[Xe Iaso website](<https://xeiaso.net/>) and [github](<https://github.com/Xe>).
+[Xe Iaso website](https://xeiaso.net/) and [github](https://github.com/Xe).
 
 # 2 References
-1. [github docs on creating profile README](<https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme>) ^1
+1. [github docs on creating profile README](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme) ^1

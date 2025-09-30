@@ -7,7 +7,7 @@ status: done
 
 Parent: [[000 Attempting to upgrade rustyline for shi]]
 
-Spawned by: [[000 Attempting to upgrade rustyline for shi]] 
+Spawned by: [[000 Attempting to upgrade rustyline for shi]]
 
 Spawned in: [[000 Attempting to upgrade rustyline for shi#^spawn-issue-ca4626|^spawn-issue-ca4626]]
 
@@ -23,7 +23,7 @@ cargo test --all-targets --all-features
 
 ![[Pasted image 20250919060831.png]]
 
-So we have invalid use of [`Editor`](https://github.com/kkawakam/rustyline/blob/17696602d0f4722f6d838555762f155f674dee9f/src/lib.rs#L586). Now it takes two generics arguments, a [`Helper`](https://github.com/kkawakam/rustyline/blob/17696602d0f4722f6d838555762f155f674dee9f/src/lib.rs#L547) and [`History`](https://github.com/kkawakam/rustyline/blob/17696602d0f4722f6d838555762f155f674dee9f/src/history.rs#L44). 
+So we have invalid use of [`Editor`](https://github.com/kkawakam/rustyline/blob/17696602d0f4722f6d838555762f155f674dee9f/src/lib.rs#L586). Now it takes two generics arguments, a [`Helper`](https://github.com/kkawakam/rustyline/blob/17696602d0f4722f6d838555762f155f674dee9f/src/lib.rs#L547) and [`History`](https://github.com/kkawakam/rustyline/blob/17696602d0f4722f6d838555762f155f674dee9f/src/history.rs#L44).
 
 Their [diy_hints.rs](https://github.com/kkawakam/rustyline/blob/master/examples/diy_hints.rs) hints that we can include [`DefaultHistory`](https://github.com/kkawakam/rustyline/blob/17696602d0f4722f6d838555762f155f674dee9f/src/history.rs#L640):
 
@@ -62,7 +62,7 @@ vscode intellisense says `{unknown}` for `ExecHelper<'_, S>` for some reason the
 
 2025-09-19 Wk 38 Fri - 07:13 +03:00
 
-They use a crate-global error enum [`ShiError`](https://github.com/Utagai/shi/blob/ef0428b1440153818ee5512adf378ba1544e0598/src/error.rs#L5) that is used with 
+They use a crate-global error enum [`ShiError`](https://github.com/Utagai/shi/blob/ef0428b1440153818ee5512adf378ba1544e0598/src/error.rs#L5) that is used with
 
 ```rust
 use crate::Result;
@@ -120,7 +120,7 @@ pub fn iter(&self) -> Iter<'_> {
 
 We expect to get `String` elements.
 
-This was removed. 
+This was removed.
 
 In addition, `shell.rl.history()` used to return a `&History` but now it returns `&dyn History`.
 

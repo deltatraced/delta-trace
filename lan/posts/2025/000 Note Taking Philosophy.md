@@ -2,18 +2,17 @@
 
 - [1 Objective](#1-objective)
 - [2 Process and Deliverables](#2-process-and-deliverables)
-	- [2.1 Overview](#21-overview)
-	- [2.2 Public by default](#22-public-by-default)
+- [2.1 Overview](#21-overview)
+- [2.2 Public by default](#22-public-by-default)
 - [3 Different categories of writing](#3-different-categories-of-writing)
-	- [3.1 Notes (Process)](#31-notes-process)
-	- [3.2 Posts (Deliverable)](#32-posts-deliverable)
-	- [3.3 Documentation (Deliverable)](#33-documentation-deliverable)
+- [3.1 Notes (Process)](#31-notes-process)
+- [3.2 Posts (Deliverable)](#32-posts-deliverable)
+- [3.3 Documentation (Deliverable)](#33-documentation-deliverable)
 - [4 On Use of Large Language Models (LLMs)](#4-on-use-of-large-language-models-llms)
-
 
 # 1 Objective
 
-We capture major ideas in how and why I take notes in this repository and similar note repositories. 
+We capture major ideas in how and why I take notes in this repository and similar note repositories.
 
 We distinguish process writing from deliverables and evaluate why we draw this distinction.
 
@@ -23,15 +22,15 @@ Notes aim to capture the creative process of making a creative work. It strives 
 
 # 2 Process and Deliverables
 
-## 2.1 Overview 
+## 2.1 Overview
 
-When creating something, we often have the goal of creating some content. Whether this is software, a video, a drawing, a book... We call the products of creative works deliverables. 
+When creating something, we often have the goal of creating some content. Whether this is software, a video, a drawing, a book... We call the products of creative works deliverables.
 
 But behind every deliverable is a process that brought it to be. Think tasks, tentative notes, sketches, inspiring ideas and resources... Those are often "behind the scenes" as they generally serve a different purpose from deliverables. They are not generally perceived as presentable because we polish deliverables for presentation, but we take notes in whatever ways work for us to polish those deliverables. This pragmatism often leads to the process content being sidelined in favor of showing final results to the world.
 
 ## 2.2 Public by default
 
-We believe that the process content that makes deliverables possible can be valuable to share even if it can be tentative, messy, or difficult to navigate in comparison. 
+We believe that the process content that makes deliverables possible can be valuable to share even if it can be tentative, messy, or difficult to navigate in comparison.
 
 We ensure process content is clearly distinguished from deliverables to be very clear about their purpose and that they are unnecessary to view if one is only interested in the deliverable itself. The deliverable should be self-contained and self-explanatory. The process content is for users who opt-in to view how it came to be.
 
@@ -44,7 +43,7 @@ By contrast, notes are often taken private, so we get to see deliverables but th
 When writing, three different categories are considered. Each with its own mode of operation and optimizing for different goals.
 ## 3.1 Notes (Process)
 
-Notes are often written as the work is done and in those cases optimize for recording efficiency and to allow the creator to organize their thoughts and clarify next moves. 
+Notes are often written as the work is done and in those cases optimize for recording efficiency and to allow the creator to organize their thoughts and clarify next moves.
 
 Another important criteria to evaluate notes is whether they provide enough information for another creator to reproduce the work, so there is aim for completeness and reproduction of knowledge where applicable.
 
@@ -52,7 +51,7 @@ Notes are historical and context situated, so it is expected that they evolve wi
 
 Notes may be edited as they are written to ensure accuracy, but they generally should not be edited after they have been taken since they serve as a historical record of how the creative process unfolded. For inaccuracies, erratas can be added to old notes to preserve history and also accuracy.
 
-When reading notes, remember that they are written with the creator's methodology and the tasks at hand as the focus. They may not be linear or made to be easily digestible to a reader. Posts are written with readers in mind, but notes serve creation. 
+When reading notes, remember that they are written with the creator's methodology and the tasks at hand as the focus. They may not be linear or made to be easily digestible to a reader. Posts are written with readers in mind, but notes serve creation.
 
 Writing posts, documentation, programming, researching, etc. Those are all creative acts and can have associated note entries for them. For example, this post itself has associated notes in [[001 Writing for Note Taking Philosophy]]. In general, posts will not refer to notes but only to other posts or deliverables. But an exception has been made for demonstration purposes.
 
@@ -61,18 +60,18 @@ Tasks, projects, documentation, posts, etc. are deliverables and they can have c
 
 Posts, like this entry, are written with readers in mind first. This involves much more editing than for notes since posts are deliverables that should be clearly written, serve their proposed purpose, and be easy to understand by readers. This is in contrast with notes which serve more as historical records of the creation of a deliverable.
 
-Posts are open to criticism on matters of grammar, unclear writing, incompleteness, verbosity, etc. All content, including notes, are open to criticism regarding any information inaccuracy. 
+Posts are open to criticism on matters of grammar, unclear writing, incompleteness, verbosity, etc. All content, including notes, are open to criticism regarding any information inaccuracy.
 
 ## 3.3 Documentation (Deliverable)
 
-Documentation is often formal and is part of the deliverable work itself. 
+Documentation is often formal and is part of the deliverable work itself.
 
-For software projects, documentation defines the intent behind the system created as well as instructions on how to use it. This should be kept up to date and be as clear as possible for its stated purpose. 
+For software projects, documentation defines the intent behind the system created as well as instructions on how to use it. This should be kept up to date and be as clear as possible for its stated purpose.
 
 If documentation is included in note repositories, it is clearly marked as documentation and not notes.
 
 # 4 On Use of Large Language Models (LLMs)
 
-One purpose of these notes is to make the reasoning, evaluation, and information retrieval of the creative process transparent. Large language models (LLMs) like ChatGPT, etc. are generally black-boxes. Being black-boxes, they generally would hinder our transparency objective. For this reason, their use needs to be constrained and clearly delineated from the rest of notes. 
+One purpose of these notes is to make the reasoning, evaluation, and information retrieval of the creative process transparent. Large language models (LLMs) like ChatGPT, etc. are generally black-boxes. Being black-boxes, they generally would hinder our transparency objective. For this reason, their use needs to be constrained and clearly delineated from the rest of notes.
 
 LLMs may be used for general "How-to" assistance, brainstorming, pattern checking obscure error logs, or to search or filter documents for something. Note that this is a last-resort option. We should strive to retrieve information on our own in a systematic manner. This method will be more fruitful because it will reveal general resources, train us to evaluate material like specifications for our current context, and that knowledge can be transported to other areas.

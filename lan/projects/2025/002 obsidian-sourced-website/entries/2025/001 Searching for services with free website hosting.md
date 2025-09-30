@@ -20,7 +20,7 @@ Spawn [[#6.1 Initial web search for 3rd party hosting]]. ^spawn-invst-818f9d
 
 ## 3.1 Purchasing a Domain Name
 
-- [x] 
+- [x]
 
 2025-08-12 Wk 33 Tue - 18:12
 
@@ -39,7 +39,7 @@ A comparison of costs from different domain name brokers as of this writing,
 | deltatraced.io  | [cloudflare](https://domains.cloudflare.com/?domain=deltatraced.io)                                      | 45.00      |
 | deltatraced.io  | [namecheap](https://www.namecheap.com/domains/registration/results/?domain=deltatraced.io)               | 34.98      |
 
-Once purchased and we have an IPv4 to host over, we will need to assign an A record to the purchased domain name. 
+Once purchased and we have an IPv4 to host over, we will need to assign an A record to the purchased domain name.
 
 We should also have an email for this. We could set up our own mail exchange, but this is low priority for now.
 
@@ -51,7 +51,7 @@ We should also have an email for this. We could set up our own mail exchange, bu
 
 ## 6.1 Initial web search for 3rd party hosting
 
-- [ ] 
+- [ ]
 
 From [[#^spawn-invst-818f9d]] in [[#2 Journal]]
 
@@ -69,20 +69,19 @@ This [reddit post](https://www.reddit.com/r/software/comments/1i0av3m/whats_the_
 
 [wasmer](https://wasmer.io/free-web-hosting) supports hosting directly from github which is interesting.
 
-
 ### 6.1.1 Pend
 
 ## 6.2 Finding different domain name registrars
 
 2025-08-12 Wk 33 Tue - 18:19
 
-So far we have [freehosting](https://www.freehosting.com/), [hostinger](https://www.hostinger.com/domain-name-results), 
+So far we have [freehosting](https://www.freehosting.com/), [hostinger](https://www.hostinger.com/domain-name-results),
 
 See some cost comparisons for a sample domain name in [[#3.1 Purchasing a Domain Name]].
 
 Recommendations from this [reddit post from 2024](https://www.reddit.com/r/webdev/comments/1bjfqse/whats_the_best_domain_registrar_in_2024/),
 
-[cloudflare](https://domains.cloudflare.com/), [namecheap](https://www.namecheap.com/), 
+[cloudflare](https://domains.cloudflare.com/), [namecheap](https://www.namecheap.com/),
 
 # 7 Ideas
 

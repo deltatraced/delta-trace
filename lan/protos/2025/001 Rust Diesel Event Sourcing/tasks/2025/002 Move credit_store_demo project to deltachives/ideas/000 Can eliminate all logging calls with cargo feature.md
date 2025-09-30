@@ -6,7 +6,7 @@ context_type: idea
 
 Parent: [[002 Move credit_store_demo project to deltachives]]
 
-Spawned by: [[001 Getting many debugging logs from rustyline while using shi]] 
+Spawned by: [[001 Getting many debugging logs from rustyline while using shi]]
 
 Spawned in: [[001 Getting many debugging logs from rustyline while using shi#^spawn-idea-732f18|^spawn-idea-732f18]]
 

@@ -7,7 +7,7 @@ status: done
 
 Parent: [[Wk 37 000 Addressing shi PR 10]]
 
-Spawned by: [[Wk 37 000 Addressing shi PR 10]] 
+Spawned by: [[Wk 37 000 Addressing shi PR 10]]
 
 Spawned in: [[Wk 37 000 Addressing shi PR 10#^spawn-invst-dfab20|^spawn-invst-dfab20]]
 
@@ -115,4 +115,3 @@ git log -Gtarpaulin --patch
 2025-09-16 Wk 38 Tue - 18:18 +03:00
 
 There's not much said about it in git history. Let's just remove it.
-

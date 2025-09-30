@@ -1,4 +1,3 @@
-
 Welcome! Let's walk through some of my work!
 
 # 1 Projects
@@ -9,12 +8,12 @@ github: [bn6f](https://github.com/dism-exe/bn6f)
 Reverse engineering Mega Man Battle Network 6. This reproduces the original game data from source code. It also has many derivative projects for tooling and analysis
 
 Those include:
-- [Related IDA Analysis](<https://github.com/LanHikari22/GBA-IDA-Pseudo-Terminal>) 
-- [Automated generation of struct layouts using lua](<https://github.com/LanHikari22/GBA_Memory-Access-Scanner>)
-- [Automated dumping of internal textscript within the game](<https://github.com/LanHikari22/bn_textscript_dumper>),
+- [Related IDA Analysis](https://github.com/LanHikari22/GBA-IDA-Pseudo-Terminal)
+- [Automated generation of struct layouts using lua](https://github.com/LanHikari22/GBA_Memory-Access-Scanner)
+- [Automated dumping of internal textscript within the game](https://github.com/LanHikari22/bn_textscript_dumper),
 
 Upcoming:
-- [high level editing of bn6f repository, sync with ghidra, and exporting type info for gdb](<https://github.com/LanHikari22/bn_repo_editor>)
+- [high level editing of bn6f repository, sync with ghidra, and exporting type info for gdb](https://github.com/LanHikari22/bn_repo_editor)
 
 To learn more, see [[Project - bn6f]].
 
@@ -23,13 +22,13 @@ github: [dbmint](https://github.com/LanHikari22/dbmint)
 
 Creating databases from scratch can be very intuitive. I learned it was possible with  [dbml](https://dbdiagram.io/home) to create schemas very quickly in a markdown like language and also see them visualized as graph of connections.
 
-I wanted to bring that intuition to sqlite3 database tooling. dbmint is able to take a dbml schema file and generate a sqlite3 database file. It supports docker, and so many operations that make dbml file use concrete can be done in one line, on any system. It also supports sync operations and more. See the [README](https://github.com/LanHikari22/dbmint) for more details. 
+I wanted to bring that intuition to sqlite3 database tooling. dbmint is able to take a dbml schema file and generate a sqlite3 database file. It supports docker, and so many operations that make dbml file use concrete can be done in one line, on any system. It also supports sync operations and more. See the [README](https://github.com/LanHikari22/dbmint) for more details.
 
 Upcoming:
 - Creating a language dbmt that extends dbml but allows multi file support, error validation, computed fields, and much more.
 - Generating a database library in Rust for a given dbmt schema to give types for all columns and tables and prevent invalid query use via the compiler.
 
-## 1.3 TTM 
+## 1.3 TTM
 github: [TTM](https://github.com/LanHikari22/TTM)
 
 Stands for Time & Task Management. It does what it means, and much more. What started as a project for being able to log time and open a web calender schedule all in the terminal grew to be able to handle a full graph-based note taking style. This project uses docker to ensure that a note server can be spawned as easily as possible. It integrates time, task, and notes together via vim and tmux and can even be used to extract analytics on the tasks over time.
@@ -55,4 +54,3 @@ The notes do play, however the quality of sound needs to be improved. This may r
 ## 3.1 IEEE Xtreme
 
 ![[Pasted image 20250811133610.png]]
-

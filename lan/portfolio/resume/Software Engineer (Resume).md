@@ -28,7 +28,7 @@ Independent development work including open source development and contribution,
 
 **Key Accomplishments:**
 - Created a [public knowledge base](https://github.com/delta-domain-rnd/delta-trace/tree/webview) to increase transparency in the development process. This spans many topics like project/concept research and development, tooling development, diagnostics, DevOps, open source contributions and methodology, reverse engineering, and system reproduction.
-	- And you are already here! Feel free to check [[000 Note Taking Philosophy]]!
+- And you are already here! Feel free to check [[000 Note Taking Philosophy]]!
 
 ## 4.2 Software/Hardware R&D Engineer, Genesis MedTech (USA) Inc.
 Minneapolis, MN, USA.  Sept 2023 - Jan 2024.

@@ -1,4 +1,3 @@
-
 $$
 \begin{aligned}
 & \text{Expected} \\

@@ -16,7 +16,7 @@ Spawn [[000 Prepare new branch for shi rustyline upgrade]] ^spawn-task-8c0363
 
 2025-09-19 Wk 38 Fri - 05:56 +03:00
 
-So after trying to bump versions to 
+So after trying to bump versions to
 
 ```toml
 rustyline = "17.0.1"
@@ -63,7 +63,7 @@ This gives us the same behavior as above.
 
 2025-09-19 Wk 38 Fri - 08:04 +03:00
 
-Okay, this looks good. README.md example and all examples are updated, since creating a shell now can also fail, we add an extra `?`. 
+Okay, this looks good. README.md example and all examples are updated, since creating a shell now can also fail, we add an extra `?`.
 
 ```diff
 -let mut shell = Shell::new("| ");

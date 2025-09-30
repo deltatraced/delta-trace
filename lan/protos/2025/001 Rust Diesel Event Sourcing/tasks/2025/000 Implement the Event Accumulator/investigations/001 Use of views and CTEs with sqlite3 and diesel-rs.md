@@ -7,7 +7,7 @@ status: todo
 
 Parent: [[000 Implement the Event Accumulator]]
 
-Spawned by: [[000 Implement the Event Accumulator]] 
+Spawned by: [[000 Implement the Event Accumulator]]
 
 Spawned in: [[000 Implement the Event Accumulator#^spawn-invst-3617a0|^spawn-invst-3617a0]]
 
@@ -45,7 +45,7 @@ There's a [tutorial](https://www.sqlitetutorial.net/sqlite-create-view/) on crea
 
 2025-09-26 Wk 39 Fri - 03:38 +03:00
 
-There's also a [tutorial](https://www.sqlitetutorial.net/sqlite-group-by/) on group by. We're interested in `SUM` for transactions and differentials and `MAX` for things like timestamps. They have a [tutorial](https://www.sqlitetutorial.net/sqlite-aggregate-functions/) on some aggregates, but it's not clear if this is exhaustive. Here is the [reference aggregate functions](https://sqlite.org/lang_aggfunc.html). 
+There's also a [tutorial](https://www.sqlitetutorial.net/sqlite-group-by/) on group by. We're interested in `SUM` for transactions and differentials and `MAX` for things like timestamps. They have a [tutorial](https://www.sqlitetutorial.net/sqlite-aggregate-functions/) on some aggregates, but it's not clear if this is exhaustive. Here is the [reference aggregate functions](https://sqlite.org/lang_aggfunc.html).
 
 2025-09-26 Wk 39 Fri - 09:12 +03:00
 

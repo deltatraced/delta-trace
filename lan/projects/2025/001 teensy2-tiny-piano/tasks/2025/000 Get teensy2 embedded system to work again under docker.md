@@ -4,7 +4,7 @@ status: todo
 
 # 1 Objective
 
-To get this project building again and to add docker instructions for all tools necessary to build and run it. 
+To get this project building again and to add docker instructions for all tools necessary to build and run it.
 
 Ideally the user should only connect the board to their PC via the macro USB cable and follow instructions on the schematic wiring, and they should be able to program it.
 
@@ -20,7 +20,7 @@ There's also a test circuit on the breadboard of this already. Let's recover wha
 
 ## 3.1 Find out build and running information
 
-- [ ] 
+- [ ]
 
 From [[#^spawn-task-find-build-info]].
 
@@ -34,9 +34,9 @@ Recovering some old notes:
 
 ### 3.1.1 Pend
 
-## 3.2 Document already configured test keyboard circuit 
+## 3.2 Document already configured test keyboard circuit
 
-- [ ] 
+- [ ]
 
 2025-08-02 Wk 31 Sat - 09:31
 
@@ -50,6 +50,5 @@ Let's recover the items currently on the breadboard.
 | S1     | [Keypad](https://circuitdigest.com/sites/default/files/inlineimages/u/4x4-Matrix-Keypad-Pinout.png) |       |
 
 ### 3.2.1 Pend
-
 
 # 4 References

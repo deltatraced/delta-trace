@@ -7,7 +7,7 @@ status: done
 
 Parent: [[Wk 37 000 Addressing shi PR 10]]
 
-Spawned by: [[000 Look into tarpaulin use]] 
+Spawned by: [[000 Look into tarpaulin use]]
 
 Spawned in: [[000 Look into tarpaulin use#^spawn-howto-0988ee|^spawn-howto-0988ee]]
 
@@ -58,5 +58,3 @@ since and including {commit}
 ```sh
 git log {commit}^.. -G"something" --patch
 ```
-
-

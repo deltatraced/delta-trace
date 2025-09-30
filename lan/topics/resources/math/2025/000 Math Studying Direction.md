@@ -1,4 +1,3 @@
-
 # 1 Objective
 
 Capture my thoughts on a direction for math studying and look for some resources.
@@ -13,7 +12,7 @@ Capture my thoughts on a direction for math studying and look for some resources
 
 Some broad directions.
 
-1.  I would like to eventually reach towards studying type theory like with the [HoTT book](https://homotopytypetheory.org/book/) and [Martin-Lof works](https://github.com/michaelt/martin-lof).
+1.I would like to eventually reach towards studying type theory like with the [HoTT book](https://homotopytypetheory.org/book/) and [Martin-Lof works](https://github.com/michaelt/martin-lof).
 
 [Intuitionistic Type Theory Per Martin-Lof](https://archive-pml.github.io/martin-lof/pdfs/Bibliopolis-Book-retypeset-1984.pdf).
 
@@ -31,7 +30,6 @@ Some resources for type theory
 
 [gh cemulate/the-mlab](https://github.com/cemulate/the-mlab?tab=readme-ov-file). This seems to be nlab but less formal to be easier to get into?
 
-
 Some bullet overview and resources like books or conferences by [Michael Kirchner](https://kirchner.io/compendium/type-theory#mathematics).
 
 [15-819 Homotopy Type Theory Course](https://www.cs.cmu.edu/~rwh/courses/hott/) (recommended by this [post](https://math.stackexchange.com/a/2438477)).
@@ -48,10 +46,9 @@ They also recommend nLab there.
 
 Also affirmed by this [mathoverflow answer](https://mathoverflow.net/a/389193) which lists also other book recommendations that use category theory on Algebra, Functional Analysis, Elementary set theory, etc. Some include:
 - [Paolo Aluffi. _Algebra. Chapter 0](https://www.amazon.com/Algebra-Chapter-0-Paolo-Aluffi/dp/147046571X).
-	- Also has [Algebra Notes from the Underground](https://www.amazon.com/Algebra-Notes-Underground-Paolo-Aluffi/dp/1108958230)
+- Also has [Algebra Notes from the Underground](https://www.amazon.com/Algebra-Notes-Underground-Paolo-Aluffi/dp/1108958230)
 - [Algebraic Topology by Tammo tom Dieck](https://www.amazon.com/Algebraic-Topology-Ems-Textbooks-Mathematics/dp/3037190485)
 - [Alexander Helemskii. Lectures and Exercises on Functional Analysis](https://bookstore.ams.org/mmono-233/)
-
 
 From [this mathoverflow answer](https://mathoverflow.net/a/389314),
 - [openculture free math textbooks](https://www.openculture.com/free-math-textbooks)
@@ -88,7 +85,7 @@ This [reddit user](https://www.reddit.com/r/statistics/comments/yofikt/comment/i
 
 - [Mathematics for Machine Learning](https://mml-book.com) (free) (recommended by: [post1](https://math.stackexchange.com/a/4545732))
 
--  [An Introduction to Statistical Learning](https://www.statlearning.com/)
+-[An Introduction to Statistical Learning](https://www.statlearning.com/)
 - [The Elements of Statistical Learning](https://link.springer.com/book/10.1007/978-0-387-84858-7)
 
 ### 3.3.4 Mathematical Intro

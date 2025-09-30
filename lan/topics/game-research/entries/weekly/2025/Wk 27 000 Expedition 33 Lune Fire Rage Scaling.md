@@ -11,7 +11,6 @@ resolved: "true"
 - [x] To see whether this `Fire Rage` attack can scale beyond 9999 damage in this fight
 - It cannot.
 
-
 I am not able to find this information in the wikis.
 
 # 2 Context
@@ -21,7 +20,6 @@ I am not able to find this information in the wikis.
 ![[Pasted image 20250702214342.png]]
 
 We are fighting golgra.
-
 
 # 3 Journal
 
@@ -58,7 +56,6 @@ Time will be recorded after the attack lands.
 | 2         | 11       | 9999   | P               | 07:54         |
 | 2         | 12       | 9999   | P               | 08:42         |
 
-
 ## 3.3 Measuring Parry Damage
 
 Parry damage characteristics
@@ -76,14 +73,13 @@ Parry damage characteristics
 | 2         | 4        | 2156   | 2156   | 2156   | 2156   | 2156   |
 | 2         | 5        | 2156   | 3234   | 3234   | 3234   | 2156   |
 
-
 ## 3.4 Parry Damage analysis
 
 2025-07-02 Wk 27 Wed - 22:08
 
 3234 glows orange for parries. 2156 is white.
 
-Using [answer for ratio formatting](<https://unix.stackexchange.com/a/581608>), 
+Using [answer for ratio formatting](https://unix.stackexchange.com/a/581608),
 
 ```sh
 function frac() {
@@ -113,8 +109,7 @@ yields $\frac{2}{3}$.  So orange yields an increase of 50%
 frac $(python3 -c "print((3234-2156)/2156)")
 ```
 
-and is equal to $1 \frac{1}{2} \times$ white. 
-
+and is equal to $1 \frac{1}{2} \times$ white.
 
 ## 3.5 Maelle and Sword Ballet
 

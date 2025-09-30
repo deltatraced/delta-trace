@@ -7,7 +7,7 @@ status: todo
 
 Parent: [[000 Implement the Event Accumulator]]
 
-Spawned by: [[000 Implement the Event Accumulator]] 
+Spawned by: [[000 Implement the Event Accumulator]]
 
 Spawned in: [[000 Implement the Event Accumulator#^spawn-invst-bb50da|^spawn-invst-bb50da]]
 

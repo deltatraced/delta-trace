@@ -12,7 +12,7 @@ status: done
 
 2025-09-18 Wk 38 Thu - 19:46 +03:00
 
-We need to reorganize how we spawn a shell. We can have many experiments which require the same shell infrastructure but with different commands. 
+We need to reorganize how we spawn a shell. We can have many experiments which require the same shell infrastructure but with different commands.
 
 Spawn [[000 Modularize shi shell use in credit store demo]] ^spawn-task-dfb856
 
@@ -35,7 +35,7 @@ We still need to be able to write events in an append-only fashion, and signal w
 2025-09-20 Wk 38 Sat - 04:45 +03:00
 
 Handling some lints, which include:
-- module level docs not having `//!` and instead having `///`. 
+- module level docs not having `//!` and instead having `///`.
 - prefer to impl `Display` instead of `ToString`.
 - use `Vec::new` instead of `|| vec![]`
 

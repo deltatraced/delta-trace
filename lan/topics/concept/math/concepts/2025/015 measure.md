@@ -1,4 +1,3 @@
-
 # 1 Definition
 
 ## 1.1 Wiki
@@ -13,7 +12,7 @@ Let $X$ be a [[001 Set|set]] and $\Sigma$ be a [[007 σ-algebra|σ-algebra]] ove
 
 Let $\mu$ be a [[019 set function|set function]] satisfying:
 
-1. $\mu(\varnothing) = 0$ 
+1. $\mu(\varnothing) = 0$
 2. non-negativity: $\forall A \in \Sigma, \mu(A) \ge 0$
 3. $\mu$ is [[018 σ-additive|σ-additive]].
 

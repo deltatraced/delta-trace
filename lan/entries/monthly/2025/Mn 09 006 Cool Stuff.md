@@ -1,4 +1,3 @@
-
 [[Mn 09 September]]
 
 # 1 Purpose
@@ -9,7 +8,7 @@ A casual place to gather things I found to be cool throughout the month!
 
 (1)
 
-[aeriform deadend](https://www.aeriform.io/deadend) looks like a cool game. I ran into this just searching through [zettlekasten github topic](https://github.com/topics/zettlekasten) $\to$ 
+[aeriform deadend](https://www.aeriform.io/deadend) looks like a cool game. I ran into this just searching through [zettlekasten github topic](https://github.com/topics/zettlekasten) $\to$
 
 (2)
 

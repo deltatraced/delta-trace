@@ -1,4 +1,3 @@
-
 [[Mn 09 September]]
 
 # 1 Purpose
