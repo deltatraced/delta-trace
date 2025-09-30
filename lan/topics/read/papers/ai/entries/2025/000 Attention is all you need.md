@@ -166,7 +166,7 @@ $$
 Before I have written 
 
 > (`Prms 2.1`) 
- $\sum^n_{j=1}{e^{x_j}}$ can be interpreted as a weighted average of elements with weighting $e^{x_j}$. 
+> $\sum^n_{j=1}{e^{x_j}}$ can be interpreted as a weighted average of elements with weighting $e^{x_j}$. 
 
 But really it's the total sum. The average (mean) of an n-sized set $A \equiv \lbrace a_1, \cdots, a_n \rbrace$ is $\frac{\sum_{i=1}^n{a_i}}{n}$.
 
@@ -180,6 +180,7 @@ But either way, none of these premises are needed to prove the property. So (`Pr
 > In
 
 ![[#^softmax-eq]]
+
 >We can see that $e^{x_i}$ can  be interpreted as one weight from the elements that are taken a weighted average of in $\sum^n_{j=1}{e^{x_j}}$.
 
 
