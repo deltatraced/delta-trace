@@ -111,7 +111,7 @@ I strive to contribute to open source whenever I can. Often a motivating reason 
 
 Using sequential reduction, I can follow a process that leads from my project feature all the way down to the filing of the issue and pull request made. Because I work in a stack-like fashion and I just return to the spawning context once I'm done with the current, it is very anchoring of where I currently am with a project, and so it is easy to suspend and resume any step. This makes it possible to follow a process where I do not only accomplish my objectives, but also improve the open source ecosystem.
 
-We can visualize this as follows:
+We can illustrate this as follows:
 
 1. Work on feature for my project, encounter an issue. Spawn an issue context.
 2. In the issue, we learn about a limitation in one of the open source tools I am using, so we spawn a context to reproduce and report it.
