@@ -15,11 +15,18 @@ To capture different aspects of how my month unfolded!
 | [[Mn 10 006 Cool Stuff\|Cool Stuff]]     | 0           | A casual place to gather things I found to be cool throughout the month!                                                                                                             |
 | [[Mn 10 007 Dust\|Dust]]                 | 11 (-0)     | Accumulating de-prioritized items deserve a time of their own and direct engagement!                                                                                                 |
 
-# 3 Related
+# 3 Posts
+
+| Post                                                             | created on           | updated on |
+| ---------------------------------------------------------------- | -------------------- | ---------- |
+| [[002 Atomic contexts and respect\|Atomic contexts and respect]] | 2025-10-02 Wk 40 Thu |            |
+
+# 4 Related
+
 
 - [[Mn 09 September]]
 
-# 4 Star Days
+# 5 Star Days
 
 Learn more about [[001 Star Days ★|Star Days ★]]!
 

@@ -37,3 +37,9 @@ This inspired me to add a focus column to overview to give a key highlight, just
 2025-09-23 Wk 39 Tue - 01:06 +03:00
 
 We learned during contributing to [gh Utagai/shi](https://github.com/Utagai/shi) about [docs.rs thiserror](https://docs.rs/thiserror/latest/thiserror/) and the ability to combine error messages and codes in one enum. Also its use of `#[from]` shortened many functions that would otherwise be mapping from one error type to another all the time. If a function can output an Io error, then it may have its own error type with `Io` variant, and using `#[from]` conversion happens automatically with `?`!
+
+(4)
+
+2025-10-02 Wk 40 Thu - 01:34 +03:00
+
+I was also inspired to add a new context type to my system for `judgements` by a talk that emphasized the role of reasons as relevant facts at the right time and place that satisfy as explanation and are persuasive. So when I make key decisions or make a judgement, I should also give it its own context where I declare the judgement and then the reasons for making it.
