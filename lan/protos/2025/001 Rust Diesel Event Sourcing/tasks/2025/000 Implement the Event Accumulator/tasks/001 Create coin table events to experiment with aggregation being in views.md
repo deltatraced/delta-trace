@@ -323,3 +323,74 @@ erDiagram
 		i32 coins
 	}
 ```
+
+2025-10-02 Wk 40 Thu - 10:21 +03:00
+
+We removed transactions, since we just get latest, the latest event for an object is its object state.
+
+```mermaid
+erDiagram
+	coin_store_diffs {
+		key_t id
+		key_t obj_id
+		string person
+		i32 coins
+	}
+
+	coin_store_events {
+		key_t id
+		Option[key_t] opt_diff_id
+		EventAction ev_action
+		u32 span
+		u32 frame
+		f64 created_on_ts
+		ev_desc text
+	}
+	coin_store_events ||--|| coin_store_diffs : compose
+	
+	v_coin_store_events_grouped {
+		key_t grp_id
+		u32 grp_span
+		u32 grp_frame
+		f64 grp_created_on_ts
+		key_t dup
+		key_t ev_id
+		key_t obj_id
+		EventAction ev_action
+		u32 span
+		u32 frame
+		f64 created_on_ts
+		string person
+		i32 coins
+		string ev_desc
+	}
+	
+	v_coin_store {
+		key_t grp_id
+		u32 grp_span
+		u32 grp_frame
+		key_t obj_id
+		ObjectState obj_state
+		string person
+		i32 coins
+	}
+```
+
+The event actions have been updated. We can now close frames, and reopen them. This doesn't interfere heavily with the sourcing logic, which only sources from lower spans on frame creation, but software can use this distinction and it can have a logical relevance. For example we should not be able to append to a closed frame. Similarly, it's up to software whether to allow reopen events.
+
+| Event Action   | Description                                                     |
+| -------------- | --------------------------------------------------------------- |
+| insert `OID`   | Insert a new object with a new `object_id`.                     |
+| update `OID`   | Set the new values for an existing `object_id`.                 |
+| delete `OID`   | Delete an object given by `object_id`.                          |
+| open `s` `f`   | Creates a new frame `f` at span `s`.                            |
+| close `s` `f`  | Closes a frame `f` at span `s`. Events can longer append there. |
+| reopen `s` `f` | Reopens a frame `f` at span `s`. Events can append there again. |
+
+`ObjectState` is just `EventAction` but without open/close/reopen: `insert`, `update,` `delete`. 
+
+2025-10-02 Wk 40 Thu - 10:50 +03:00
+
+Now let's look at how this interacts with diesel
+
+Spawn [[002 Add event accumulation events through diesel]] ^spawn-task-48bbe6

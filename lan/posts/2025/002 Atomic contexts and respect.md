@@ -25,7 +25,7 @@ I may not know how much to water the plant. This is also its own context. We nee
 
 One principle to keep in mind is that every file has exactly one context. I call this a principle of context atomicity. 
 
-In programming, atomic processes have a property of being isolated from concurrency algorithms. The entire process occurs at once without interruption. In our case, a file can contain only one context and it isolates itself from anything that is too unrelated to that deceleration. For example, if we are taking notes on watering plants, writing about soil health research would interrupt the cohesion and flow of our notes. That should be in its own file. 
+In programming, atomic processes have a property of being isolated from concurrency algorithms. The entire process occurs at once without interruption. In our case, a file can contain only one context and it isolates itself from anything that is too unrelated to that declaration. For example, if we are taking notes on watering plants, writing about soil health research would interrupt the cohesion and flow of our notes. That should be in its own file. 
 
 Tasks that are too big can also be broken into multiple task contexts each in its own file and an original big task context that puts them together.
 
@@ -49,7 +49,7 @@ I think of the core note as my original intent, and peripheral contexts are how 
 
 You can consider a core context to be a parent to many peripheral contexts, but there is no nesting. A cluster cannot have another within it. There won't be grandparents, but context spawning will emerge lineages, like Task 1 $\to$ Task 2 $\to$ Task 3 and so on.
 
-## 2.6 Micro, Meso, and Macro progress
+## 2.6 Micro, Meso, and Macro Progress
 
 The journal of each context file gives us micro progress, seeing how that individual context had evolved over time.
 
@@ -59,9 +59,9 @@ And finally, the addition of new originating intents (or context clusters) over 
 
 Because each file is a single context, we can also start and stop a time logger as we work on each one, and this can be used to generate granular time reports aggregated by context cluster of how our time spent breaks down.
 
-# 3 Comparing with previous method
+# 3 Comparing with Previous Method
 
-## 3.1 No more Multi-context files
+## 3.1 No More Multi-Context Files
 
 I used to mix many contexts in the same file, which over time lead to many files getting very large because I underestimated the complexity going in. It also evoked a sense of confinement, where you wouldn't want to add too much to an already chaotic and overfilled file.
 
@@ -69,7 +69,7 @@ Reading the file was difficult, even if it were broken into headings and subhead
 
 They served a similar purpose to my context clusters do now. All the contexts were bound by an originating intent (the ever-growing file), which quickly decomposed into many contexts. Context clusters preserve this relation but keep each file lean and index-able. It is easier to search files with a single context. They can also have their own individual tags, which was not possible before when everything was stuffed into a single file. 
 
-## 3.2 No more sub-tasking
+## 3.2 No More Sub-Tasking
 
 Previously, I relied on the concept of sub-tasking a lot. I created arbitrary-depth task trees, and the context of a subsubtask as inheriting from its parent lineage was rigid, and didn't always go according to plan. If we wanted to extract a subtask out of the task tree because it's deemed more general down the line, this is often difficult.
 

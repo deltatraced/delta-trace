@@ -1,5 +1,7 @@
 .obsidian/workspace.json
 .obsidian/themes/*
 .obsidian/appearance.json
+.obsidian/plugins/vector-search/data.json
 .commit
 ignore.md
+file.md

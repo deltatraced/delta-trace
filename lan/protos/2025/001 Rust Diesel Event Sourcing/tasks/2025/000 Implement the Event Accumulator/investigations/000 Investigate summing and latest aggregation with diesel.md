@@ -30,3 +30,5 @@ This [stackoverflow answer](https://stackoverflow.com/questions/72670161/how-do-
 2025-09-21 Wk 38 Sun - 22:20 +03:00
 
 We're able to create custom SQL queries with [diesel guides extending-diesel](https://diesel.rs/guides/extending-diesel.html). This might be good to define event $\to$ aggregates seamlessly.
+
+^recall-b48bf5

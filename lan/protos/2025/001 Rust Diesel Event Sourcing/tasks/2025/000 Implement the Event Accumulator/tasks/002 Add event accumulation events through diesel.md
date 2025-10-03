@@ -1,0 +1,85 @@
+---
+parent: "[[000 Implement the Event Accumulator]]"
+spawned_by: "[[001 Create coin table events to experiment with aggregation being in views]]"
+context_type: task
+status: todo
+---
+
+Parent: [[000 Implement the Event Accumulator]]
+
+Spawned by: [[001 Create coin table events to experiment with aggregation being in views]] 
+
+Spawned in: [[001 Create coin table events to experiment with aggregation being in views#^spawn-task-48bbe6|^spawn-task-48bbe6]]
+
+# 1 Journal
+
+2025-10-02 Wk 40 Thu - 10:57 +03:00
+
+```sql
+-- in migrations/2025-09-25-225000_create_coin_store/down.sql
+DROP TABLE coin_store_diffs;
+DROP TABLE coin_store_events;
+DROP VIEW v_coin_store_events_grouped;
+DROP VIEW v_coin_store_objects;
+```
+
+`up.sql` is the same as the [[002 Investigate group by logic for frame and span to include up to span#^recall-3909fc|latest]] in [[002 Investigate group by logic for frame and span to include up to span]]
+
+Then as in the README.md,
+
+```sh
+# in /home/lan/src/cloned/gh/deltachives/2025-002-credit-store-demo-rs
+source ./.env && rm $DATABASE_URL; diesel migration run && python3 scripts/diesel-postprocess.py
+
+# out (error, relevant)
+2025-10-02T08:02:22.352887Z ERROR diesel::database: Failed to execute query query
+...
+.save \"events.db\"\n" err=DatabaseError(Unknown, "near \".\": syntax error"
+```
+
+Remove `.save "events.db"`
+
+And it's `OK`. 
+
+2025-10-02 Wk 40 Thu - 11:07 +03:00
+
+The first thing we notice is that in `schema.rs` diesel only recognizes the tables, even though `data/database.db` does have the views applied. 
+
+Diesel does not have built-in support for reading our views. See [gh diesel-rs/diesel #4077](https://github.com/diesel-rs/diesel/pull/4077) for recent ongoing work on this as of this writing.
+
+2025-10-02 Wk 40 Thu - 11:32 +03:00
+
+They have a partial [feature/view_support branch](https://github.com/weiznich/diesel/tree/feature/view_support). Can we try it?
+
+Spawn [[003 Attempt to use partial view support branch of diesel]] ^spawn-task-91bae6
+
+2025-10-02 Wk 40 Thu - 12:38 +03:00
+
+It does not migrate views. Other options include using [`SqlQuery -> sql_query`](https://github.com/weiznich/diesel/blob/da578f2af39bdd7e433cd0c7ca3286c6da6af1fd/diesel/src/query_builder/functions.rs#L614)  
+
+2025-10-02 Wk 40 Thu - 13:00 +03:00
+
+From [[000 Investigate summing and latest aggregation with diesel#^recall-b48bf5]],
+
+> We're able to create custom SQL queries with [diesel guides extending-diesel](https://diesel.rs/guides/extending-diesel.html). This might be good to define event $\to$ aggregates seamlessly.
+
+2025-10-02 Wk 40 Thu - 13:07 +03:00
+
+As they show in [diesel.rs](https://diesel.rs/) 
+
+They have an example for `sql_query` in the [website markdown](https://github.com/sgrif/diesel.rs-website/blob/25a2a888112ccf9f9467d9294f726b0d82fd9c48/src/index.md?plain=1#L422).
+
+2025-10-02 Wk 40 Thu - 13:19 +03:00
+
+But how do we then go on about filtering or querying the views?
+
+It seems we will need to use raw SQL while using them for now rather than the query builder. [`SqlQuery -> sql_query`](https://github.com/weiznich/diesel/blob/da578f2af39bdd7e433cd0c7ca3286c6da6af1fd/diesel/src/query_builder/functions.rs#L614) did mention
+
+2025-10-03 Wk 40 Fri - 03:24 +03:00
+
+Spawn [[000 To materialize grouped events and accumulated objects into tables via software]] ^spawn-jdgmt-733656
+
+2025-10-03 Wk 40 Fri - 04:21 +03:00
+
+
+
