@@ -1,10 +1,22 @@
+---
+parent: "[[003 Ideas]]"
+spawned_by: "[[003 Ideas]]"
+context_type: entry
+---
+
+Parent: [[003 Ideas]]
+
+Spawned by: [[003 Ideas]]
+
+Spawned in: [[003 Ideas#^spawn-entry-e8af78|^spawn-entry-e8af78]]
+
 [[Mn 09 September]]
 
 # 1 Purpose
 
 Ideas flash by throughout the month, so I capture them here to get a better sense for possibilities!
 
-# 2 Stream
+# 1 Journal
 
 (1)
 

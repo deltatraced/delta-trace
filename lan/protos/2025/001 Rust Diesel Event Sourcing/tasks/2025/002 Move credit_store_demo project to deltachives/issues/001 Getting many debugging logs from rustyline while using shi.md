@@ -84,7 +84,7 @@ ShiError(#[from] ShiError),
 
 And then we can do `?` on a `ShiError` directly! No need to map in the case it's a one to one correspondence.
 
-Added to [[Mn 09 000 Learning]] ^learning-6c9d3b
+Added to [[000 Mn 09 Learning]] ^learning-6c9d3b
 
 2025-09-19 Wk 38 Fri - 09:57 +03:00
 

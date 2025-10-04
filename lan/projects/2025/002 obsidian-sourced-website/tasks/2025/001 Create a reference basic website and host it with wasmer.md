@@ -1061,7 +1061,7 @@ Commenters added critical updates to this post which raised its quality. This wa
 
 It just maps comments to github issues!
 
-Added to [[Mn 09 003 Ideas|Ideas]]
+Added to [[000 Mn 09 Ideas]]
 
 # 8 Side Notes
 # 9 External Links

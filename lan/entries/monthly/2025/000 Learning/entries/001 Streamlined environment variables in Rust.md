@@ -1,14 +1,16 @@
-[[Mn 09 September]]
+---
+parent: "[[000 Learning]]"
+spawned_by: "[[000 Mn 09 Learning]]"
+context_type: entry
+---
 
-# 1 Purpose
+Parent: [[000 Learning]]
 
-Capturing highlights of practices and lessons learned this month!
+Spawned by: [[000 Mn 09 Learning]]
 
-# 2 Entries
+Spawned in: [[000 Mn 09 Learning#^spawn-entry-07b270|^spawn-entry-07b270]]
 
-## 2.1 Streamlined environment variables in Rust
-
-(1)
+# Journal
 
 2025-09-05 Wk 36 Fri - 13:48
 
@@ -34,20 +36,3 @@ cargo add dotenvy
 ```
 
 This helps keep environmental variables local to the project, but also give the user choice in how they are specified. Since it just uses `env::var`, the user has the choice to pass environmental variables explicitly themselves, or override defaults from the `.env` file.
-
-# 3 Stream
-
-(2)
-
-2025-09-19 Wk 38 Fri - 09:56 +03:00
-
-From [[001 Getting many debugging logs from rustyline while using shi#^learning-6c9d3b]],
-
-We actually can do
-
-```rust
-#[error("Got ShiError: {0:?}")]
-ShiError(#[from] ShiError),
-```
-
-And then we can do `?` on a `ShiError` directly! No need to map in the case it's a one to one correspondence.

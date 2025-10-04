@@ -1,10 +1,22 @@
+---
+parent: "[[002 Review]]"
+spawned_by: "[[002 Review]]"
+context_type: entry
+---
+
+Parent: [[002 Review]]
+
+Spawned by: [[002 Review]]
+
+Spawned in: [[002 Review#^spawn-entry-41b6e6|^spawn-entry-41b6e6]]
+
 [[Mn 09 September]]
 
-# 1 Purpose
+# 2 Purpose
 
 Covers review periods where I look back at what I've done throughout the month
 
-# 2 End Month Review
+# 3 End Month Review
 
 (1)
 

@@ -1,15 +1,15 @@
 ---
-parent: "[[Mn 09 007 Dust]]"
-spawned_by: "[[Mn 09 007 Dust]]"
+parent: "[[007 Dust]]"
+spawned_by: "[[000 Mn 09 Dust]]"
 context_type: task
-status: done
+status: todo
 ---
 
-Parent: [[Mn 09 007 Dust]]
+Parent: [[007 Dust]]
 
-Spawned by: [[Mn 09 007 Dust]]
+Spawned by: [[000 Mn 09 Dust]]
 
-Spawned in: [[Mn 09 007 Dust#^spawn-task-2b96d3|^spawn-task-2b96d3]]
+Spawned in: [[000 Mn 09 Dust#^spawn-task-0e6e3c|^spawn-task-0e6e3c]]
 
 # 1 Journal
 

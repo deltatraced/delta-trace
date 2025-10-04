@@ -1,4 +1,5 @@
-[[Mn 09 003 Ideas]]
+
+[[000 Mn 09 Ideas]]
 
 # 1 Idea
 

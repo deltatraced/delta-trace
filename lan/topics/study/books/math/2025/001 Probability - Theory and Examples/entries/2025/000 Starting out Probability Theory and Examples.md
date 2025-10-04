@@ -425,7 +425,7 @@ I think it is just a restatement of the requirement that [[007 σ-algebra|σ-alg
 
 - [x]
 
-From [[#^7b43a3]] in [[#3.1 Wk 36 Last Week Recap]]
+From [[#^spawn-invst-7b43a3]] in [[#3.1 Wk 36 Last Week Recap]]
 
 2025-09-06 Wk 36 Sat - 21:40
 
@@ -510,7 +510,7 @@ We want to know what this $\sup _{m\geq n}$ mean.
 
 I found this defined in a textbook in Prof John Hunter's website under [m125b Real Analysis](https://www.math.ucdavis.edu/~hunter/m125b/m125b.html) course.
 
-Captured in [[Mn 09 001 Resources|Resources]].
+Captured in [[000 Mn 09 Resources]]
 
 Spawn [[022 supremum and infinimum]]
 
@@ -538,7 +538,7 @@ In $\lim_{x \uparrow a}$ $x \uparrow a$ means "x tends to a from the left" and i
 
 In $\lim_{x \downarrow a}$, $x \downarrow a$ means "x tends to a from the right" and it can also be written as $\lim_{x \to a^+}$.
 
-Captured to [[Mn 09 001 Resources|Resources]].
+Captured to [[000 Mn 09 Resources]]
 
 We can also think "from above" for "from the left" and "from below" for "from the right".
 

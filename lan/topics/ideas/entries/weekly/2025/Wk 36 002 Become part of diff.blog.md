@@ -4,4 +4,4 @@
 
 This is more of an integrated knowledge base, but we do have read-facing posts also that could show up there.
 
-Added to [[Mn 09 003 Ideas|Ideas]]
+Added to [[000 Mn 09 Ideas]]
