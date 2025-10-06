@@ -29,7 +29,6 @@ Spawn [[003 Use of event keys in events would result in complex partial accumula
 
 Spawn [[004 IDs in events must be to a unique object, which cannot be object id for a historic table]] ^spawn-infer-0bd9ad
 
-
 # 3 Related
 
 This judgment relies on having made the judgment [[000 To materialize grouped events and accumulated objects into tables via software]]

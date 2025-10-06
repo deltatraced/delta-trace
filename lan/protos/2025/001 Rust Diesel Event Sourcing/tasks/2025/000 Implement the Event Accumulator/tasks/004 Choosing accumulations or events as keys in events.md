@@ -13,7 +13,7 @@ Spawned in: [[001 Event loads can contain complex join structures#^spawn-task-9c
 
 # 1 Objective
 
-To decide whether events include keys to other events in them or straight to accumulation tables of other events. 
+To decide whether events include keys to other events in them or straight to accumulation tables of other events.
 
 This depends on having made the judgment [[000 To materialize grouped events and accumulated objects into tables via software]]
 
@@ -23,7 +23,7 @@ This depends on having made the judgment [[000 To materialize grouped events and
 
 If we include events as keys in other events, how do join them?
 
-Even when they get accumulated, you will see an event in the accumulated table, which should not happen. 
+Even when they get accumulated, you will see an event in the accumulated table, which should not happen.
 
 2025-10-03 Wk 40 Fri - 04:55 +03:00
 

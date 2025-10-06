@@ -1,4 +1,3 @@
-
 [[000 Mn 09 Ideas]]
 
 # 1 Idea

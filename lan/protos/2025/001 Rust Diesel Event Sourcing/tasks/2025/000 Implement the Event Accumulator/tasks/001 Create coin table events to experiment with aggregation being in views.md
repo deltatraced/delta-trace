@@ -387,7 +387,7 @@ The event actions have been updated. We can now close frames, and reopen them. T
 | close `s` `f`  | Closes a frame `f` at span `s`. Events can longer append there. |
 | reopen `s` `f` | Reopens a frame `f` at span `s`. Events can append there again. |
 
-`ObjectState` is just `EventAction` but without open/close/reopen: `insert`, `update,` `delete`. 
+`ObjectState` is just `EventAction` but without open/close/reopen: `insert`, `update,` `delete`.
 
 2025-10-02 Wk 40 Thu - 10:50 +03:00
 

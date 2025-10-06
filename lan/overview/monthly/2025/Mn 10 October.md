@@ -15,7 +15,6 @@ To capture different aspects of how my month unfolded!
 | [[001 Mn 10 Cool Stuff\|Cool Stuff]]     | 0           | A casual place to gather things I found to be cool throughout the month!                                                                                                             |
 | [[001 Mn 10 Dust\|Dust]]                 | 11 (-0)     | Accumulating de-prioritized items deserve a time of their own and direct engagement!                                                                                                 |
 
-
 # 3 Posts
 
 | Post                                                             | created on           | updated on |

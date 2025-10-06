@@ -24,7 +24,7 @@ Covers review periods where I look back at what I've done throughout the month
 
 **Overall**
 
-Overall this month had much more investment in tooling than I anticipated I needed. obsidian migration project still carries over to October 2025. 
+Overall this month had much more investment in tooling than I anticipated I needed. obsidian migration project still carries over to October 2025.
 
 It could have had more studying sessions, but currently was focused on tooling development.
 
@@ -34,6 +34,6 @@ I also need to be mindful of my sleep schedule. If it goes off-phase, it can der
 
 **What went well**
 
-I made consistent progress over the month on two major projects. 
+I made consistent progress over the month on two major projects.
 
 The process itself was refined throughout the month. Before, I'd stuff too much information in a single file, but now we have each file being just one context, which helps me give only that single context attention and respect.

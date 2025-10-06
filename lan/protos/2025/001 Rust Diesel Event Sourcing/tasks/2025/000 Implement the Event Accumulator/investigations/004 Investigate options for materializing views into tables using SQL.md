@@ -49,7 +49,7 @@ We need to recompute the content of the history on each new event inserted... Th
 
 2025-10-03 Wk 40 Fri - 11:29 +03:00
 
-Sqlite Trigger Tutorial [2](https://www.sqlitetutorial.net/sqlite-trigger/) mentions that `INSTEAD OF` can only be used for a trigger on a view. [sqlite.org CREATE TRIGGER](https://sqlite.org/lang_createtrigger.html) confirms this, but it's not what we intend. It only makes a view virtually insertable, but we don't want this. 
+Sqlite Trigger Tutorial [2](https://www.sqlitetutorial.net/sqlite-trigger/) mentions that `INSTEAD OF` can only be used for a trigger on a view. [sqlite.org CREATE TRIGGER](https://sqlite.org/lang_createtrigger.html) confirms this, but it's not what we intend. It only makes a view virtually insertable, but we don't want this.
 
 2025-10-03 Wk 40 Fri - 11:51 +03:00
 
@@ -67,7 +67,7 @@ BEGIN
 END;
 ```
 
-gives us 
+gives us
 
 ```
 Parse error near line 131: table coin_store_hist has 8 columns but 7 values were supplied
@@ -108,7 +108,7 @@ END;
 
 Now the issue is that it will be duplicating over the items on each insert event. We need to clear it.
 
-As per [sql_delete tut](https://www.w3schools.com/sql/sql_delete.asp), 
+As per [sql_delete tut](https://www.w3schools.com/sql/sql_delete.asp),
 
 ```sql
 CREATE TRIGGER trg_update_coin_store_hist
@@ -324,7 +324,6 @@ date +%s.%N
 ![[Pasted image 20251003122446.png]]
 
 ![[Pasted image 20251003122526.png]]
-
 
 `zCtrl+S` for both to commit the changes.
 

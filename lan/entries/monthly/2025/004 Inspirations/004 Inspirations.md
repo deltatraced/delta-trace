@@ -5,4 +5,3 @@
 Spawn [[000 Mn 09 Inspirations]] ^spawn-entry-5cfa7c
 
 Spawn [[001 Mn 10 Inspirations]] ^spawn-entry-6eaa0d
-

@@ -7,7 +7,7 @@ status: done
 
 Parent: [[000 Implement the Event Accumulator]]
 
-Spawned by: [[002 Add event accumulation events through diesel]] 
+Spawned by: [[002 Add event accumulation events through diesel]]
 
 Spawned in: [[002 Add event accumulation events through diesel#^spawn-task-91bae6|^spawn-task-91bae6]]
 
@@ -94,4 +94,3 @@ The views are still not recognized in `schema.rs`.
 In [fn sqlite_diesel_types](https://github.com/weiznich/diesel/blob/da578f2af39bdd7e433cd0c7ca3286c6da6af1fd/diesel_cli/src/print_schema.rs#L155) they include some common types that I don't think are present in sqlite itself for some reason.
 
 Anyway [fn output_schema](https://github.com/weiznich/diesel/blob/da578f2af39bdd7e433cd0c7ca3286c6da6af1fd/diesel_cli/src/print_schema.rs#L162) does not yet have any view-related support.
-

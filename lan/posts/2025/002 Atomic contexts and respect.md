@@ -1,11 +1,10 @@
-
 | Created              | Updated |
 | -------------------- | ------- |
 | 2025-10-02 Wk 40 Thu |         |
 
 # 1 Objective
 
-In this post, I want to walk us through my current note taking method, its principles, and comparison against how I used to take notes. 
+In this post, I want to walk us through my current note taking method, its principles, and comparison against how I used to take notes.
 
 Then I want to discuss how it ties in to the concept of respect, how it synergies with decomposing contexts using a method I call sequential reduction, and how the method is very anchoring such that I am able to carry on long chains of tasks.
 
@@ -15,7 +14,7 @@ Then I want to discuss how it ties in to the concept of respect, how it synergie
 
 We begin with the concept of context and context types. A context is a name we give to a singular purpose. For example, "Water the plants". It anchors us in that the activities we do and the notes we take should be related to watering the plants.
 
-Notice that watering the plants is an activity with a clear command (go water) and a clear signal to completion (the plants are watered). This gives it the *context type* of a task. 
+Notice that watering the plants is an activity with a clear command (go water) and a clear signal to completion (the plants are watered). This gives it the *context type* of a task.
 
 Think of context types as different grammars of operation. Tasks are operative and have a clear finish line, regardless of context.
 
@@ -23,9 +22,9 @@ I may not know how much to water the plant. This is also its own context. We nee
 
 ## 2.2 Atomicity
 
-One principle to keep in mind is that every file has exactly one context. I call this a principle of context atomicity. 
+One principle to keep in mind is that every file has exactly one context. I call this a principle of context atomicity.
 
-In programming, atomic processes have a property of being isolated from concurrency algorithms. The entire process occurs at once without interruption. In our case, a file can contain only one context and it isolates itself from anything that is too unrelated to that declaration. For example, if we are taking notes on watering plants, writing about soil health research would interrupt the cohesion and flow of our notes. That should be in its own file. 
+In programming, atomic processes have a property of being isolated from concurrency algorithms. The entire process occurs at once without interruption. In our case, a file can contain only one context and it isolates itself from anything that is too unrelated to that declaration. For example, if we are taking notes on watering plants, writing about soil health research would interrupt the cohesion and flow of our notes. That should be in its own file.
 
 Tasks that are too big can also be broken into multiple task contexts each in its own file and an original big task context that puts them together.
 
@@ -53,9 +52,9 @@ You can consider a core context to be a parent to many peripheral contexts, but 
 
 The journal of each context file gives us micro progress, seeing how that individual context had evolved over time.
 
-The context cluster gives us meso progress, as we observe the added new atomic peripheral contexts to it over time. 
+The context cluster gives us meso progress, as we observe the added new atomic peripheral contexts to it over time.
 
-And finally, the addition of new originating intents (or context clusters) over time gives us a macro view on the progress of our project as a whole. 
+And finally, the addition of new originating intents (or context clusters) over time gives us a macro view on the progress of our project as a whole.
 
 Because each file is a single context, we can also start and stop a time logger as we work on each one, and this can be used to generate granular time reports aggregated by context cluster of how our time spent breaks down.
 
@@ -67,7 +66,7 @@ I used to mix many contexts in the same file, which over time lead to many files
 
 Reading the file was difficult, even if it were broken into headings and subheadings, there were too many of them, on far too many contexts. Debugging, planning, executing, researching, etc.
 
-They served a similar purpose to my context clusters do now. All the contexts were bound by an originating intent (the ever-growing file), which quickly decomposed into many contexts. Context clusters preserve this relation but keep each file lean and index-able. It is easier to search files with a single context. They can also have their own individual tags, which was not possible before when everything was stuffed into a single file. 
+They served a similar purpose to my context clusters do now. All the contexts were bound by an originating intent (the ever-growing file), which quickly decomposed into many contexts. Context clusters preserve this relation but keep each file lean and index-able. It is easier to search files with a single context. They can also have their own individual tags, which was not possible before when everything was stuffed into a single file.
 
 ## 3.2 No More Sub-Tasking
 
@@ -87,7 +86,7 @@ By respect, I broadly mean to give each context its due attention and effort. We
 
 It is easy to compromise on one context and do it partially only because we perceive it as a "stepping stone" to another. These judgments should be made explicit in the creation of the context what its completion criteria is.
 
-Once we are in a context, we know it's complete and self-enclosed, so we can tune out the outside world and focus all our attention and effort towards it. 
+Once we are in a context, we know it's complete and self-enclosed, so we can tune out the outside world and focus all our attention and effort towards it.
 
 # 5 Sequential Reduction
 
@@ -99,7 +98,7 @@ So we ask "What's next?" and our big problem context spawns a context for just t
 
 Because each step is its own context, we can tune out the remainder of the big activity and focus on just that step. This helps with giving it the respect it needs to do it well, and reducing anxiety that arises out of fixation with completing the spawning context, which may have within it many steps.
 
-Sequential reduction often happens on a need-be basis, it is about always asking "What is next?" which reduces the risk of creating many empty context files. 
+Sequential reduction often happens on a need-be basis, it is about always asking "What is next?" which reduces the risk of creating many empty context files.
 
 Combined with context clusters, Think of a core context as an original intent, and the peripheral contexts arise as a consequence of sequential reduction applied to the original intent and its peripherals.
 
@@ -125,7 +124,7 @@ We went over the principle of atomicity where one file corresponds to only one c
 
 We explored the three levels of micro, meso, and macro progress in note taking. How each context file can have a journal with timestamped cards of progress or notes logged in, and how we can have context clusters with one originating intent context and many peripheral contexts that are spawned via sequential reduction.
 
-Because each file is a single context, we also get low-effort time spent breakdown by starting and stopping timers on each file. 
+Because each file is a single context, we also get low-effort time spent breakdown by starting and stopping timers on each file.
 
 While we work on each context, we give it respect by tuning out the outside world and only focusing on its objective. This reduces anxiety due to ever-growing lists, or treating a context as subordinate to another and increasing risks of making compromises on it.
 
