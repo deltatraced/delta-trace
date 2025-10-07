@@ -14,7 +14,7 @@ We need to be able to launch a test static html website on the internet using a 
 
 Let's start by looking for options!
 
-Spawn [[#6.1 Initial web search for 3rd party hosting]]. ^spawn-invst-818f9d
+Spawn [[#6.1 Initial web search for 3rd party hosting]] ^spawn-invst-818f9d
 
 # 3 Tasks
 
@@ -53,7 +53,7 @@ We should also have an email for this. We could set up our own mail exchange, bu
 
 - [ ]
 
-From [[#^spawn-invst-818f9d]] in [[#2 Journal]]
+From [[#^spawn-invst-818f9d]] in [[001 Searching for services with free website hosting]]
 
 2025-08-12 Wk 33 Tue - 17:05
 
@@ -82,10 +82,3 @@ See some cost comparisons for a sample domain name in [[#3.1 Purchasing a Domain
 Recommendations from this [reddit post from 2024](https://www.reddit.com/r/webdev/comments/1bjfqse/whats_the_best_domain_registrar_in_2024/),
 
 [cloudflare](https://domains.cloudflare.com/), [namecheap](https://www.namecheap.com/),
-
-# 7 Ideas
-
-# 8 Side Notes
-# 9 External Links
-
-# 10 References
