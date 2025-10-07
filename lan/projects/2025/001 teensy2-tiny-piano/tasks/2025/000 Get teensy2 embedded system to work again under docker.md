@@ -12,9 +12,13 @@ Ideally the user should only connect the board to their PC via the macro USB cab
 
 2025-08-02 Wk 31 Sat - 09:23
 
-First we need to recover any notes on how we built and setup this project, or look up in the documentation how to get it building again. Note I've done this in Windows before, but now my PC is on Linux, and ultimately we want this to work under docker. See [[#3.1 Find out build and running information|task]]. ^spawn-task-find-build-info
+First we need to recover any notes on how we built and setup this project, or look up in the documentation how to get it building again. Note I've done this in Windows before, but now my PC is on Linux, and ultimately we want this to work under docker. 
 
-There's also a test circuit on the breadboard of this already. Let's recover what this was. See [[#3.2 Document already configured test keyboard circuit|task]]. ^spawn-task-doc-config-keybd-circuit
+Spawn [[#3.1 Find out build and running information]] ^spawn-task-d5a49c
+
+There's also a test circuit on the breadboard of this already. Let's recover what this was. 
+
+Spawn [[#3.2 Document already configured test keyboard circuit]] ^spawn-task-992945
 
 # 3 Tasks
 
@@ -22,7 +26,7 @@ There's also a test circuit on the breadboard of this already. Let's recover wha
 
 - [ ]
 
-From [[#^spawn-task-find-build-info]].
+From [[#^spawn-task-d5a49c]] in [[000 Get teensy2 embedded system to work again under docker]]
 
 2025-08-02 Wk 31 Sat - 09:25
 
@@ -37,6 +41,8 @@ Recovering some old notes:
 ## 3.2 Document already configured test keyboard circuit
 
 - [ ]
+
+From [[#^spawn-task-992945]] in [[000 Get teensy2 embedded system to work again under docker]]
 
 2025-08-02 Wk 31 Sat - 09:31
 

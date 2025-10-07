@@ -7,15 +7,19 @@ Whether it's patterns, software design practices, functional programming and dif
 
 # 2 Journal
 
+2025-08-14 Wk 33 Thu - 12:34
+
+Spawn [[#3.1 Initial searching for reference material]] ^spawn-task-bed80d
+
 # 3 Tasks
 
 ## 3.1 Initial searching for reference material
 
 - [ ]
 
-2025-08-14 Wk 33 Thu - 12:34
+From [[#^spawn-task-bed80d]] in [[000 Finding resource material for software engineering]]
 
----
+2025-08-14 Wk 33 Thu - 12:34
 
 From [hackr.io blog](https://hackr.io/blog/software-engineering-books),
 
