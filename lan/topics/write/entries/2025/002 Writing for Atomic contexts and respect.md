@@ -4,7 +4,7 @@ status: done
 
 # 1 Objective
 
-Notes for the post [[002 Atomic contexts and respect]]
+Notes for the post [[002 Atomic Contexts and Respect]]
 
 # 2 Journal
 
