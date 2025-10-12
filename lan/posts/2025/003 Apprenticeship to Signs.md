@@ -32,11 +32,11 @@ This can be liberating. If I draw something, or I program, I cannot do bad or fa
 
 Taking notes is often pragmatic. People take notes to remember things. They jot down ideas quickly for reference.
 
-I take a different approach. The method developed in [[002 Atomic contexts and respect||Atomic contexts and respect]] builds clusters and graphs of many small notes. The reason for this is to document my experience as I work. Each note functions like a river of timestamped logs, because I simply note what happens to me during work. When evidence surfaces, like a compiler error, I note it because it is this error that then prompts me to make a judgment. My notes, then, are less about categorizing, building a wiki, or remembering, and more about recording what signs change me that I may then act or judge. How did I act or judge? Why?
+I take a different approach. The method developed in [[002 Atomic contexts and respect||Atomic contexts and respect]] builds clusters and graphs of many small notes. The reason for this is to document my experience as I work. Each note functions like a river of timestamped logs, because I simply note what happens to me during work. When evidence surfaces, like a compiler error, I note it because it is this error that then prompts me to make a judgment. My notes, then, are less about categorizing, building a wiki, or remembering, and more about recording what signs change me and prompt me to act or judge.
 
 Judgments are grounded by reasons. They present relevant facts that satisfy the needs that prompted them. Reasons are inferred and interpreted from the evidence, which is the signs that our practice emits and prompts us to decipher.
 
-This is the reason I have seperate categories for inferences and judgments in my note taking method. During a task or investigation, I note what happens. When I need to make a key judgment, it then needs to be supported by reasons, which are inferred from the facts in the task or investigation.
+This is the reason I have separate categories for inferences and judgments in my note taking method. During a task or investigation, I note what happens. When I need to make a key judgment, it then needs to be supported by reasons, which are inferred from the facts in the task or investigation.
 
 This approach also allows me to engage with my prior judgments and reasons. My judgments may have cost me more than I anticipated, or my reasons were not strong or general enough. I also learned that one can debate with themselves this way!
 
