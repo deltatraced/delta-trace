@@ -40,7 +40,7 @@ This is the reason I have separate categories for inferences and judgments in my
 
 This approach also allows me to engage with my prior judgments and reasons. My judgments may have cost me more than I anticipated, or my reasons were not strong or general enough. I also learned that one can debate with themselves this way!
 
-# 5 Fin
+# 5 The End
 
 Thank you for reading! 
 
