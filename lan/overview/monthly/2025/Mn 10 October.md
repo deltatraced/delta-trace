@@ -20,6 +20,7 @@ To capture different aspects of how my month unfolded!
 | Post                                                             | created on           | updated on |
 | ---------------------------------------------------------------- | -------------------- | ---------- |
 | [[002 Atomic contexts and respect\|Atomic contexts and respect]] | 2025-10-02 Wk 40 Thu |            |
+| [[003 Apprenticeship to Signs\|Apprenticeship to Signs]]         | 2025-10-12 Wk 41 Sun |            |
 
 # 4 Related
 
