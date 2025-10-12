@@ -2,7 +2,7 @@
 
 The general theme in our posts on [[001 Star Days ★|Star Days]] and [[002 Atomic Contexts and Respect|Atomic contexts and Respect]] has been on attention. 
 
-Attention in declaring our intents, in maintaining maintaining presence, and in reducing big vague contexts into small specific contexts.
+Attention in declaring our intents, in maintaining presence, and in reducing big vague contexts into small specific contexts.
 
 In this post, the theme continues, this time with attention applied to expertise, learning, and making judgments.
 
