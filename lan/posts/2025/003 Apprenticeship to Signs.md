@@ -6,7 +6,7 @@ Attention in declaring our intents, in maintaining presence, and in reducing big
 
 In this post, the theme continues, this time with attention applied to expertise, learning, and making judgments.
 
-# 2 Learning through Encounters
+# 2 Learning Through Encounters
 
 In programming, we gain our expertise by becoming sensitive to the signs emitted by programs and people. Those include compiler errors, bugs, divergences between intent and implementation, trade offs of cost, speed, memory, power, and ergonomics, and so much more. When encountered, we have to make an effort to interpret these signs and make apt judgments.
 
@@ -20,7 +20,7 @@ This is an apprenticeship that we form, not to people, but to the signs of our p
 
 Often, we make judgments such as "I am bad at drawing hands". We look at our drawing, and sure enough, it does not meet our taste or expectations of what a good hand would look like. We may also inherit these judgments from others, such as with exams and performance reviews. It is expected that you deliver a result, and yet you do not.
 
-Because of societal expectations and habits, such judgments can obtain a lot of weight in our minds. But what do you notice about my judgment with regards to "I am bad at drawing hands" with respect to art? Does it attend to signs of art, such as shapes, curves, lines, perspective, references, or does it only attend to us? That we do not produce something?
+Because of societal expectations and habits, such judgments can obtain a lot of weight in our minds. But what do you notice about my judgment "I am bad at drawing hands" with respect to art? Does it attend to signs of art, such as shapes, curves, lines, perspective, references, or does it only attend to us? That we do not produce something?
 
 As explained before, learning happens to us as we attend to the signs of our practice, in this case of art. To draw good hands, then, it is through those encounters with art that we can translate our intentions to drawings. 
 
@@ -28,7 +28,7 @@ Rather than thinking in terms of whether our work is good or bad, we can instead
 
 This can be liberating. If I draw something, or I program, I cannot do bad or fail in a personal sense. Because it is not about me, but about production. And through speaking the language of my practice, then I may be able to produce what I want. Every mistake is yet another encounter with programming where I can make a judgment and observe what happens and change.
 
-# 4 Apprenticeship through note taking
+# 4 Apprenticeship Through Note Taking
 
 Taking notes is often pragmatic. People take notes to remember things. They jot down ideas quickly for reference.
 
