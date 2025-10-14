@@ -2,7 +2,7 @@
 parent: "[[000 Implement the Event Accumulator]]"
 spawned_by: "[[001 Create coin table events to experiment with aggregation being in views]]"
 context_type: task
-status: todo
+status: done
 ---
 
 Parent: [[000 Implement the Event Accumulator]]
@@ -78,5 +78,3 @@ It seems we will need to use raw SQL while using them for now rather than the qu
 2025-10-03 Wk 40 Fri - 03:24 +03:00
 
 Spawn [[000 To materialize grouped events and accumulated objects into tables via software]] ^spawn-jdgmt-733656
-
-2025-10-03 Wk 40 Fri - 04:21 +03:00

@@ -38,59 +38,89 @@ Spawn [[000 Resources encountered during event accumulator impl]] ^spawn-entry-4
 Spawn [[001 Create coin table events to experiment with aggregation being in views]] ^spawn-task-9b8a2b
 
 
+
+
+
+
 # 2 Index
 
 **entry**
 
-[[000 Resources encountered during event accumulator impl.md]]
+[[000 Resources encountered during event accumulator impl]]
 
 **howto**
 
-[[000 Create sqlite3 dbs from sql script.md]]
+[[000 Create sqlite3 dbs from sql script]]
 
-[[001 Creating a basic counter with a recursive CTE in sqlite3.md]]
+[[001 Creating a basic counter with a recursive CTE in sqlite3]]
 
-[[002 Creating a basic table duplicator with recursive CTE in sqlite3.md]]
+[[002 Creating a basic table duplicator with recursive CTE in sqlite3]]
 
 **inference**
 
-[[000 diesel-rs does not yet support views.md]]
+[[000 diesel-rs does not yet support views]]
 
-[[001 Event loads can contain complex join structures.md]]
+[[001 Event loads can contain complex join structures]]
 
-[[002 Use of sql_query in diesel-rs disrupts use of diesel query builder which requires manual SQL.md]]
+[[002 Use of sql_query in diesel-rs disrupts use of diesel query builder which requires manual SQL]]
 
-[[003 Use of event keys in events would result in complex partial accumulations.md]]
+[[003 Use of event keys in events would result in complex partial accumulations]]
 
-[[004 IDs in events must be to a unique object, which cannot be object id for a historic table.md]]
+[[004 IDs in events must be to a unique object, which cannot be object id for a historic table]]
 
 **investigation**
 
-[[000 Investigate summing and latest aggregation with diesel.md]]
+rejected [[000 Investigate summing and latest aggregation with diesel]]
 
-[[001 Use of views and CTEs with sqlite3 and diesel-rs.md]]
+[[001 Use of views and CTEs with sqlite3 and diesel-rs]]
 
-[[002 Investigate group by logic for frame and span to include up to span.md]]
+[[002 Investigate group by logic for frame and span to include up to span]]
 
-[[003 Create a natural numbers table and group by divisibility up to N.md]]
+[[003 Create a natural numbers table and group by divisibility up to N]]
 
-[[004 Investigate options for materializing views into tables using SQL.md]]
+[[004 Investigate options for materializing views into tables using SQL]]
 
 **judgment**
 
-[[000 To materialize grouped events and accumulated objects into tables via software.md]]
+[[000 To materialize grouped events and accumulated objects into tables via software]]
 
-[[001 To disallow event keys for joins but require materialized table unique ids for object in history.md]]
+[[001 To disallow event keys for joins but require materialized table unique ids for object in history]]
 
 **task**
 
-[[000 Allow users to append new credit store events in various ways.md]]
+todo [[000 Allow users to append new credit store events in various ways]]
 
-[[001 Create coin table events to experiment with aggregation being in views.md]]
+todo [[001 Create coin table events to experiment with aggregation being in views]]
 
-[[002 Add event accumulation events through diesel.md]]
+[[002 Add event accumulation events through diesel]]
 
-[[003 Attempt to use partial view support branch of diesel.md]]
+[[003 Attempt to use partial view support branch of diesel]]
 
-[[004 Choosing accumulations or events as keys in events.md]]
+[[004 Choosing accumulations or events as keys in events]]
+
+
+# 3 Spawn Trees
+
+- [[000 Implement the Event Accumulator]]
+    - entry [[000 Resources encountered during event accumulator impl]]
+    - rejected investigation [[000 Investigate summing and latest aggregation with diesel]]
+    - investigation [[001 Use of views and CTEs with sqlite3 and diesel-rs]]
+        - howto [[001 Creating a basic counter with a recursive CTE in sqlite3]]
+        - howto [[002 Creating a basic table duplicator with recursive CTE in sqlite3]]
+    - todo task [[000 Allow users to append new credit store events in various ways]]
+    - todo task [[001 Create coin table events to experiment with aggregation being in views]]
+        - investigation [[002 Investigate group by logic for frame and span to include up to span]]
+            - investigation [[003 Create a natural numbers table and group by divisibility up to N]]
+                - howto [[000 Create sqlite3 dbs from sql script]]
+        - task [[002 Add event accumulation events through diesel]]
+            - judgment [[000 To materialize grouped events and accumulated objects into tables via software]]
+                - inference [[000 diesel-rs does not yet support views]]
+                - inference [[001 Event loads can contain complex join structures]]
+                    - task [[004 Choosing accumulations or events as keys in events]]
+                        - judgment [[001 To disallow event keys for joins but require materialized table unique ids for object in history]]
+                            - inference [[003 Use of event keys in events would result in complex partial accumulations]]
+                            - inference [[004 IDs in events must be to a unique object, which cannot be object id for a historic table]]
+                - inference [[002 Use of sql_query in diesel-rs disrupts use of diesel query builder which requires manual SQL]]
+                - investigation [[004 Investigate options for materializing views into tables using SQL]]
+            - task [[003 Attempt to use partial view support branch of diesel]]
 
