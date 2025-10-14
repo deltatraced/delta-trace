@@ -1,4 +1,3 @@
-
 # 1 Objective
 
 As mentioned in the proto [[lan/protos/2025/002 Rust Diesel Extensions/README|README]],
@@ -7,9 +6,19 @@ The idea proposal can be found in: [Configurable Extension Tables with extension
 
 The goal here is to achieve something similar purely in SQL without any software intervention, and also to refine the idea more and flesh out an example domain of a Robot Kit.
 
-
 # 2 Journal
 
 2025-10-10 Wk 41 Fri - 11:41 +03:00
 
 Spawn [[000 Flesh out example domain robot kit for extensions]] ^spawn-task-f9fabc
+
+# 3 Index
+
+**task**
+
+todo [[000 Flesh out example domain robot kit for extensions]]
+
+# 4 Spawn Trees
+
+- [[000 Exploring SQL impl for extension tables]]
+    - todo task [[000 Flesh out example domain robot kit for extensions]]

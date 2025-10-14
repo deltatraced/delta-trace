@@ -37,11 +37,6 @@ Spawn [[000 Resources encountered during event accumulator impl]] ^spawn-entry-4
 
 Spawn [[001 Create coin table events to experiment with aggregation being in views]] ^spawn-task-9b8a2b
 
-
-
-
-
-
 # 2 Index
 
 **entry**

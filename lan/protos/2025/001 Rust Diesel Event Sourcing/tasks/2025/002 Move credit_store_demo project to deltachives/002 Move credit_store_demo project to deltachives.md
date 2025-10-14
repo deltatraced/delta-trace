@@ -42,3 +42,43 @@ Handling some lints, which include:
 2025-09-20 Wk 38 Sat - 04:51 +03:00
 
 All lints passed!
+
+# 2 Index
+
+**idea**
+
+[[000 Can eliminate all logging calls with cargo feature]]
+
+**investigation**
+
+[[000 Reviewing impl Trait type meaning]]
+
+**issue**
+
+[[000 Internal state for shi shell not passing to new thread safely]]
+
+[[001 Getting many debugging logs from rustyline while using shi]]
+
+skipped [[002 Getting a generic diesel update all function to work]]
+
+**task**
+
+[[000 Modularize shi shell use in credit store demo]]
+
+[[001 Register tables to process for event accumulator]]
+
+skipped [[002 Update credit store schema for required version event id]]
+
+
+# 3 Spawn Trees
+
+- [[002 Move credit_store_demo project to deltachives]]
+    - skipped issue [[002 Getting a generic diesel update all function to work]]
+    - task [[000 Modularize shi shell use in credit store demo]]
+        - investigation [[000 Reviewing impl Trait type meaning]]
+        - issue [[000 Internal state for shi shell not passing to new thread safely]]
+        - issue [[001 Getting many debugging logs from rustyline while using shi]]
+            - idea [[000 Can eliminate all logging calls with cargo feature]]
+    - task [[001 Register tables to process for event accumulator]]
+        - skipped task [[002 Update credit store schema for required version event id]]
+
