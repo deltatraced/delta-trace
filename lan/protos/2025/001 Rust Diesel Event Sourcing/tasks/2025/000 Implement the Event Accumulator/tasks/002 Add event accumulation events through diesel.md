@@ -80,10 +80,3 @@ It seems we will need to use raw SQL while using them for now rather than the qu
 Spawn [[000 To materialize grouped events and accumulated objects into tables via software]] ^spawn-jdgmt-733656
 
 2025-10-03 Wk 40 Fri - 04:21 +03:00
-
-2025-10-10 Wk 41 Fri - 23:13 +03:00
-
-Hi Amjad! Look at the timestamp!
-
-
-Spawn [[000 Specify its naaaame]] ^spawn-idea-ba01ac
