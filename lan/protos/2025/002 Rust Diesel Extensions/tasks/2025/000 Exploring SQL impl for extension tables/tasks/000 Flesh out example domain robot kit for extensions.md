@@ -280,4 +280,7 @@ This would be for the tables. but so far nothing really enforces structure of sl
 
 In Rust, there could be functions that insert extensions for specified extended tables. Note that if there is event sourcing derived  (ie, a history table is specified as a variant), then event inserts may need to be provided instead.
 
+This is brittle but temporarily workable. We can generate everything from `*.dbmts` because for the invariant-maintaining writes from model types, it might be best we make our own write function that uses the autogen one.  Similarly with reads, just map `Hist`  to the model object for example.
+
+
 

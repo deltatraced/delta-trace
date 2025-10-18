@@ -2,7 +2,7 @@
 parent: "[[000 Implement the Event Accumulator]]"
 spawned_by: "[[000 Implement the Event Accumulator]]"
 context_type: task
-status: todo
+status: done
 ---
 
 Parent: [[000 Implement the Event Accumulator]]
