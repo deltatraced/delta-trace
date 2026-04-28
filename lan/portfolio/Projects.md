@@ -3,7 +3,8 @@ Welcome! Let's walk through some of my work!
 # 1 Projects
 
 ## 1.1 bn6f reverse engineering
-github: [bn6f](https://github.com/dism-exe/bn6f)
+Github: [bn6f](https://github.com/dism-exe/bn6f)
+Languages: ARM Assembly, C, Python, Rust
 
 Reverse engineering Mega Man Battle Network 6. This reproduces the original game data from source code. It also has many derivative projects for tooling and analysis
 
@@ -19,6 +20,7 @@ To learn more, see [[Project - bn6f]].
 
 ## 1.2 dbmint
 github: [dbmint](https://github.com/LanHikari22/dbmint)
+Languages: Rust, SQLite
 
 Creating databases from scratch can be very intuitive. I learned it was possible with  [dbml](https://dbdiagram.io/home) to create schemas very quickly in a markdown like language and also see them visualized as graph of connections.
 
@@ -36,6 +38,7 @@ Stands for Time & Task Management. It does what it means, and much more. What st
 To learn more, see [[Project - TTM]].
 ## 1.4 checkpipe
 github: [checkpipe](https://github.com/LanHikari22/checkpipe).
+Languages: Python
 
 This is a library I wrote to introduce data pipes with type hints into python, so that I can write python in a more functional way!
 
@@ -44,6 +47,7 @@ The project has many use case examples in the [README](https://github.com/LanHik
 # 2 WIP Projects
 ## 2.1 Teensy2 Tiny Piano
 github: [teensy2-tiny-piano](https://github.com/delta-domain-rnd/teensy2-tiny-piano)
+Languages: C
 
 This is a project where we use a keypad, toy magnet speakers, a self-built DAC with an RC circuit, and a teensy2 microcontroller to simulate a tiny piano!
 

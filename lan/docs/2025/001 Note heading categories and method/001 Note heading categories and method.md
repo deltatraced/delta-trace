@@ -73,8 +73,8 @@ Although there are some manual things right now, like spawning new records, or r
 
 Thank you for going through my non-linear note taking style tutorial!
 
-# 9 External Links
+# 3 External Links
 
 If you've linked this note anywhere in the world, maybe take note of that here!
 
-# 10 References
+# 4 References

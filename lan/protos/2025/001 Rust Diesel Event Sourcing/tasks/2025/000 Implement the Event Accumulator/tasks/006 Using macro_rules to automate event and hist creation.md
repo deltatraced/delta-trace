@@ -2,7 +2,7 @@
 parent: "[[000 Implement the Event Accumulator]]"
 spawned_by: "[[005 Model coin_store_hist and related in diesel]]"
 context_type: task
-status: todo
+status: done
 ---
 
 Parent: [[000 Implement the Event Accumulator]]

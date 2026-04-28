@@ -283,4 +283,193 @@ In Rust, there could be functions that insert extensions for specified extended 
 This is brittle but temporarily workable. We can generate everything from `*.dbmts` because for the invariant-maintaining writes from model types, it might be best we make our own write function that uses the autogen one.  Similarly with reads, just map `Hist`  to the model object for example.
 
 
+2025-10-20 Wk 43 Mon - 14:26 +03:00
+
+Let's revise how extensions are created. Like Rust enums, they should have their own container being the extension.
+
+Joining with extensions should just be normal joins. The details about slotting can be left to the user, ie they can choose 1-to-1 or 1-to-many through an indirect table.
+
+```sql
+-- *.dbmts
+.EXTENSION EXCLUSIVE Body (
+	Android(android_body),
+	Factory(factory_body),
+	Rover(rover_body),
+);
+
+CREATE TABLE android_body (
+  id INTEGER NOT NULL PRIMARY KEY,
+);
+
+CREATE TABLE factory_body (
+  id INTEGER NOT NULL PRIMARY KEY,
+);
+
+CREATE TABLE rover_body (
+  id INTEGER NOT NULL PRIMARY KEY,
+);
+
+CREATE TABLE robot (
+  id INTEGER NOT NULL PRIMARY KEY,
+  body_excl_ext_id INTEGER NOT NULL REFERENCES body_excl_ext(id),
+);
+```
+
+```sql
+-- derived *.sql
+
+CREATE TABLE android_body (
+  id INTEGER NOT NULL PRIMARY KEY,
+);
+
+CREATE TABLE factory_body (
+  id INTEGER NOT NULL PRIMARY KEY,
+);
+
+CREATE TABLE rover_body (
+  id INTEGER NOT NULL PRIMARY KEY,
+);
+
+CREATE TABLE robot (
+  id INTEGER NOT NULL PRIMARY KEY,
+  body_ext_id INTEGER NOT NULL REFERENCES body_ext(id),
+);
+
+-- extra:
+CREATE TABLE body_excl_ext {
+  id INTEGER NOT NULL PRIMARY KEY,
+  opt_android_body_id INTEGER NULL REFERENCES android_body(id),
+  opt_factory_body_id INTEGER NULL REFERENCES factory_body(id),
+  opt_rover_body_id INTEGER NULL REFERENCES rover_body(id),
+}
+```
+
+```sql
+-- *.dbmts
+.KIND INCLUSIVE Features (
+	NetworkingPackets(networking_packets),
+	SensorStatistics(sensor_statistics),
+	Diagnostics(diagnotics),
+);
+
+CREATE TABLE networking_packets ( id INTEGER NOT NULL PRIMARY KEY, );
+CREATE TABLE sensor_statistics ( id INTEGER NOT NULL PRIMARY KEY, );
+CREATE TABLE diagnostics ( id INTEGER NOT NULL PRIMARY KEY, );
+
+CREATE TABLE sensor (
+  id INTEGER NOT NULL PRIMARY KEY,
+  features_incl_kind_id INTEGER NOT NULL REFERENCES features_incl_kind(id),
+);
+```
+
+```sql
+-- derived
+CREATE TABLE networking_packets ( id INTEGER NOT NULL PRIMARY KEY, );
+CREATE TABLE sensor_statistics ( id INTEGER NOT NULL PRIMARY KEY, );
+CREATE TABLE diagnostics ( id INTEGER NOT NULL PRIMARY KEY, );
+
+CREATE TABLE robot (
+  id INTEGER NOT NULL PRIMARY KEY,
+  robot_features_incl_ext_id INTEGER NOT NULL REFERENCES robot_features_incl_ext(id),
+);
+
+-- extra:
+CREATE TABLE robot_features_incl_ext (
+  id INTEGER NOT NULL PRIMARY KEY,
+  opt_networking_packets_id INTEGER NULL REFERENCES networking_packets(id),
+  opt_sensor_statistics_id INTEGER NULL REFERENCES sensor_statistics(id),
+  opt_diagnostics_id INTEGER NULL REFERENCES diagnostics(id),
+);
+```
+
+2025-10-20 Wk 43 Mon - 14:48 +03:00
+
+A powerful capability lies in recursive extensions, much like recursive enums in Rust whose variants reference it.
+
+```sql
+-- *.dbmts
+.KIND EXCLUSIVE HWComponent (
+	Motherboard(motherboard_excl_kind),
+	CPU(cpu_excl_kind),
+	RAM(ram_excl_kind),
+);
+
+.KIND EXCLUSIVE Motherboard (
+	Cheap(cheap_motherboard),
+	Fancy(fancy_motherboard),
+);
+
+CREATE TABLE cheap_motherboard (
+  id INTEGER NOT NULL PRIMARY KEY,
+  intel_cpu_id INTEGER NOT NULL REFERENCES intel_cpu(id),
+  low_spec_ram_id INTEGER NOT NULL REFERENCES low_spec_ram_excl_kind(id),
+  low_spec_ram_id INTEGER NOT NULL REFERENCES low_spec_ram_excl_kind(id),
+);
+
+CREATE TABLE fancy_motherboard (
+  id INTEGER NOT NULL PRIMARY KEY,
+  cpu_excl_kind_id INTEGER NOT NULL REFERENCES cpu_excl_kind(id),
+  cpu_excl_kind_id INTEGER NOT NULL REFERENCES cpu_excl_kind(id),
+  ram_excl_kind_id INTEGER NOT NULL REFERENCES ram_excl_kind(id),
+  ram_excl_kind_id INTEGER NOT NULL REFERENCES ram_excl_kind(id),
+  ram_excl_kind_id INTEGER NOT NULL REFERENCES ram_excl_kind(id),
+  ram_excl_kind_id INTEGER NOT NULL REFERENCES ram_excl_kind(id),
+);
+
+.KIND EXCLUSIVE CPU (
+	Intel(intel_cpu),
+	AMD(amd_cpu),
+);
+
+CREATE TABLE intel_cpu ( id INTEGER NOT NULL PRIMARY KEY, );
+CREATE TABLE amd_cpu ( id INTEGER NOT NULL PRIMARY KEY, );
+
+.KIND EXCLUSIVE LOW_SPEC_RAM (
+	Ram8GB(ram),
+	Ram16GB(ram),
+);
+
+.KIND EXCLUSIVE RAM (
+	Ram8GB(ram),
+	Ram16GB(ram),
+	Ram32GB(ram),
+);
+
+CREATE TABLE ram ( id INTEGER NOT NULL PRIMARY KEY, );
+
+CREATE TABLE shopping_cart (  id INTEGER NOT NULL PRIMARY KEY, );
+
+CREATE TABLE shopping_cat_has_many (
+	id INTEGER NOT NULL PRIMARY KEY,
+	shopping_cart_id INTEGER NOT NULL REFERENCES shopping_cart(id),
+	hw_component_excl_kind_id INTEGER NOT NULL REFERENCES hw_component_excl_kind(id),
+	cost INTEGER NOT NULL,
+);
+```
+
+2025-10-20 Wk 43 Mon - 15:48 +03:00
+
+```sql
+-- *.dbmts
+.KIND INCLUSIVE Capabilities (
+	Transmission(transmission),
+	BatteryBank(battery_bank)
+	SolarCharging(solar_charging),
+);
+
+CREATE TABLE transmission ( id INTEGER NOT NULL PRIMARY KEY, );
+CREATE TABLE battery_bank ( id INTEGER NOT NULL PRIMARY KEY, );
+
+CREATE TABLE solar_charging (
+	id INTEGER NOT NULL PRIMARY KEY, 
+	battery_bank_req_id INTEGER NOT NULL REFERENCES battery_bank(id),
+);
+
+CREATE TABLE robot (
+  id INTEGER NOT NULL PRIMARY KEY,
+  capabilities_incl_kind_id INTEGER NOT NULL REFERENCES capabilities_incl_kind(id),
+);
+```
+
+I renamed extensions to kinds because it's the closest to enum, and enum is already taken. An exclusive kind is like a rust enum. An inclusive kind is more bitflags with payload.
 

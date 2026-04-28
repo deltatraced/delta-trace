@@ -41,6 +41,10 @@ Spawn [[001 Create coin table events to experiment with aggregation being in vie
 
 Spawn [[005 Model coin_store_hist and related in diesel]] ^spawn-task-276e67
 
+2025-11-22 Wk 47 Sat - 16:27 +03:00
+
+Spawn [[009 Fix conceptual bug of not tracking branch information for soft reset]] ^spawn-task-0f0f75
+
 # 2 Spawn Trees
 
 - [[000 Implement the Event Accumulator]]
@@ -57,17 +61,19 @@ Spawn [[005 Model coin_store_hist and related in diesel]] ^spawn-task-276e67
         - task [[002 Add event accumulation events through diesel]]
             - judgment [[000 To materialize grouped events and accumulated objects into tables via software]]
                 - inference [[000 diesel-rs does not yet support views]]
+                - inference [[002 Use of sql_query in diesel-rs disrupts use of diesel query builder which requires manual SQL]]
                 - inference [[001 Event loads can contain complex join structures]]
                     - task [[004 Choosing accumulations or events as keys in events]]
                         - judgment [[001 To disallow event keys for joins but require materialized table unique ids for object in history]]
                             - inference [[003 Use of event keys in events would result in complex partial accumulations]]
                             - inference [[004 IDs in events must be to a unique object, which cannot be object id for a historic table]]
-                - inference [[002 Use of sql_query in diesel-rs disrupts use of diesel query builder which requires manual SQL]]
                 - investigation [[004 Investigate options for materializing views into tables using SQL]]
             - task [[003 Attempt to use partial view support branch of diesel]]
-    - todo task [[005 Model coin_store_hist and related in diesel]]
-        - todo task [[006 Using macro_rules to automate event and hist creation]]
+    - task [[005 Model coin_store_hist and related in diesel]]
+        - task [[006 Using macro_rules to automate event and hist creation]]
             - entry [[001 Reading through lukaswirth.dev decl-macros]]
+        - task [[007 Remove obselete credit store code for old software managed event sourcing]]
+        - task [[008 Add model validation for person and coin writes]]
 
 # 3 Index
 
@@ -89,9 +95,9 @@ Spawn [[005 Model coin_store_hist and related in diesel]] ^spawn-task-276e67
 
 [[000 diesel-rs does not yet support views]]
 
-[[001 Event loads can contain complex join structures]]
-
 [[002 Use of sql_query in diesel-rs disrupts use of diesel query builder which requires manual SQL]]
+
+[[001 Event loads can contain complex join structures]]
 
 [[003 Use of event keys in events would result in complex partial accumulations]]
 
@@ -127,6 +133,10 @@ todo [[000 Allow users to append new credit store events in various ways]]
 
 [[004 Choosing accumulations or events as keys in events]]
 
-todo [[005 Model coin_store_hist and related in diesel]]
+[[005 Model coin_store_hist and related in diesel]]
 
-todo [[006 Using macro_rules to automate event and hist creation]]
+[[006 Using macro_rules to automate event and hist creation]]
+
+[[007 Remove obselete credit store code for old software managed event sourcing]]
+
+[[008 Add model validation for person and coin writes]]

@@ -33,6 +33,8 @@ Other repositories in the organization give deliverables. This gives the behind-
 
 For higher browser viewing compatibility, switch to the [webview branch](https://github.com/deltatraced/delta-trace/tree/webview).
 
+This repository comes with different wikis. You can check them [[001 Wiki Categories|here]].
+
 # 2 See also
 
 1. [delta-trace](https://github.com/deltatraced/delta-trace/tree/webview) **You are here!**
@@ -58,4 +60,4 @@ One reason for making notes public is to make my creative process transparent an
 
 # 4 License
 
-This work is licensed under the [MIT license](https://opensource.org/licenses/mit-license.php) © 2025 Mohammed Alzakariya.
+This work is licensed under the [MIT license](https://opensource.org/licenses/mit-license.php) © 2026 Mohammed Alzakariya.

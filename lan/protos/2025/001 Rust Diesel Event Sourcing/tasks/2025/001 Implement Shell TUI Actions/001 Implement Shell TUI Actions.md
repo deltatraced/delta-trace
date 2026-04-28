@@ -70,3 +70,21 @@ Yup the command now outputs the error we get from the event accumulator to the s
 2025-09-21 Wk 38 Sun - 04:18 +03:00
 
 We will need to implement in the event accumulator actions more event actions to add, like deleting objects, or updating them. Then we can have corresponding shell ui commands for them.
+
+2025-10-21 Wk 43 Tue - 20:07 +03:00
+
+- [ ] Add command for creating a User with an initial amount of coins. Fail if the user already exists.
+- [ ] Add command for adding expenses to a user
+- [ ] Add a command to view the expense transactions and one for the coin wallet
+- [ ] Add a branch command, which creates a new frame in the next span
+- [ ] Add a reset local, which creates a new frame in the current span
+- [ ] Add a reset global, which creates a new frame in span 1
+- [ ] Add a checkout command, where user can specify "latest" or a given span and frame
+
+- [ ] Add an option to load initial data from CSV
+- [ ] Add an option to reset the db on run (no persistance)
+- [ ] Create a guide for customizing the ontology
+
+2025-10-21 Wk 43 Tue - 20:28 +03:00
+
+Spawn [[000 Add TUI Commands to interact with the coin store]] ^spawn-task-519857

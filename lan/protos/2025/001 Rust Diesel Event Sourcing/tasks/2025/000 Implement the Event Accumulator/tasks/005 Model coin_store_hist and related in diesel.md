@@ -2,7 +2,7 @@
 parent: "[[000 Implement the Event Accumulator]]"
 spawned_by: "[[000 Implement the Event Accumulator]]"
 context_type: task
-status: todo
+status: done
 ---
 
 Parent: [[000 Implement the Event Accumulator]]
@@ -97,3 +97,12 @@ We need to modify `dbmts_rs` to make it autoincrement events, and we need to aut
 2025-10-14 Wk 42 Tue - 19:40 +03:00
 
 Spawn [[006 Using macro_rules to automate event and hist creation]] ^spawn-task-6cd569
+
+2025-10-20 Wk 43 Mon - 22:00 +03:00
+
+Spawn [[007 Remove obselete credit store code for old software managed event sourcing]] ^spawn-task-e6701d
+
+2025-10-20 Wk 43 Mon - 22:27 +03:00
+
+Spawn [[008 Add model validation for person and coin writes]] ^spawn-task-d31c69
+
