@@ -16,6 +16,8 @@ But not all notes should function as a history. For example, if we're doing rese
 
 As another example, when problem solving, it can be desirable to capture not only a solution but an argument that guides us from initial considerations to a final acceptable solution to the problem. This has pedagogical value, and it also captures how we reason and solve problems. This is best treated as its own deliverable or document. We need to have the ability to proof read, edit, and refine this document with time.
 
+One must note that with historical (/process) notes, the goal is not to capture the entirety of the creativity/discovery process, or even most of it. What gets left out is as important as what is included. Fewer but stronger insights to guide a future reader to rediscover the creativity process is what is important, which can be done not by exhaustive description of what we are doing, but by journaling our encounters with the most important insights that lead to the creation of a work or learning something new.
+
 # 3 Contrasting with Document Notes
 
 Editable document notes lift the restriction (or tendency) to serialize notes on a timeline. This means they are free to take a different shape, such as a specific heading structure. Note that just like historical notes, these documents can also link to other documents, which are themselves editable. This means we have an entire network of notes that is malleable and can be edited and relinked. In contrast, networks of historical notes pin down any note they link for content.
@@ -42,7 +44,7 @@ By having a mirror process note for every document note, the process note can ca
 
 We have also already been operating with both a document and a process note at hand here. Often source code acts as the deliverable, and much experimentation goes there. When some important progress is encountered, it is then captured in the process notes. In other words, having a document allowed us to distill the process notes to capture only the important encounters. We can make use of this same advantage when we have a mirror process note for a document note. By making good use of deletion and allowing the shape of the document to guide our thinking and creating, we can capture fewer but more insightful historical notes of progress. 
 
-The dual use of process note and document note also opens a new dimension of critique and collaboration with others. The process side can be examined for patterns of thought and attention that others may examine for information that is hard to find in the document itself. The document of course can be much more easily shared with others, and meet shared quality standards. Readers can focus on the document to assess the quality of content, and on the process note to assess the choice of methods used and interpretations of those methods.
+The dual use of process note and document note also opens a new dimension of critique and collaboration with others. The process side can be examined for patterns of thought and attention that others may examine for information that is hard to find in the document itself. The document of course can be much more easily shared with others, and meet shared quality standards. Readers can focus on the document to assess the quality of content, and on the process note to assess the choice of methods used and how and when they are used.
 
 # 5 Challenges
 

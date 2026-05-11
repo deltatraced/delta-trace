@@ -17,17 +17,19 @@ Problem can be found in [Two-dimensional surfaces: the sphere | Algebraic Topolo
 
 # 1 Problem
 
-$e : \mathbb{Q} \to \mathbb{Q^2}$ 
-$e = \frac{1 - h^2}{1 + h^2} , \frac{2h}{1 + h^2}$
+- $e : \mathbb{Q} \to \mathbb{Q^2}$ 
+- $e = \frac{1 - h^2}{1 + h^2} , \frac{2h}{1 + h^2}$
 
-$\text{Prop}_1 : \forall (h_1\ h_2 : \mathbb{Q}) \to (e\ h_1) * (e\ h_2) \equiv (e\ h_3)$ 
-where
-	$h_3 : \mathbb{Q}$
-	$h_3 = \frac{h_1 + h_2}{1 - h_1 \cdot h_2}$
+- $\text{Prop}_1 : \forall (h_1\ h_2 : \mathbb{Q}) \to (e\ h_1) * (e\ h_2) \equiv (e\ h_3)$ 
+- where
+	- $h_3 : \mathbb{Q}$
+	- $h_3 = \frac{h_1 + h_2}{1 - h_1 \cdot h_2}$
 
 # 2 Proof
 
 # 3 Argument
+
+$e$ is the [[003 Rational Parameterization of the circle|Rational parameterization of the circle]].
 
 # 4 Related
 

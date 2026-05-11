@@ -5,12 +5,14 @@ Spawn [[000 Spawn Logs for Math Problems]] ^spawn-entry-b9f889
 
 Process Notes:  [[001 Proc Math Problems]]
 
+Homepage Wiki: [[001 Wiki Categories]]
+
 ---
 
 **Algebraic Topology**
 
 - [[000 NW Alg Top S1 Mult 1]]
 
-$\mathbb{N}$
-$\mathbb{x}$
+**Geometry**
 
+- [[003 Rational Parameterization of the circle]]
