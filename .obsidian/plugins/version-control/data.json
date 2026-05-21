@@ -12,20 +12,7 @@
   "versionIdFormat": "{timestamp}_{version}",
   "centralManifest": {
     "version": "1.0.0",
-    "notes": {
-      "cfa94998-9053-44b5-a2c2-715c0ec6af66": {
-        "notePath": "lan/posts/2025/001 Star Days ★.md",
-        "manifestPath": ".versiondb/cfa94998-9053-44b5-a2c2-715c0ec6af66/manifest.json",
-        "createdAt": "2026-04-22T03:14:36.464Z",
-        "lastModified": "2026-04-22T03:14:36.464Z"
-      },
-      "7966fba8-5f9f-4e88-9884-8d5f438f345a": {
-        "notePath": "lan/wiki/2026/000 On Wiki Writing/000 On Wiki Writing.md",
-        "manifestPath": ".versiondb/7966fba8-5f9f-4e88-9884-8d5f438f345a/manifest.json",
-        "createdAt": "2026-04-22T03:30:14.979Z",
-        "lastModified": "2026-04-22T03:30:14.979Z"
-      }
-    }
+    "notes": {}
   },
   "versionHistorySettings": {
     "maxVersionsPerNote": 50,
