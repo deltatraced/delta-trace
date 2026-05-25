@@ -1,7 +1,8 @@
 
-G# Journal
+# Journal
 
 ---
+
 2026-05-21 Wk 21 Thu - 14:31 +03:00
 
 Here is a new way of writing journal entries.
@@ -17,6 +18,7 @@ You get the idea.
 
 
 ---
+
 2026-05-21 Wk 21 Thu - 14:41 +03:00
 
 Part of the restructering is to consolidate the repository knowledge system rules. The prior version `archive-2025-may-21` was very permissive with folder structure. 
@@ -37,8 +39,8 @@ Here is how it will be now
       NNN-proc-{cluster-name} # Every wiki cluster has a dual proc
     /task       # Central tasks go here
     /entry      # Central entries go here
-    /docs       # Document clusters and/or files go here.
-    /files      # More misc files, may include logs.
+    /doc       # Document clusters and/or files go here.
+    /file      # More misc files, may include logs.
     /topic      # These are now flat projects. Use tags and links.
 
 The `YYYY` project is special, in that it includes things like `/post`, `/topic`, `/proj`, etc. 
@@ -48,18 +50,20 @@ Other projects can be created under `/proj`, `/microproj`, and `/topic`.
 A project typically has the following structure:
 
 /NNN-my-proj
-  /task
   /entry
+  /task
+  /issue
   /wiki
   /wikiproc
-  /docs
-  /files
+  /doc
+  /file
 
 Inside `/task`, `/entry`, `/wiki`, and `/wikiproc` are clusters. Clusters are like a middle layer: they organize notes into a common purpose. A cluster is recognized by having a file by its own name: `NNN-my-cluster/NNN-my-cluster`, called its core note. It then allows spawning subnotes of different context types, and will put them in a flat per-category folders underneath it. 
 
-Use tags 
+Clusters can be put in status folders: `/todo, /done, /wtch, /idea, /also`
 
 ---
+
 2026-05-21 Wk 21 Thu - 15:03 +03:00
 
 We also want to rebrand away from Obsidian. There are issues rendering its own flavor of markdown, and we don’t have much control over it. We had a `lan-obsidian-plugin` over there to automate creating clusters. Wherever we go, we need a plugin to automate the tasks of creating projects and clusters. We need to be able to quickly index projects and clusters. 
@@ -78,3 +82,16 @@ One of the many images I have:
 In Silverbullet.md I had to add `attachments/`. It seems the default place for images changes here. Might have to do something about this, until they allow it to be configurable.
 
 Also why can’t I do gg and G in vim here?
+
+---
+
+2026-05-21 Wk 21 Thu - 18:08 +03:00
+
+Spawn [[000 Some test entry for 2026 may restructure]] ^spawn-entry-d41d18
+
+Okay. Updated the obsidian plugin also to reflect the new folder names. `entry` instead of `entries`, etc.
+
+Of course this just doesn’t work automatically for us with Silverbullet. The links are short, and it expects a full path.
+
+[[lan/2026/entry/000-2026-may-restructure/entry/000 Some test entry for 2026 may restructure]]
+
