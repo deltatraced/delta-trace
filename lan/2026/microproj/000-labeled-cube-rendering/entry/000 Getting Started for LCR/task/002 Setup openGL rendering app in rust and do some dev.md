@@ -258,7 +258,7 @@ Spawn [[001 Getting a segfault when using CreateShader again]] ^spawn-issue-423b
 
 So we can also switch the lattice solution for a solution that generates only the needed vertices of the shape directly. Then for the indices, we can simply connect them by lines in terms of the order they appear in. 
 
-We also want points on a line segment with configurable resolution and length to map to the shape we want, in this case the circle using [[003 Rational Parameterization of the circle]]:
+We also want points on a line segment with configurable resolution and length to map to the shape we want, in this case the circle using [[003 Archived Rational Parameterization of the circle]]:
 
 ```haskell
 e : (h : ℚ) → Vect2

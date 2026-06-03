@@ -1,23 +1,19 @@
 ---
-parent: "[[001 Math Problems]]"
-spawned_by: "[[002 Proc Rational Parameterization of Circle]]"
 context_type: task
-status: done
+status: todo
 ---
 
-Parent: [[001 Math Problems]]
+Parent: [[001 Wiki Mathematics]]
 
-Spawned by: [[002 Proc Rational Parameterization of Circle]]
+Spawned by: [[001 Wiki Proc Mathematics]]
 
-Spawned in: [[002 Proc Rational Parameterization of Circle#^spawn-task-1d5e62|^spawn-task-1d5e62]]
+Spawned in: [[001 Wiki Proc Mathematics#^spawn-task-4186cd|^spawn-task-4186cd]]
 
----
-
-# 1 Problem
+# Problem
 
 We want to define a function `e` that takes a unique rational parameter `h` and sends it to 2D vector representing a unique point on the circle, with the idea being that we then have a nearly invertible mapping from the rational line to rational points on the circle. It is nearly invertible becaause the map `e` does not need to send anything to the point (-1, 0), which is motivated by the fact that a slope-sweep based solution would blow up to slope $\pm \infty$ at that point, assuming that it is designated as the source point in the problem.
 
-# 2 Proof
+# Proof
 
 See the [[#3 Explanation|Explanation]] below.
 
@@ -156,7 +152,7 @@ module
 
 ```
 
-# 3 Explanation
+# Explanation
 
 Starting from a point `A` on the unit circle, let it be `(-1, 0)`, we want to cast a ray to any ot
 her point on the circle, call it `B`. When we do this, we always cross the y-axis at a point, whose y-component distance from the origin we will label `h`. There is a unique point on the circle for every unique point we intersect the y-axis. Because of this, we are interested to find a map from `h` to the coordinates of the point `B`. Let's graph what we have so far:

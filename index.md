@@ -4,4 +4,7 @@ An index file!
 
 
 Currently working on:
-- [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/task/001 create a rust silverbullet plugin]]
+- [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/000-clusterline-md-getting-started]]
+  - [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/task/001 create a rust silverbullet plugin]]
+
+Referring to [[note 1]] and [[note 2]] from the index to remember to reach them

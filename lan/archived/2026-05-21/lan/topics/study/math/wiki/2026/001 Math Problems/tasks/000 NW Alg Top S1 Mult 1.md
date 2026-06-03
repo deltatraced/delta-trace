@@ -29,7 +29,7 @@ Problem can be found in [Two-dimensional surfaces: the sphere | Algebraic Topolo
 
 # 3 Argument
 
-$e$ is the [[003 Rational Parameterization of the circle|Rational parameterization of the circle]].
+$e$ is the [[003 Archived Rational Parameterization of the circle|Rational parameterization of the circle]].
 
 # 4 Related
 

@@ -15,7 +15,7 @@ Spawned in: [[001 Proc Math Problems#^spawn-entry-8de42c|^spawn-entry-8de42c]]
 
 2026-04-28 Wk 18 Tue - 18:47 +03:00
 
-Spawn [[003 Rational Parameterization of the circle]] ^spawn-task-1d5e62
+Spawn [[003 Archived Rational Parameterization of the circle]] ^spawn-task-1d5e62
 
 2026-05-11 Wk 20 Mon - 19:22 +03:00
 

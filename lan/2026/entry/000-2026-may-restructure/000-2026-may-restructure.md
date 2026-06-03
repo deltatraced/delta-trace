@@ -76,7 +76,7 @@ We’re still using obsidian a bit, because we don’t have a SilverBullet.md pl
 
 Let’s bring back some compatible items from the 2026-05-21 archive. In order to see the true state of the archive (as will be mentioned in the log), one will need to go to a specific commit. Otherwise we want to avoid needless duplication, so we will move what we need back.
 
-One of the many images I have:
+One of the many images I https://github.com/epwalsh/obsidian.nvim#system-requirementshave:
 
 ![[attachments/Pasted image 20250629022907.png]]
 In Silverbullet.md I had to add `attachments/`. It seems the default place for images changes here. Might have to do something about this, until they allow it to be configurable.
@@ -95,3 +95,10 @@ Of course this just doesn’t work automatically for us with Silverbullet. The l
 
 [[lan/2026/entry/000-2026-may-restructure/entry/000 Some test entry for 2026 may restructure]]
 
+
+2026-06-01 Wk 23 Mon - 13:02 +03:00
+
+Some other open source note taking tools to consider:
+- https://github.com/siyuan-note/siyuan
+- https://github.com/laurent22/joplin
+- https://github.com/epwalsh/obsidian.nvim

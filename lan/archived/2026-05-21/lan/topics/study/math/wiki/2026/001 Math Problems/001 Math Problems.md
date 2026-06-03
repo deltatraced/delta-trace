@@ -15,4 +15,4 @@ Homepage Wiki: [[001 Wiki Categories]]
 
 **Geometry**
 
-- [[003 Rational Parameterization of the circle]]
+- [[003 Archived Rational Parameterization of the circle]]

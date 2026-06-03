@@ -53,7 +53,7 @@ Timestamp acquired! Just use `Ctrl+/ tim`. The full command name is `Clusterline
 
 2026-05-23 Wk 22 Sat - 00:14 +03:00
 
-Okay so now back on track, let’s try to write this plugin in Rust. Right now, it is setup to be written in typescript, and the `.yaml` file is interpreted to read from `hello.ts` somehow.
+Okay so now back onnn track, let’s try to write this plugin in Rust. Right now, it is setup to be written in typescript, and the `.yaml` file is interpreted to read from `hello.ts` somehow.
 
 2026-05-23 Wk 21 Sat - 01:52 +03:00
 

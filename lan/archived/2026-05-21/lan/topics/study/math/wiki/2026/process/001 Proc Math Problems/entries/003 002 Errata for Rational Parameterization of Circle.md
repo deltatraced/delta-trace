@@ -12,7 +12,7 @@ Spawned in: [[002 Proc Rational Parameterization of Circle#^spawn-entry-b771b9|^
 
 # 1 Journal
 
-Errata for [[003 Rational Parameterization of the circle]]
+Errata for [[003 Archived Rational Parameterization of the circle]]
 
 ## 1.1 Errata 1
 
