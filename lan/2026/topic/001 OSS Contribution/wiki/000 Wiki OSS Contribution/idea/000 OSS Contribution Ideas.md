@@ -18,3 +18,10 @@ Spawned in: [[lan/2026/topic/001 OSS Contribution/wikiproc/000 Wiki Proc OSS Con
 The name of the item, as well as the links searched here are too long. It would be preferable if it showed me a truncated view favoring the right rather than the left for both the title name and the link suggestions.
 
 ![[Pasted image 20260602085003.png]]
+(2)
+
+2026-06-04 Wk 23 Thu - 02:43 +03:00
+
+Plug reload is non-deterministic, even after doing an explicit `Plugs: Reload` I still do not get the updated content on first try.
+
+vim mode sometimes shows a G, and other oddities like inconsistently blinking cursor that just goes invisible.

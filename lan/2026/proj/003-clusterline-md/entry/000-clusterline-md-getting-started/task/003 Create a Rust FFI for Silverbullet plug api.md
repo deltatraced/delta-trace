@@ -419,4 +419,19 @@ log(&format!("{:?}", write_file("rustplug.md", &vec![1, 2, 3, 4]).await));
 
 This creates a `rustplug.md` in the space root. It can create a `rustplug.bin` too. Seems its issue was lack of extension.
 
+2026-06-04 Wk 23 Thu - 05:28 +03:00
+
+We could have also used the snake case conversion on the extern “C” wasm_bindgen functions, according to the docs on one of them like
+
+```
+hello_wasm::silverbullet_plug_api::editor::imported
+pub async fn getText() -> String
+hello_wasm::silverbullet_plug_api::editor::imported
+unsafe fn __wbg_getText_6871b6f33b97eb96() -> wasm_bindgen::convert::WasmRet<<wasm_bindgen_futures::js_sys::Promise<String> as wasm_bindgen::convert::FromWasmAbi>::Abi>
+```
+
+```
+A Note About camelCase, snake_case, and Naming Conventions
+JavaScript's global objects use camelCase naming conventions for functions and methods, but Rust style is to use snake_case. These bindings expose the Rust style snake_case name. Additionally, acronyms within a method name are all lower case, where as in JavaScript they are all upper case. For example, decodeURI in JavaScript is exposed as decode_uri in these bindings.
+```
 

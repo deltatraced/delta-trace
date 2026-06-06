@@ -22,6 +22,7 @@ Features, sorted by high priority for use:
 - [ ] Autogenerate `project-index` for all projects in the space, ‘cluster-index`, for all clusters in the space, and `note-index` for all notes in the space, all alphabetically sorted
 - [ ] For each cluster, create the following in an `autogen/` folder, where `X` is the number of the cluster: `000 X Context Index`, `001 X Spawn Tree`.
 - [ ] Add a command to paste and move images to attachment/ after paste
+- [ ] Add a command to fix spawned by relations that need resync after note refactoring (move of corresponding Spawn note)
 
 Let’s try to develop the plugin with rust/webasm rather than ts if possible.
 
