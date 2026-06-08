@@ -13,7 +13,7 @@
 | &nbsp;&nbsp;&nbsp;&nbsp;[[002 Update credit store schema for required version event id]] | 0h 26m 43s |
 | [[000 Attempting to upgrade rustyline for shi]] | **2h 33m 6s** |
 | &nbsp;&nbsp;&nbsp;&nbsp;[[000 Prepare new branch for shi rustyline upgrade]] | 0h 22m 24s |
-| [[Wk 37 000 Addressing shi PR 10]] | **2h 21m 25s** |
+| [[000 Wk 37 Addressing shi PR 10]] | **2h 21m 25s** |
 | &nbsp;&nbsp;&nbsp;&nbsp;[[001 Looking into shi quotation removal]] | 1h 24m 15s |
 | &nbsp;&nbsp;&nbsp;&nbsp;[[000 Look into tarpaulin use]] | 0h 49m 6s |
 | &nbsp;&nbsp;&nbsp;&nbsp;[[000 grep git commits by changes content for a string]] | 0h 8m 4s |

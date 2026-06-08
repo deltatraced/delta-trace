@@ -47,7 +47,7 @@ The API gives us the cursor position in `# of characters` via `editor.getCursor(
 
 Previously we looked into f64 here:
 
-- From [[lan/2026/topic/000 Atomic/wiki/002 Wiki Questions/task/000 False Why does rust f64 try_into for u64 say infallible error]],
+- From [[000 False Why does rust f64 try_into for u64 say infallible error]],
   - https://doc.rust-lang.org/stable/reference/
 
 For rust, the character is:
@@ -314,7 +314,7 @@ So whether the `JsValue` is owned or not, when we create one we’re really just
 
 2026-06-02 Wk 23 Tue - 08:41 +03:00
 
-Will document things I don’t get in [[lan/2026/topic/001 OSS Contribution/wiki/000 Wiki OSS Contribution/entry/000 Silverbullet API Documentation Confusion]]
+Will document things I don’t get in [[000 Silverbullet API Documentation Confusion]]
 
 Should remember to go over everything again later and add stuff there.
 

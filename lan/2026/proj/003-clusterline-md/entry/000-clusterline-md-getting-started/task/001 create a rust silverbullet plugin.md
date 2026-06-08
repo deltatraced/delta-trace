@@ -13,7 +13,7 @@ Spawned in: [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-
 
 2026-05-23 Wk 22 Sat - 10:33 +03:00
 
-Spawn [[002 Figure out how to get a simple rust plugin to work with Silverbullet]] ^spawn-task-eac5da
+Spawn [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/task/002 Figure out how to get a simple rust plugin to work with Silverbullet]] ^spawn-task-eac5da
 
 2026-05-25 Wk 22 Mon - 04:40 +03:00
 
@@ -21,7 +21,7 @@ Spawn [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-starte
 
 2026-06-04 Wk 23 Thu - 16:08 +03:00
 
-Spawn [[001 Using async for js extern instead of future leads to wrong pkg generation via wasm-pack]] ^spawn-issue-7ed0f8
+Spawn [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/issue/001 Using async for js extern instead of future leads to wrong pkg generation via wasm-pack]] ^spawn-issue-7ed0f8
 
 2026-06-04 Wk 23 Thu - 07:28 +03:00
 
