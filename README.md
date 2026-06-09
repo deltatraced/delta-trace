@@ -33,7 +33,7 @@ Other repositories in the organization give deliverables. This gives the behind-
 
 For higher browser viewing compatibility, switch to the [webview branch](https://github.com/deltatraced/delta-trace/tree/webview).
 
-This repository comes with different wikis. You can check them [here](https://github.com/deltatraced/delta-trace/blob/webview/lan/wiki/2026/001%20Wiki%20Categories/001%20Wiki%20Categories.md).
+This repository comes with different wikis. You can check them [here](https://github.com/deltatraced/delta-trace/blob/webview/lan/archived/2026-05-21_2026/main/wiki/001%20Wiki%20Categories/001%20Wiki%20Categories.md).
 
 # 2 See also
 
