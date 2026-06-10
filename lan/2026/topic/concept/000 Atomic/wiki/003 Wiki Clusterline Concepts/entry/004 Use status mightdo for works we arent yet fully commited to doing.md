@@ -1,0 +1,13 @@
+---
+context_type: entry
+---
+
+Parent: [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/003 Wiki Clusterline Concepts]]
+
+Spawned by: [[lan/2026/topic/concept/000 Atomic/wikiproc/003 Wiki Proc Clusterline Concepts/003 Wiki Proc Clusterline Concepts]]
+
+Spawned in: [[lan/2026/topic/concept/000 Atomic/wikiproc/003 Wiki Proc Clusterline Concepts/003 Wiki Proc Clusterline Concepts#^spawn-entry-eaecc5|^spawn-entry-eaecc5]]
+
+---
+
+The clusterline format allows us to group both projects and clusters under a given status via `st/{status}`. One of those is the `mightdo`, which does not commit us to actually do it. Similar to [[001 Term Aspiring Notes|aspiring notes]], `mightdo` projects and clusters help us avoid clutter and mark a distinction between idea and intents we follow through.

@@ -21,5 +21,11 @@ Although unlike codeberg, this is venture capital-backed: https://pitchbook.com/
 
 2026-06-09 Wk 24 Tue - 10:06 +03:00
 
-For now let's use codeberg. Do note that they mostly support FOSS software, and no private repos, so that would need to be self hosted, but it can be done with Forgejo which they use directly: https://forgejo.org/
+For now let's use codeberg. Do note that they mostly support FOSS software, and have restrictions on private repos, so that might require to be self hosted, but it can be done with Forgejo which they use directly: https://forgejo.org/
 
+On AI scraping,
+- https://codeberg.org/Codeberg/Community/issues/1585
+
+Codeberg is also working on federation: https://codeberg.org/ForgeFed/forgefed, https://forgefed.org/spec/
+
+We also might be interested in maintaining mirrors on github, and being mainly on codeberg.

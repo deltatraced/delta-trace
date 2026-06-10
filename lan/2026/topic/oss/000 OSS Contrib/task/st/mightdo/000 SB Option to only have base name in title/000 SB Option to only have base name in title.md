@@ -38,18 +38,25 @@ Good practice would be to mention a needed feature before we set out to do the P
 
 https://github.com/silverbulletmd/silverbullet/issues/2016
 
-2026-06-08 Wk 24 Mon - 16:55 +03:00
+2026-06-10 Wk 24 Wed - 08:43 +03:00
 
-```ts
-  openConfiguration:
-    path: ./configuration.ts:openConfiguration
-    command:
-      name: "Configuration: Open"
-```
+Spawn [[000 Silverbullet How is the title rendered when a page is loaded?]] ^spawn-invst-797814
 
-CONFIG mentions:
+Spawn [[001 How are new configuration options inserted and loaded?]] ^spawn-invst-e3e809
 
-```
-This page holds configuration for your SilverBullet space. See [[^Library/Std/Config]] for all options and defaults.
-```
+2026-06-10 Wk 24 Wed - 10:18 +03:00
+
+Spawn [[000 Silverbulelt Source Resources]] ^spawn-entry-b787e6
+
+2026-06-10 Wk 24 Wed - 15:02 +03:00
+
+Spawn [[002 SB How do mentions render the page names and strip the path?]] ^spawn-invst-884e5c
+
+2026-06-10 Wk 24 Wed - 16:55 +03:00
+
+Spawn [[001 Overview SB Option to only have base name in title]] ^spawn-entry-79ff1b
+
+2026-06-10 Wk 24 Wed - 18:33 +03:00
+
+Spawn [[lan/2026/topic/oss/000 OSS Contrib/task/st/mightdo/000 SB Option to only have base name in title/investigation/003 Can we have an external plug filter the title path for us?]] ^spawn-invst-96388f
 

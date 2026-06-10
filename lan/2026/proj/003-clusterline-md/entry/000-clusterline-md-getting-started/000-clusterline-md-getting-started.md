@@ -3,7 +3,7 @@
 
 2026-05-22 Wk 21 Fri - 08:39 +03:00
 
-Coming from [[000-2026-may-restructure]]
+Coming from [[lan/2026/main/entry/000-2026-may-restructure/000-2026-may-restructure]]
 
 We want to migrate from obsidian.md to silverbullet.md which is open source and which we are currently running from a local build!
 
