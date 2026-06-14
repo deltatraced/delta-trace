@@ -1,6 +1,6 @@
 ---
 context_type: investigation
-status: todo
+status: done
 ---
 
 Parent: [[000 SB Option to only have base name in title]]

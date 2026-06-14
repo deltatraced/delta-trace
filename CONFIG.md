@@ -18,4 +18,5 @@ The block below is maintained by the ${widgets.commandButton("Configuration Mana
 ```space-lua
 -- managed-by: configuration-manager
 config.set("queryCollation.enabled", true)
+config.set("StripPagePathInTitle", true)
 ```

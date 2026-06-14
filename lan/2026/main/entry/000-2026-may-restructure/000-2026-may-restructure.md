@@ -1,4 +1,4 @@
-
+  
 # Journal
 
 ---
@@ -12,7 +12,7 @@ They can come at levels to mark that they are at the next level. The text though
     
 ---- 2026-05-21 Wk 21 Thu - 14:34 +03:00
 This is even more indented. 
-t
+
 ------  2026-05-21 Wk 21 Thu - 14:41 +03:00
 You get the idea.
 

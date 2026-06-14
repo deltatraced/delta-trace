@@ -1,13 +1,13 @@
 ---
 context_type: investigation
-status: todo
+status: done
 ---
 
-Parent: [[lan/2026/topic/oss/000 OSS Contrib/task/st/mightdo/000 SB Option to only have base name in title/000 SB Option to only have base name in title]]
+Parent: [[000 SB Option to only have base name in title]]
 
-Spawned by: [[lan/2026/topic/oss/000 OSS Contrib/task/st/mightdo/000 SB Option to only have base name in title/000 SB Option to only have base name in title]]
+Spawned by: [[000 SB Option to only have base name in title]]
 
-Spawned in: [[lan/2026/topic/oss/000 OSS Contrib/task/st/mightdo/000 SB Option to only have base name in title/000 SB Option to only have base name in title#^spawn-invst-96388f|^spawn-invst-96388f]]
+Spawned in: [[000 SB Option to only have base name in title#^spawn-invst-96388f|^spawn-invst-96388f]]
 
 Overview: [[001 Overview SB Option to only have base name in title]]
 
@@ -21,6 +21,9 @@ I describe the proposal in https://github.com/silverbulletmd/silverbullet/issues
 
 # Solution
 
+In accordance with the changes introduced in [[004 SB How can we pass async determined data for the page title?]], we are able to use the main UI state as well as a new defined service in the Std plug to customize the title page.
+
+Because it is a service, it should be possible to handle conflicting accounts via priority.
 
 
 ---
@@ -29,10 +32,9 @@ I describe the proposal in https://github.com/silverbulletmd/silverbullet/issues
 
 2026-06-11 Wk 24 Thu - 01:03 +03:00
 
-Spawn [[lan/2026/topic/oss/000 OSS Contrib/task/st/mightdo/000 SB Option to only have base name in title/entry/002 Issues during Can we have an external plug filter the title path for us?]] ^spawn-entry-dd47e7
+Spawn [[002 Issues during Can we have an external plug filter the title path for us?]] ^spawn-entry-dd47e7
 
-
-## TODO Can I create a new event and subscribe to it from STD?
+## Can I create a new event and subscribe to it from STD?
 
 2026-06-10 Wk 24 Wed - 18:55 +03:00
 
@@ -120,7 +122,7 @@ Though the issue now is we are not preventing duplicates, only sorting through t
 
 2026-06-11 Wk 24 Thu - 00:36 +03:00
 
-- As mentioned in [[000 Silverbullet How is the title rendered when a page is loaded?]],
+- As mentioned in [[000 SB How is the title rendered when a page is loaded?]],
 	- `client/editor_ui.tsx > TopBar > pageName`
 
 Instead of 
@@ -129,26 +131,8 @@ Instead of
 !viewState.current ? "" : getNameFromPath(pathToBasename(viewState.current.path))
 ```
 
-We use
+(This prompted an investigation as I realized we can't pass async data directly. See [[002 Issues during Can we have an external plug filter the title path for us?]])
 
-```ts
-import {
-  renderPageTitle,
-} from "@silverbulletmd/silverbullet/lib/ref";
+we update with async retrieved state as in [[004 SB How can we pass async determined data for the page title?]].
 
-// ...
-
-!viewState.current ? "" : renderPageTitle(viewState.current.path)
-```
-
-with `renderPageTitle` defined in `plug-api/lib/ref.ts` as
-
-
-
-We want to invoke our service.
-
-
-
-
-## TODO Can I also subscribe to the new event from my own plug as priority over STD?
-
+Because now we're able to get data directly from the defined service, we are in fact able to update the page in accordance with a plugin event!

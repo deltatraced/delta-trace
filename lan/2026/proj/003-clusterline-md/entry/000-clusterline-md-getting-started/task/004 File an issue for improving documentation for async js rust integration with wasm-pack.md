@@ -34,4 +34,5 @@ I filed the issue:
 
 https://github.com/wasm-bindgen/wasm-bindgen/issues/5182
 
+Track more about the issue in [[000 Issue 5182 wasm-bindgen]]
 

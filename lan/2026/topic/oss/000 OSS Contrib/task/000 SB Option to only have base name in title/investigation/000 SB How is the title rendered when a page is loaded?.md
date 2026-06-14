@@ -9,11 +9,12 @@ Spawned by: [[000 SB Option to only have base name in title]]
 
 Spawned in: [[000 SB Option to only have base name in title#^spawn-invst-797814|^spawn-invst-797814]]
 
-Resources: [[000 Silverbulelt Source Resources]]
+Resources: [[000 Silverbullet Source Resources]]
 
 Overview: [[001 Overview SB Option to only have base name in title]]
 
 ---
+
 # Solution
 
 Silverbullet, `5911ee1e`

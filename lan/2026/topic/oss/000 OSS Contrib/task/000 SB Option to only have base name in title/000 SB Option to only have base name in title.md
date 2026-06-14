@@ -40,13 +40,13 @@ https://github.com/silverbulletmd/silverbullet/issues/2016
 
 2026-06-10 Wk 24 Wed - 08:43 +03:00
 
-Spawn [[000 Silverbullet How is the title rendered when a page is loaded?]] ^spawn-invst-797814
+Spawn [[000 SB How is the title rendered when a page is loaded?]] ^spawn-invst-797814
 
 Spawn [[001 How are new configuration options inserted and loaded?]] ^spawn-invst-e3e809
 
 2026-06-10 Wk 24 Wed - 10:18 +03:00
 
-Spawn [[000 Silverbulelt Source Resources]] ^spawn-entry-b787e6
+Spawn [[000 Silverbullet Source Resources]] ^spawn-entry-b787e6
 
 2026-06-10 Wk 24 Wed - 15:02 +03:00
 
@@ -58,5 +58,9 @@ Spawn [[001 Overview SB Option to only have base name in title]] ^spawn-entry-79
 
 2026-06-10 Wk 24 Wed - 18:33 +03:00
 
-Spawn [[lan/2026/topic/oss/000 OSS Contrib/task/st/mightdo/000 SB Option to only have base name in title/investigation/003 Can we have an external plug filter the title path for us?]] ^spawn-invst-96388f
+Spawn [[003 SB Can we have an external plug filter the title path for us?]] ^spawn-invst-96388f
+
+2026-06-12 Wk 24 Fri - 17:52 +03:00
+
+Spawn [[000 SB Impl opt in tile as basename only via Std defined service]] ^spawn-task-287814
 

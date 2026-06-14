@@ -11,8 +11,7 @@ Spawned in: [[001 Wiki Proc Mathematics#^spawn-task-4186cd|^spawn-task-4186cd]]
 
 # Problem
 
-We want to define a function `e` that takes a unique rational parameter `h` and sends it to 2D vector representing a unique point on the circle, with the idea being that we then have a nearly invertible mapping from the rational line to rational points on the circle. It is nearly invertible because the map `e` does not need to send anything to the point (-1, 0), which is motivated by the fact that a slope-sweep based solution would blow up to slope $\pm \infty$ at that point, assuming that it is designated as the source point in the problem.
-
+We want to define a function `e` that takes a unique rational parameter `h` and sends it to a 2D vector representing a unique point on the circle, with the idea being that we then have a nearly invertible mapping from the rational line to rational points on the circle. It is nearly invertible because the map `e` does not need to send anything to the point (-1, 0), which is motivated by the fact that a slope-sweep based solution would blow up to slope $\pm \infty$ at that point, assuming that it is designated as the source point in the problem.
 
 # Proof
 
@@ -20,7 +19,7 @@ See the [[#3 Explanation|Explanation]] below.
 
 ```haskell
 record Vect2 : Type where
-  constructor vect2y₁
+  constructor vect2
   field
     x : ℚ
     y : ℚ
@@ -28,14 +27,13 @@ record Vect2 : Type where
 -- Problem: Define `e` so that it continuously sends `h` to a point on the circle.
 	e : (h : ℚ) → Vect2
 	e h .x = (1 - h²) / (1 + h²)
-
-	e h .y = 2h / (1 + h²)
  -- e h .x = E₁ᵣ i1
+	e h .y = 2h / (1 + h²)
  -- e h .y = E₂ᵣ i1
 
 -- For proof that the above map `e` really does send an `h` to a point on the circle
 module 
-	(x₁ y₁ h : ℚ)y₁
+	(x₁ y₁ h : ℚ)
 	(A  : vect2 -1 0)
 	(Bₕ : vect2  0 h)
 	(Bₓ : vect2 x₁ 0)

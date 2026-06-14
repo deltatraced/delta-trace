@@ -7,9 +7,9 @@ Find a description of some of the projects I build [[Projects|here]]. Find my re
 
 - [[README]]
 	- General repository description. Also leads to here.
-- [[002 Posts]]
+- [[lan/archived/2026-05-21_2026/main/wiki/001 Wiki Categories/entries/002 Posts]]
 	- Links to the posts I have written.
-- [[003 Possible Categories]]
+- [[lan/archived/2026-05-21_2026/main/wiki/001 Wiki Categories/entries/003 Possible Categories]]
 	- Categories that can be added here but might not be used yet or ready.
 
 **Study**

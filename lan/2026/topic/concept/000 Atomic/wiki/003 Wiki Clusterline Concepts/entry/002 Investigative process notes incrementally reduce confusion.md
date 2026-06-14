@@ -20,4 +20,4 @@ Per [[003 Overview notes in a cluster clarify how that cluster ought be navigate
 
 Make use of [[005 Proc Notes may contain wiki sections in non journal headers]]. Since the overview section is linked in a PR, these wiki sections can give readers key information. Remember, [[006 Process Notes are meant to be mined for evidence rather than read]].
 
-Also, remember these are notes, and so are by definition optional to check. If linked in a PR, do not give them any significance. A footnote reference about internal dev notes can suffice.
+Also, remember these are notes, and so are by definition optional to check. If linked in a PR, do not give them high significance. A footnote reference about internal dev notes at the end can suffice.
