@@ -46,7 +46,7 @@ So long as the tokens are already defined, something like this should be enough 
 
 2026-06-05 Wk 23 Fri - 10:26 +03:00
 
-Spawn [[001 Rust Can we make a typed recursive tuple for an arbitrary series of calculations on a given number?]] ^spawn-invst-11da35
+Spawn [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/investigation/001 Rust Can we make a typed recursive tuple for an arbitrary series of calculations on a given number?]] ^spawn-invst-11da35
 
 2026-06-06 Wk 23 Sat - 09:34 +03:00
 
