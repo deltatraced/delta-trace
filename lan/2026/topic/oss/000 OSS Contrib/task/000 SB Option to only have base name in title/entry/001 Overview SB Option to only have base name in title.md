@@ -16,8 +16,6 @@ Fork: https://github.com/LanHikari22/silverbullet/tree/title-text-config
 
 **Commit: 528b5741**
 
-For `HEAD`,
-
 We Investigate,
 
 - [x] [[000 SB How is the title rendered when a page is loaded?]]

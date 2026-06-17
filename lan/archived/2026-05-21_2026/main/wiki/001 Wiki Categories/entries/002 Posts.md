@@ -27,3 +27,4 @@ Previous Page: [[001 Wiki Categories]]
 
 - [[000 Historical and Document Notes]]
 	 - This explores how different ways of taking notes can affect our creative process.
+  
