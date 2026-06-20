@@ -10,6 +10,9 @@ Spawned by: [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-
 Spawned in: [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/000-clusterline-md-getting-started#^spawn-task-3ab4dd|^spawn-task-3ab4dd]]
 
 Overview: [[000 Overview clusterline getting started]]
+
+Goal: [[000 Overview Goals for clusterlinemd#Version 0.1 Initial Functionality]]
+
 # Journal
 
 2026-06-15 Wk 25 Mon - 10:28 +03:00
@@ -177,3 +180,8 @@ fn App() -> impl IntoView {
 Ran into [[000 WESR leptos mismatches types on lower edition]]
 
 But changing edition to `2021` now is giving us a lot of errors in the API, so I guess at least that's good. We should be compatible with newest.
+
+2026-06-18 Wk 25 Thu - 13:36 +03:00
+
+Actually the errors were just because with changing `Cargo.toml`, I had set wasm-bindgen as optional, reverted back to required and all is good.
+

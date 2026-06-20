@@ -1,7 +1,6 @@
 ---
 context_type: entry
 ---
-
 Parent: [[000 SB Option to only have base name in title]]
 
 Spawned by: [[000 SB Option to only have base name in title]]
@@ -29,6 +28,14 @@ then implement,
 - [x] [[000 SB Impl opt in tile as basename only via Std defined service]]
 
 `make test` ran with no issues.
+
+After the PR [#2023](https://github.com/silverbulletmd/silverbullet/pull/2023) was closed, we revise,
+
+- [ ] [[001 SB reopen PR for customizable title without make fmt]]
+
+
+---
+
 
 **Possibly for later**
 

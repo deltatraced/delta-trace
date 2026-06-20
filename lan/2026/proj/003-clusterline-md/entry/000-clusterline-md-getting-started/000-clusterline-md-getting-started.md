@@ -1,4 +1,3 @@
-
 Overview: [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/entry/000 Overview clusterline getting started]]
 
 # Journal
@@ -21,3 +20,6 @@ Spawn [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-starte
 
 Spawn [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/task/005 Add a custom fuzzy selector window with some text]] ^spawn-task-3ab4dd
 
+Spawn [[006 Clusterlinemd Impl open main note and sub note]] ^spawn-task-774ce2
+
+ 

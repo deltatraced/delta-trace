@@ -13,6 +13,8 @@ Errata: [[003 Errata CQTS How do we interpret retract and section?]]
 
 Overview: [[000 Overview Wiki Proc CQTS Intro to Cubical]]
 
+Iterations: [[004 Iterations for Proc CQTS retract equiv]]
+
 # Journal
 
 2026-06-17 Wk 25 Wed - 12:30 +03:00
@@ -113,6 +115,23 @@ B1 --> |sectionOf| B3
 B3 --> |retractOf| B1
 B2 --> |sectionOf| B1
 B1 --> |retractOf| B2
+```
+
+```mermaid
+graph TD
+
+%% Nodes
+A1[store]
+A2[0]
+A3[1]
+A4[load]
+A5[fence]
+
+%% Connections
+A1 --> A3
+A3 --> A4
+A3 --> A5
+A4 ==> A5
 ```
 
 

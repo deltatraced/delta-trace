@@ -64,3 +64,5 @@ Spawn [[003 SB Can we have an external plug filter the title path for us?]] ^spa
 
 Spawn [[000 SB Impl opt in tile as basename only via Std defined service]] ^spawn-task-287814
 
+Spawn [[lan/2026/topic/oss/000 OSS Contrib/task/000 SB Option to only have base name in title/task/001 SB reopen PR for customizable title without make fmt]] ^spawn-task-502552
+

@@ -1,6 +1,6 @@
-  ---
+---
 context_type: task
-status: todo
+status: done
 ---
 
 Parent: [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/000-clusterline-md-getting-started]]
@@ -83,7 +83,5 @@ pub async fn dispatch(change: JsValue) {
 Specifically for `editorView`: https://codemirror.net/docs/ref/#view.EditorView.constructor^config.dispatchTransactions
 
 Checking how silverbullet does `new EditorView(...)` $\to$ `createEditorState`
-
-[[]]
 
 ## End

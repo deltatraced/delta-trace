@@ -29,4 +29,4 @@ A [[000 Term Process Note|Process Note]] was described as a series of logs. It c
 
 serial reduction can help make a task less intimidating by shifting focus from the whole to the layers we are concerned with at the current moment repeatedly. 
 
-See also: [[003 Parallel Reduction of Context]]
+See next: [[003 Parallel Reduction of Context]]

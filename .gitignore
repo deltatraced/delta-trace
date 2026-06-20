@@ -6,7 +6,7 @@
 ignore.md
 file.md
 
-# for now
-Library/LanHikari22/clusterlinemd/
-Library/lan22h/
-CONFIG.md
+Library/lan22h/clusterlinemd/node_modules/
+Library/lan22h/clusterlinemd/hello-wasm/target/
+**/node_modules/
+**/target/
