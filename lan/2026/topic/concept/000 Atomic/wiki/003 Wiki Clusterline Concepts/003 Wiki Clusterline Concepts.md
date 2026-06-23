@@ -3,19 +3,22 @@ Wiki Proc: [[003 Wiki Proc Clusterline Concepts]]
 
 ---
 
-**Terms**
+**Terms & Concepts**
 
 - [[000 Term Process Note]]
 - [[001 Term Aspiring Notes]]
 - [[002 Serial Reduction of Context]]
 - [[003 Parallel Reduction of Context]]
 - [[004 Atomicity of Context]]
+- [[006 Signs of our practice]]
+- [[005 Respecting the signs of a context]]
 
 **Expectations**
 
 - [[001 Process notes should be immutable to act as an audit]]
 - [[016 Note Title denotes a given context]]
 - [[017 Notes should have high locality of context]]
+- [[018 Atomic contexts attenuate out of scope writing]]
 
 **Interpreting the notes**
 
