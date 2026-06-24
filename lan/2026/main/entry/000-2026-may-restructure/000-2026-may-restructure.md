@@ -102,3 +102,4 @@ Some other open source note taking tools to consider:
 - https://github.com/siyuan-note/siyuan
 - https://github.com/laurent22/joplin
 - https://github.com/epwalsh/obsidian.nvim
+- https://github.com/helix-editor/helix

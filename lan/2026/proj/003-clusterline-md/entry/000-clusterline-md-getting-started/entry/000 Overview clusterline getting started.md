@@ -8,6 +8,4 @@ Spawned by: [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-
 
 Spawned in: [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/000-clusterline-md-getting-started#^spawn-entry-8ac601|^spawn-entry-8ac601]]
 
-# Tasks
-
-Moved to [[000 Overview Goals for clusterlinemd]]
+Goals: [[000 Overview Goals for clusterlinemd]]

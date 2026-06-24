@@ -57,3 +57,11 @@ Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/ent
 
 Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/concept/004 Atomicity of Context]] ^spawn-cncpt-3bd745
 
+2026-06-22 Wk 26 Mon - 18:09 +03:00
+
+Spawn [[005 Respecting the signs of a context]] ^spawn-cncpt-174420
+
+Spawn [[006 Signs of our practice]] ^spawn-cncpt-0876e9
+
+Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/018 Atomic contexts attenuate out of scope writing]] ^spawn-entry-f0342e
+

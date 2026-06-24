@@ -9,3 +9,7 @@ Spawn [[lan/2026/topic/study-math/000 CQTS Intro to Cubical/wikiproc/000 Wiki Pr
 
 Spawn [[001 Proc CQTS retract equiv]] ^spawn-entry-be7615
 
+2026-06-22 Wk 26 Mon - 11:20 +03:00
+
+Spawn [[000 unequal terms for partial pattern matching CQTS]] ^spawn-issue-373c33
+

@@ -4,9 +4,9 @@ context_type: entry
 
 Parent: [[lan/2026/topic/study-math/000 CQTS Intro to Cubical/wikiproc/000 Wiki Proc CQTS Intro to Cubical/000 Wiki Proc CQTS Intro to Cubical]]
 
-Spawned by: [[000 CQTS How do we interpret retract and section?]]
+Spawned by: [[000 How do we interpret retract and section? CQTS]]
 
-Spawned in: [[000 CQTS How do we interpret retract and section?#^spawn-entry-71d2d9|^spawn-entry-71d2d9]]
+Spawned in: [[000 How do we interpret retract and section? CQTS#^spawn-entry-71d2d9|^spawn-entry-71d2d9]]
 
 # Journal
 

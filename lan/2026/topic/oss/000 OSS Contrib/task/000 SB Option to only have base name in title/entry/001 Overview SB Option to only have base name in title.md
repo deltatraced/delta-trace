@@ -31,7 +31,9 @@ then implement,
 
 After the PR [#2023](https://github.com/silverbulletmd/silverbullet/pull/2023) was closed, we revise,
 
-- [ ] [[001 SB reopen PR for customizable title without make fmt]]
+- [x] [[001 SB reopen PR for customizable title without make fmt]]
+
+https://github.com/silverbulletmd/silverbullet/pull/2027
 
 
 ---

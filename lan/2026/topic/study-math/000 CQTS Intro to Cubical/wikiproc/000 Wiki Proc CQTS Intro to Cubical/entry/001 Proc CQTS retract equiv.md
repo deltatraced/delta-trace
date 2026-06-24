@@ -19,7 +19,7 @@ Iterations: [[004 Iterations for Proc CQTS retract equiv]]
 
 Spawn [[lan/2026/topic/study-math/000 CQTS Intro to Cubical/wikiproc/000 Wiki Proc CQTS Intro to Cubical/entry/002 Errata Proc CQTS retract equiv]] ^spawn-entry-5508d1
 
-Spawn [[000 CQTS How do we interpret retract and section?]] ^spawn-invst-acfdc3
+Spawn [[000 How do we interpret retract and section? CQTS]] ^spawn-invst-acfdc3
 
 2026-06-17 Wk 25 Wed - 23:53 +03:00
 

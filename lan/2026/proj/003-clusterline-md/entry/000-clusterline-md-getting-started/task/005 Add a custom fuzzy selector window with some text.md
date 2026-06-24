@@ -185,3 +185,60 @@ But changing edition to `2021` now is giving us a lot of errors in the API, so I
 
 Actually the errors were just because with changing `Cargo.toml`, I had set wasm-bindgen as optional, reverted back to required and all is good.
 
+2026-06-21 Wk 25 Sun - 10:28 +03:00
+
+We're able to pass `html` and `script` like this:
+
+```rust
+let html = r#"client/plugos/hooks/syscall.ts
+<div>
+  <p>Hi!</p>
+  <button id="btn">Click me: <span id="count">0</span></button>
+</div>
+"#;
+
+let script = r#"
+let count = 0;
+document.getElementById('btn').onclick = () => {
+  count++;
+  document.getElementById('count').textContent = count;
+};
+"#;
+
+    editor::show_panel(PanelLocation::Lhs, /*mode*/ inv(U32Nz::new(1)), html, script).await;
+```
+
+but unsure if we can do this with leptos. Maybe we need to have its own project generate a full client that doesn't need to be served, and then we pass this over in the plug code.
+
+https://github.com/leptos-rs/leptos/tree/main/examples/counter
+
+```sh
+mkdir -p ~/src/cloned/gh/leptos-rs
+cd ~/src/cloned/gh/leptos-rs
+git clone git@github.com:leptos-rs/leptos.git
+
+# in /home/lan/src/cloned/gh/leptos-rs/leptos/examples/counter
+cargo install cargo-make
+cargo install trunk
+cargo make start
+cargo make stop
+```
+
+This will generate files in `dist/` but they can't be run as is off of `index.html`.
+
+Also the purpose of trying to use `leptos` here is to have the html to be run by silverbullet responsive to the same rust code we are writing for the plug.
+
+We might need to make it responsive by having the script execute plug commands instead via syscall, which in turn generates a new panel to be displayed. Or use `src/silverbullet_plug_api/system.rs > fn invoke_function`.
+client/plugos/hooks/syscall.ts
+2026-06-21 Wk 25 Sun - 18:55 +03:00
+
+We get this error trying to call via syscall:
+
+```ts
+// in client/plugos/system.ts > fn syscall
+if (!syscall) {
+  throw Error(`Unregistered syscall ${name}`);
+}
+```
+
+Spawn [[002 SB How are plug functions registered as a syscall? 13de05c8]] ^spawn-invst-618590

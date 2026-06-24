@@ -31,6 +31,8 @@ Features, sorted by high priority for use:
 - [ ] Add a command to paste and move images to attachment/ after paste
 - [ ] Add a command to fix spawned by relations that need resync after note refactoring (move of corresponding Spawn note)
 - [ ] If a subnote  with the name `entry/Overview {X}` where X is the cluster name exists, link to it when spawning new notes in X
+- [ ] Add ability to spawn via a note handle. For example an `Overview X` for some cluster `X`, or `Iterations for X` for some note `X`.
+- [ ] Add ability to spawn from a cluster, which automatically logs the spawn in a note handle `Spawns for X` where `X` is the cluster name.
 
 - [x] Add a command to put the current timestamp
 - [x] Add a command to make note urls space relative (make_note_link_absolute 0e36536)

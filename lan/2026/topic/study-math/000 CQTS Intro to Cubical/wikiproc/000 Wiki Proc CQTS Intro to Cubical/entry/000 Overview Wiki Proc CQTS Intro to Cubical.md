@@ -16,4 +16,4 @@ Spawned in: [[lan/2026/topic/study-math/000 CQTS Intro to Cubical/wikiproc/000 W
 
 **Review**
 
-- [[000 CQTS How do we interpret retract and section?]]
+- [[000 How do we interpret retract and section? CQTS]]
