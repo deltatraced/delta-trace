@@ -31,9 +31,9 @@ This is a public knowledge base and notes repository for researching, developing
 
 Other repositories in the organization give deliverables. This gives the behind-the-scenes, and also some reader-facing articles may surface still!
 
-For higher browser viewing compatibility, switch to the [webview branch](https://github.com/deltatraced/delta-trace/tree/webview).
+For higher browser viewing compatibility, switch to the [webview branch](https://codeberg.org/deltatraced/deltatraced/src/branch/webview).
 
-This repository comes with different wikis. You can check them [here](https://github.com/deltatraced/delta-trace/blob/webview/lan/archived/2026-05-21_2026/main/wiki/001%20Wiki%20Categories/001%20Wiki%20Categories.md).
+This repository comes with different wikis. You can check them [here](https://codeberg.org/deltatraced/deltatraced/src/branch/webview/lan/archived/2026-05-21_2026/main/wiki/001%20Wiki%20Categories/001%20Wiki%20Categories.md).
 
 # 2 See also
 

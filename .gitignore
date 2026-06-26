@@ -10,3 +10,6 @@ Library/lan22h/clusterlinemd/node_modules/
 Library/lan22h/clusterlinemd/hello-wasm/target/
 **/node_modules/
 **/target/
+
+# syncthing
+.stfolder/

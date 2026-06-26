@@ -65,3 +65,9 @@ Spawn [[006 Signs of our practice]] ^spawn-cncpt-0876e9
 
 Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/018 Atomic contexts attenuate out of scope writing]] ^spawn-entry-f0342e
 
+2026-06-25 Wk 26 Thu - 17:40 +03:00
+
+Spawn [[019 Self judgment can hinder learning by distorting our engagement with the signs of our practice]] ^spawn-entry-24e442
+
+Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/020 Learning is an apprenticeship to signs]] ^spawn-entry-939257
+

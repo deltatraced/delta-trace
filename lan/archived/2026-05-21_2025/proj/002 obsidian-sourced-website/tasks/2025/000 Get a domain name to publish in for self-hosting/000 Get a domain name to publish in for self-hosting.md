@@ -36,7 +36,7 @@ This CLI tool immediately authenticates you via a web browser link if you're log
 
 From [wasmer docs cli](https://docs.wasmer.io/edge/cli),
 
-Use this  to delete a deployed app:
+Use this to delete a deployed app:
 
 ```sh
 wasmer app delete
