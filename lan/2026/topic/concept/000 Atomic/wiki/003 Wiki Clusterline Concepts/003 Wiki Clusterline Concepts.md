@@ -20,6 +20,11 @@ Wiki Proc: [[003 Wiki Proc Clusterline Concepts]]
 - [[017 Notes should have high locality of context]]
 - [[018 Atomic contexts attenuate out of scope writing]]
 
+**Learning**
+
+- [[020 Learning is an apprenticeship to signs]]
+- [[019 Self judgment can hinder learning by distorting our engagement with the signs of our practice]]
+
 **Interpreting the notes**
 
 - [[002 Investigative process notes incrementally reduce confusion]]
