@@ -242,3 +242,7 @@ if (!syscall) {
 ```
 
 Spawn [[002 SB How are plug functions registered as a syscall? 13de05c8]] ^spawn-invst-618590
+
+2026-06-30 Wk 27 Tue - 21:04 +03:00
+
+Spawn [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/issue/002 SB Unregistered syscall while trying to trigger plug command defined in plug yaml]] ^spawn-issue-a3158e

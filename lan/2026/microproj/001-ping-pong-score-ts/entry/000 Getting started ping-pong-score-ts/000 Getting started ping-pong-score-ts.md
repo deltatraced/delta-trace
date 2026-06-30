@@ -13,3 +13,7 @@ Project started in `/home/lan/src/idea/cb/lan22h-experiments/ping-pong-score-ts`
 Spawn [[lan/2026/microproj/001-ping-pong-score-ts/entry/000 Getting started ping-pong-score-ts/task/001 Setup repository build PPST]] ^spawn-task-368f3a
 
 Spawn [[000 Configure typechecking and other lints for typescript PPST]] ^spawn-task-34a9db
+
+2026-06-26 Wk 26 Fri - 17:36 +03:00
+
+Spawn [[lan/2026/microproj/001-ping-pong-score-ts/entry/000 Getting started ping-pong-score-ts/task/002 impl score table component proto 1]] ^spawn-task-5ae0df

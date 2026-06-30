@@ -1,6 +1,6 @@
 ---
 context_type: task
-status: todo
+status: done
 ---
 
 Parent: [[lan/2026/microproj/001-ping-pong-score-ts/entry/000 Getting started ping-pong-score-ts/000 Getting started ping-pong-score-ts]]
@@ -211,3 +211,15 @@ Fails with 404.
 So no good with this either; it's 6 years out of date.
 
 For now, let's just do typescript.
+
+2026-06-26 Wk 26 Fri - 15:49 +03:00
+
+Since we have a VPS now and can serve the website, we can without the single `index.html` requirement.
+
+```sh
+# in /home/lan/src/idea/cb/lan22h-experiments/ping-pong-score-ts
+git commit
+
+# out
+[main 82559b4] update build infra
+```

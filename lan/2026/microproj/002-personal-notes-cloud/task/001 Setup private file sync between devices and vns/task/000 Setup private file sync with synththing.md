@@ -107,3 +107,7 @@ In this case, we want to add a device for our own host `http://localhost:8384`,
 4. Check Untrusted if needed.
 5. Back in `General`, put the `Device ID` in accordance with the one found in `http://localhost:8001` under This Device > Identification
 6. Configure some folder to share under `Sharing` and set the password if `Untrusted` was check.
+
+2026-06-26 Wk 26 Fri - 09:37 +03:00
+
+hello from mobile!

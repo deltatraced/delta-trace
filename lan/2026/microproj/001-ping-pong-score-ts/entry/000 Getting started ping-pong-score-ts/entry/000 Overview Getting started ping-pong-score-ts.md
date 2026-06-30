@@ -10,4 +10,8 @@ Spawned in: [[lan/2026/microproj/001-ping-pong-score-ts/entry/000 Getting starte
 
 ---
 
+**Infra**
 
+- [x] [[000 Configure typechecking and other lints for typescript PPST]]
+
+**UI**

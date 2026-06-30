@@ -1,6 +1,6 @@
 ---
 context_type: investigation
-status: todo
+status: done
 ---
 
 Parent: [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/000-clusterline-md-getting-started]]
@@ -8,10 +8,6 @@ Parent: [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-star
 Spawned by: [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/task/005 Add a custom fuzzy selector window with some text]]
 
 Spawned in: [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/task/005 Add a custom fuzzy selector window with some text#^spawn-invst-618590|^spawn-invst-618590]]
-
-# Solution
-
-TODO
 
 # Journal
 
@@ -49,3 +45,26 @@ How are the functions loaded?
 				- As an `XCache` it just caches the operation, which in this case is `getManifest` internally for performance.
 			1. `client/plugos/system.ts > System<Hook> > fn constructor`
 			2. `client/plugos/manifest_cache.ts > fn <InMemoryManifestCache<T> as impl ManifestCache<T>>::getManifest`
+	- initializes
+		1. `client/plugos/sandboxes/sandbox.ts > fn Sandbox<HookT>::init`
+		2. `client/plugos/sandboxes/worker_sandbox.ts > fn <WorkerSandbox<HookT> as impl Sandbox<HookT>>::init`
+4. `client/plugos/sandboxes/sandbox.ts > SandBox<HookT>::manifest`
+5. `client/plugos/sandboxes/worker_sandbox.ts > fn <WorkerSandbox<HookT> as impl SandBox<HookT>>::manifest`
+	- $\downarrow$ written by
+6. `client/plugos/sandboxes/worker_sandbox.ts > fn <WorkerSandbox<HookT> as impl Sandbox<HookT>>::init`
+
+The manifest file should declare public functions as specified in `client/plugos/types.ts > fn Manifest<HookT>::functions`.
+
+The manifest file might be the `plugname.plug.yaml` file.
+
+`client/plugos/types.ts > FunctionDef` doesn't include `command` nor `command.name` which is included in the JSON `plugname.plug.yaml`. 
+
+Also, `plugname.plug.yaml` is instead retrieved as a path through `build/build_plugs.ts > fn buildPlugsAndLibraries`
+
+The manifest is compiled in `client/plugos/plug_compile.ts > fn compileManifest`
+
+Type `plug-api/types/manifest.ts > CommandDef` includes the `name` property.
+
+`client/plugos/plug_compile.ts > fn compileManifest` also sets the code that posts for the message event that likely is subscribed to by the listener at `client/plugos/sandboxes/worker_sandbox.ts > fn <WorkerSandbox<HookT> as impl Sandbox<HookT>>::init`.
+
+`client/plugos/hooks/command.ts > fn validateManifest` checks for `functionDef.command` and retrieves the `name` property as expected.

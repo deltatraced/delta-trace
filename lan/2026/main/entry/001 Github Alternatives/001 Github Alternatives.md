@@ -29,3 +29,11 @@ On AI scraping,
 Codeberg is also working on federation: https://codeberg.org/ForgeFed/forgefed, https://forgefed.org/spec/
 
 We also might be interested in maintaining mirrors on github, and being mainly on codeberg.
+
+2026-06-26 Wk 26 Fri - 17:19 +03:00
+
+Now that we have a VPS self-hosting is also an option. Maybe look into federation or some discovery mechanism for self-hosted instances to connect with others?
+
+https://github.com/go-gitea/gitea/issues/18240
+
+> **aside** https://codeberg.org/forgejo/sustainability/src/branch/main/README.md they have funding records and also suggest it's useful data for others to do this practice so we can track sustainability for open source development. They also track time for volunteers.
