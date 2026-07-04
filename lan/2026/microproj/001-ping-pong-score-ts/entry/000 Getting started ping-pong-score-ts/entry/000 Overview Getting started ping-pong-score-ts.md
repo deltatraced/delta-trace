@@ -15,3 +15,5 @@ Spawned in: [[lan/2026/microproj/001-ping-pong-score-ts/entry/000 Getting starte
 - [x] [[000 Configure typechecking and other lints for typescript PPST]]
 
 **UI**
+
+- [x] [[002 impl score table component proto 1]]

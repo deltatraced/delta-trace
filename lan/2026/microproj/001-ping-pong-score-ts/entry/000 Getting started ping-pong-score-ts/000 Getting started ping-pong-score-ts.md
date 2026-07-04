@@ -8,7 +8,7 @@ Wiki: [[000 Wiki ping-pong-score-ts]]
 
 Spawn [[000 Overview Getting started ping-pong-score-ts]] ^spawn-entry-89875e
 
-Project started in `/home/lan/src/idea/cb/lan22h-experiments/ping-pong-score-ts`. Projects here are kept private with the expectation of going public soon that I didn't want to move to `lan22h-experiments` only to move out. We also have `idea-archived`, and if I decide to move a project there, then I could also consider whether to publish it under `lan22h-experiments/lan-experiments`. 
+Project started in `/home/lan/src/idea/cb/lan22h-experiments/ping-pong-score-ts`. Projects here are kept private with the expectation of going public soon that I didn't want to move to `lan22h-experiments/lan-experiments` only to move out. We also have `idea-archived`, and if I decide to move a project there, then I could also consider whether to publish it under `lan22h-experiments/lan-experiments`. 
 
 Spawn [[lan/2026/microproj/001-ping-pong-score-ts/entry/000 Getting started ping-pong-score-ts/task/001 Setup repository build PPST]] ^spawn-task-368f3a
 

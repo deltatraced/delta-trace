@@ -1,6 +1,6 @@
 ---
 context_type: task
-status: todo
+status: done
 ---
 
 Parent: [[lan/2026/microproj/001-ping-pong-score-ts/entry/000 Getting started ping-pong-score-ts/000 Getting started ping-pong-score-ts]]
@@ -8,6 +8,8 @@ Parent: [[lan/2026/microproj/001-ping-pong-score-ts/entry/000 Getting started pi
 Spawned by: [[lan/2026/microproj/001-ping-pong-score-ts/entry/000 Getting started ping-pong-score-ts/000 Getting started ping-pong-score-ts]]
 
 Spawned in: [[lan/2026/microproj/001-ping-pong-score-ts/entry/000 Getting started ping-pong-score-ts/000 Getting started ping-pong-score-ts#^spawn-task-5ae0df|^spawn-task-5ae0df]]
+
+Overview: [[000 Overview Getting started ping-pong-score-ts]]
 
 # Journal
 
