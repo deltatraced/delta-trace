@@ -15,6 +15,8 @@ Goal: [[000 Overview Goals for clusterlinemd#Version 0.1 Initial Functionality]]
 
 # Journal
 
+## Journal
+
 2026-06-15 Wk 25 Mon - 10:28 +03:00
 
 We need to be able to open a menu similar to Ctrl+K
@@ -246,3 +248,111 @@ Spawn [[002 SB How are plug functions registered as a syscall? 13de05c8]] ^spawn
 2026-06-30 Wk 27 Tue - 21:04 +03:00
 
 Spawn [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/issue/002 SB Unregistered syscall while trying to trigger plug command defined in plug yaml]] ^spawn-issue-a3158e
+
+2026-07-01 Wk 27 Wed - 01:26 +03:00
+
+So we wanna create a non-user-command plug function `post_message`, where we can specify a topic; a subtopic, and comma separated arguments. When we send. The html and javascript we send over to silverbullet can then drive communications back via message posts, and different subtopics can be for things like the panels being closed, or the html interacted with in some way.
+
+Actually. Better than comma separated args is a JSON. That should be very flexible. Although there isn't really a message broker or publisher-subscriber infrastructure. We just basically have a similar `topic/subtopic/json message` data format.
+
+2026-07-01 Wk 27 Wed - 01:51 +03:00
+
+```
+[clusterline plug] AAA00.00
+[clusterline plug] AAA00.01 panel,btn1_onclick,{} undefined undefined
+[clusterline plug] An exception was thrown as a result of invoking function post_message error: r.charCodeAt is not a function
+```
+
+```ts
+// Panel Code
+let count = 0;
+document.getElementById('btn1').onclick = () => {
+    count++;
+    document.getElementById('count').textContent = count;
+    syscall('system.invokeFunction', 'clusterline.post_message', ['panel', 'btn1_onclick', '{}']);
+};
+
+// Plug ts code
+export async function ts_post_message(topic: string, subtopic: string, json_msg: string) {
+  console.log(`AAA00.00`);
+  initSync({ module: wasmAsUtf8Array });
+  console.log(`AAA00.01 ${topic} ${subtopic} ${json_msg}`);
+  let result = await post_message(topic, subtopic, json_msg);
+  console.log(`AAA00.02 ${result}`);
+  return result;
+}
+```
+
+The `AAA00.01` log shows that the arguments are passed all in `topic` as comma separated.
+
+The first argument also seems to just come as an object:
+
+```ts
+export async function ts_post_message(comma_separated_args: string) {
+  console.log(`AAA00.00 (csa ${comma_separated_args}) (type ${typeof(comma_separated_args)})`);
+```
+
+```
+[clusterline plug] AAA00.00 (csa panel,btn1_onclick,{}) (type object)
+```
+
+so we end up unable to split:
+
+```
+[clusterline plug] An exception was thrown as a result of invoking function post_message error: r.split is not a function
+```
+
+Explicit casting to String with `String(theObj)` works for this. And we are able to get the message recognized from the plug in rust!
+
+2026-07-01 Wk 27 Wed - 18:48 +03:00
+
+```sh
+# in /home/lan/src/cloned/cb/lan22h/clusterlinemd
+git commit
+
+# out
+[main 64a04c8] impl basic message post for ui bundle
+```
+
+The UI Bundle (html and script) now can communicate back with the rust plug in a modular way with topics and subtopics. It can receive a result from its message post, allowing computation to be done over in rust also to be used by the ui bundle. The UI Bundle includes a service string that the rust plug can use to route to the originator of that UI bundle to handle interaction. This way the same plug can have multiple services that make use of modal selector UI, etc.
+
+2026-07-01 Wk 27 Wed - 19:08 +03:00
+
+Now we have the communications and ability to spawn our own UI with a plug. Next, we want to be able to offer a similar experience to silverbullet with our modals if possible. 
+
+the webcomponent `client/components/command_palette.tsx > CommandPalette` is basically a specialization of `client/components/filter.tsx > FilterList`. As we are going to be clone or near clone of this, ensure the file pays respect to the silverbullet license.
+
+Spawn [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/entry/001 Silverbullet Filterlist html notes]] ^spawn-entry-30bc97
+
+2026-07-03 Wk 27 Fri - 22:51 +03:00
+
+```sh
+# in /home/lan/src/cloned/cb/lan22h/clusterlinemd
+git commit
+
+# out
+[main 9624eec] add clusterline-ui subproject for building panel UI to be sent to silverbullet
+```
+
+We have a basic similar, although it does not yet look identical, UI for the modal options filter. We have a new project `clusterline-ui` for building these widgets so that we can send the html over for silverbullet, although this pipeline is yet to be integrated.
+
+This project uses the same build process we achieved in [[001 Setup repository build PPST]], which includes `scss` and `ts` in the build. Silverbullet uses `scss` as well so we are able to use the same styles.
+
+![[Pasted image 20260703225935.png]]
+
+## Tasks
+
+2026-07-04 Wk 27 Sat - 15:33 +03:00
+
+- [ ] [[007 Integrate ui build with rust plug and send proper modal dialog to silverbullet]]
+- [ ] Implement behavior for selecting item, filtering item via search, responding to keyUp and keyDown
+- [ ] Improve style so that the dialog window is smaller, and the scroll is inside the result list div, and the hints are far right
+- [ ] Allow multiple modal UI to be built and integrated with rust plug
+- [ ] Implement fuzzy search functionality through the input field. Include `!` syntax for filtering keywords.
+
+## Journal
+
+2026-07-04 Wk 27 Sat - 19:00 +03:00
+
+Spawn [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/task/007 Integrate ui build with rust plug and send proper modal dialog to silverbullet]] ^spawn-task-8017b4
+
