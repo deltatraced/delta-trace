@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "lan/2026/microproj/002-personal-notes-cloud/task/001 Setup private file sync between devices and vns/task/000 Setup private file sync with synththing.md",
+                "file": "lan/2026/main/wikiproc/002 Wiki Proc Other Open Source Notes/002 Wiki Proc Other Open Source Notes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "000 Setup private file sync with synththing"
+              "title": "002 Wiki Proc Other Open Source Notes"
             }
           }
         ]
@@ -163,6 +163,32 @@
   },
   "active": "30a9c9b3f6e8771a",
   "lastOpenFiles": [
+    "lan/2026/microproj/002-personal-notes-cloud/task/001 Setup private file sync between devices and vns/task/000 Setup private file sync with synththing.md",
+    "lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/task/009 Include rust plug post message in clusterline-ui and replace it with logs in test build.md",
+    "Library/joekrill/silverbullet-treeview.md",
+    "Library/joekrill/treeview.plug.js",
+    "Library/joekrill",
+    "Library/mrmugame/Silverbullet-Math/fonts/KaTeX_Caligraphic-Bold.woff2",
+    "Library/mrmugame/Silverbullet-Math/fonts/KaTeX_Main-Italic.woff2",
+    "Library/mrmugame/Silverbullet-Math/fonts/KaTeX_AMS-Regular.woff2",
+    "Library/mrmugame/Silverbullet-Math/fonts/KaTeX_Math-Italic.woff2",
+    "Library/mrmugame/Silverbullet-Math/fonts/KaTeX_Size4-Regular.woff2",
+    "Library/mrmugame/Silverbullet-Math/fonts/KaTeX_SansSerif-Italic.woff2",
+    "Library/mrmugame/Silverbullet-Math/fonts/KaTeX_Math-BoldItalic.woff2",
+    "Library/mrmugame/Silverbullet-Math/fonts/KaTeX_Typewriter-Regular.woff2",
+    "Library/mrmugame/Silverbullet-Math.md",
+    "lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/task/008 Allow multiple modal UI to be built and integrated with rust plug Clusterline.md",
+    "lan/2026/main/wikiproc/001 Wiki Proc HowTos/entry/000 Overview Wiki Proc HowTos.md",
+    "lan/2026/main/wikiproc/001 Wiki Proc HowTos/001 Wiki Proc HowTos.md",
+    "lan/2026/main/wiki/002 Wiki Other Open Source Notes/002 Wiki Other Open Source Notes.md",
+    "lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/concept/007 The process artifact distinction of notes.md",
+    "lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/task/007 Integrate ui build with rust plug and send proper modal dialog to silverbullet.md",
+    "lan/2026/main/wikiproc/001 Wiki Proc HowTos/howto/000 Shell Cat Nth Line.md",
+    "lan/2026/main/wikiproc/002 Wiki Proc Other Open Source Notes/002 Wiki Proc Other Open Source Notes.md",
+    "lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/021 Process notes should preserve the conditions of knowledge.md",
+    "lan/2026/main/wiki/001 Wiki HowTos/001 Wiki HowTos.md",
+    "lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/concept/008 Term Artifact Notes.md",
+    "attachments/Pasted image 20260703225935.png",
     "lan/2026/microproj/001-ping-pong-score-ts/entry/000 Getting started ping-pong-score-ts/task/002 impl score table component proto 1.md",
     "attachments/Pasted image 20260518193435.png",
     "lan/archived/2026-05-21-pre/entries-monthly/2025/004 Inspirations/004 Inspirations.md",
@@ -180,25 +206,8 @@
     "attachments/Pasted image 20250726232540.png",
     "lan/archived/2026-05-21_2026/topic/study/math/wiki/2026/000 Analysis I Terrance Tao Proofs/entries/000 Spawn Logs for Analysis I Terrance Tao Proofs.md",
     "lan/archived/2026-05-21_2026/topic/write/wiki/2026/000 Notes for Posts/entries/001 Writing for Process Structure Simultaneity.md",
-    "lan/archived/2026-05-21_2025/proj/001 teensy2-tiny-piano/tasks/2025/000 Get teensy2 embedded system to work again under docker/tasks/001 Document already configured test keyboard circuit.md",
-    "lan/archived/2026-05-21_2026/topic/read/papers/ai/entries/2025/000 Attention is all you need/investigations/000 On Self Attention.md",
-    "lan/archived/2026-05-21_2025/microproj/001 Rust Diesel Event Sourcing/tasks/2025/002 Move credit_store_demo project to deltachives/tasks/002 Update credit store schema for required version event id.md",
     "attachments/Pasted image 20250629031050.png",
-    "lan/2026/proj/003-clusterline-md/entry/001 Goals for clusterlinemd/001 Goals for clusterlinemd.md",
     "attachments/Pasted image 20260520060506.png",
-    "scripts/templater/data/lan/daily/2025/Summary-2025-09-19.md",
-    "scripts/templater/data/lan/weekly/2025/Summary-2025-09-Wk38.md",
-    "lan/archived/2026-05-21_2025/microproj/001 Rust Diesel Event Sourcing/tasks/2025/002 Move credit_store_demo project to deltachives/issues/002 Getting a generic diesel update all function to work.md",
-    "lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/issue/001 Using async for js extern instead of future leads to wrong pkg generation via wasm-pack.md",
-    "lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/002 Investigative process notes incrementally reduce confusion.md",
-    "attachments/Pasted image 20250629030105.png",
-    "lan/archived/2026-05-21_2025/microproj/001 Rust Diesel Event Sourcing/tasks/2025/000 Implement the Event Accumulator/inferences/003 Use of event keys in events would result in complex partial accumulations.md",
-    "lan/archived/2026-05-21_2025/microproj/001 Rust Diesel Event Sourcing/tasks/2025/002 Move credit_store_demo project to deltachives/issues/000 Internal state for shi shell not passing to new thread safely.md",
-    "lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/018 Atomic contexts attenuate out of scope writing.md",
-    "lan/archived/2026-05-21_2025/proj/002 obsidian-sourced-website/wiki/2026/process/000 Proc Wiki obsidian-sourced-website/investigations/000 Proc Compare Tech stacks for obsidian-sourced-website Goal1.md",
-    "attachments/Pasted image 20250702214342.png",
-    "lan/archived/2026-05-21_2025/microproj/001 Rust Diesel Event Sourcing/tasks/2025/000 Implement the Event Accumulator/tasks/003 Attempt to use partial view support branch of diesel.md",
-    "lan/2026/topic/concept/000 Atomic/wiki/002 Wiki Questions/task/000 False Why does rust f64 try_into for u64 say infallible error.md",
-    "LICENSE"
+    "attachments/Pasted image 20250629030105.png"
   ]
 }
