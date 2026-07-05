@@ -8,7 +8,8 @@ Spawned by: [[lan/2026/topic/concept/000 Atomic/wikiproc/003 Wiki Proc Clusterli
 
 Spawned in: [[lan/2026/topic/concept/000 Atomic/wikiproc/003 Wiki Proc Clusterline Concepts/003 Wiki Proc Clusterline Concepts#^spawn-entry-c587dd|^spawn-entry-c587dd]]
 
-# Journal
+---
+
 
 [[000 Term Process Note|Process Notes]] can contain wiki sections. Wiki sections can be rewritten for clarity, or just removed, and give no promise of immutability (contra [[001 Process notes should be immutable to act as an audit]]). These usually are produced from the Journal header, so that no information is lost.
 

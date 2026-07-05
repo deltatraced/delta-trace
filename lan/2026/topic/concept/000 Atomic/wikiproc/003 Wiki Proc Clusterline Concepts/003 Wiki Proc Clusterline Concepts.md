@@ -5,7 +5,12 @@ Wiki: [[003 Wiki Clusterline Concepts]]
 
 2026-06-11 Wk 24 Thu - 01:15 +03:00
 
-Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/000 An "Issues During" note licenses rewrite of process notes]] ^spawn-entry-4f6e42
+Spawn [[000 An "Issues for" note handle licenses rewrite of process notes]] ^spawn-entry-4f6e42
+
+-- 2026-07-05 Wk 27 Sun - 01:40 +03:00
+
+renaming `Issues During` to `Issues for` which is slightly shorter.
+
 
 Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/concept/000 Term Process Note]] ^spawn-cncpt-bad7f4
 
@@ -70,4 +75,17 @@ Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/ent
 Spawn [[019 Self judgment can hinder learning by distorting our engagement with the signs of our practice]] ^spawn-entry-24e442
 
 Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/020 Learning is an apprenticeship to signs]] ^spawn-entry-939257
+
+2026-07-05 Wk 27 Sun - 01:37 +03:00
+
+Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/021 Process notes should preserve the conditions of knowledge]] ^spawn-entry-384704
+
+Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/concept/007 The process artifact distinction of notes]] ^spawn-cncpt-9b48c6
+
+Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/concept/008 Term Artifact Notes]] ^spawn-cncpt-49c189
+
+2026-07-05 Wk 27 Sun - 19:15 +03:00
+
+Spawn [[002 Proc Process notes should preserve the conditions of knowledge]] ^spawn-entry-642949
+
 

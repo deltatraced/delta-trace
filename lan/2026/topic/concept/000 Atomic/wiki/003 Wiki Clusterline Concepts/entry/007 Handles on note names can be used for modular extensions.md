@@ -14,7 +14,7 @@ If we have some note name, let's say `N`, and we want to extend it in the graph 
 
 We have used it for many things. As part of the note name itself, we usually have the project name which makes that name much more likely to be globally unique. But in this case, these are extensions to an already existing note `N`. For example:
 
-- [[000 An "Issues During" note licenses rewrite of process notes]]
+- [[000 An "Issues for" note handle licenses rewrite of process notes]]
 
 Here by using the handle "Issues During" on a note, we capture technical issues encountered while writing the note. It interacts with the note's content in ways we define of this handle.
 
