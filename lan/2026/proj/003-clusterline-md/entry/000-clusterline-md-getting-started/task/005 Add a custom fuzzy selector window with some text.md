@@ -346,7 +346,7 @@ This project uses the same build process we achieved in [[001 Setup repository b
 
 - [x] [[007 Integrate ui build with rust plug and send proper modal dialog to silverbullet]]
 - [x] [[008 Allow multiple modal UI to be built and integrated with rust plug Clusterline]]
-- [ ] [[009 Include rust plug post message in clusterline-ui and replace it with logs in test build]]
+- [ ] [[009 Include rust plug post message and render config in clusterline-ui and stub message post in test build]]
 - [ ] Implement behavior for selecting item, filtering item via search, responding to keyUp and keyDown
 - [ ] Improve style so that the dialog window is smaller, and the scroll is inside the result list div, and the hints are far right
 - [ ] Implement fuzzy search functionality through the input field. Include `!` syntax for filtering keywords.
@@ -363,5 +363,5 @@ Spawn [[008 Allow multiple modal UI to be built and integrated with rust plug Cl
 
 2026-07-05 Wk 27 Sun - 07:51 +03:00
 
-Spawn [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/task/009 Include rust plug post message in clusterline-ui and replace it with logs in test build]] ^spawn-task-1070ec
+Spawn [[009 Include rust plug post message and render config in clusterline-ui and stub message post in test build]] ^spawn-task-1070ec
 

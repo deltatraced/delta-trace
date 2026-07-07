@@ -4,9 +4,9 @@ context_type: entry
 
 Parent: [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/000-clusterline-md-getting-started]]
 
-Spawned by: [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/task/009 Include rust plug post message in clusterline-ui and replace it with logs in test build]]
+Spawned by: [[009 Include rust plug post message and render config in clusterline-ui and stub message post in test build]]
 
-Spawned in: [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/task/009 Include rust plug post message in clusterline-ui and replace it with logs in test build#^spawn-entry-d49eda|^spawn-entry-d49eda]]
+Spawned in: [[009 Include rust plug post message and render config in clusterline-ui and stub message post in test build#^spawn-entry-d49eda|^spawn-entry-d49eda]]
 
 # Journal
 
@@ -82,3 +82,9 @@ That builds with no issues!
 We can use `unknown` when we simply don't have a choice in the type. This is the case here, we are not in control of the type of a function owned by silverbullet.
 
 OK
+
+## Journal
+
+2026-07-06 Wk 28 Mon - 12:22 +03:00
+
+Spawn [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/issue/003 Modal loaded to silverbullet as ui bundle fails to deallocate on cancel due to rust future async ignored]] ^spawn-issue-96f454
