@@ -5,6 +5,7 @@
   "showLineNumber": false,
   "readableLineLength": false,
   "mobileToolbarCommands": [
+    "quickadd:runQuickAdd",
     "editor:undo",
     "editor:redo",
     "editor:insert-wikilink",
@@ -25,7 +26,6 @@
     "editor:indent-list",
     "editor:unindent-list",
     "editor:configure-toolbar",
-    "switcher:open",
-    "editor:save-file"
+    "switcher:open"
   ]
 }

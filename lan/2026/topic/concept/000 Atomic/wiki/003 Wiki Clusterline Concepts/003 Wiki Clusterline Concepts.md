@@ -1,5 +1,5 @@
 
-Wiki Proc: [[003 Wiki Proc Clusterline Concepts]]
+Wiki Process: [[003 Wiki Proc Clusterline Concepts]]
 
 ---
 
@@ -20,11 +20,14 @@ Wiki Proc: [[003 Wiki Proc Clusterline Concepts]]
 - [[016 Note Title denotes a given context]]
 - [[017 Notes should have high locality of context]]
 - [[018 Atomic contexts attenuate out of scope writing]]
+- [[022 Decision artifact sections enumerate key facts about changes and commitments produced by the process note]]
+- [[023 Inference artifact sections enumerate propositions learned through the process note]]
+- [[024 Timestamps in journals produce cards and subcards that segment the note into progressive points of attention]]
 
 **Learning**
 
 - [[020 Learning is an apprenticeship to signs]]
-- [[019 Self judgment can hinder learning by distorting our engagement with the signs of our practice]]
+- [[019 Self judgment hinders learning by redirecting us away from technical signs to identity and narrative]]
 
 **Interpreting the notes**
 
@@ -44,5 +47,6 @@ Wiki Proc: [[003 Wiki Proc Clusterline Concepts]]
 **Organization**
 
 - [[004 Use status mightdo for works we arent yet fully commited to doing]]
-- [[005 Proc Notes may contain wiki sections in non journal headers]]
+- [[005 Process Notes may contain artifact sections in non journal headers]]
 - [[014 Proc Notes can route associated wiki note to various note handle extension notes]]
+- [[025 A schematized filesystem supports effortless organization]]

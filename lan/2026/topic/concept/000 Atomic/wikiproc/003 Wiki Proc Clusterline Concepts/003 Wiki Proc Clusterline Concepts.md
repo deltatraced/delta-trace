@@ -7,10 +7,11 @@ Wiki: [[003 Wiki Clusterline Concepts]]
 
 Spawn [[000 An "Issues for" note handle licenses rewrite of process notes]] ^spawn-entry-4f6e42
 
--- 2026-07-05 Wk 27 Sun - 01:40 +03:00
+--/ 2026-07-05 Wk 27 Sun - 01:40 +03:00
 
 renaming `Issues During` to `Issues for` which is slightly shorter.
 
+--/
 
 Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/concept/000 Term Process Note]] ^spawn-cncpt-bad7f4
 
@@ -26,7 +27,11 @@ Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/ent
 
 Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/concept/001 Term Aspiring Notes]] ^spawn-cncpt-4b2dff
 
-Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/005 Proc Notes may contain wiki sections in non journal headers]] ^spawn-entry-c587dd
+Spawn [[005 Process Notes may contain artifact sections in non journal headers]] ^spawn-entry-c587dd
+
+-- 2026-07-06 Wk 28 Mon - 08:35 +03:00
+
+Renaming `005 Process Notes may contain wiki sections in non journal headers`. This isn't *just* about wiki sections. We now clarified this term to `artifact sections`.  New name: `005 Process Notes may contain artifact sections in non journal headers`.
 
 Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/006 Process Notes are meant to be mined for evidence rather than read]] ^spawn-entry-e36725
 
@@ -72,7 +77,11 @@ Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/ent
 
 2026-06-25 Wk 26 Thu - 17:40 +03:00
 
-Spawn [[019 Self judgment can hinder learning by distorting our engagement with the signs of our practice]] ^spawn-entry-24e442
+Spawn [[019 Self judgment hinders learning by redirecting us away from technical signs to identity and narrative]] ^spawn-entry-24e442
+
+-- 2026-07-06 Wk 28 Mon - 08:29 +03:00
+
+Let's rename `019 Self judgment can hinder learning by distorting our engagement with the signs of our practice`. We can make a sharper more focused claim here. Renaming to `019 Self judgment hinders learning by redirecting us away from technical signs to identity and narrative`.
 
 Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/020 Learning is an apprenticeship to signs]] ^spawn-entry-939257
 
@@ -87,5 +96,19 @@ Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/con
 2026-07-05 Wk 27 Sun - 19:15 +03:00
 
 Spawn [[002 Proc Process notes should preserve the conditions of knowledge]] ^spawn-entry-642949
+
+2026-07-06 Wk 28 Mon - 07:14 +03:00
+
+Spawn [[022 Decision artifact sections enumerate key facts about changes and commitments produced by the process note]] ^spawn-entry-29d000
+
+Spawn [[023 Inference artifact sections enumerate propositions learned through the process note]] ^spawn-entry-2fb6d0
+
+2026-07-06 Wk 28 Mon - 20:45 +03:00
+
+Spawn [[024 Timestamps in journals produce cards and subcards that segment the note into progressive points of attention]] ^spawn-entry-0729a5
+
+Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/025 A schematized filesystem supports effortless organization]] ^spawn-entry-a0e76f
+
+
 
 

@@ -143,8 +143,18 @@
         "state": {
           "type": "chronology-calendar-view",
           "state": {},
-          "icon": "lucide-ghost",
-          "title": "chronology-calendar-view"
+          "icon": "clock",
+          "title": "Chronology"
+        }
+      },
+      {
+        "id": "8952cb195fb0f32a",
+        "type": "leaf",
+        "state": {
+          "type": "chronology-calendar-view",
+          "state": {},
+          "icon": "clock",
+          "title": "Chronology"
         }
       }
     ],
@@ -158,11 +168,27 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "templater-obsidian:Templater": false,
+      "omnisearch:Omnisearch": false,
+      "obsidian-git:Open Git source control": false,
+      "obsidian-kanban:Create new board": false,
+      "chronology:Open Chronology": false
     }
   },
   "active": "30a9c9b3f6e8771a",
   "lastOpenFiles": [
+    "lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/021 Process notes should preserve the conditions of knowledge.md",
+    "lan/2026/main/wikiproc/002 Wiki Proc Other Open Source Notes/002 Wiki Proc Other Open Source Notes.md",
+    "lan/2026/topic/concept/000 Atomic/wiki/000 Wiki Atomic Concepts/000 Wiki Atomic Concepts.md",
+    "lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/008 Errata note extensions capture author made errors without cluttering the note.md",
+    "lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/007 Handles on note names can be used for modular extensions.md",
+    "lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/006 Process Notes are meant to be mined for evidence rather than read.md",
+    "lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/005 Process Notes may contain artifact sections in non journal headers.md",
+    "lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/001 Process notes should be immutable to act as an audit.md",
+    "lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/003 Overview notes in a cluster clarify how that cluster ought be navigated.md",
+    "lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/011 Redos for Note Handle routes multiple full redoing of a given note.md",
+    "lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/023 Inference artifact sections enumerate propositions learned through the process note.md",
     "lan/2026/microproj/002-personal-notes-cloud/task/001 Setup private file sync between devices and vns/task/000 Setup private file sync with synththing.md",
     "lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/task/009 Include rust plug post message in clusterline-ui and replace it with logs in test build.md",
     "Library/joekrill/silverbullet-treeview.md",
@@ -184,8 +210,6 @@
     "lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/concept/007 The process artifact distinction of notes.md",
     "lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/task/007 Integrate ui build with rust plug and send proper modal dialog to silverbullet.md",
     "lan/2026/main/wikiproc/001 Wiki Proc HowTos/howto/000 Shell Cat Nth Line.md",
-    "lan/2026/main/wikiproc/002 Wiki Proc Other Open Source Notes/002 Wiki Proc Other Open Source Notes.md",
-    "lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/021 Process notes should preserve the conditions of knowledge.md",
     "lan/2026/main/wiki/001 Wiki HowTos/001 Wiki HowTos.md",
     "lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/concept/008 Term Artifact Notes.md",
     "attachments/Pasted image 20260703225935.png",
@@ -194,18 +218,9 @@
     "lan/archived/2026-05-21-pre/entries-monthly/2025/004 Inspirations/004 Inspirations.md",
     "attachments/Pasted image 20260521011708.png",
     "attachments/Pasted image 20250629033624.png",
-    "lan/archived/2026-05-21_2025/main/task/st/done/000 Wk 37 Addressing shi PR 10/000 Wk 37 Addressing shi PR 10.md",
-    "lan/archived/2026-05-21_2025/microproj/001 Rust Diesel Event Sourcing/tasks/2025/000 Implement the Event Accumulator/inferences/000 diesel-rs does not yet support views.md",
     "attachments/Pasted image 20250629031557.png",
     "attachments/Pasted image 20250801110727.png",
-    "lan/archived/2026-05-21_2026/topic/practice/ctf/topic/entries/2025/000 Solving Mountain and Dragon CTF/investigations/000 Searching for js reference syntax for bytes call.md",
-    "lan/archived/2026-05-21_2026/topic/practice/ctf/2025/google-ctf-2025/during/topics/misc/entries/didn't try/003 メガA.md",
-    "scripts/templater/data/lan/total/2025/Summarize 000 Multiarch.md",
-    "lan/archived/2026-05-21_2026/topic/write/wiki/2026/000 Notes for Posts/entries/000 Spawn Logs for Notes for Posts.md",
-    "lan/2026/microproj/000-labeled-cube-rendering/entry/000 Getting Started for LCR/task/003 Render an array of shapes onto a grid.md",
     "attachments/Pasted image 20250726232540.png",
-    "lan/archived/2026-05-21_2026/topic/study/math/wiki/2026/000 Analysis I Terrance Tao Proofs/entries/000 Spawn Logs for Analysis I Terrance Tao Proofs.md",
-    "lan/archived/2026-05-21_2026/topic/write/wiki/2026/000 Notes for Posts/entries/001 Writing for Process Structure Simultaneity.md",
     "attachments/Pasted image 20250629031050.png",
     "attachments/Pasted image 20260520060506.png",
     "attachments/Pasted image 20250629030105.png"
