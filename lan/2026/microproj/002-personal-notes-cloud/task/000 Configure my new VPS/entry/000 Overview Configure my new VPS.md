@@ -12,7 +12,7 @@ Spawned in: [[lan/2026/microproj/002-personal-notes-cloud/task/000 Configure my 
 
 Setup,
 
-1. [x] [[001 Setup port forwarding with iptables and vps provider]]
+1. [x] [[001 Setup port forwarding with iptables  vps provider]]
 2. [x] [[000 Configure my deltatraced dns and publish a test page on it publicly]]
 
 

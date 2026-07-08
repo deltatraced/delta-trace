@@ -365,3 +365,9 @@ Spawn [[008 Allow multiple modal UI to be built and integrated with rust plug Cl
 
 Spawn [[009 Include rust plug post message and render config in clusterline-ui and stub message post in test build]] ^spawn-task-1070ec
 
+2026-07-07 Wk 28 Tue - 17:56 +03:00
+
+Spawn [[011 Impl sb_options_filter_list interactive behavior]] ^spawn-task-3c7bf1
+
+Spawn [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/task/012 Add basic filter or search by word for sb_options_filter_list]] ^spawn-task-fd6ab5
+

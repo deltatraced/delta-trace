@@ -1,6 +1,6 @@
 ---
 context_type: task
-status: todo
+status: done
 ---
 
 Parent: [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/000-clusterline-md-getting-started]]
@@ -254,3 +254,105 @@ message response for cancel: on_canceled OK
 We do not yet parse the json message, so rust is reporting `(service some_service)` but we can see that the JSON message with the correct service is there.
 
 [[003 Modal loaded to silverbullet as ui bundle fails to deallocate on cancel due to rust future async ignored]]
+
+2026-07-07 Wk 28 Tue - 08:52 +03:00
+
+The simplest solution is to just let the UI close itself. It's one less async operation we have to deal with in rust if we don't have to.
+
+We're able to parse the json message now. Since we're working a lot with js values it is easy:
+
+```rust
+let msg = JSON::parse(json_msg)
+	.expect("on_selected_json: Failed to parse JSON message");
+
+let service: String = js_value_conv::try_get_jsvalue_prop(&msg, "service")
+	.expect("Message must include service");
+```
+
+These event handlers are considered application IO facing code, so we do panic if things go wrong here, but we are able to write the UI so that we only emit the expected JSON, so it isn't an issue.
+
+Also silverbullet is generating so much noise with its indexing and other error logs, so let's append to every log message `CLSTR` and filter by it:
+
+```rust
+// in /home/lan/src/cloned/cb/lan22h/clusterline-sb/clusterline-rs/src/util/logging.rs
+pub fn plug_log(s: &str) {
+    imported::log(&format!("CLSTR-RS {s}"));
+}
+```
+
+```ts
+// in /home/lan/src/cloned/cb/lan22h/clusterline-sb/clusterline-ui/src/ts/utils/logging.ts
+export function plug_log(s: string) {
+	console.log(`CLSTR-UI ${s}`);
+}
+
+export function plug_error(s: string) {
+	console.error(`CLSTR-UI ${s}`);
+}
+
+// in /home/lan/src/cloned/cb/lan22h/clusterline-sb/src/clusterline.ts
+export function plug_log(s: string) {
+  console.log(`CLSTR-SB ${s}`);
+}
+
+export function plug_error(s: string) {
+  console.error(`CLSTR-SB ${s}`);
+}
+```
+
+--/ 2026-07-07 Wk 28 Tue - 09:53 +03:00
+
+Correcting for
+
+```ts
+  ℹ Template literals are preferred over string concatenation.
+
+    5 │ export function plug_error(s: string) {
+  > 6 │         console.error('CLSTR-UI ' + s);
+      │                       ^^^^^^^^^^^^^^^
+    7 │ }
+    8 │
+```
+
+--/ 2026-07-07 Wk 28 Tue - 09:56 +03:00
+
+we also need to watch out for panics, since they wont have this keyword `CLSTR`.
+
+--/
+
+Currently building with
+
+```sh
+# in /home/lan/src/cloned/cb/lan22h/clusterline-sb
+./build.sh && cp ./dist/lan22h/clusterline-sb/* ~/src/cloned/cb/deltatraced/deltatraced/Library/lan22h/clusterline-sb/
+```
+
+Copying over the files to my library in the note repository which are just the `clusterline.plug.js` and `clusterline.plug.yaml`.
+
+2026-07-07 Wk 28 Tue - 17:42 +03:00
+
+```sh
+# in /home/lan/src/cloned/cb/lan22h/clusterline-sb
+
+git commit
+
+# out {
+[main af247f1] allow clusterline-ui to build multiple widgets with render config
+# }
+
+git log
+
+# out (relevant) {
+Author: Mohammed Alzakariya <lanhikarixx@gmail.com>
+Date:   Tue Jul 7 17:40:27 2026 +0300
+
+    allow clusterline-ui to build multiple widgets with render config
+
+    - pass render config to clusterline-ui
+    - clusterline-ui is able to post messages over to rust plug from
+      silverbullet. Becomes just log messages when testing the widget in
+      isolation
+# }
+```
+
+OK

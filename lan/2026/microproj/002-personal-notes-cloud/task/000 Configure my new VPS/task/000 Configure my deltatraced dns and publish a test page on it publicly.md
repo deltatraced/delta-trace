@@ -59,4 +59,4 @@ Then `Ctrl-b p` back to the control pane. You could also do it all in the same w
 
 2026-06-26 Wk 26 Fri - 00:06 +03:00
 
-Spawn [[lan/2026/microproj/002-personal-notes-cloud/task/000 Configure my new VPS/task/001 Setup port forwarding with iptables and vps provider]] ^spawn-task-4ddedd
+Spawn [[001 Setup port forwarding with iptables  vps provider]] ^spawn-task-4ddedd

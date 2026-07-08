@@ -6,12 +6,5 @@
 ignore.md
 file.md
 
-Library/lan22h/clusterlinemd/node_modules/
-Library/lan22h/clusterlinemd/clusterline-ui/node_modules/
-Library/lan22h/clusterlinemd/clusterline-rs/target/
-# The above included also because silverbullet doesn't seem to recognize it off of the gitignore
-**/node_modules/
-**/target/
-
 # syncthing
 .stfolder/

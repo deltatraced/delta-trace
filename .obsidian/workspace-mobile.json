@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "lan/2026/main/wikiproc/002 Wiki Proc Other Open Source Notes/002 Wiki Proc Other Open Source Notes.md",
+                "file": "lan/2026/microproj/002-personal-notes-cloud/task/000 Configure my new VPS/task/001 Setup port forwarding with iptables  vps provider.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "002 Wiki Proc Other Open Source Notes"
+              "title": "001 Setup port forwarding with iptables  vps provider"
             }
           }
         ]
@@ -173,13 +173,17 @@
       "omnisearch:Omnisearch": false,
       "obsidian-git:Open Git source control": false,
       "obsidian-kanban:Create new board": false,
-      "chronology:Open Chronology": false
+      "chronology:Open Chronology": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "version-control:Open version control": false
     }
   },
   "active": "30a9c9b3f6e8771a",
   "lastOpenFiles": [
-    "lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/021 Process notes should preserve the conditions of knowledge.md",
+    "lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/task/009 Include rust plug post message and render config in clusterline-ui and stub message post in test build.md",
+    "lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/entry/000 Overview clusterline getting started.md",
     "lan/2026/main/wikiproc/002 Wiki Proc Other Open Source Notes/002 Wiki Proc Other Open Source Notes.md",
+    "lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/021 Process notes should preserve the conditions of knowledge.md",
     "lan/2026/topic/concept/000 Atomic/wiki/000 Wiki Atomic Concepts/000 Wiki Atomic Concepts.md",
     "lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/008 Errata note extensions capture author made errors without cluttering the note.md",
     "lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/007 Handles on note names can be used for modular extensions.md",
@@ -213,9 +217,7 @@
     "lan/2026/main/wiki/001 Wiki HowTos/001 Wiki HowTos.md",
     "lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/concept/008 Term Artifact Notes.md",
     "attachments/Pasted image 20260703225935.png",
-    "lan/2026/microproj/001-ping-pong-score-ts/entry/000 Getting started ping-pong-score-ts/task/002 impl score table component proto 1.md",
     "attachments/Pasted image 20260518193435.png",
-    "lan/archived/2026-05-21-pre/entries-monthly/2025/004 Inspirations/004 Inspirations.md",
     "attachments/Pasted image 20260521011708.png",
     "attachments/Pasted image 20250629033624.png",
     "attachments/Pasted image 20250629031557.png",

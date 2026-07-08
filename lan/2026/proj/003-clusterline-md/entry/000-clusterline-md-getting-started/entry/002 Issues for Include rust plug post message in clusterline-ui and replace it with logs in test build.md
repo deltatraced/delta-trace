@@ -8,6 +8,8 @@ Spawned by: [[009 Include rust plug post message and render config in clusterlin
 
 Spawned in: [[009 Include rust plug post message and render config in clusterline-ui and stub message post in test build#^spawn-entry-d49eda|^spawn-entry-d49eda]]
 
+Issues for [[009 Include rust plug post message and render config in clusterline-ui and stub message post in test build]]
+
 # Journal
 
 ## syscall any type rejected by eslint no-explicit-any
@@ -88,3 +90,4 @@ OK
 2026-07-06 Wk 28 Mon - 12:22 +03:00
 
 Spawn [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/issue/003 Modal loaded to silverbullet as ui bundle fails to deallocate on cancel due to rust future async ignored]] ^spawn-issue-96f454
+

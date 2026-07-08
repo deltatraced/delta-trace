@@ -1,6 +1,6 @@
 ---
 context_type: issue
-status: todo
+status: done
 ---
 
 Parent: [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/000-clusterline-md-getting-started]]
@@ -11,6 +11,7 @@ Spawned in: [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-
 
 # Inference
 
+$\therefore$ Futures in rust must be passed to an executor or awaited, or the computation is never carried out. The difference in this issue was that we ignored a future, and so our action became a no-op.
 
 # Journal
 
@@ -95,6 +96,14 @@ pub async fn test() {
 
 --/ 2026-07-07 Wk 28 Tue - 07:42 +03:00
 
+Aside
+
 https://rustc-dev-guide.rust-lang.org/mir/index.html
 
 --/
+
+https://docs.rs/futures/latest/futures/
+
+We don't await; so nothing happens. The future is like a certificate of a task to be executed eventually by a task system. This would imply that discarding the future should resulted in a no-op. 
+
+OK

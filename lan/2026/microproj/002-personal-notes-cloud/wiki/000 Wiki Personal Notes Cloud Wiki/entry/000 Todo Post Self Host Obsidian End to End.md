@@ -35,7 +35,7 @@ Codename:       resolute
 
 Follow similar process to
 
-1. [[001 Setup port forwarding with iptables and vps provider]]
+1. [[001 Setup port forwarding with iptables  vps provider]]
 2. [[000 Setup private file sync with synththing]]
 
 Once syncthing is accessible through your VPS you can use SSH tunneling to open the config UI in your host via something like

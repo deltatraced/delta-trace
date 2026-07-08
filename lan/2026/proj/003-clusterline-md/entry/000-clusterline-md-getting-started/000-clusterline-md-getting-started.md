@@ -25,3 +25,10 @@ Spawn [[006 Clusterlinemd Impl open main note and sub note]] ^spawn-task-774ce2
 2026-07-06 Wk 28 Mon - 20:13 +03:00
 
 Renaming `clusterlinemd` to `clusterline-sb` to signal that it is implemented for silverbullet but can be implemented elsewhere. We will keep `clusterline-md` here as an internal project handle because the notes can own all implementations of clusterline for various editors. And `clusterline-md` or `clusterline-{editor_code}` distinguishes it from `clusterline` the note taking method.
+
+2026-07-07 Wk 28 Tue - 17:46 +03:00
+
+Spawn [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/task/010 Impl text_input_form widget]] ^spawn-task-fe35de
+
+
+
