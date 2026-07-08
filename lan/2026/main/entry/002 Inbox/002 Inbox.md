@@ -3,6 +3,10 @@
 
 - [[000 Overview clusterline getting started]]
 
+**Task Inbox**
+
+- [[000 Source assets from outside the note repository to keep it light]]
+
 # Journal
 
 2026-07-08 Wk 28 Wed - 18:58 +03:00

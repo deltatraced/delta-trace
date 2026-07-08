@@ -13,6 +13,8 @@ I have an inbox of tasks and investigations I work on at [[002 Inbox]]. See belo
 
 I am migrating from obsidian, and trying silverbullet.md. An opportunity to formalize my note taking system with tools. I call my note taking system `clusterline` (you can see clusters of notes, all progressing in unison across the timeline).
 
+Ongoing development of clusterline for silverbullet: https://codeberg.org/lan22h/clusterline-sb
+
 You can check notes on the technical development: [[000 Overview clusterline getting started]]
 
 You can learn about the concepts of the system: [[003 Wiki Clusterline Concepts]]
@@ -42,3 +44,5 @@ Creating a simple ping pong score keeping website while I play with friends and 
 
 I also maintain different note repositories with a now page and inbox:
 
+- [Golden-sun Reverse Engineering now](https://github.com/FutureFractal/goldensun-notes/blob/webview/lan/now.md)
+- [Megaman Battle Network 6 Reverse Engineering now](https://github.com/dism-exe/dism-exe-notes/blob/webview/lan/now.md)
