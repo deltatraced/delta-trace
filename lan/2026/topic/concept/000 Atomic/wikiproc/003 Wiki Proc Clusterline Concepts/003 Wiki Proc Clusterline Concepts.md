@@ -109,6 +109,4 @@ Spawn [[024 Timestamps in journals produce cards and subcards that segment the n
 
 Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/025 A schematized filesystem supports effortless organization]] ^spawn-entry-a0e76f
 
-
-
-
+Spawn [[026 Prefer grammars of use over topic based classifications]] ^spawn-entry-a7b7be

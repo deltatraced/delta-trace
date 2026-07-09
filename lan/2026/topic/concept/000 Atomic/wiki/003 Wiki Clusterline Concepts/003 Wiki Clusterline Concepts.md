@@ -3,6 +3,7 @@ Wiki Process: [[003 Wiki Proc Clusterline Concepts]]
 
 ---
 
+
 **Terms & Concepts**
 
 - [[000 Term Process Note]]
@@ -15,11 +16,12 @@ Wiki Process: [[003 Wiki Proc Clusterline Concepts]]
 
 **Expectations**
 
-- [[001 Process notes should be immutable to act as an audit]]
 - [[021 Process notes should preserve the conditions of knowledge]]
+- [[001 Process notes should be immutable to act as an audit]]
+- [[026 Prefer grammars of use over topic based classifications]]
 - [[016 Note Title denotes a given context]]
-- [[017 Notes should have high locality of context]]
 - [[018 Atomic contexts attenuate out of scope writing]]
+- [[017 Notes should have high locality of context]]
 - [[022 Decision artifact sections enumerate key facts about changes and commitments produced by the process note]]
 - [[023 Inference artifact sections enumerate propositions learned through the process note]]
 - [[024 Timestamps in journals produce cards and subcards that segment the note into progressive points of attention]]
