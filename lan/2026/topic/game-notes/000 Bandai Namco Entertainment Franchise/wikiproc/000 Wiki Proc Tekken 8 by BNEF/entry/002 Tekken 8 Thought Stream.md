@@ -12,6 +12,10 @@ Spawned in: [[lan/2026/topic/game-notes/000 Bandai Namco Entertainment Franchise
 
 A thought stream note is a note where I just write whatever comes to mind. Can be good to process fresh or vague ideas, or to just touch base on weeklies.
 
+# See also
+
+- [[000 Tekken 8 Explorations]]
+
 # Journal
 
 ## Wk 28
@@ -47,3 +51,7 @@ There is also a combo from a grab:
 `f2+3 > f3.1.4 > 3+4`.  5 hits, 47 damage.
 
 I modified this one to end with `3+4` so that I can shatter the ground in some maps. My other combos are good at blasting enemies into a wall, this is good for blasting them towards the ground.
+
+2026-07-09 Wk 28 Thu - 00:00 +03:00
+
+Maybe I should use `fd2` more. If you hold `d` it cancels the kick and you're close to the opponent. Can then do a grab-to-combo with `f2+3`. You can also trasition into aop from it, or do a `ws2` or low alternating punches with `fd2+1`, and keepign the original uncancelled `fd2` for mixup.
