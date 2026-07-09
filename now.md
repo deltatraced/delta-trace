@@ -7,6 +7,12 @@ For more about now pages: https://sive.rs/nowff
 
 I have an inbox of tasks and investigations I work on at [[002 Inbox]]. See below for a more coarse description of what I'm up to.
 
+# Sharing
+
+I am looking for others who build public note taking systems like me for inspiration, discussion, collaboration, etc. 
+
+If you use a similar system or know of such a system, please share it in https://codeberg.org/deltatraced/deltatraced/issues/1.
+
 # Actively Working on
 
 ## Building clusterlinemd
