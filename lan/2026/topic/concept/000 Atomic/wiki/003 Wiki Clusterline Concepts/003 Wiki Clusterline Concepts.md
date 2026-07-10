@@ -3,25 +3,27 @@ Wiki Process: [[003 Wiki Proc Clusterline Concepts]]
 
 ---
 
-
 **Terms & Concepts**
 
 - [[000 Term Process Note]]
-- [[001 Term Aspiring Notes]]
+- [[008 Term Artifact Note]]
+- [[001 Term Aspiring Note]]
 - [[002 Serial Reduction of Context]]
 - [[003 Parallel Reduction of Context]]
 - [[004 Atomicity of Context]]
 - [[006 Signs of our practice]]
-- [[005 Respecting the signs of a context]]
+- [[005 Respecting the signs emitted in a context]]
 
-**Expectations**
+**Principles**
 
 - [[021 Process notes should preserve the conditions of knowledge]]
 - [[001 Process notes should be immutable to act as an audit]]
-- [[026 Prefer grammars of use over topic based classifications]]
+- [[006 Process notes are meant to be mined for evidence rather than read]]
+- [[026 Prefer grammars of use over activity-derived classifications]]
 - [[016 Note Title denotes a given context]]
 - [[018 Atomic contexts attenuate out of scope writing]]
 - [[017 Notes should have high locality of context]]
+- [[002 Investigative process notes incrementally reduce confusion]]
 - [[022 Decision artifact sections enumerate key facts about changes and commitments produced by the process note]]
 - [[023 Inference artifact sections enumerate propositions learned through the process note]]
 - [[024 Timestamps in journals produce cards and subcards that segment the note into progressive points of attention]]
@@ -30,10 +32,6 @@ Wiki Process: [[003 Wiki Proc Clusterline Concepts]]
 
 - [[020 Learning is an apprenticeship to signs]]
 - [[019 Self judgment hinders learning by redirecting us away from technical signs to identity and narrative]]
-
-**Interpreting the notes**
-
-- [[002 Investigative process notes incrementally reduce confusion]]
 
 **Note Handles**
 
@@ -48,7 +46,7 @@ Wiki Process: [[003 Wiki Proc Clusterline Concepts]]
 
 **Organization**
 
+- [[025 A schematized filesystem supports effortless organization]]
 - [[004 Use status mightdo for works we arent yet fully commited to doing]]
 - [[005 Process Notes may contain artifact sections in non journal headers]]
 - [[014 Proc Notes can route associated wiki note to various note handle extension notes]]
-- [[025 A schematized filesystem supports effortless organization]]

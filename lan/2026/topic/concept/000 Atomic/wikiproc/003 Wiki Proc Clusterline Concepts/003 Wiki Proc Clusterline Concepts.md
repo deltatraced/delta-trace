@@ -25,7 +25,7 @@ Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/ent
 
 Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/004 Use status mightdo for works we arent yet fully commited to doing]] ^spawn-entry-eaecc5
 
-Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/concept/001 Term Aspiring Notes]] ^spawn-cncpt-4b2dff
+Spawn [[001 Term Aspiring Note]] ^spawn-cncpt-4b2dff
 
 Spawn [[005 Process Notes may contain artifact sections in non journal headers]] ^spawn-entry-c587dd
 
@@ -33,7 +33,7 @@ Spawn [[005 Process Notes may contain artifact sections in non journal headers]]
 
 Renaming `005 Process Notes may contain wiki sections in non journal headers`. This isn't *just* about wiki sections. We now clarified this term to `artifact sections`.  New name: `005 Process Notes may contain artifact sections in non journal headers`.
 
-Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/006 Process Notes are meant to be mined for evidence rather than read]] ^spawn-entry-e36725
+Spawn [[006 Process notes are meant to be mined for evidence rather than read]] ^spawn-entry-e36725
 
 2026-06-17 Wk 25 Wed - 13:41 +03:00
 
@@ -69,7 +69,7 @@ Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/con
 
 2026-06-22 Wk 26 Mon - 18:09 +03:00
 
-Spawn [[005 Respecting the signs of a context]] ^spawn-cncpt-174420
+Spawn [[005 Respecting the signs emitted in a context]] ^spawn-cncpt-174420
 
 Spawn [[006 Signs of our practice]] ^spawn-cncpt-0876e9
 
@@ -91,7 +91,7 @@ Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/ent
 
 Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/concept/007 The process artifact distinction of notes]] ^spawn-cncpt-9b48c6
 
-Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/concept/008 Term Artifact Notes]] ^spawn-cncpt-49c189
+Spawn [[008 Term Artifact Note]] ^spawn-cncpt-49c189
 
 2026-07-05 Wk 27 Sun - 19:15 +03:00
 
@@ -109,4 +109,4 @@ Spawn [[024 Timestamps in journals produce cards and subcards that segment the n
 
 Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/025 A schematized filesystem supports effortless organization]] ^spawn-entry-a0e76f
 
-Spawn [[026 Prefer grammars of use over topic based classifications]] ^spawn-entry-a7b7be
+Spawn [[026 Prefer grammars of use over activity-derived classifications]] ^spawn-entry-a7b7be

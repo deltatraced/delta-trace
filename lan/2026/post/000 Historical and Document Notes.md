@@ -62,4 +62,4 @@ Until next time!
 
 # 7 Related
 
-Notes: [[001 Writing for Process Structure Simultaneity]]
+Notes: [[001 Writing for Historical and Document Notes]]

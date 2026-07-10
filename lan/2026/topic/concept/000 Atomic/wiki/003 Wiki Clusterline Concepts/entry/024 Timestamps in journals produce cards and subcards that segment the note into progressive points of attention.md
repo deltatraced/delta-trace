@@ -61,3 +61,12 @@ I moved on, and now I am handling the next thing
 ```
 
 Here we can see the first timestamp card has 2 timestamp subcards under it. We can have arbitrary levels, just use `--/--/` for level 2, and `--/--/--/` for level 3 and so on.
+
+We can also use this format for more inline logs:
+
+```
+--/ 2026-07-10 Wk 28 Fri - 20:38 +03:00 | Some action
+--/ 2026-07-10 Wk 28 Fri - 20:38 +03:00 | Some other action
+--/ 2026-07-10 Wk 28 Fri - 20:38 +03:00 | Basically we use the vertical bar to separate logs, now they are one-per-line.
+--/
+```

@@ -10,4 +10,4 @@ Spawned in: [[lan/2026/topic/concept/000 Atomic/wikiproc/003 Wiki Proc Clusterli
 
 ---
 
-The clusterline format allows us to group both projects and clusters under a given status via `st/{status}`. One of those is the `mightdo`, which does not commit us to actually do it. Similar to [[001 Term Aspiring Notes|aspiring notes]], `mightdo` projects and clusters help us avoid clutter and mark a distinction between idea and intents we follow through.
+The clusterline format allows us to group both projects and clusters under a given status via `st/{status}`. One of those is the `mightdo`, which does not commit us to actually do it. Similar to [[001 Term Aspiring Note|aspiring notes]], `mightdo` projects and clusters help us avoid clutter and mark a distinction between idea and intents we follow through.

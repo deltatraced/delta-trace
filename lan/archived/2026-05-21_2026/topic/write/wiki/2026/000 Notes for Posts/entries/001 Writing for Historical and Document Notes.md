@@ -33,3 +33,9 @@ In [[002 Atomic Contexts and Respect]],
 > You can think of sequential reduction as a mechanism of decomposing contexts and forming a context cluster from the original intent core context.
 > A complex activity, problem, or task can be intimidating to start. The method of sequential reduction is to take a process and reduce it to a sequence of next steps to take. This also works well with our principle of atomic contexts, as each next significant step becomes its own self-enclosed context.
 > So we ask "What's next?" and our big problem context spawns a context for just the next significant step. Within that context, the process can repeat itself, where its own next significant step can spawn a new context. This forms a branching stack of work, where we create a new context, and when we complete it, we return to its spawner context again and continue where we left off. Gradually, we progress through the original problem sequentially.
+
+# Journal
+
+2026-07-10 Wk 28 Fri - 21:24 +03:00
+
+"Historical" and "Document" notes is also known as process notes and artifact notes in [[003 Wiki Clusterline Concepts]].

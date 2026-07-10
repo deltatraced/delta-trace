@@ -7,4 +7,4 @@ Process notes at [[000 Proc Notes for Posts]].
 
 ---
 
-- [[001 Writing for Process Structure Simultaneity]]
+- [[001 Writing for Historical and Document Notes]]

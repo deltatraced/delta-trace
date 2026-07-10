@@ -10,7 +10,7 @@ Spawned in: [[lan/2026/topic/concept/000 Atomic/wikiproc/003 Wiki Proc Clusterli
 
 ---
 
-By paying [[005 Respecting the signs of a context|respect]] and attending to a declared context, we attenuate unrelated writing or scope leakage.
+By paying [[005 Respecting the signs emitted in a context|respect]] and attending to a declared context, we attenuate unrelated writing or scope leakage.
 
 This allows notes to act as a unit of attention, and attenuate noise from the outside world of considerations and distractions.
 

@@ -369,5 +369,5 @@ Spawn [[009 Include rust plug post message and render config in clusterline-ui a
 
 Spawn [[011 Impl sb_options_filter_list interactive behavior]] ^spawn-task-3c7bf1
 
-Spawn [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/task/012 Add basic filter or search by word for sb_options_filter_list]] ^spawn-task-fd6ab5
+Spawn [[012 Style sb_options_filter_list]] ^spawn-task-fd6ab5
 

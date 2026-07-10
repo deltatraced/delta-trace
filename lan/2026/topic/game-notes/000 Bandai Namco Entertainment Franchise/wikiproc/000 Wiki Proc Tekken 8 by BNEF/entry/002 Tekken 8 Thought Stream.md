@@ -55,3 +55,23 @@ I modified this one to end with `3+4` so that I can shatter the ground in some m
 2026-07-09 Wk 28 Thu - 00:00 +03:00
 
 Maybe I should use `fd2` more. If you hold `d` it cancels the kick and you're close to the opponent. Can then do a grab-to-combo with `f2+3`. You can also trasition into aop from it, or do a `ws2` or low alternating punches with `fd2+1`, and keepign the original uncancelled `fd2` for mixup.
+
+2026-07-10 Wk 28 Fri - 09:28 +03:00
+
+Many continuations from `b1`. Should use it more.
+
+`b1 > df3 > 1+2 > 1+2`, also a combo grab with `b1 > df3 > f2+3`
+
+If you use `b1` and hold down you transition to aoe. So you can then do `b1 > aoe 1+2` for launch or `b1 > aoe f1+2`. `aoe f1+2` has better recovery than `f1+2`: `f1+2` is a middle that is `i12 (12-13), -16` on block, while `aoe f1+2` is `i19, -1`on block so it is much safer.
+
+Also with the launchers. Best I have so far is `b1+2` which is `i15 (15-16), -13` on block, so definitely don't advance after without hit confirm.
+
+i need to be are to be careful with `rds 4` which is `i13 (13-15), -18` on block. Often this gets blocked and then I immediately get launch punished. But there are places where it works very well with me, like after using the heat attack with a slight pause, many get caught in it.
+
+2026-07-10 Wk 28 Fri - 10:05 +03:00
+
+Ooh I found a new combo! `8 hits64 damage` off of `df3` (my current is `7 hits 58 damage`).
+
+I did not realize that when you do the snake `df3` and you hold down you transition to aoe.
+
+This allows us to do the combo `df3 > aoe uf3 > ff4 > 3`. Though the timing is tighter with the `ff4` follow up.  

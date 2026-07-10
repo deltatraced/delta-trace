@@ -11,6 +11,10 @@
 
 - [[001 Done Inbox]]
 
+# See also
+
+- [[000 Working on Stream]]
+
 # Journal
 
 2026-07-08 Wk 28 Wed - 18:58 +03:00

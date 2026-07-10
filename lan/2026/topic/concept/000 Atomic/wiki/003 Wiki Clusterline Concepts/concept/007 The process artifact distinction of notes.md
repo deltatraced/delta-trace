@@ -12,7 +12,7 @@ Spawned in: [[lan/2026/topic/concept/000 Atomic/wikiproc/003 Wiki Proc Clusterli
 
 This note taking system has broadly two types of note files: 
 - [[000 Term Process Note]]
-- [[008 Term Artifact Notes]]
+- [[008 Term Artifact Note]]
 
 In general, process notes are written with the expectation of immutability, and to act as historical evidence of some artifact being created.
 

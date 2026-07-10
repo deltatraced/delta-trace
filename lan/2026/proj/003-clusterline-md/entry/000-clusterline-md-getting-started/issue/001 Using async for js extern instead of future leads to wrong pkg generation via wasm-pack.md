@@ -256,4 +256,4 @@ We get the current line now!
 
 2026-06-05 Wk 23 Fri - 10:26 +03:00
 
-Spawn [[000 Rust Can we process a compile-time SB DAG of tokens?]] ^spawn-invst-d48fec
+Spawn [[000 Rust Can we process a compile-time serial parallel DAG of tokens?]] ^spawn-invst-d48fec

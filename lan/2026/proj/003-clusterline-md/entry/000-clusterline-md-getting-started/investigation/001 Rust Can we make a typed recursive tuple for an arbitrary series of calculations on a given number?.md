@@ -5,9 +5,9 @@ status: done
 
 Parent: [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/000-clusterline-md-getting-started]]
 
-Spawned by: [[000 Rust Can we process a compile-time SB DAG of tokens?]]
+Spawned by: [[000 Rust Can we process a compile-time serial parallel DAG of tokens?]]
 
-Spawned in: [[000 Rust Can we process a compile-time SB DAG of tokens?#^spawn-invst-11da35|^spawn-invst-11da35]]
+Spawned in: [[000 Rust Can we process a compile-time serial parallel DAG of tokens?#^spawn-invst-11da35|^spawn-invst-11da35]]
 
 # Journal
 

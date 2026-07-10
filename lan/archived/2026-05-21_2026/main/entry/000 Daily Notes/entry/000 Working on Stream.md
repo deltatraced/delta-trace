@@ -10,6 +10,10 @@ Spawned by: [[000 Daily Notes]]
 
 Spawned in: [[000 Daily Notes#^spawn-entry-486ac8|^spawn-entry-486ac8]]
 
+# What?
+
+It's just a stream of logs of the last thing I wanna get back to quick.
+
 # 1 Journal
 
 2026-05-10 Wk 19 Sun - 02:49 +03:00
@@ -20,3 +24,8 @@ Spawned in: [[000 Daily Notes#^spawn-entry-486ac8|^spawn-entry-486ac8]]
 	- [[000 mikan-88]]
 - Studying Cubical Agda and solving the exercises in https://cqts.github.io/introduction-to-cubical
 	- [[000 introduction-to-cubical archive]]
+
+2026-07-10 Wk 28 Fri - 09:27 +03:00
+
+- [[002 Tekken 8 Thought Stream]]
+- [[003 Wiki Clusterline Concepts]]

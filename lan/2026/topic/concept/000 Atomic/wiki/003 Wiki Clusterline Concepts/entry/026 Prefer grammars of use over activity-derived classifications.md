@@ -23,7 +23,7 @@ Thinking about grammars of use motivates the development of standards, and gives
 
 # Examples
 
-For example, this right here is an [[008 Term Artifact Notes|artifact]] note with a **note type** of entry. A note type of entry typically is associated with writing, and is differentiated from other types like investigation and task by the fact that it does not require a resolution signal.
+For example, this right here is an [[008 Term Artifact Note|artifact]] note with a **note type** of entry. A note type of entry typically is associated with writing, and is differentiated from other types like investigation and task by the fact that it does not require a resolution signal.
 
 Many notes we take may be easily thought of as investigations, issues, policy judgments, or entries. These note types I have created for clusterline were derived as grammars of use, they apply to many possible works and not simply any particular one. This allowed me to reason about [[000 Term Process Note|process notes]] as a kind of entity, even though most of my notes fit that description.
 
