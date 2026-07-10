@@ -33,18 +33,20 @@ Other repositories in the organization give deliverables. This gives the behind-
 
 For higher browser viewing compatibility, switch to the [webview branch](https://codeberg.org/deltatraced/deltatraced/src/branch/webview).
 
-This repository comes with different wikis. You can check them [here](https://codeberg.org/deltatraced/deltatraced/src/branch/webview/lan/archived/2026-05-21_2026/main/wiki/001%20Wiki%20Categories/001%20Wiki%20Categories.md).
+Check out my [now](https://codeberg.org/deltatraced/deltatraced/src/branch/webview/now.md) page for what I'm currently up to. Some content is also categorized [here](https://codeberg.org/deltatraced/deltatraced/src/branch/webview/lan/archived/2026-05-21_2026/main/wiki/001%20Wiki%20Categories/001%20Wiki%20Categories.md).
 
 # 2 See also
 
-1. [delta-trace](https://codeberg.org/deltatraced/deltatraced/tree/webview) **You are here!**
-   - A knowledge base for researching, developing, studying, and experimenting!
-2. [dism-exe-notes](https://github.com/dism-exe/dism-exe-notes/tree/webview/lan)
-   - A knowledge base for reverse engineering and analyzing Mega Man Battle Network games!
-3. [goldensun-notes](https://github.com/FutureFractal/goldensun-notes/tree/webview/lan)
-   - A knowledge base for reverse engineering and analyzing Golden Sun GBA games!
-4. [dbmint-notes](https://github.com/dbmint/dbmint-notes/tree/webview)
-   - A knowledge base for developing intuitive and type correct database tools in Rust!
+**Knowledge bases I author,**
+
+1. [deltatraced](https://codeberg.org/deltatraced/deltatraced/src/branch/webview/README.md) **You are here!**
+   - My general-purpose knowledge base for researching, developing, studying, experimenting, and so much more.
+1. [dism-exe-notes](https://github.com/dism-exe/dism-exe-notes/tree/webview/lan)
+   - for reverse engineering and analyzing Mega Man Battle Network games!
+1. [goldensun-notes](https://github.com/FutureFractal/goldensun-notes/tree/webview/lan)
+   - for reverse engineering and analyzing Golden Sun GBA games!
+1. [dbmint-notes](https://github.com/dbmint/dbmint-notes/tree/webview)
+   - for developing intuitive and type correct database tools in Rust!
 
 # 3 Contributing
 

@@ -71,4 +71,14 @@ Refining the error under `src/clusterline.ts > fn ts_post_message`.
 [clusterline plug] [clusterline-sb] Plug Error: post_message expects arguments topic, subtopic, json_msg. We got (comma_separated_args sb_options_filter_list,on_selected,{ "service": "greet", "option_name": "Rocks..." }).
 ```
 
-Right. Comma separation broke because the json message itself has a comma now.
+Right. Comma separation broke because the json message itself has a comma now. It is fine to use the comma separator, but let's stop at the first 3. The topic and subtopic should not themselves have commas, the remaining is all message.
+
+```ts
+// in src/clusterline.ts > fn ts_post_message
+  const topic = tokens[0];
+  const subtopic = tokens[1];
+  const json_msg = comma_separated_args.replace(topic + ",", "").replace(subtopic + ",", "");
+```
+
+--/ 2026-07-10 Wk 28 Fri - 22:45 +03:00 | `comma_separated_args` is not guaranteed to be a string: need to cast to string explicitly.
+--/
