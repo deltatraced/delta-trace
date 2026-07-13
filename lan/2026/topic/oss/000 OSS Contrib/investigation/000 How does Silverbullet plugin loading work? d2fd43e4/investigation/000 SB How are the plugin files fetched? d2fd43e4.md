@@ -8,7 +8,7 @@ Spawned by: [[lan/2026/topic/oss/000 OSS Contrib/investigation/000 How does Silv
 
 Spawned in: [[lan/2026/topic/oss/000 OSS Contrib/investigation/000 How does Silverbullet plugin loading work? d2fd43e4/000 How does Silverbullet plugin loading work? d2fd43e4#^spawn-invst-9222a7|^spawn-invst-9222a7]]
 
-# Solution
+# Resolution
 
 Initially, all the files are requested via HTTP GET request with `client/spaces/http_space_primitives.ts > fn HttpSpacePrimitives::authenticatedFetch`.
 
@@ -25,8 +25,8 @@ This now filters according to gitignore in the space repository.
 `client/client_system.ts > fn reloadPlugsFromSpace`
 
 - uses  `client/space.ts > fn listPlugs` which just searches all the files in the space for a `*.plug.js`.
-	1. `client/space.ts > deduplicatedFileList`
-	2. `client/spaces/space_primitives.ts > fn SpacePrimitives::fetchFileList`
+	1. $\to$  `client/space.ts > deduplicatedFileList`
+	2. $\to$ `client/spaces/space_primitives.ts > fn SpacePrimitives::fetchFileList`
 		- note
 			- There are multiple implementations of this, but we expect we're interested in `HttpSpacePrimitives` since we see GET requests in the network traffic for files in the client.
 			- `HttpSpacePrimitives` is initialized in `client/client.ts > fn Client::initSpace`, which sets the base url that `fetchFileList` gets all the file from.
@@ -42,11 +42,11 @@ This now filters according to gitignore in the space repository.
 						- note
 							- This uses  `IDBPObjectStore`
 								- https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore
-	3.  `client/spaces/http_space_primitives.ts > fn <HttpSpacePrimitives as impl SpacePrimitives>::fetchFileList`
-	4. `client/spaces/http_space_primitives.ts > fn HttpSpacePrimitives::authenticatedFetch`
+	3. $\to$ `client/spaces/http_space_primitives.ts > fn <HttpSpacePrimitives as impl SpacePrimitives>::fetchFileList`
+	4. $\to$  `client/spaces/http_space_primitives.ts > fn HttpSpacePrimitives::authenticatedFetch`
 		- note
 			- This issues the GET request. From the Network packets we can see that we request a filename `/.fs/{space_relative_path}`. Now we need to see where this is handled on the server side, which is now in Rust. For the case of `fetchFileList`, it will actually just fetch `/.fs/` for everything.  Corresponding in rust to `fs::handle_fs_list`.
-	5. `server/src/router.rs > fn build_router`
-	6. `server/src/handlers/fs.rs > fn handle_fs_list`
-	7. `server-common/src/types.rs > SpacePrimitives::fetch_file_list`
-	8. `server-common/src/space/disk.rs > <DiskSpacePrimitives as impl SpacePrimitives>::fetch_file_list`
+	5. $\to$ `server/src/router.rs > fn build_router`
+	6. $\to$ `server/src/handlers/fs.rs > fn handle_fs_list`
+	7. $\to$ `server-common/src/types.rs > SpacePrimitives::fetch_file_list`
+	8. $\to$ `server-common/src/space/disk.rs > <DiskSpacePrimitives as impl SpacePrimitives>::fetch_file_list`

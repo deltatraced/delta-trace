@@ -15,10 +15,13 @@ A thought stream note is a note where I just write whatever comes to mind. Can b
 # See also
 
 - [[000 Tekken 8 Explorations]]
+- [[003 Tekken 8 Per Character Thought Stream]]
 
 # Journal
 
 ## Wk 28
+
+---
 
 2026-07-06 Wk 28 Mon - 02:18 +03:00
 
@@ -26,7 +29,7 @@ Last thing I was practicing is using more throws. Can be done after a `b1` cut. 
 
 Also need to practice my 72 damage xiaoyu combo more since I drop it a lot.
 
-`combo (b1+2) 1`: `b1+2 > f2.1 > f4.1 > 1.2 > hyp(bd1+2) 3+4 > ff4 > 2` 11 hits, 72 damage.
+`combo (b1+2) 1`: `b1+2 > f2.1 > f4.1 > 1.2 > hyp bd1+2 3+4 > ff4 > 2` 11 hits, 72 damage.
 
 There is an extension that is harder that does 83 damage, although the game cuts the combo after the first 2 steps, and it's just to add an extra `b1+2` in the beginning.
 
@@ -35,6 +38,17 @@ After `hyp(bd1+2) 3+4` I used to activate heat then do `ff4` but it's not necess
 Also for `ff4`, I find that holding `f` in the end with 4 seems to make me more consistent at doing that attack string and not another (hover attack with `f4`. And also make sure not to press `ff` too fast, since they may blend into one. There might be other factors contributing to how I miss it sometimes.
 
 You can also test in practice that combo `combo (b1+2) 1` is wall to wall, it will send the opponent from the left wall to the right wall, although you will have to run towards them to catch up.
+
+--/ 2026-07-12 Wk 28 Sun - 02:58 +03:00
+
+Explicating the saved inputs:
+
+`combo (b1+2) 1 (input saving)`: `b1+2 > f2.1 > (save f) f4.1 > 1.2 > hyp bd1+2 3+4 > ff4 > 2` 11 hits, 72 damage.
+
+--/ 2026-07-12 Wk 28 Sun - 04:56 +03:00 | Changed `hyp(bd1+2)` to just `hyp bd1+2`
+--/
+
+---
 
 2026-07-06 Wk 28 Mon - 02:42 +03:00
 
@@ -75,3 +89,5 @@ Ooh I found a new combo! `8 hits64 damage` off of `df3` (my current is `7 hits 5
 I did not realize that when you do the snake `df3` and you hold down you transition to aoe.
 
 This allows us to do the combo `df3 > aoe uf3 > ff4 > 3`. Though the timing is tighter with the `ff4` follow up.  
+
+Spawn [[lan/2026/topic/game-notes/000 Bandai Namco Entertainment Franchise/wikiproc/000 Wiki Proc Tekken 8 by BNEF/entry/003 Tekken 8 Per Character Thought Stream]] ^spawn-entry-a4cfa3
