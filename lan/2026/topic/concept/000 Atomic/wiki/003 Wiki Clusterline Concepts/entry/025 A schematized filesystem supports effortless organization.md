@@ -22,26 +22,32 @@ the note filesystem is a deterministic schema. In the notes root, one may have m
 
 Within `/{user}/` we have  `/{user}/YYYY` and `/{user}/archived`. This decision was made so that we get a fresh space every year. We can of course continue working and linking to what was already started in prior years. Inevitably, systems change, and we want to archive things. We track this ahead of time under `/{user}/archived/{archive-id}` and `/{user}/archived/archive-reason` explains why.
 
-So within `/{user}/YYYY` we are now ready to define primary subspaces of operation. 
+Within a year or an archive, we have a collection of clusters (individual note graphs) that we call `clusterspace`s.
 
-We have the `main` subspace: `/{user}/YYYY/main`. Every subspace has `cluster types` within it. Think of a `cluster` as the key intents within the subspace. We can have entries, tasks, wikis, etc as cluster types, so that we have clusters under them: `/{user}/YYYY/main/task/000 My First Task/`. Clusters can spawn an arbitrary number of subnotes of specified types, like `task`, `entry`, `investigation`, `issue`, etc. The subspace also mirrors all categories of the subnote types, since clusters are just key starting notes, but notes nonetheless.
+clusterspaces have types that determine how they are to be interpreted. For example:
+- `/proj/000 My Proj` is a clusterspace of type project. It is a folder dedicated to all the work of that project.
+- `/microproj/001 My little experiment` is a clusterspace of type `microproj` which is a small project, often for demos, experiments, and other explanatory and exploratory purposes.
 
-We also have other subspaces with different meanings. The meaning is denoted by a `subspace type`. Experiments go to subspace type `/{user}/YYYY/microproj/`. For example: `/{user}/YYYY/microproj/003 My Third Experiment/`. Every subspace like `003 My Third Experiment/` is similar in operation to the `main` subspace. It mirrors key cluster subnote types and includes some others, like the `wiki/` cluster subtype.
+There is the special clusterspace `main`, which comes without a type: `/main`. This is the user-wide clusterspace. 
 
-Normal projects go under subspace type `/{user}/YYYY/proj/`. These are the more long-term or user-facing projects for a programmer for example.
+There is also a special clusterspace `/topic/{my topic}` where `{my topic}` may be set to any user-specified grouping of clusterspaces. For example:
+- `/topic/book-notes/{Author clusterspace}/`: `/topic/book-notes` allows us to dedicate a place for all author clusterspaces, which themselves explore various works of the author in question.
+- `/topic/oss/003 Open Source Proj/` to track open source projects under group `oss`.
 
-We have a special subspace type `/{user}/YYYY/topic`. It allows the user to create an arbitrary number of subspace types under it which are interpreted to be a key grouping of subspaces. This allows us to have something like `/{user}/YYYY/topic/book-notes` which we then define to include one subspace per author, and multiple clusters per work for example. For example, `/{user}/YYYY/topic/book-notes/015 Some Author/wiki/002 Wiki Some Work/`.
+Next we have cluster types and clusters. Just like clusterspace types and clusterspaces, the types tell us how to interpret the cluster. Some clusters are of type `task`, so they are actionable. Others of type `entry`, which is useful for organization and open-ended exploration. Some are of type `issue`, which can index code forge issues like from a github project. The clusters themselves contain a core note with their same name, so: `/topic/oss/003 Open Source Proj/task/000 Build SilverBulletmd/000 Build Silvrebulletmd`.
 
-subspaces, clusters, and subnotes all begin with a triplet number `NNN` which helps giving them a stable point of reference. We can refer to them by number, and they are more stable in case of title renames.
+Once we have a cluster, we can start spawning peripheral notes that identify it as their center. The notes too have types which help us interpret them. All in all, we may have the investigation `lan/2026/topic/tut/000 Explain Filesystem Schema/investigation/000 What makes a good example?`.
 
-There are some other organizational additions, both cluster type and subspace type folders support a `/st/{status}/` folder which can use the filesystem to indicate that some content is todo, done, pending, idea, or mightdo which supports use cases like [[004 Use status mightdo for works we arent yet fully commited to doing]]
+At the levels of the clusterspace and the cluster we may add `st/{status}` before them. This can help to deal with clutter if we have a lot of content. Status can include `done`, `mightdo`, `idea`, `wontdo`.
+
+clusterspaces, clusters, and subnotes all begin with a triplet number `NNN` which helps giving them a stable point of reference. We can refer to them by number, and they are more stable in case of title renames.
 
 It would be tedious to maintain all this manually, so we ought to use some tooling that respects this schema. This is the purpose of the `clusterline-md` set of tools: [[001 Goals for clusterlinemd]]
 
-# Generalizing principles from clusterline
+**in Summary,**
 
-I made many choices that fit my way of working in the previous section. What's important is that I can immediately know where to put a new note. Is it a new originating intent? It's a cluster. Am I reading a new book? It's a subspace under the broad activity of `book-notes`. This schema does not go on forever, it only has a few levels, but they all have meaning. They assign types of things, or act as key groupings.
+We have a fixed schema that allows us to add new groups of clusterspaces, which have clusters in them, which have peripheral notes in them, all given a specific type to interpret how to work with them. clusterspaces, clusters, and peripheral notes all begin with a counting index: typically a triplet. These are the basic grouping units to be handled with tools for where to place a note.
 
-Within a note, it may link to any other note, even outside its own cluster, but the cluster tracks the origin and often key intents that brought those notes to be. These may be projects, named activities, a field of study, an intent we want to realize independent of the strategy we may execute, and so on.
+# Guiding principles for clusterline
 
-When I created the semantic grouping of `book-notes`, I already decided where all book notes indexed by author and title would go once, and so the decision to add notes for a new author are easier later. I opted for a flat index of semantic groups like `book-notes` and `studying-math` because allowing them to be tree-like again reintroduces that tension of deciding where to put new notes. Navigating an arbitrarily created tree by a user is difficult both from a tooling point of view and just general use, so this encourages the user to think in a more indexing type of way, which lowers the cognitive load of adding new content but also remains organized and easy to navigate.
+No arbitrary hierarchies. There are fundamentally 3-4 hierarchical levels. One more if we are defining a project group, but besides that, it is roughly group, cluster, note. The idea is that we should organize these so that it is easy to "append one more". One more note can be spawned arbitrarily in a cluster. One more cluster can be added easily like key tasks in a project, and one more project can be added easily as well which we may take advantage of some project group for them. In other words, we are not addressing a position in the context of a project like `Table Tennis Practice > Serving Practice > Research > Some Source Notes`. Instead we aim to represent these as flat lists of different levels. We may have a clusterspace `000 Tennis Practice`, and then a flat list of clusters (which act as our original aim or intent) like `task/000 Research routines to improve aim in table tennis`, `task/001 Setup a way to record consistency in table tennis serving`, and so on. Then when the cluster is created, we spawn whatever notes are consequently needed by them. We end up creating a chronologically ordered set of clusters on what we are doing at the moment rather than trying to somehow figure out how we could provide a semantic tree for table tennis practice to fit notes in. They always just fit at the end. This can lower cognitive load as there aren't many decisions we have to make as to where to put a new note.

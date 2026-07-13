@@ -85,6 +85,13 @@ Let's rename `019 Self judgment can hinder learning by distorting our engagement
 
 Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/020 Learning is an apprenticeship to signs]] ^spawn-entry-939257
 
+--/ 2026-07-13 Wk 29 Mon - 00:57 +03:00
+
+Spawn [[lan/2026/topic/concept/000 Atomic/wikiproc/003 Wiki Proc Clusterline Concepts/entry/003 Proc Learning is an apprenticeship to signs]] ^spawn-entry-e09d9f
+
+
+--/
+
 2026-07-05 Wk 27 Sun - 01:37 +03:00
 
 Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/021 Process notes should preserve the conditions of knowledge]] ^spawn-entry-384704
@@ -103,6 +110,9 @@ Spawn [[022 Decision artifact sections enumerate key facts about changes and com
 
 Spawn [[023 Inference artifact sections enumerate propositions learned through the process note]] ^spawn-entry-2fb6d0
 
+--/ 2026-07-12 Wk 28 Sun - 00:39 +03:00 | Rewritten for clarity. Grouped together variants like `# Resolution` and a new variant `# Preconditions`
+--/
+
 2026-07-06 Wk 28 Mon - 20:45 +03:00
 
 Spawn [[024 Timestamps in journals produce cards and subcards that segment the note into progressive points of attention]] ^spawn-entry-0729a5
@@ -110,3 +120,6 @@ Spawn [[024 Timestamps in journals produce cards and subcards that segment the n
 Spawn [[lan/2026/topic/concept/000 Atomic/wiki/003 Wiki Clusterline Concepts/entry/025 A schematized filesystem supports effortless organization]] ^spawn-entry-a0e76f
 
 Spawn [[026 Prefer grammars of use over activity-derived classifications]] ^spawn-entry-a7b7be
+
+2026-07-12 Wk 28 Sun - 02:26 +03:00
+

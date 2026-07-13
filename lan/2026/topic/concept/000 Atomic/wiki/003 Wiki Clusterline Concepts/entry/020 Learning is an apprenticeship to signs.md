@@ -8,6 +8,8 @@ Spawned by: [[lan/2026/topic/concept/000 Atomic/wikiproc/003 Wiki Proc Clusterli
 
 Spawned in: [[lan/2026/topic/concept/000 Atomic/wikiproc/003 Wiki Proc Clusterline Concepts/003 Wiki Proc Clusterline Concepts#^spawn-entry-939257|^spawn-entry-939257]]
 
+Process Note: [[003 Proc Learning is an apprenticeship to signs]]
+
 ---
 
 We are used to thinking of learning as a thing to do. Like a task, project, or goal.
