@@ -30,5 +30,10 @@ Renaming `clusterlinemd` to `clusterline-sb` to signal that it is implemented fo
 
 Spawn [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/task/010 Impl text_input_form widget]] ^spawn-task-fe35de
 
+2026-07-12 Wk 28 Sun - 00:52 +03:00
+
+Spawn [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/judgment/001 Clusterline Tools are better fit in their own organization]] ^spawn-jdgmt-1d9210
+
+Spawn [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/task/013 Style text_input_form component]] ^spawn-task-732fdd
 
 

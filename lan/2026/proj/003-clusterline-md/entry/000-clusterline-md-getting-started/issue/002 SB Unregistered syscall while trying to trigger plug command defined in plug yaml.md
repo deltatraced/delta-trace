@@ -9,7 +9,7 @@ Spawned by: [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-
 
 Spawned in: [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/task/005 Add a custom fuzzy selector window with some text#^spawn-issue-a3158e|^spawn-issue-a3158e]]
 
-# Solution
+# Resolution
 
 I called the function wrong within the script passed to silverbullet. This works:
 

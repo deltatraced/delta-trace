@@ -1,6 +1,6 @@
 ---
 context_type: task
-status: todo
+status: done
 ---
 
 Parent: [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/000-clusterline-md-getting-started]]
@@ -8,6 +8,8 @@ Parent: [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-star
 Spawned by: [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/task/005 Add a custom fuzzy selector window with some text]]
 
 Spawned in: [[lan/2026/proj/003-clusterline-md/entry/000-clusterline-md-getting-started/task/005 Add a custom fuzzy selector window with some text#^spawn-task-3c7bf1|^spawn-task-3c7bf1]]
+
+Overview: [[000 Overview clusterline getting started]]
 
 # Journal
 
@@ -43,6 +45,9 @@ But we need to implement `mousemove` next for users who prefer to move the mouse
 --/ 2026-07-10 Wk 28 Fri - 20:25 +03:00
 
 Need to also handle case where everything is filtered. Nothing should be selected. And if the user presses Enter, it shouldn't confirm anything.
+
+--/--/ 2026-07-11 Wk 28 Sat - 01:12 +03:00 | Enter on an empty filter now no longer confirms. We also reset selection in that case.
+--/--/
 
 --/
 
@@ -82,3 +87,73 @@ Right. Comma separation broke because the json message itself has a comma now. I
 
 --/ 2026-07-10 Wk 28 Fri - 22:45 +03:00 | `comma_separated_args` is not guaranteed to be a string: need to cast to string explicitly.
 --/
+
+We're now able to spawn the widget with consumer-determined options in rust, it is basically interactable, and it when the user confirms, we get the output back in rust:
+
+```
+[clusterline plug] [clusterline-rs] (service greet) (event on_selected) (line Ice cream...)
+```
+
+2026-07-11 Wk 28 Sat - 01:17 +03:00
+
+```sh
+# in /home/lan/src/cloned/cb/lan22h/clusterline-sb
+git commit
+
+# out
+[main c51379f] impl sb_options_filter_list interactivity
+```
+
+OK
+
+2026-07-11 Wk 28 Sat - 03:20 +03:00
+
+There's an issue. We need to cycle when the user pressed up or down too much. Trying to implement this, we encountered that we do not track the shown list indices, but only the full indices currently. We need to get the prior and next indices as currently shown.
+
+2026-07-11 Wk 28 Sat - 07:58 +03:00
+
+We violate an invariant when typing and then pressing down:
+
+```
+Uncaught DOMException: The index must exist during search
+```
+
+This is an issue:
+
+```ts
+// in /home/lan/src/cloned/cb/lan22h/clusterline-sb/clusterline-ui/src/ts/components/sb_options_list_component.ts > fn SbOptionsListComponent::set_filter
+// Reset back to selecting the first item or select nothing
+if (mut_num_shown !== 0) {
+	this.set_selected(0, true);
+} else {
+	this.reset_selected();
+}
+```
+
+Selected should be the first *filtered* item, not the first item according to the full list. So this is not guaranteed to exist in our filter, violating our invariant. This is the case with my test case with filter `2`, item number 2 is not the first item in the full list. the first item has been filtered out, yet was selected by this.
+
+We need to have the filtered list be part of our state. Saving `num_shown` is just not enough, this is a projection off of the new list that we must work with. If no filter is applied, it should be identical to the full list. And we also need `set_filtered_selected` to work with the filtered indices instead. Document the distinction for both.
+
+2026-07-11 Wk 28 Sat - 08:22 +03:00
+
+Another thing, when there are no results, `ArrowUp` and `ArrowDown` instead move the character cursor in the input box. We don't want this. Actually, it's active even when there are results. That capability is just not disabled.
+
+Though we do want it to partially work, for left and right if the wants to move the cursor, just not up and down. 
+
+Adding `e.preventDefault()` to `keydown` of `sb_input1` prevents all these capabilities. We can't use the arrows on the input, and we can't even type or erase for that matter, which is too much.
+
+Let's do `e.preventDefault()` not unconditionally, but only in codes `ArrowUp` and `ArrowDown`: It works! everything else works now.
+
+Confirmed working in silverbullet.
+
+2026-07-11 Wk 28 Sat - 21:46 +03:00
+
+```sh
+# in /home/lan/src/cloned/cb/lan22h/clusterline-sb
+git commit
+
+# out
+[main 1255488] fix sb_options_filter_list filtered list navigation and duplicate updown arrow keys
+```
+
+OK
