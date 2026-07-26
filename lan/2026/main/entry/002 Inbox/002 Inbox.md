@@ -1,19 +1,27 @@
 
+# Inbox
+
 **Project Inbox**
 
 - [[000 Overview clusterline getting started]]
 
 **Task Inbox**
 
-- [[000 Source assets from outside the note repository to keep it light]]
+**Issue Inbox**
 
-**Done Inbox**
+- [[000 unequal terms for partial pattern matching CQTS]]
+- [[000 Fix tmux C-a e bad interaction with arrows]]
 
+# Status Inboxes
+
+- [[002 Pend Inbox]]
 - [[001 Done Inbox]]
 
 # See also
 
+- [[now]]
 - [[000 Working on Stream]]
+- [[003 Inbox Status Change Logs]]
 
 # Journal
 

@@ -339,3 +339,7 @@ Spawn [[002 Agda What code prints the error message of the compiler? 7273757e5e]
 
 1. https://wiki.haskell.org/Debugging
 2. https://wiki.haskell.org/index.php?title=GHC/GHCi_debugger
+
+2026-07-17 Wk 29 Fri - 14:05 +03:00
+
+Added to [[002 Inbox]]

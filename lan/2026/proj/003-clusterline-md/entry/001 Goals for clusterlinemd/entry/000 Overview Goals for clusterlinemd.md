@@ -41,3 +41,7 @@ Features, sorted by high priority for use:
 # Version 0.2
 
 # Later
+
+# See Also
+
+- [[001 Clusterlinemd design constraints and considerations]]
