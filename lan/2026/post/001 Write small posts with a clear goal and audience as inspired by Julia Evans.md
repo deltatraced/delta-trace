@@ -9,6 +9,8 @@ When I feel a light bulb, or that something is particularly insightful, or I wan
 
 At the same time, I do not only write blog posts. They are all part of a note repository that contains investigation journals, interlinked concept notes, and so on. Some update as my understanding evolves, others track a specific activity I am currently engaged in, where I ask a question, I research to find an answer satisfactory enough for my current context, and I move on, with the expectation that future work can make reference to this work to build on it, instead of editing it directly.
 
+Here I explore more about blog post writing and to expand on inspirations around post and note titles I found through Julia Evans and Andy Matuschak.
+
 # Why should we write full sentence titles?
 
 The initial title I chose for this post, `001 Write small posts with a clear goal and audience as inspired by Julia Evans` already is the main idea I want the post to hover around.
@@ -23,7 +25,7 @@ Because it mirrors a practice I've been learning to do with my own notes. An inv
 
 But for these notes, the target audiance for me is a reverse engineer who is interested in reconstructing the thought process and method for reaching the same conclusion, and to arrive at an independent verification of their own.
 
-In posts, my target audiance can be different. It is more like talking to a friend; you need to be mindful with how you write and you definitely shouldn't just dumb your case files on them just because an investigator will be able to arrive at the conclusions you have with enough effort. 
+In posts, my target audiance can be different. It is more like talking to a friend; you need to be mindful with how you write and you definitely shouldn't just dump your case files on them just because an investigator will be able to arrive at the conclusions you have with enough effort. 
 
 Another inspiration is concepts I've come across from [Andy Matuschak's blog](https://notes.andymatuschak.org/) which follow the same principle:
 - [Andy Matuschak - Write notes for yourself by default, disregarding audiance](https://notes.andymatuschak.org/zXDPrYcxUSZbF5M8vM5Y1U9)
