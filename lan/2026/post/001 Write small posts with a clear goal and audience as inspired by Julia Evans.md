@@ -84,4 +84,4 @@ Bye!
 
 # Related
 
-- [001 Notes for Post Write small posts with a clear goal and audience as inspired by Julia Evans](https://codeberg.org/deltatraced/deltatraced/src/branch/main/lan/2026/main/entry/005%20Post%20Writing%20Notes/entry/001%20Notes%20for%20Post%20Write%20small%20posts%20with%20a%20clear%20goal%20and%20audiance%20as%20inspired%20by%20Julia%20Evans.md)
+- [001 Notes for Post Write small posts with a clear goal and audience as inspired by Julia Evans](https://codeberg.org/deltatraced/deltatraced/src/branch/main/lan/2026/main/entry/005%20Post%20Writing%20Notes/entry/001%20Notes%20for%20Post%20Write%20small%20posts%20with%20a%20clear%20goal%20and%20audience%20as%20inspired%20by%20Julia%20Evans.md)
