@@ -51,10 +51,8 @@ git commit
 
 Also, since it's a post I want it to only reference other posts, and not my notes. With exception for its own note, this one. Here I might reference other relevant notes I write:
 
-- [[003 Wiki Clusterline Concepts]]
-	- [[016 Note Title denotes a given context]]
-	- [[018 Atomic contexts attenuate out of scope writing]]
-	- [[006 Process notes are meant to be mined for evidence rather than read]]
-	- [[002 Investigative process notes incrementally reduce confusion]]
-
-audienceh 
+- [003 Wiki Clusterline Concepts](https://codeberg.org/deltatraced/deltatraced/src/branch/webview/lan/2026/topic/concept/000%20Atomic/wiki/003%20Wiki%20Clusterline%20Concepts/003%20Wiki%20Clusterline%20Concepts.md)
+	- [016 Note Title denotes a given context](https://codeberg.org/deltatraced/deltatraced/src/branch/webview/lan/2026/topic/concept/000%20Atomic/wiki/003%20Wiki%20Clusterline%20Concepts/entry/016%20Note%20Title%20denotes%20a%20given%20context.md)
+	- [018 Atomic contexts attenuate out of scope writing](https://codeberg.org/deltatraced/deltatraced/src/branch/webview/lan/2026/topic/concept/000%20Atomic/wiki/003%20Wiki%20Clusterline%20Concepts/entry/018%20Atomic%20contexts%20attenuate%20out%20of%20scope%20writing.md)
+	- [006 Process notes are meant to be mined for evidence rather than read](https://codeberg.org/deltatraced/deltatraced/src/branch/webview/lan/2026/topic/concept/000%20Atomic/wiki/003%20Wiki%20Clusterline%20Concepts/entry/006%20Process%20notes%20are%20meant%20to%20be%20mined%20for%20evidence%20rather%20than%20read.md)
+	- [002 Investigative process notes incrementally reduce confusion](https://codeberg.org/deltatraced/deltatraced/src/branch/webview/lan/2026/topic/concept/000%20Atomic/wiki/003%20Wiki%20Clusterline%20Concepts/entry/002%20Investigative%20process%20notes%20incrementally%20reduce%20confusion.md)

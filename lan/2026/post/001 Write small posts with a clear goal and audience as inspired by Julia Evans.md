@@ -59,8 +59,8 @@ There can also be more dialog exchange with posts. That could be an exciting col
 
 For example,
 
-- [[000 Historical and Document Notes]]
-- [[003 Apprenticeship to Signs]]
+- [000 Historical and Document Notes](https://codeberg.org/deltatraced/deltatraced/src/branch/webview/lan/2026/post/000%20Historical%20and%20Document%20Notes.md)
+- [003 Apprenticeship to Signs](https://codeberg.org/deltatraced/deltatraced/src/branch/webview/lan/2025/post/003%20Apprenticeship%20to%20Signs.md)
 
 With these, my goal was to clarify a concept I had with a post. The concept was the central theme, and so the note was titled with it.
 
@@ -84,4 +84,4 @@ Bye!
 
 # Related
 
-- [[001 Notes for Post Write small posts with a clear goal and audience as inspired by Julia Evans]]
+- [001 Notes for Post Write small posts with a clear goal and audience as inspired by Julia Evans](https://codeberg.org/deltatraced/deltatraced/src/branch/main/lan/2026/main/entry/005%20Post%20Writing%20Notes/entry/001%20Notes%20for%20Post%20Write%20small%20posts%20with%20a%20clear%20goal%20and%20audiance%20as%20inspired%20by%20Julia%20Evans.md)
