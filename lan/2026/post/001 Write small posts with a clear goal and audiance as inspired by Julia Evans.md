@@ -37,9 +37,11 @@ Of course Julia Evan also has very helpful blog posts that do not use this full 
 
 But even there their headings are often full sentences which they address. This makes sense with the expectation that the title note is hovering around the idea "blogging myths". 
 
-I like the advice there, even if you learn a thing or two, are new to a topic, and aren't an expert, you can write a blog post about your exploration explained to an audiance (particularly, think of one person you are talking to. A friend, a knowledgable peer, a strudent...). 
+I like the advice there, even if you learn a thing or two, are new to a topic, and aren't an expert, you can write a blog post about your exploration explained to an audience (particularly, think of one person you are talking to. A friend, a knowledgeable peer, a student...). 
 
 A full sentence title can make it easier to get started to do this, since it can be as specific as you would like. When the title just is something like "How docker works", then it can be intimidating. Just how do I finish writing this post? How much should I include?
+
+A clear full sentence title makes it easy to pay attention to what the post is trying to communicate.
 
 # When should I write a post rather than a note?
 
@@ -69,7 +71,6 @@ There is a place for this too. In my own conceptual notes, I will also use a ter
 On attention, on writing, on note taking, on programming, on mathematics ... 
 
 It could be useful to the readers to find groups of posts they are interested in. I will probably keep the posts as just a linear stream of dated post links, but might add tags if this is helpful. 
-
 
 # Thank you for reading, and until next time!
 

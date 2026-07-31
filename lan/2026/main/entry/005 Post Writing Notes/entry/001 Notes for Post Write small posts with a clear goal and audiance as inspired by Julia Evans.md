@@ -31,3 +31,7 @@ git commit
 ```
 
 This is to index my git commits to my own notes, so that I can always have more detail on why a thing was done, and have access to a network of notes that pinpoint the context.
+
+2026-07-31 Wk 31 Fri - 03:13 +03:00
+
+I might still make edits to the post while it's hot just out of the oven, but after some time, It would probably be grammatical fixes and marking inaccuracies. My journal notes on the other hand, like this everywhere, can typically always be added on, and concept notes can always be edited as my understanding evolves. But this is a post, and it captures me at a snapshot in time, rather than taking on the burden of being an up to date network of ideas.
