@@ -61,8 +61,6 @@ Also make sure to gitignore `index.ts` and `index.html` since they are now build
 
 2026-07-05 Wk 27 Sun - 06:48 +03:00
 
-Minor llm suggestion: Use `index_{INDEX}`.
-
 Let's try to just not have an `index.html` and `index.ts` in `src/`. Let them all be `index_{INDEX}`. Then via environment variable to `npm run build`, route it. This way we do not have unnecessary build artifacts in `src/`.
 
 `npx posthtml` doesn't care that we are using `index_{INDEX}.html`, it will simply generate the mirror name under `public/` so we can make use of this. When buiilding html, just move `./public/index_{INDEX}.html` to `./public/index.html`.

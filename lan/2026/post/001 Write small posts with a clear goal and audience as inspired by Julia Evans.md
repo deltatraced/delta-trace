@@ -11,7 +11,7 @@ At the same time, I do not only write blog posts. They are all part of a note re
 
 # Why should we write full sentence titles?
 
-The initial title I chose for this post, `001 Write small posts with a clear goal and audiance as inspired by Julia Evans` already is the main idea I want the post to hover around.
+The initial title I chose for this post, `001 Write small posts with a clear goal and audience as inspired by Julia Evans` already is the main idea I want the post to hover around.
 
 Check out [Julia Evan's blog](https://jvns.ca/). Notice that a lot of the titles are very clear investigative questions, like 
 - [Julia Evans - How do you write simple explanations without sounding condescending?](https://jvns.ca/blog/2020/11/15/simple-explanations-without-sounding-condescending/)
@@ -23,7 +23,7 @@ Because it mirrors a practice I've been learning to do with my own notes. An inv
 
 But for these notes, the target audiance for me is a reverse engineer who is interested in reconstructing the thought process and method for reaching the same conclusion, and to arrive at an independent verification of their own.
 
-In posts, my target audiance can be different. It is more like talking to a friend; you need to be mindful with how you write and you definitely shouldn't just dumb your case files at them just because an investigator will be able to arrive at the conclusions you have with enough effort. 
+In posts, my target audiance can be different. It is more like talking to a friend; you need to be mindful with how you write and you definitely shouldn't just dumb your case files on them just because an investigator will be able to arrive at the conclusions you have with enough effort. 
 
 Another inspiration is concepts I've come across from [Andy Matuschak's blog](https://notes.andymatuschak.org/) which follow the same principle:
 - [Andy Matuschak - Write notes for yourself by default, disregarding audiance](https://notes.andymatuschak.org/zXDPrYcxUSZbF5M8vM5Y1U9)
@@ -84,4 +84,4 @@ Bye!
 
 # Related
 
-- [[001 Notes for Post Write small posts with a clear goal and audiance as inspired by Julia Evans]]
+- [[001 Notes for Post Write small posts with a clear goal and audience as inspired by Julia Evans]]

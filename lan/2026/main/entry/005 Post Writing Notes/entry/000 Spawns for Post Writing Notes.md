@@ -12,4 +12,4 @@ Spawned in: [[lan/2026/main/entry/005 Post Writing Notes/005 Post Writing Notes#
 
 2026-07-31 Wk 31 Fri - 03:04 +03:00
 
-Spawn [[001 Notes for Post Write small posts with a clear goal and audiance as inspired by Julia Evans]] ^spawn-entry-5f0d11
+Spawn [[001 Notes for Post Write small posts with a clear goal and audience as inspired by Julia Evans]] ^spawn-entry-5f0d11

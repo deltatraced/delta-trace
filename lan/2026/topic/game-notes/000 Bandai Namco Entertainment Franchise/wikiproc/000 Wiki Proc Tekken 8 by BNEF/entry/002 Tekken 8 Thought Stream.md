@@ -68,7 +68,10 @@ I modified this one to end with `3+4` so that I can shatter the ground in some m
 
 2026-07-09 Wk 28 Thu - 00:00 +03:00
 
-Maybe I should use `fd2` more. If you hold `d` it cancels the kick and you're close to the opponent. Can then do a grab-to-combo with `f2+3`. You can also trasition into aop from it, or do a `ws2` or low alternating punches with `fd2+1`, and keepign the original uncancelled `fd2` for mixup.
+Maybe I should use `df2` more. If you hold `d` it cancels the kick and you're close to the opponent. Can then do a grab-to-combo with `f2+3`. You can also trasition into aop from it, or do a `ws2` or low alternating punches with `df2+1`, and keepign the original uncancelled `df2` for mixup.
+
+--/ 2026-07-28 Wk 31 Tue - 07:50 +03:00 | Amend `fd2` to `df2` etc
+--/
 
 2026-07-10 Wk 28 Fri - 09:28 +03:00
 
@@ -91,3 +94,46 @@ I did not realize that when you do the snake `df3` and you hold down you transit
 This allows us to do the combo `df3 > aoe uf3 > ff4 > 3`. Though the timing is tighter with the `ff4` follow up.  
 
 Spawn [[lan/2026/topic/game-notes/000 Bandai Namco Entertainment Franchise/wikiproc/000 Wiki Proc Tekken 8 by BNEF/entry/003 Tekken 8 Per Character Thought Stream]] ^spawn-entry-a4cfa3
+
+2026-07-27 Wk 31 Mon - 18:36 +03:00
+
+I need to use aop + down more since it can avoid highs, mids, ~~and lows.~~
+
+--/ 2026-07-28 Wk 31 Tue - 07:26 +03:00
+Not lows. Contradicted with the following:
+
+```
+sha1sum f99d724c28fe056f51f6953c4a2c2981ceea205f
+(Using Xiaoyu) (Against Xiaoyu) (Training-mode Offense)
+(Opponent-actions Standing block)
+(Action-after-a-hit-or-block Punish) (Standing-punishment-1 `df3`), 
+```
+
+`1` > `Standing-punishment-1` > `(aop d1+2) > d` will still get us punished by the snake attack `df3`.
+--/
+
+Let's try to test this against kazuya, set an offense mode punishment for `Action after a hit or block`, and set the punishment to `Fast Mid Attack`. This has startup frames `i12 `
+
+It is very hard to evade what with `d1+2`. But apparently it can happen. It's much easier just to side step here, or do a pushback and return back quick to punish.
+
+Also, when in hyp, you can do just 1+2 to do a parry. You can plan this right away `f2.1 > (hyp hold b) > 1+2` to parry the incoming punish. This is part of attack-evade tactics like `fd1 (hold b) > side step`. Recall `fd1 (hold b)` prevents the attack from putting us in rds stance.
+
+2026-07-28 Wk 31 Tue - 08:03 +03:00
+
+```
+sha1sum f99d724c28fe056f51f6953c4a2c2981ceea205f
+(Using Xiaoyu) (Against Xiaoyu) (Training-mode Offense)
+(Opponent-actions Standing block
+(Action-after-a-hit-or-block Punish) (Standing-punishment-1 `df3`), 
+```
+
+- `1` > `Standing-punishment-1`
+
+We can dodge `df3` with `b > uu`.
+
+```
+sha1sum e3322f777c316834b8b63b30000e1f7a6e186b21
+(Using Xiaoyu) (Against Xiaoyu) (Training-mode Offense)
+(Opponent-actions Standing block)
+(Action-after-a-hit-or-block Punish) (Standing-punishment-1 `df1`), 
+```

@@ -12,8 +12,6 @@ Spawned in: [[lan/2026/topic/concept/000 Atomic/wikiproc/003 Wiki Proc Clusterli
 
 2026-06-17 Wk 25 Wed - 14:49 +03:00
 
-(Initially LLM-flagged for non-clarity)
-
 Added a bit more clarification on confusion reduction as a thing that should occur in a list of investigative questions, even as it might potentially produce more confusion due to new unknowns surfacing, as this is a confusion reduced to a set of new confusions that should be more specific and localized.
 
 Also added a development notes example that uses this principle in practice as illustration.

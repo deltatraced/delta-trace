@@ -1,105 +1,47 @@
+---
+status: todo
+---
+Overview: [[001 Overview Install a new Gentoo system]]
 
 # Journal
 
 2026-07-21 Wk 30 Tue - 04:43 +03:00
 
-Moving away from 
+Spawn [[lan/2026/main/task/001 Install a new Gentoo system/task/000 Getting live image for gentoo]] ^spawn-task-71c90e
 
-```sh
-lsb_release -a
+2026-07-26 Wk 30 Sun - 13:38 +03:00
 
-# out {
-	No LSB modules are available.
-	Distributor ID: Ubuntu
-	Description:    Ubuntu 25.04
-	Release:        25.04
-	Codename:       plucky
-# }
+We're back! Yaaay
 
-uname -a
+Spawn [[000 Install new Gentoo system raw journal]] ^spawn-entry-e9868c
 
-# out {
-	Linux lan-proart 6.14.0-37-generic #37-Ubuntu SMP PREEMPT_DYNAMIC Fri Nov 14 22:10:32 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
-# }
-```
+Spawn [[001 Overview Install a new Gentoo system]] ^spawn-entry-f10c61
 
-I choose gentoo to try a system based primarily on building from source. I also want to experiment with different wayland-supported desktop environments, so will use sway. I can look to also configure sway and tmux with our idea of [[001 Cubical Tabs]] later on too.
+2026-07-26 Wk 30 Sun - 14:24 +03:00
 
-https://wiki.gentoo.org/wiki/Gentoo_Cheat_Sheet
+Spawn [[001 Install a browser on gentoo - librewolf]] ^spawn-task-7c6997
 
-- https://www.gentoo.org/get-started/
-- $\to$ https://wiki.gentoo.org/wiki/Handbook:Main_Page
+Spawn [[002 Quick new Installs for Gentoo System]] ^spawn-entry-232dbc
 
-It depends on your CPU architecture which handbook to use.
+2026-07-26 Wk 30 Sun - 20:56 +03:00
 
-```sh
-arch
+Spawn [[lan/2026/main/task/001 Install a new Gentoo system/task/002 Enable my bluetooth speakers, bluetooth headset, and wired headset to play music on youtube]] ^spawn-task-1760b1
 
-# out
-x86_64
-```
+2026-07-27 Wk 31 Mon - 00:29 +03:00
 
-https://wiki.gentoo.org/wiki/Handbook:AMD64
+Spawn [[lan/2026/main/task/001 Install a new Gentoo system/task/003 Setup Steam and start up tekken 8]] ^spawn-task-b01daf
 
-Also, their stance on LLMs is generally restrictive: 
-- https://wiki.gentoo.org/wiki/Project:Council/AI_policy (https://web.archive.org/web/20260714091749/https://wiki.gentoo.org/wiki/Project:Council/AI_policy)
+2026-07-28 Wk 31 Tue - 08:50 +03:00
 
-Whereas ubuntu, where I'm moving from is much more permissive, and seems to actively use LLM tools in development, as implied by https://discourse.ubuntu.com/t/the-future-of-ai-in-ubuntu/81130.
+Spawn [[004 Setup a new code editor for new gentoo]] ^spawn-task-1f7f9a
 
-2026-07-21 Wk 30 Tue - 12:03 +03:00
+2026-07-29 Wk 31 Wed - 08:54 +03:00
 
-Getting the minimum installation CD: https://www.gentoo.org/downloads/amd64/
+Spawn [[005 Setup a cron job to update system weekly for new gentoo system]] ^spawn-task-7c1d07
 
-To verify, we need to confirm that we match according to this PGP signature: https://distfiles.gentoo.org/releases/amd64/autobuilds/20260712T170110Z/install-amd64-minimal-20260712T170110Z.iso.asc
+Spawn [[lan/2026/main/task/001 Install a new Gentoo system/task/006 Install fonts for new gentoo system]] ^spawn-task-d5598e
 
-Register keys (in accordance with https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Media):
+2026-07-29 Wk 31 Wed - 19:13 +03:00
 
-```sh
-gpg --keyserver hkps://keys.gentoo.org --recv-keys 13EBBDBEDE7A12775DFDB1BABB572E0E2D182910
-```
+Spawn [[007 Setup extensions for more intuitive bash cli ux for new gentoo]] ^spawn-task-339ff8
 
-Says 1 bad signature for the key, but otherwise imported.
-
-```sh
-# in /home/lan/Downloads
-wget https://distfiles.gentoo.org/releases/amd64/autobuilds/20260712T170110Z/install-amd64-minimal-20260712T170110Z.iso.asc
-
-# in /home/lan/Downloads
-gpg --verify install-amd64-minimal-20260712T170110Z.iso.asc install-amd64-minimal-20260712T170110Z.iso
-
-# out
-gpg: Signature made Sun 12 Jul 2026 10:41:09 PM +03
-gpg:                using RSA key 534E4209AB49EEE1C19D96162C44695DB9F6043D
-gpg: Good signature from "Gentoo Linux Release Engineering (Automated Weekly Release Key) <releng@gentoo.org>" [unknown]
-gpg: Signature notation: manu=2,2.5+1.12,2,2
-gpg: WARNING: This key is not certified with a trusted signature!
-gpg:          There is no indication that the signature belongs to the owner.
-Primary key fingerprint: 13EB BDBE DE7A 1277 5DFD  B1BA BB57 2E0E 2D18 2910
-     Subkey fingerprint: 534E 4209 AB49 EEE1 C19D  9616 2C44 695D B9F6 043D
-```
-
-As expected in the handbook.
-
-2026-07-21 Wk 30 Tue - 12:15 +03:00
-
-To burn to ISO,
-
-`df` shows that my USB is under `/dev/sda1`.
-
-- https://pendrivelinux.com/create-bootable-usb-from-iso-using-dd/
-
-$\to$
-
-```sh
-sudo dd if=/path/to/file.iso of=/dev/sdX bs=4M status=progress oflag=sync
-```
-
-$\to$
-
-```sh
-sudo dd if=/home/lan/Downloads/install-amd64-minimal-20260712T170110Z.iso of=/dev/sda1 bs=4M status=progress oflag=sync
-```
-
-2026-07-21 Wk 30 Tue - 12:24 +03:00
-
-Alrighty. It's time to boot.
