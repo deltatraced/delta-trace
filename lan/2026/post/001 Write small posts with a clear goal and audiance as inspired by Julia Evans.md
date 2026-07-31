@@ -70,6 +70,7 @@ On attention, on writing, on note taking, on programming, on mathematics ...
 
 It could be useful to the readers to find groups of posts they are interested in. I will probably keep the posts as just a linear stream of dated post links, but might add tags if this is helpful. 
 
+
 # Thank you for reading, and until next time!
 
 This was a bit of exploring a writing idea, touching down on my current practices and uncertainties, and experimenting with how to write posts.
@@ -79,3 +80,7 @@ It probably could've been shorter, as my "Write small posts" part of the title d
 I appreciate your time reading this.
 
 Bye!
+
+# Related
+
+- [[001 Notes for Post Write small posts with a clear goal and audiance as inspired by Julia Evans]]
