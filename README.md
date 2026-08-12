@@ -51,11 +51,17 @@ Check out my [now](https://codeberg.org/deltatraced/deltatraced/src/branch/webvi
 1. [dbmint-notes](https://github.com/dbmint/dbmint-notes/tree/webview)
    - for developing intuitive and type correct database tools in Rust!
 
+# Mirrors
+
+This repository is mainly at https://codeberg.org/deltatraced/deltatraced.
+
+A manually updated mirror exists in https://github.com/deltatraced/deltatraced.
+
 # 3 Contributing
 
 All contributions are welcome!
 
-If you have any comments or suggestions you can reach out by opening an issue ticket or emailing lanhikarixx@gmail.com.
+If you have any comments or suggestions you can reach out by opening an issue ticket or emailing (mailto:lanhikarixx@gmail.com).
 
 If you find any issues on matters of performance, ergonomics, security, accuracy, practice, or related, please reach out!
 
@@ -64,6 +70,11 @@ One reason for making notes public is to make my creative process transparent an
 # Come Chat
 
 Feel free to chat with me over email (mailto:lanhikarixx@gmail.com) or join the IRC channel `##deltatraced` in [libera.chat](https://libera.chat/)!
+
+# Donation
+
+If you believe this project or any other work I publish brings value, please consider supporting me at https://buymeacoffee.com/lan22h, 
+and let me know about how I've helped or can help you!
 
 # 4 License
 
