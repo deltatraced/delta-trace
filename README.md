@@ -18,12 +18,15 @@
   <sub>Built with ❤︎ by Mohammed Alzakariya</sub>
 </div>
 
-1. [1 What is this?](#1-what-is-this)
-2. [2 See also](#2-see-also)
-3. [3 Contributing](#3-contributing)
-4. [4 License](#4-license)
+1. [What?](#what)
+2. [See also](#see-also)
+3. [Mirrors](#mirrors)
+4. [Contributing](#contributing)
+5. [Come Chat](#come-chat)
+6. [Donation](#donation)
+7. [License](#license)
 
-# 1 What is this?
+# What?
 
 Welcome!
 
@@ -38,7 +41,7 @@ For higher browser viewing compatibility, switch to the [webview branch](https:/
 
 Check out my [now](https://codeberg.org/deltatraced/deltatraced/src/branch/webview/now.md) page for what I'm currently up to. Some content is also categorized [here](https://codeberg.org/deltatraced/deltatraced/src/branch/webview/lan/archived/2026-05-21_2026/main/wiki/001%20Wiki%20Categories/001%20Wiki%20Categories.md).
 
-# 2 See also
+# See also
 
 **Knowledge bases I author,**
 
@@ -57,7 +60,7 @@ This repository is mainly at https://codeberg.org/deltatraced/deltatraced.
 
 A manually updated mirror exists in https://github.com/deltatraced/deltatraced.
 
-# 3 Contributing
+# Contributing
 
 All contributions are welcome!
 
@@ -76,6 +79,6 @@ Feel free to chat with me over email (mailto:lanhikarixx@gmail.com) or join the 
 If you believe this project or any other work I publish brings value, please consider supporting me at https://buymeacoffee.com/lan22h, 
 and let me know about how I've helped or can help you!
 
-# 4 License
+# License
 
-This work is licensed under the [MIT license](https://opensource.org/licenses/mit-license.php) © 2026 Mohammed Alzakariya.
+This work is licensed under the [MIT license](https://opensource.org/licenses/mit-license.php) © 2025-2026 Mohammed Alzakariya.
