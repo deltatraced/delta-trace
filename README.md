@@ -29,7 +29,10 @@ Welcome!
 
 This is a public knowledge base and notes repository for researching, developing, studying, and experimenting for everything deltatraced!
 
-Other repositories in the organization give deliverables. This gives the behind-the-scenes, and also some reader-facing articles may surface still!
+While other repositories give concrete work and deliverables, this gives the behind-the-scenes.
+
+A lot of commits I make in open source projects can be grepped here and in similar note repositories to situate them in a graph of notes that capure more
+internal aspects of how and why I created that particular work than is possible to cover in git commit message.
 
 For higher browser viewing compatibility, switch to the [webview branch](https://codeberg.org/deltatraced/deltatraced/src/branch/webview).
 
@@ -57,6 +60,10 @@ If you have any comments or suggestions you can reach out by opening an issue ti
 If you find any issues on matters of performance, ergonomics, security, accuracy, practice, or related, please reach out!
 
 One reason for making notes public is to make my creative process transparent and open to review by others to help me keep improving my process!
+
+# Come Chat
+
+Feel free to chat with me over email (mailto:lanhikarixx@gmail.com) or join the IRC channel `##deltatraced` in [libera.chat](https://libera.chat/)!
 
 # 4 License
 

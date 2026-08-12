@@ -139,3 +139,19 @@ PipeWire already running, exiting.
 ```
 
 But manually restarting it with `gentoo-pipewire-launcher restart` got the audio working again.
+
+2026-08-05 Wk 32 Wed - 16:45 +03:00
+
+Need to get a simpler sound control TUI,
+
+- https://wiki.gentoo.org/wiki/PipeWire
+- $\to$ https://wiki.gentoo.org/wiki/Wiremix
+
+```sh
+# in /etc/portage/package.accept_keywords/media-sound/wiremix {
+	media-sound/wiremix ~amd64
+# }
+
+su
+emerge --ask media-sound/wiremix
+```

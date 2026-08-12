@@ -8,7 +8,13 @@ Spawned by: [[lan/2026/main/task/001 Install a new Gentoo system/001 Install a n
 
 Spawned in: [[lan/2026/main/task/001 Install a new Gentoo system/001 Install a new Gentoo system#^spawn-entry-232dbc|^spawn-entry-232dbc]]
 
+# What?
+
+One timestamp journal per service installed under `# Journal`. May also have subheaders `## Service`. 
+
 # Journal
+
+## Obsidian
 
 2026-07-27 Wk 31 Mon - 09:01 +03:00
 
@@ -23,6 +29,8 @@ ln -s /home/lan/data/releases/gh/obsidianmd/obsidian-releases/obsidian-1.12.7/ob
 If you mess up like I did and do `ln -s obsidian /usr/local/bin` and do ls on that it is in red bg and white/gray flashing like a siren that it's a bad link!
 
 But now we can just do win+d obsidian.
+
+## Discord
 
 2026-07-27 Wk 31 Mon - 10:40 +03:00
 
@@ -42,6 +50,8 @@ emerge --ask net-im/discord
 ```
 
 OK
+
+## Ripgrep
 
 2026-07-28 Wk 31 Tue - 06:23 +03:00
 
@@ -86,6 +96,8 @@ PCRE2 is not available in this build of ripgrep.
 
 OK
 
+## Tree
+
 2026-07-28 Wk 31 Tue - 22:48 +03:00
 
 Installing `tree`,
@@ -106,6 +118,8 @@ emerge --ask app-text/tree
 Interesting wink.
 
 OK
+
+## mgba
 
 2026-07-30 Wk 31 Thu - 09:34 +03:00
 
@@ -210,6 +224,8 @@ emerge --ask dev-debug/gdb
 
 OK
 
+## ctags
+
 2026-07-30 Wk 31 Thu - 17:37 +03:00
 
 Installing ctags,
@@ -220,3 +236,415 @@ https://packages.gentoo.org/packages/dev-util/ctags
 su
 emerge --ask dev-util/ctags
 ```
+
+2026-07-31 Wk 31 Fri - 06:07 +03:00
+
+Getting `python3-pip` and `checkpipe`,
+
+```sh
+python3 -m ensurepip
+
+# out (error)
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─>
+    The system-wide Python installation in Gentoo should be maintained
+    using the system package manager (e.g. emerge).
+```
+
+https://wiki.gentoo.org/wiki/Pip
+
+```
+Warning
+
+pip should not be used for package installation outside of a _virtual environment_. Doing so can break parts of the local Python installation. Even using pip install with the `--user` parameter can break things, as packages installed in this way will still be included in sys.path. Accordingly, pip will print an error message if called outside of a virtual environment. See [PEP 668](https://peps.python.org/pep-0668/) and [externally managed environments](https://packaging.python.org/en/latest/specifications/externally-managed-environments/) for details.
+```
+
+So use venv:
+
+```sh
+mkdir -p ~/.venv/venv_main
+python3 -m venv ~/.venv/venv_main
+source ~/.venv/venv_main/bin/activate # must use with source
+```
+
+Now we can install:
+
+```sh
+# in venv_main
+pip install checkpipe
+pip install --upgrade pip
+```
+
+OK
+
+## helix
+
+2026-08-02 Wk 31 Sun - 11:38 +03:00
+
+Installing helix,
+
+https://wiki.gentoo.org/wiki/Helix
+
+```sh
+su
+emerge --ask app-editors/helix
+```
+
+ebuild is at `/var/db/repos/gentoo/app-editors/helix/helix-25.07.1.ebuild`
+
+Now you can open files with `hx`. This editor also supports LSP natively. We just need the corresponding language server in `$PATH`. 
+
+```sh
+ln -s /usr/share/helix/runtime ~/.config/helix/runtime
+```
+
+--/ 2026-08-02 Wk 31 Sun - 13:04 +03:00 | Disabled
+
+Plugin support is still uncertain, and seems planned towards using a lisp runtime (steel). Project mentions they take a more integrated approach versus katsoune's modular and minimal design philosophy to give more out of the box. This is fine, although so far I've seen it seems easier to write rust plugins for katsoune, so will try that instead for now. I might want to do a clusterline plugin here so it's important I can write it in rust.
+
+Some research at [[004 Setup a new code editor for new gentoo]]
+
+From https://wiki.gentoo.org/wiki/Gentoo_Cheat_Sheet,
+
+```
+Warning
+
+There is an `--unmerge` option (`-C`), but this is not recommended and can break the system if not used with caution. This should only ever be used _**if necessary**_, and once properly informed of what it does. This _will_ **break the system**, or other software, if used on some packages. The correct way to remove packages in Gentoo is virtually always with the `--depclean` option, as described above. This may sometimes be useful to temporarily remove a hard block though.
+```
+
+```sh
+su
+emerge --deselect app-editors/helix
+emerge --ask --depclean
+```
+
+--/
+
+## Kakoune
+
+2026-08-02 Wk 31 Sun - 13:23 +03:00
+
+Installing Kakoune,
+
+https://wiki.gentoo.org/wiki/Kakoune
+
+```sh
+# in /etc/portage/package.accept_keywords/app-editors/kakoune {
+	app-editors/kakoune ~amd64
+# }
+
+su
+emerge --ask app-editors/kakoune
+```
+
+Spawn [[lan/2026/main/task/001 Install a new Gentoo system/entry/005 Configuring kakoune on new gentoo install]] ^spawn-entry-58a03e
+
+2026-08-02 Wk 31 Sun - 15:40 +03:00
+
+Installing
+
+```sh
+go install -v github.com/theimpostor/osc@latest
+```
+
+Also disabling go telemetry (which they say is opt-in: https://go.dev/doc/telemetry but this disables completely)
+
+```sh
+go telemetry off
+```
+
+2026-08-02 Wk 31 Sun - 15:28 +03:00
+
+Installing nvim,
+
+https://wiki.gentoo.org/wiki/Neovim
+
+```sh
+emerge --ask app-editors/neovim
+```
+
+Spawn [[lan/2026/main/task/001 Install a new Gentoo system/entry/006 Configuring nvim on new gentoo install]] ^spawn-entry-3fc3d7
+
+--/ 2026-08-03 Wk 32 Mon - 19:56 +03:00
+
+We want to upgrade this so that we get `vim.pack`.
+
+```sh
+equery keywords app-editors/neovim
+
+# out
+Keywords for app-editors/neovim:
+             |                             |   u   |
+             | a   a   p   a   l   r   s   |   n   |
+             | m   r   p   l h o m i s p m | e u s | r
+             | d a m p c x p p o i s 3 a 6 | a s l | e
+             | 6 r 6 p 6 8 h p n p c 9 r 8 | p e o | p
+             | 4 m 4 c 4 6 a a g s v 0 c k | i d t | o
+-------------+-----------------------------+-------+-------
+   0.11.6-r2 | + ~ + ~ ~ + o o o o ~ o o o | 8 # 0 | gentoo
+[I]0.11.7    | + ~ + ~ ~ + o o o o ~ o o o | 8 o   | gentoo
+   0.12.0    | ~ ~ ~ ~ ~ ~ o o o o ~ o o o | 8 #   | gentoo
+   0.12.1    | ~ ~ ~ ~ ~ ~ o o o o ~ o o o | 8 #   | gentoo
+   0.12.2    | ~ ~ ~ ~ ~ ~ o o o o ~ o o o | 8 #   | gentoo
+   0.12.3    | ~ ~ ~ ~ ~ ~ o o o o ~ o o o | 8 o   | gentoo
+     9999    | o o o o o o o o o o o o o o | 8 o   | gentoo
+```
+
+~~Set to `9999` so it updates with the upstream directory.~~ Oops we should read this column-first. We need the keyword `amd64`, which is set as unstable for versions higher than `0.11.7`:
+
+```sh
+# in /etc/portage/package.accept_keywords/app-editors/neovim {
+	app-editors/neovim ~amd64
+# }
+
+# in /etc/portage/package.accept_keywords/dev-lua/luv {
+	dev-lua/luv ~amd64
+# }
+
+su
+emerge --ask app-editors/neovim
+```
+
+```sh
+equery keywords app-editors/neovim
+
+# out (relevant)
+Keywords for app-editors/neovim:
+             |                             |   u   |
+             | a   a   p   a   l   r   s   |   n   |
+             | m   r   p   l h o m i s p m | e u s | r
+             | d a m p c x p p o i s 3 a 6 | a s l | e
+             | 6 r 6 p 6 8 h p n p c 9 r 8 | p e o | p
+             | 4 m 4 c 4 6 a a g s v 0 c k | i d t | o
+-------------+-----------------------------+-------+-------
+[I]0.12.3    | ~ ~ ~ ~ ~ ~ o o o o ~ o o o | 8 o   | gentoo
+```
+
+--/ 
+
+## rust-analyzer
+
+2026-08-03 Wk 32 Mon - 21:44 +03:00
+
+Needed in [[006 Configuring nvim on new gentoo install]].
+
+Installing `rust-analyzer`,
+
+https://wiki.gentoo.org/wiki/Rust
+
+```sh
+equery uses dev-lang/rust
+
+# out (relevant)
+[ Legend : U - final flag setting for installation]
+[        : I - package is installed with flag     ]
+[ Colors : set, unset                             ]
+ * Found these USE flags for dev-lang/rust-1.95.0:
+ U I
+ + - abi_x86_32               : 32-bit (x86) libraries
+ + - clippy                   : Install clippy, Rust code linter
+ + + cpu_flags_x86_sse2       : Use the SSE2 instruction set
+ + - doc                      : Add extra documentation (API, Javadoc, etc). It is recommended to enable per package instead of globally
+ - - llvm_targets_WebAssembly : WebAssembly backend
+ - - rust-analyzer            : Install rust-analyzer, A Rust compiler front-end for IDEs (language server)
+ - - rust-src                 : Install rust-src, needed by developer tools and for build-std (cross)
+ + - rustfmt                  : Install rustfmt, Rust code formatter
+ + - system-llvm              : Use the system LLVM installation
+```
+
+`rust-analyzer` requires `rust-src`. We will also need web assembly support for some projects we have.
+
+```sh
+# in /etc/portage/package.use/dev-lang/rust {
+	dev-lang/rust rust-analyzer rust-src llvm_targets_WebAssembly
+# }
+
+su
+emerge --ask dev-lang/rust
+```
+
+`rust-analyzer --version # out { rust-analyzer 1.95.0 }`
+
+## lsp-query
+
+2026-08-05 Wk 32 Wed - 09:05 +03:00
+
+Needed in `dism-exe-notes > c72093 002 Impl struct layout parsing from bn6f inc and parse gdb memory xw log`
+
+https://github.com/RangerMauve/lsp-query
+
+```sh
+su
+npm install -g @rangermauve/lsp-query
+```
+
+Doesn't seem to work. Created an issue: https://github.com/RangerMauve/lsp-query/issues/1
+
+```sh
+su
+npm uninstall -g @rangermauve/lsp-query
+```
+
+## nmap
+
+2026-08-05 Wk 32 Wed - 09:06 +03:00
+
+Installing nmap,
+
+https://wiki.gentoo.org/wiki/Nmap
+
+```sh
+su
+emerge --ask net-analyzer/nmap
+```
+
+## strace
+
+2026-08-05 Wk 32 Wed - 10:57 +03:00
+
+Installing strace,
+
+https://packages.gentoo.org/packages/dev-debug/strace
+
+```sh
+su
+emerge --ask dev-debug/strace
+```
+
+## segoon/lsp-cli
+
+2026-08-05 Wk 32 Wed - 12:11 +03:00
+
+Installing lsp-cli,
+
+https://github.com/segoon/lsp-cli
+
+```sh
+cargo install lsp-cli
+```
+
+## Fonts
+
+2026-08-06 Wk 32 Thu - 16:41 +03:00
+
+Currently I see a lot of boxes!
+
+https://wiki.gentoo.org/wiki/Fonts
+
+```sh
+emerge --ask media-fonts/liberation-fonts
+emerge --ask media-fonts/noto
+emerge --ask media-fonts/noto-cjk
+emerge --ask media-fonts/noto-emoji
+```
+
+## Sway Screenshot using slurpshot
+
+2026-08-06 Wk 32 Thu - 16:56 +03:00
+
+https://wiki.gentoo.org/wiki/Sway#Simple_approach:_use_slurpshot
+
+```sh
+su
+emerge --ask gui-apps/grim gui-apps/wl-clipboard app-misc/jq dev-libs/bemenu gui-apps/slurp
+```
+
+Might not need `bemenu` in manual approach?
+
+Configuration:
+
+```sh
+# in /home/lan/src/cloned/cb/lan22h/dotfiles/etc/sway/.config.d/gui-apps/grim/config {
+	set $ps1 Print
+	set $ps2 Control+Print
+	set $ps3 Alt+Print
+	set $ps4 Alt+Control+Print
+	set $psf $(xdg-user-dir PICTURES)/ps_$(date +"%Y%m%d%H%M%S").png
+	 
+	bindsym $ps1 exec grim - | wl-copy
+	bindsym $ps2 exec grim -g "$(slurp)" - | wl-copy
+	bindsym $ps3 exec grim $psf
+	bindsym $ps4 exec grim -g "$(slurp)" $psf
+# }
+```
+
+This can also be reached as its own command: `slurp`, where you can select a region, and it outputs dimensions
+
+## Sway switching keyboard layout
+
+2026-08-06 Wk 32 Thu - 18:26 +03:00
+
+Spawn [[lan/2026/main/task/001 Install a new Gentoo system/entry/010 Configuring keyboard layouts and languages for new gentoo]] ^spawn-entry-72fffc
+
+
+https://wiki.gentoo.org/wiki/Sway#Switching_Keyboard_Layouts
+
+https://wiki.gentoo.org/wiki/Keyboard_layout_switching
+
+https://wiki.gentoo.org/wiki/Localization/Guide
+
+Find codes with `find /usr/share/keymaps/i386/ | grep 'fr-'`
+
+```sh
+# in /home/lan/src/cloned/cb/lan22h/dotfiles/etc/sway/config {
+	input type:keyboard {
+		xkb_layout "us,ar"
+		xkb_options "grp:alt_shift_toggle"
+	}
+# }
+```
+
+## Cabal
+
+2026-08-11 Wk 33 Tue - 03:24 +03:00
+
+- https://www.haskell.org/cabal/download.html
+- $\to$ https://www.haskell.org/ghcup/
+
+```sh
+curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+```
+
+Installs to `~/.ghcup`.
+
+```sh
+# in /home/lan/src/cloned/cb/lan22h/dotfiles/etc/bash/.config.d/path.sh {
+	$(has_keyword "$MOD_USE" "path-ghcup") && export PATH="$PATH:$HOME/.ghcup/bin"
+	$(has_keyword "$MOD_USE" "path-ghcup") && export PATH="$PATH:$HOME/.cabal/bin"
+# }
+
+# Add `path-ghcup` to MOD_USE in /home/lan/src/cloned/cb/lan22h/dotfiles/etc/bash/.bashrc
+```
+
+## Glirc
+
+2026-08-11 Wk 33 Tue - 03:42 +03:00
+
+https://hackage.haskell.org/package/glirc#readme
+
+```sh
+cabal install glirc
+```
+
+This one you can exit with `/exit`!
+
+Copy the default config to `~/.config/glirc/config` and modify.
+
+Basics of IRC: https://libera.chat/guides/basics
+
+For TLS, it seems you require `ca-certificates` ([explanation1](https://www.herongyang.com/PKI-Certificate/Linux-ca-certificates-Package-What-Is.html)): https://packages.gentoo.org/packages/app-misc/ca-certificates
+
+```sh
+su
+emerge --ask app-misc/ca-certificates
+```
+
+Generates `/etc/ca-certificates.conf`.
+
+Can be updated with `/usr/sbin/update-ca-certificates`.`
+
+See also:
+- https://github.com/glguy/irc-core/wiki/Automatically-authenticating-to-NickServ
+- https://modern.ircdocs.horse/ `IRC Protocol Standard`

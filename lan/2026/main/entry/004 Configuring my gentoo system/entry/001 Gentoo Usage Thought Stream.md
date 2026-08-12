@@ -25,3 +25,44 @@ Spawn [[lan/2026/main/entry/004 Configuring my gentoo system/task/000 Modify swa
 2026-07-27 Wk 31 Mon - 11:02 +03:00
 
 I kind of like just using `./start_sway.sh` at boot instead of automating it. The login can remain purely at the TTY1 level. 
+
+2026-08-04 Wk 32 Tue - 18:04 +03:00
+
+Related to idea [[001 Cubical Tabs]],
+
+Currently I'm using tmux with nvim, with the rule that every transition must be a toggle. So 
+- only two horizontal tmux panes per window,
+- only 2 tmux windows per tmux session,
+- only 2 vertical splits per neovim session in a given tmux pane.
+	- Typically, I open at max two files from the start and use `:bn` to switch between them.
+- only 2 tabs per neovim session
+
+This makes everything a toggle. `C-a p` between tmux windows, `C-a k` between tmux panes, `C-w w` between vim splits, and currently `:tabp` between tabs.
+
+It is not exactly like cubical tabs, the idea there is every node is connected to others in a cubical layout. but you can't go from `tmux window 0 upper pane vim right vsplit` to `tmux window 1 upper pane vim right vsplit` for example. You have to change the tmux window from `0` to `1`, and you then have to navigate to `upper pane vim right vsplit` (unless you happen to be there).
+
+But it doesn't require any additional configuration work, and satisfies the property that all navigation is either fuzzy by name (`C-g` to change to tmux session by name, `Win+s` to change to sway application by name) or by toggle so that we do not have to remember any cycling, there's always one "other" we have to remember and assign meaning.
+
+So for example for a given neovim session, I can give the split other the meaning of a reference file or a file I am simultaneously editing. 
+
+The tab other can be for reference sections in the of the same file or edit the file in two simultaneous places (for example reading the impl of a function and writing tests for it).
+
+Tmux pane other can just be there for options, I may need to edit 4 files at once for some reason. Tmux tab other can contain at least one tmux pane for terminal, and maybe an extra vim session if we need to edit 6 simultaneous files for some reason.
+
+I use two screens. So I also have a monitor other. I may be interested in programming and taking notes simultaneously. Sometimes I may divide my monitor into two halves via sway. But with sway librewolf tabs for example, I let there be many unconstrained tabs per workspace, those I generally intend to reach by fuzzy switch to name, but I may also do some cycling with some tabs sometimes currently.
+
+The monitor other can be more flexible, since I may want to switch to other workspaces on each monitor, but once I switch to two workspaces on each monitor, then switching back and forth is easy if they are full screened with `Win <-` and `Win ->`.
+
+2026-08-04 Wk 32 Tue - 21:06 +03:00
+
+I should have wrote this for the raw journals so they can have consistent timestamp cards, but oh well:
+
+```vimscript
+command! Tims call FnTims()
+
+function FnTims()
+        let l:timestamp=system("date \"+%Y-%m-%d\ Wk\ %V\ %a\ -\ %R\ %:z\"")
+        execute "normal! i" . l:timestamp . "\<Esc>"
+endfunction
+```
+

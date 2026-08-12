@@ -45,3 +45,18 @@ Spawn [[lan/2026/main/task/001 Install a new Gentoo system/task/006 Install font
 
 Spawn [[007 Setup extensions for more intuitive bash cli ux for new gentoo]] ^spawn-task-339ff8
 
+2026-08-01 Wk 31 Sat - 20:15 +03:00
+
+Spawn [[lan/2026/main/task/001 Install a new Gentoo system/issue/002 Discord flickers on new gentoo system and produces errors in sway]] ^spawn-issue-f85534
+
+Spawn [[lan/2026/main/task/001 Install a new Gentoo system/entry/003 Issues for Install a new Gentoo system]] ^spawn-entry-05bcaf
+
+Spawn [[lan/2026/main/task/001 Install a new Gentoo system/issue/003 sws switcher can after a long time fail under sway but keeps working if launched manually]] ^spawn-issue-285bb1
+
+2026-08-03 Wk 32 Mon - 06:05 +03:00
+
+Spawn [[lan/2026/main/task/001 Install a new Gentoo system/entry/007 Minimal music playing setup for new gentoo]] ^spawn-entry-b7c9f8
+
+
+
+

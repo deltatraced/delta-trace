@@ -31,3 +31,5 @@ This captures installing gentoo on my PC. While installing, tasks here will refl
 Installations that aren't very involved go to [[002 Quick new Installs for Gentoo System]]
 
 Also, my thoughts as I use the system: [[001 Gentoo Usage Thought Stream]]
+
+Issues encountered: [[003 Issues for Install a new Gentoo system]]

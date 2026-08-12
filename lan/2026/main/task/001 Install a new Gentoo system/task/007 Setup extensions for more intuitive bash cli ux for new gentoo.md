@@ -146,5 +146,28 @@ In that case we need to use `./install.sh`
 
 Making a `fvio` for fuzzy vim open. Sure running into a lot of issues here. File names must be quoted, they can contain spaces. You need to quote variables, or they will lose line distinctions. You also need to be careful not to erase dubious spaces like with this file: `'000 Open a PR for  DBML_SQLite and bump version of pydbml.md'` or you end up trying to open the wrong file! You might have to be careful about quoting being preserved in the `vim ...` command itself.
 
+2026-08-02 Wk 31 Sun - 10:01 +03:00
 
+Creating `fvit` to be able to fuzzy search a ctags file.
 
+https://kulkarniamit.github.io/whatwhyhow/howto/use-vim-ctags.html
+
+`vim -t <tag>`
+
+https://bashcommands.com/bash-get-first-column
+
+`awk '{print $1}'` for first column
+
+This works:
+
+```sh
+vim -t $(cat tags | grep 'main_:\$' | awk '{print $1}')
+```
+
+Vim seems to specify only opening one tag at a time with `-t`.  Though there is a tag stack...
+
+2026-08-02 Wk 31 Sun - 11:49 +03:00
+
+https://wiki.gentoo.org/wiki/Helix
+
+`hx` uses `*.toml` files for configuraion.
