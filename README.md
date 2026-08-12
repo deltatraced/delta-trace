@@ -56,7 +56,7 @@ Check out my [now](https://codeberg.org/deltatraced/deltatraced/src/branch/webvi
 
 # Mirrors
 
-This repository is mainly at https://codeberg.org/deltatraced/deltatraced.
+This repository is mainly in https://codeberg.org/deltatraced/deltatraced.
 
 A manually updated mirror exists in https://github.com/deltatraced/deltatraced.
 
