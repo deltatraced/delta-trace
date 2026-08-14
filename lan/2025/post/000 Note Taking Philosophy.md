@@ -72,6 +72,10 @@ If documentation is included in note repositories, it is clearly marked as docum
 
 # 4 On Use of Large Language Models (LLMs)
 
-One purpose of these notes is to make the reasoning, evaluation, and information retrieval of the creative process transparent. Large language models (LLMs) like ChatGPT, etc. are generally black-boxes. Being black-boxes, they generally would hinder our transparency objective. For this reason, their use needs to be constrained and clearly delineated from the rest of notes.
+[edited 2026-08-15 Wk 33 Sat - 02:48 +03:00]
 
-LLMs may be used for general "How-to" assistance, brainstorming, pattern checking obscure error logs, or to search or filter documents for something. Note that this is a last-resort option. We should strive to retrieve information on our own in a systematic manner. This method will be more fruitful because it will reveal general resources, train us to evaluate material like specifications for our current context, and that knowledge can be transported to other areas.
+This note repository, `deltatraced`, has come to be my way for expressing my joy striving for exactness with my work.
+
+LLMs are stochastic tools and deeply non-explanatory, and therefore should generally be avoided. Even using them as "last resort" implies that the problem could not have been solved otherwise. But it could. I can read the source code itself and try to find the problem. I can contract the relevant experts if I need assistance. And in practice, this has been what I have strived and tried to do up to this writing.
+
+I believe choosing the higher effort path can foster a better knowledge ecosystem for us all. As I am hopeful that this repository would make my work easier to reverse engineer should anyone ever be interested, I will also put the effort to study the work of others carefully and hopefully contribute to improving that work with them. And I think it would benefit my hypothetical interested reverse engineer much more if I myself am explicit with how I solve problems in my practice.
