@@ -2,11 +2,11 @@
 context_type: entry
 ---
 
-Parent: [[lan/2026/main/entry/002 Inbox/002 Inbox]]
+Parent: [lan/2026/main/entry/002 Inbox/002 Inbox](../002%20Inbox.md)
 
-Spawned by: [[lan/2026/main/entry/002 Inbox/entry/000 Spawns for Inbox]]
+Spawned by: [lan/2026/main/entry/002 Inbox/entry/000 Spawns for Inbox](000%20Spawns%20for%20Inbox.md)
 
-Spawned in: [[lan/2026/main/entry/002 Inbox/entry/000 Spawns for Inbox#^spawn-entry-383e5c|^spawn-entry-383e5c]]
+Spawned in: [^spawn-entry-383e5c](000%20Spawns%20for%20Inbox.md#spawn-entry-383e5c)
 
 ---
 
@@ -14,4 +14,4 @@ Spawned in: [[lan/2026/main/entry/002 Inbox/entry/000 Spawns for Inbox#^spawn-en
 
 **Done Task Inbox**
 
-- [[000 Share my now page at sive dot rs]]
+* [000 Share my now page at sive dot rs](../../003%20Sharing%20my%20work/task/000%20Share%20my%20now%20page%20at%20sive%20dot%20rs.md)

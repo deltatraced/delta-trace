@@ -1,11 +1,12 @@
 ---
 status: todo
 ---
+
 # 1 Objective
 
-We're designing a new language [[000 Designing new language dbmn|`*.dbmn`]] . 
+We're designing a new language \[\[000 Designing new language dbmn|`*.dbmn`\]\] .
 
-The 
+The
 
 # 2 References
 
@@ -13,8 +14,7 @@ The
 [dbml-viewer vscode marketplace](https://marketplace.visualstudio.com/items?itemName=nicolas-liger.dbml-viewer) ^2
 [gh Durandal14/vscode-extension-dbml-viewer](https://github.com/Durandal14/vscode-extension-dbml-viewer) ^3
 
-
-```mermaid
+````mermaid
 graph TD
 
 %% Settings
@@ -32,4 +32,4 @@ A3 --> |also_on| A2
 A3 --> |used_with & cites| A1
 
 %% N3_1 -.-> |about| A3
-```
+````
